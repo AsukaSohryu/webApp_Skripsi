@@ -9,18 +9,18 @@
     @yield('meta')
 
     <!-- Favicons -->
-    <link href="" rel="icon">
+    <link href="{{url('/')}}/assets/img/favicon.ico" rel="icon">
     <!-- <link href="{{url('/')}}/assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Calibri:400,700,400italic,700italic" rel="stylesheet">
     <!-- Vendor CSS Files -->
     <link href="{{url('/')}}/assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="{{url('/')}}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{url('/')}}/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="{{url('/')}}/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="{{url('/')}}/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="{{url('/')}}/assets/vendor/remixicon/remixicon.css" rel="stylesheet">   
+    <link href="{{url('/')}}/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="{{url('/')}}/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"/>
@@ -62,14 +62,15 @@
 
     <!-- Vendor JS Files -->
     <script src="{{url('/')}}/assets/vendor/aos/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{{url('/')}}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="{{url('/')}}/assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="{{url('/')}}/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="{{url('/')}}/assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="{{url('/')}}/assets/vendor/waypoints/noframework.waypoints.js"></script>
     <script src="{{url('/')}}/assets/vendor/php-email-form/validate.js"></script>
+    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script> -->
+    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     
     
     <!-- Make sure you put this AFTER Leaflet's CSS -->
@@ -80,6 +81,19 @@
     <!-- Template Main JS File -->
     <!-- <script src="{{url('/')}}/assets/js/main.js"></script> -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <!-- <script>
+        if (window.screen.width === 1280 && window.screen.height === 720) {
+            // Set the desired zoom level
+            const zoomLevel = 0.9;
+
+            // Calculate the scale factor based on the desired zoom level
+            const scaleFactor = 1 / zoomLevel;
+
+            // Apply the scale factor to the body element
+            document.body.style.transform = `scale(${scaleFactor})`;
+            document.body.style.transformOrigin = '0 0'; // Set the transform origin to the top left corner
+        }
+    </script> -->
 
     <script src="https://kit.fontawesome.com/95a745a1a3.js" crossorigin="anonymous"></script>
     @yield('js')
