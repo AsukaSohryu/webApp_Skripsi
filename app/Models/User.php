@@ -21,6 +21,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'job',
+        'birth_date',
+        'whatsapp_number',
+        'phone_number',
+        'photo',
+        'role',
     ];
 
     /**
@@ -41,4 +48,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $primaryKey = 'user_id';
+
+    public function shelter(){
+
+        return $this->belongsTo(shelterInformation::class, 'shelter_id');
+    }
 }

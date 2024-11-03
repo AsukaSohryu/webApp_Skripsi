@@ -1,0 +1,1 @@
+@extends('internal.layout.dashboard')

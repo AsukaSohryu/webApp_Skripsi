@@ -1,31 +1,28 @@
 <!-- ======= Header ======= -->
 <header id="desktop-header" class="fixed-top">
-    <div class="container d-flex justify-content-start">
-      <a href="{{ url('/') }}" class="logo me-auto"><img src="{{url('/')}}/assets/img/main_logo.png" alt="" class="img-fluid"></a>
-
+    <div class="container d-flex justify-content-around" sty>
       <nav id="navbar" class="navbar d-flex align-items-center">
         <ul>
-            <li class="dropdown"><a href="#"><span style="font-size: 20px;">Tentang</span><i class="bi bi-chevron-down"></i></a>
-              <ul>
-                <li><a href="{{ url('tentang-kami') }}"><span style="font-size: 20px;"><b>Tentang Kami</b></span> </a></li>
-                <li><a href="{{ url('visi-misi') }}"><span style="font-size: 20px;"><b>Visi Misi</b></span></a></li>
-                <li><a href="{{ url('mengapa-IDL-express') }}"><span style="font-size: 20px;"><b>Mengapa IDL Express</b></span> </a></li>
-                <li><a href="{{ url('sektor-industri') }}"><span style="font-size: 20px;"><b>Sektor Industri</b></span> </a></li>
-                <li><a href="{{ url('karir') }}"><span style="font-size: 20px;"><b>Karier</b></span></a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#"><span style="font-size: 20px;">Layanan</span> <i class="bi bi-chevron-down"></i></a>
-              <ul>
-                <li><a href="{{ url('layanan-pengiriman-unggulan') }}"></i><span style="font-size: 20px;"><b>Pengiriman Unggulan</b></span></a></li>
-                <li><a href="{{ url('layanan-pengiriman-khusus') }}"></i><span style="font-size: 20px;"><b>Pengiriman Khusus</b></span></a></li>
-                <li><a href="{{ url('layanan-pengiriman-kargo') }}"></i><span style="font-size: 20px;"><b>Pengiriman Kargo</b></span></a></li>
-              </ul>
+            <a href="{{ url('/') }}" class="logo"><img src="{{url('/')}}/assets/img/main_logo.png" alt="" class="img-fluid"></a>
+            <li>
+              <a href="{{ url('/') }}"><span style="font-size: 16px;">Home</span></a>
             </li>
             <li>
-              <a href="{{ url('blog') }}"><img src="./icon/nav/resource/blog.png" class="logo-icon" alt=""><span style="font-size: 20px;">Blog</span></a>
+              <a href="{{ url('tentang-kami') }}"><span style="font-size: 16px;">Tentang Kami</span></a>
             </li>
-            <li class="px-3">
-              <button onclick="window.location.href='{{ url('hubungi-kami') }}';" type="button" class="contact-btn-nav"><b>Hubungi Kami</b></button>
+            <li class="dropdown"><a href="#"><span style="font-size: 16px;">Layanan Kami</span><i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="{{ url('layanan-laporan-hewan-hilang') }}"><span style="font-size: 16px;"><b>Laporkan Penemuan Hewan Liar</b></span> </a></li>
+                <li><a href="{{ url('layanan-pengajuan-penyerahan-hewan') }}"><span style="font-size: 16px;"><b>Ajukan Penyerahan Hewan</b></span> </a></li>
+                <li><a href="{{ url('layanan-lihat-hewan-siap-adopsi') }}"><span style="font-size: 16px;"><b>Lihat Hewan Siap Adopsi</b></span></a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a href="#"><span style="font-size: 16px;">Laporan dan Pengajuan</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="{{ url('status-laporan-penemuan-hewan-hilang') }}"></i><span style="font-size: 16px;"><b>Status Laporan Penemuan Hewan Hilang</b></span></a></li>
+                <li><a href="{{ url('status-pengajuan-penyerahan-hewan') }}"></i><span style="font-size: 16px;"><b>Status Pengajuan Penyerahan Hewan</b></span></a></li>
+                <li><a href="{{ url('status-pengajuan-pengadopsian-hewan') }}"></i><span style="font-size: 16px;"><b>Status Pengajuan Pengadopsian Hewan</b></span></a></li>
+              </ul>
             </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle" style="color: black"></i>
