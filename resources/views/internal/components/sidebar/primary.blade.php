@@ -14,7 +14,7 @@
         <!--begin::Menu-->
         <div id="kt_aside_menu" class="menu menu-column menu-title-gray-600 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-semibold fs-6" data-kt-menu="true">
             <!--begin:Menu item-->
-            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {{ $pageTitle == 'Dashboard' ? 'here' : '' }} show py-2">
+            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {{ $pageTitle == 'Dashboard' ? 'here' : '' }} py-2">
                 <!--begin:Menu link-->
                 <span class="menu-link menu-center">
                     <span class="menu-icon me-0">
@@ -75,11 +75,11 @@
 
             {{-- FORM PAGES --}}
             <!--begin:Menu item-->
-            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {{ $pageTitle == 'Form Adopsi' ||  $pageTitle == 'Form Handover' || $pageTitle == 'Form Report' ? 'here' : '' }} py-2">
+            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {{ Route::is('formAdopsi.*') || Route::is('formHandover.*') || Route::is('formReport.*') ? 'here' : '' }} py-2">
                 <!--begin:Menu link-->
                 <span class="menu-link menu-center">
                     <span class="menu-icon me-0">
-                        <i class="fa-solid fa-layer-group fa-2xl"></i>
+                        <i class="fa-solid fa-layer-group" style="font-size: 1.5em; line-height: .04167em; vertical-align: -.25em;"></i>
                     </span>
                 </span>
                 <!--end:Menu link-->
@@ -94,7 +94,7 @@
                         <!--end:Menu content-->
                     </div>
                     <!--end:Menu item-->
-                    @include('internal.components.sidebar.menu-item.pages')
+                    @include('internal.components.sidebar.menu-item.form')
                     <!--end:Menu item-->
                 </div>
                 <!--end:Menu sub-->
@@ -102,13 +102,13 @@
             <!--end:Menu item-->
             {{-- FORM PAGES --}}
 
-            {{-- UTILS --}}
+            {{-- DATA HEWAN --}}
             <!--begin:Menu item-->
-            {{-- <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
+            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {{ Route::is('dataHewan.*') ? 'here' : '' }} py-2">
                 <!--begin:Menu link-->
                 <span class="menu-link menu-center">
                     <span class="menu-icon me-0">
-                        <i class="fonticon-layers fs-1"></i>
+                        <i class="fa-solid fa-cat" style="font-size: 1.5em; line-height: .04167em; vertical-align: -.25em;"></i>
                     </span>
                 </span>
                 <!--end:Menu link-->
@@ -118,17 +118,17 @@
                     <div class="menu-item">
                         <!--begin:Menu content-->
                         <div class="menu-content">
-                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Utilities</span>
+                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Data Hewan</span>
                         </div>
                         <!--end:Menu content-->
                     </div>
                     <!--end:Menu item-->
 
-                    @include('internal.components.sidebar.menu-item.util')
+                    @include('internal.components.sidebar.menu-item.hewan')
                     <!--end:Menu item-->
                 </div>
                 <!--end:Menu sub-->
-            </div> --}}
+            </div>
             <!--end:Menu item-->
 
             {{-- APPS --}}
@@ -161,7 +161,7 @@
             <!--end:Menu item-->
 
             <!--begin:Menu item-->
-            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
+            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {{ Route::is('informasiShelter.*') || Route::is('pertanyaanPengadopsian.*') || Route::is('pertanyaanPenyerahan') ? 'here' : '' }} py-2">
                 <!--begin:Menu link-->
                 <span class="menu-link menu-center">
                     <span class="menu-icon me-0">
@@ -175,13 +175,13 @@
                     <div class="menu-item">
                         <!--begin:Menu content-->
                         <div class="menu-content">
-                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Help</span>
+                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Konfigurasi</span>
                         </div>
                         <!--end:Menu content-->
                     </div>
                     <!--end:Menu item-->
 
-                    @include('internal.components.sidebar.menu-item.help')
+                    @include('internal.components.sidebar.menu-item.konfigurasi')
                     <!--end:Menu item-->
                 </div>
                 <!--end:Menu sub-->

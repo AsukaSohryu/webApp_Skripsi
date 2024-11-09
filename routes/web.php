@@ -9,10 +9,14 @@ use App\Http\Controllers\frontend\status\StatusLaporanPenemuanHewanHilangControl
 use App\Http\Controllers\frontend\status\StatusPengajuanPengadopsianHewanController;
 use App\Http\Controllers\frontend\status\StatusPengajuanPenyerahanHewanController;
 use App\Http\Controllers\frontEnd\TentangKamiController;
+use App\Http\Controllers\internal\animal\DataHewanController;
 use App\Http\Controllers\internal\form\FormAdopsiController;
 use App\Http\Controllers\internal\form\FormHandoverController;
 use App\Http\Controllers\internal\form\FormReportController;
 use App\Http\Controllers\internal\home\DashboardController;
+use App\Http\Controllers\internal\settings\InformasiShelterController;
+use App\Http\Controllers\internal\settings\PertanyaanPengadopsianController;
+use App\Http\Controllers\internal\settings\PertanyaanPenyerahanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,11 +45,19 @@ Route::get('/status-pengajuan-penyerahan-hewan', [StatusPengajuanPenyerahanHewan
 //admin
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/form-adopsi', [FormAdopsiController::class, 'index'])->name('formAdopsi');
+Route::get('/form-adopsi', [FormAdopsiController::class, 'index'])->name('formAdopsi.index');
 
-Route::get('/form-handover',[FormHandoverController::class, 'index'])->name('formHandover');
+Route::get('/form-handover',[FormHandoverController::class, 'index'])->name('formHandover.index');
 
-Route::get('/form-report',[FormReportController::class, 'index'])->name('formReport');
+Route::get('/form-report',[FormReportController::class, 'index'])->name('formReport.index');
+
+Route::get('/informasi-shelter', [InformasiShelterController::class, 'index'])->name('informasiShelter.index');
+
+Route::get('/pertanyaan-pengadopsian', [PertanyaanPengadopsianController::class, 'index'])->name('pertanyaanPengadopsian.index');
+
+Route::get('/pertanyaan-penyerahan', [PertanyaanPenyerahanController::class, 'index'])->name('pertanyaanPenyerahan.index');
+
+Route::get('/data-hewan', [DataHewanController::class, 'index'])->name('dataHewan.index');
 
 
 

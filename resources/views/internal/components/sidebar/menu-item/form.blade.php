@@ -1,6 +1,6 @@
 <div data-kt-menu-trigger="click" class="menu-item">
     <div class="menu-item">
-        <a class="menu-link {{ $pageTitle == 'Form Report' ? 'active' : '' }}" href="{{ route('formReport') }}">
+        <a class="menu-link {{ Route::is('formReport.*') ? 'active' : '' }}" href="{{ route('formReport.index') }}">
             <span class="menu-bullet">
                 <span class="bullet bullet-dot"></span>
             </span>
@@ -10,7 +10,7 @@
 </div>
 <div data-kt-menu-trigger="click" class="menu-item">
     <div class="menu-item">
-        <a class="menu-link {{ $pageTitle == 'Form Handover' ? 'active' : '' }}" href="{{ route('formHandover') }}">
+        <a class="menu-link {{ Route::is('formHandover.*') ? 'active' : '' }}" href="{{ route('formHandover.index') }}">
             <span class="menu-bullet">
                 <span class="bullet bullet-dot"></span>
             </span>
@@ -20,7 +20,7 @@
 </div>
 <div data-kt-menu-trigger="click" class="menu-item">
     <div class="menu-item">
-        <a class="menu-link {{ $pageTitle == 'Form Adopsi' ? 'active' : '' }}" href="{{ route('formAdopsi') }}">
+        <a class="menu-link {{ Route::is('formAdopsi.*') ? 'active' : '' }}" href="{{ route('formAdopsi.index') }}">
             <span class="menu-bullet">
                 <span class="bullet bullet-dot"></span>
             </span>
