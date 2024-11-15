@@ -3,53 +3,56 @@
 namespace App\Http\Controllers\internal\animal;
 
 use App\Http\Controllers\Controller;
+use App\Models\animal;
+use App\Models\status;
+use Database\Seeders\AnimalSeeder;
 use Illuminate\Http\Request;
 
 class DataHewanController extends Controller
 {
     public function viewListAnimal(){
 
+        $animal = animal::all();
+        $status = status::all();
+        // dd($status);
+
         return view('internal.content.animal.animalDashboard', [
             'title' => 'Data Hewan',
             'pageTitle' => 'Daftar Data Hewan',
             'pageSubTitle' => 'Data Hewan Kucing dan Anjing',
+            'animal' => $animal,
+            'status' => $status,
         ]);
     }
 
-    public function viewDetailAnimal($id){
+    public function detail($animal_id){
 
-        return view('internal.content.animal.animalDetail', [
-            'title' => 'Data Hewan',
+        $detail = animal::where('animal_id', $animal_id)->first();
+        // dd($detail);
+        $name = $detail->animal_name;
+
+        return view('internal.content.animal.detail',[
+            'title' => 'Detail Data Hewan',
             'pageTitle' => 'Detail Data Hewan',
-            'pageSubTitle' => 'Detail Data Hewan Kucing dan Anjing',
-            'id' => $id,
+            'pageSubTitle' => $name,
+            'detail' => $detail,
         ]);
     }
+    
+    // public function testUploadGambar(Request $request){
 
-    public function createAnimal(){
+    //     $file_web = $request->file('gambar');
+    //     $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
 
-        return view('internal.content.animal.animalCreate', [
-            'title' => 'Data Hewan',
-            'pageTitle' => 'Tambah Data Hewan',
-            'pageSubTitle' => 'Tambah Data Hewan Kucing dan Anjing',
-        ]);
-    }
+    //     $path_web = $file_web->storeAs('animal', $file_web_name, 'public');
 
-    public function updateAnimal($id){
+    //     $edit = animal::where('animal_id', 1)->update([
 
-        return view('internal.content.animal.animalUpdate', [
-            'title' => 'Data Hewan',
-            'pageTitle' => 'Ubah Data Hewan',
-            'pageSubTitle' => 'Ubah Data Hewan Kucing dan Anjing',
-            'id' => $id,
-        ]);
-    }
+    //         'photo' => $file_web_name,
+    //     ]);
 
-    private function getListAnimal(){
-
-        $data = animal::all();
-
-        return response()->json($data);
-    }
-
+    //     if($edit){
+    //         return redirect('/dashboard')->with('success_mengubah', 'Update Banner Berhasil');
+    //     }
+    // }
 }

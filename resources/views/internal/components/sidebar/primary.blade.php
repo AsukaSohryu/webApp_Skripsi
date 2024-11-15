@@ -3,7 +3,7 @@
     <div class="app-sidebar-logo d-none d-md-flex flex-center pt-10 pb-2" id="kt_app_sidebar_logo">
         <!--begin::Logo image-->
         <a href="{{route('dashboard')}}">
-            <img alt="Logo" src="assets/internal/media/logos/default-small.svg" class="h-30px" />
+            <img alt="Logo" src="{{asset('/')}}assets/internal/media/logos/default-small.svg" class="h-30px" />
         </a>
         <!--end::Logo image-->
     </div>

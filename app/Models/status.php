@@ -16,7 +16,7 @@ class status extends Model
         'status',
     ];
 
-    protected $table = 'status';
+    protected $table = 'status_configuration';
     protected $primaryKey = 'status_id';
     public $timestamps = true;
 }
