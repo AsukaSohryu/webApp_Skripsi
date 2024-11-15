@@ -57,7 +57,16 @@ Route::get('/pertanyaan-pengadopsian', [PertanyaanPengadopsianController::class,
 
 Route::get('/pertanyaan-penyerahan', [PertanyaanPenyerahanController::class, 'index'])->name('pertanyaanPenyerahan.index');
 
-Route::get('/data-hewan', [DataHewanController::class, 'index'])->name('dataHewan.index');
+Route::prefix('admin')->group(function(){
+
+    Route::prefix('data-hewan')->group(function(){
+
+        Route::get('/daftar', [DataHewanController::class, 'index'])->name('dataHewan.index');
+        Route::get('/detail-hewan/{animal_id}', [DataHewanController::class, 'detail'])->name('dataHewan.detail');
+    });
+});
+
+// Route::post('/test-upload', [DataHewanController::class, 'testUploadGambar'])->name('animal.uploadGambar');
 
 
 

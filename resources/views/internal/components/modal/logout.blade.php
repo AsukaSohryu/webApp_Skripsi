@@ -33,7 +33,7 @@
                 <!--begin::Search-->
                 <div id="kt_modal_users_search_handler">
                     <!--begin::Form-->
-                <form data-kt-search-element="form"  action="{{route('logout')}}" method="POST" enctype="multipart/form-data" class="w-100 position-relative mb-5" autocomplete="off">
+                <form data-kt-search-element="form"  action="" method="POST" enctype="multipart/form-data" class="w-100 position-relative mb-5" autocomplete="off">
                         <!--begin::Hidden input(Added to disable form autocomplete)-->
                         @csrf
                         <button type="submit" class="btn btn-danger text-center w-100">Log Out</button>
