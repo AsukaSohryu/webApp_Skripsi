@@ -5,7 +5,6 @@ namespace App\Http\Controllers\internal\animal;
 use App\Http\Controllers\Controller;
 use App\Models\animal;
 use App\Models\status;
-use Database\Seeders\AnimalSeeder;
 use Illuminate\Http\Request;
 
 class DataHewanController extends Controller
@@ -15,7 +14,7 @@ class DataHewanController extends Controller
         $animal = animal::all();
         $status = status::all();
         // dd($status);
-
+        
         return view('internal.content.animal.animalDashboard', [
             'title' => 'Data Hewan',
             'pageTitle' => 'Daftar Data Hewan',

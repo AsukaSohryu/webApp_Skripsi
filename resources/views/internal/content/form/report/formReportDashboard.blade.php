@@ -18,12 +18,24 @@
                 <td>{{ $r->report_form_id }}</td>
                 <td>{{ $r->user->name }}</td>
                 <td>{{ $r->created_at }}</td>
-                <td>{{ $r->status->status }}</td> 
-                {{-- <td>
-                    <form action="{{route('reportForm.detail', $r->report_form_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengedit Hewan Ini?');">
+                <td>
+                    @if($r->status_id == 1)
+                        <span class="btn btn-primary">Penyelematkan Diajukan</span>
+                    @elseif($r->status_id == 2)
+                        <span class="btn btn-primary">Dalam Proses Penyelematan</span>
+                    @elseif($r->status_id == 3)
+                        <span class="btn btn-primary">Hewan Sukses Diselamatkan</span>
+                    @elseif($r->status_id == 4)
+                        <span class="btn btn-primary">Hewan Tidak Ditemukan</span>
+                    @elseif($r->status_id == 5)
+                        <span class="btn btn-primary">Lainnya</span>
+                    @endif
+                </td> 
+                <td>
+                    <form action="{{route('formReport.detail', $r->report_form_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
                         <button class="btn btn-secondary border border-dark"><i class="fa-regular fa-pen-to-square"></i></button>
                     </form>
-                </td>  --}}
+                </td> 
             </tr>
             @endforeach
         </tbody>

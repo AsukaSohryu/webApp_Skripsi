@@ -56,9 +56,4 @@ class User extends Authenticatable
 
         return $this->belongsTo(shelterInformation::class, 'shelter_id');
     }
-
-    public function reportForms()
-    {
-        return $this->hasMany(ReportForm::class, 'user_id');
-    }
 }
