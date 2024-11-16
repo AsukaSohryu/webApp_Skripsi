@@ -25,7 +25,7 @@ class reportForm extends Model
     protected $primaryKey = 'report_form_id';
     public $timestamps = true;
 
-    public function users(){
+    public function user(){
 
         return $this->belongsTo(User::class, 'user_id');
     }

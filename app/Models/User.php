@@ -49,10 +49,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $table = 'user';
     protected $primaryKey = 'user_id';
 
     public function shelter(){
 
         return $this->belongsTo(shelterInformation::class, 'shelter_id');
+    }
+
+    public function reportForms()
+    {
+        return $this->hasMany(ReportForm::class, 'user_id');
     }
 }
