@@ -33,12 +33,12 @@ return new class  extends Migration
             $table->text('photo');
             $table->string('role');
 
-            $table->index(["shelter_id"], 'fk_user_shelter-information1_idx');
+            $table->index(["shelter_id"], 'fk_user_shelter_information1_idx');
             $table->nullableTimestamps();
 
 
             $table->foreign('shelter_id')
-                ->references('shelter_id')->on('shelter-information')
+                ->references('shelter_id')->on('shelter_information')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

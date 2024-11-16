@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-
+<!-- Coding HTML -->
 @endsection
 
 @section('js')
