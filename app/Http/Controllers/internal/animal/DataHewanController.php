@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class DataHewanController extends Controller
 {
-    public function viewListAnimal(){
+    public function index(){
 
         $animal = animal::all();
         $status = status::all();
