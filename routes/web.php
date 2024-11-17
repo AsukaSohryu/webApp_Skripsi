@@ -70,6 +70,8 @@ Route::prefix('admin')->group(function(){
 
         Route::get('/daftar', [DataHewanController::class, 'index'])->name('dataHewan.index');
         Route::get('/detail-hewan/{animal_id}', [DataHewanController::class, 'detail'])->name('dataHewan.detail');
+        Route::get('/edit-data-hewan/{animal_id}', [DataHewanController::class, 'edit'])->name('dataHewan.edit');
+        Route::post('/edit-data-hewan-post', [DataHewanController::class, 'editPost'])->name('dataHwan.edit.post');
     });
 });
 
