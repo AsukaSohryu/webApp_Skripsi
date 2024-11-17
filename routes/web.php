@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/tentang-kami' ,[TentangKamiController::class, 'index'])->name('tentang-kami');
+Route::get('/tentang-kami', [TentangKamiController::class, 'index'])->name('tentang-kami');
 
 Route::get('/layanan-laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'index'])->name('layanan-laporan');
 Route::get('/layanan-lihat-hewan-siap-adopsi', [LayananLihatHewanSiapAdopsiController::class, 'index'])->name('layanan-lihat');
@@ -47,7 +47,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 Route::get('/form-adopsi', [FormAdopsiController::class, 'index'])->name('formAdopsi.index');
 
-Route::get('/form-handover',[FormHandoverController::class, 'index'])->name('formHandover.index');
+Route::get('/form-handover', [FormHandoverController::class, 'index'])->name('formHandover.index');
 
 Route::get('/informasi-shelter', [InformasiShelterController::class, 'index'])->name('informasiShelter.index');
 
@@ -55,18 +55,24 @@ Route::get('/pertanyaan-pengadopsian', [PertanyaanPengadopsianController::class,
 
 Route::get('/pertanyaan-penyerahan', [PertanyaanPenyerahanController::class, 'index'])->name('pertanyaanPenyerahan.index');
 
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->group(function () {
 
-    Route::prefix('data-hewan')->group(function(){
+    Route::prefix('data-hewan')->group(function () {
 
         Route::get('/daftar', [DataHewanController::class, 'index'])->name('dataHewan.index');
         Route::get('/detail-hewan/{animal_id}', [DataHewanController::class, 'detail'])->name('dataHewan.detail');
     });
 
-    Route::prefix('form-report')->group(function(){
+    Route::prefix('form-report')->group(function () {
 
         Route::get('/daftar', [FormReportController::class, 'index'])->name('formReport.index');
         Route::get('/detail-report/{report_id}', [FormReportController::class, 'detail'])->name('formReport.detail');
+    });
+
+    Route::prefix('form-adopsi')->group(function () {
+
+        Route::get('/daftar', [FormAdopsiController::class, 'index'])->name('formAdopsi.index');
+        Route::get('/detail-report/{adoption_form_id}', [FormAdopsiController::class, 'detail'])->name('formAdopsi.detail');
     });
 });
 
@@ -81,12 +87,6 @@ Route::get('/daftar', [AuthController::class, 'daftar'])->name('daftar');
 Route::get('/masuk', [AuthController::class, 'masuk'])->name('masuk');
 
 
-Route::group(['middleware' => 'role:admin'], function() {
-    
-    
-});
+Route::group(['middleware' => 'role:admin'], function () {});
 
-Route::group(['middleware' => 'role:user'], function() {
-    
-    
-});
+Route::group(['middleware' => 'role:user'], function () {});
