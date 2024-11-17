@@ -27,14 +27,36 @@ class DataHewanController extends Controller
     public function detail($animal_id){
 
         $detail = animal::where('animal_id', $animal_id)->first();
-        // dd($detail);
         $name = $detail->animal_name;
 
         return view('internal.content.animal.detail',[
-            'title' => 'Detail Data Hewan',
-            'pageTitle' => 'Detail Data Hewan',
-            'pageSubTitle' => $name,
+            'title' => 'Detail Data Hewan ',
+            'pageTitle' => 'Detail Data Hewan - '.$name,
+            'pageSubTitle' => 'Detail Data Hewan - '.$name,
             'detail' => $detail,
+        ]);
+    }
+
+    public function edit($animal_id){
+
+        $detail = animal::where('animal_id', $animal_id)->first();
+        $name = $detail->animal_name;
+
+        return view('internal.content.animal.edit',[
+            'title' => 'Detail Data Hewan ',
+            'pageTitle' => 'Detail Data Hewan - '.$name,
+            'pageSubTitle' => 'Detail Data Hewan - '.$name,
+            'detail' => $detail,
+        ]);
+    }
+
+    public function editPost(Request $request){
+
+        $update = animal::where('animal_id', $request->id)->update([
+
+            'animal_name' => $request->namaHewan,
+            'animal_type' => $request->jenisHewan,
+            'age' => $request->usiaHewan,
         ]);
     }
     
