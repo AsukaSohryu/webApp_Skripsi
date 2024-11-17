@@ -16,7 +16,7 @@
             @foreach ($reportForm as $r)
             <tr class="fw-bold text-center border-2 border-bottom border-dark py-auto">
                 <td>{{ $r->report_form_id }}</td>
-                <td>{{ $r->user->name }}</td>
+                <td>{{ $r->users->name }}</td>
                 <td>{{ $r->created_at }}</td>
                 <td>
                     @if($r->status_id == 1)
