@@ -11,8 +11,7 @@ class FormReportController extends Controller
 {
     public function index(){
 
-        $status = status::all();
-        $reportForm = ReportForm::with(['user', 'status'])->get();
+        $reportForm = ReportForm::with(['users'])->get();
 
         return view('internal.content.form.report.formReportDashboard', [
             'title' => 'Form Report',
@@ -24,15 +23,24 @@ class FormReportController extends Controller
 
     public function detail($report_form_id){
 
-        $detail = reportForm::where('report_form_id', $report_form_id)->first();
+        $detail = reportForm::with('users')
+            ->where('report_form_id', $report_form_id)
+            ->first();
+
+        $photos = explode(';', $detail->photo);
+        $photo_animal = $photos[0] ?? null;
+        $photo_location = $photos[1] ?? null; 
+        $photo_additional = $photos[2] ?? null;
         // dd($detail);
-        
 
         return view('internal.content.form.report.detail',[
             'title' => 'Detail Laporan Penemuan',
             'pageTitle' => 'Detail Data Laporan Penemuan Hewan Liar',   
             'pageSubTitle' => 'Detail Formulir ID: ' . $report_form_id,
-            'detail' => '$detail',
+            'detail' => $detail,
+            'photo_animal' => $photo_animal,
+            'photo_location' => $photo_location,
+            'photo_additional' => $photo_additional,
         ]);
     }
 }
