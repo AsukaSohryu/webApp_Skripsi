@@ -62,7 +62,13 @@ Route::prefix('admin')->group(function () {
         Route::get('/daftar', [DataHewanController::class, 'index'])->name('dataHewan.index');
         Route::get('/detail-hewan/{animal_id}', [DataHewanController::class, 'detail'])->name('dataHewan.detail');
         Route::get('/edit-data-hewan/{animal_id}', [DataHewanController::class, 'edit'])->name('dataHewan.edit');
-        Route::post('/edit-data-hewan-post', [DataHewanController::class, 'editPost'])->name('dataHwan.edit.post');
+        Route::post('/edit-data-hewan-post', [DataHewanController::class, 'editPost'])->name('dataHewan.edit.post');
+    });
+
+    Route::prefix('form-report')->group(function(){
+
+        Route::get('/daftar', [FormReportController::class, 'index'])->name('formReport.index');
+        Route::get('/detail-report/{report_id}', [FormReportController::class, 'detail'])->name('formReport.detail');
     });
 
     Route::prefix('form-report')->group(function () {
