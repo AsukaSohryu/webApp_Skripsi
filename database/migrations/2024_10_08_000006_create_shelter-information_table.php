@@ -25,7 +25,7 @@ return new class  extends Migration
             $table->text('shelter_logo')->nullable();
             $table->text('address')->nullable();
             $table->text('email')->nullable();
-            $table->timestamp('operational_hour')->nullable();
+            $table->string('operational_hour')->nullable();
             $table->string('whatsapp_number')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('instagram')->nullable();
@@ -37,7 +37,9 @@ return new class  extends Migration
             $table->text('about_shelter')->nullable();
             $table->text('vision')->nullable();
             $table->text('mission')->nullable();
+            $table->string('founder_name')->nullable();
             $table->text('founder_photo')->nullable();
+            $table->text('founder_description')->nullable();
             $table->text('history')->nullable();
             $table->text('additional_information')->nullable();
             $table->tinyInteger('is_accepting_report')->nullable();

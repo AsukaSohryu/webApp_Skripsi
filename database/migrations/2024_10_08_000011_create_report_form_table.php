@@ -29,6 +29,7 @@ return new class  extends Migration
             $table->text('photo');
             $table->longText('description');
             $table->tinyInteger('is_seen');
+            $table->text('admin_feedback');
 
             $table->index(["status_id"], 'fk_report_form_status_configuration1_idx');
 
