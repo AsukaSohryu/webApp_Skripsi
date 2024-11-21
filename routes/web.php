@@ -75,6 +75,8 @@ Route::prefix('admin')->group(function(){
 
         Route::get('/daftar', [FormReportController::class, 'index'])->name('formReport.index');
         Route::get('/detail-report/{report_id}', [FormReportController::class, 'detail'])->name('formReport.detail');
+        Route::get('/edit-data-report/{report_id}', [FormReportController::class, 'edit'])->name('formReport.edit');
+        Route::post('/edit-data-report-post', [FormReportController::class, 'editPost'])->name('formReport.edit.post');
     });
 });
 
