@@ -32,7 +32,7 @@ return new class  extends Migration
             $table->string('phone_number');
             $table->text('photo');
             $table->string('role');
-            $table->text('otp');
+            $table->text('otp')->nullable();
 
             $table->index(["shelter_id"], 'fk_user_shelter_information1_idx');
             $table->nullableTimestamps();
