@@ -19,6 +19,7 @@ class reportForm extends Model
         'photo',
         'description',
         'is_seen',
+        'admin_feedback'
     ];
 
     protected $table = 'report_form';
