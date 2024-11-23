@@ -14,7 +14,8 @@ class handoverForm extends Model
         'user_id',
         'status_id',
         'photo',
-        'is_seen'
+        'is_seen',
+        'admin_feedback'
     ];
 
     protected $table = 'handover_form';

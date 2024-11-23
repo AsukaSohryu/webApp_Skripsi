@@ -25,6 +25,7 @@ return new class  extends Migration
             $table->unsignedInteger('animal_id');
             $table->unsignedInteger('status_id');
             $table->tinyInteger('is_seen');
+            $table->text('admin_feedback')->nullable();
 
             $table->index(["user_id"], 'fk_adoption_form_user1_idx');
 

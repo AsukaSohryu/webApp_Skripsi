@@ -25,6 +25,7 @@ return new class  extends Migration
             $table->unsignedInteger('status_id');
             $table->text('photo');
             $table->tinyInteger('is_seen');
+            $table->text('admin_feedback')->nullable();
 
             $table->index(["user_id"], 'fk_handover_form_user_idx');
 

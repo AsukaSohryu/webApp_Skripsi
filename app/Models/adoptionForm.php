@@ -14,7 +14,8 @@ class adoptionForm extends Model
         'user_id',
         'animal_id',
         'status_id',
-        'is_seen'
+        'is_seen',
+        'admin_feedback'
     ];
 
     protected $table = 'adoption_form';
