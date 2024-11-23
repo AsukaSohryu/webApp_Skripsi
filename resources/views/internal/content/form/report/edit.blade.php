@@ -44,8 +44,8 @@
             </div>
         </div>
         <form action="{{ route('formReport.edit.post') }}" method="post" enctype="multipart/form-data">
-            @csrf
             <input type="hidden" name="report_form_id" value="{{ $detail->report_form_id }}">
+            @csrf
             <div class="row my-3 justify-content-center g-2">
                 <div class="col-auto mx-3">
                     @if($photo_animal)
@@ -123,8 +123,20 @@
             </div>
             <div class="col my-3">
                 <label for="" class="mb-2">Respon Admin</label>
-                <textarea name="responAdmin" id="responAdmin" class="form-control" rows="4">Admin Respons</textarea>
+                <textarea name="responAdmin" id="responAdmin" class="form-control" rows="4">{{$detail->admin_feedback}}</textarea>
             </div>
+            @if(!in_array($detail->status_id, [3, 4, 5]))
+                <div class="my-10 d-flex justify-content-end">
+                    <form action="{{ route('formReport.edit', $detail->report_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
+                        <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Status Laporan</button>
+                    </form>
+                </div>
+            @else
+                <div class="my-10 d-flex justify-content-end">
+                    <button class="btn btn-secondary" disabled title="Laporan  sudah final">Status Tidak Dapat Diubah</button>
+                </div>
+            @endif
+
             <div class=" my-10 d-flex justify-content-end">
                 <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Status Laporan</button>
             </div>

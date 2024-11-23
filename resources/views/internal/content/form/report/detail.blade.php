@@ -120,7 +120,7 @@
         </div>
         <div class="col my-3">
             <label for="" class="mb-2">Respon Admin</label>
-            <textarea name="responAdmin" id="responAdmin" class="form-control" rows="4" disabled>Admin Respons</textarea>
+            <textarea name="responAdmin" id="responAdmin" class="form-control" rows="4" disabled>{{$detail->admin_feedback}}</textarea>
         </div>
         @if(!in_array($detail->status_id, [3, 4, 5]))
             <div class="my-10 d-flex justify-content-end">
@@ -130,7 +130,7 @@
             </div>
         @else
             <div class="my-10 d-flex justify-content-end">
-                <button class="btn btn-secondary" disabled title="Laporan       sudah final">Status Tidak Dapat Diubah</button>
+                <button class="btn btn-secondary" disabled title="Laporan  sudah final">Status Tidak Dapat Diubah</button>
             </div>
         @endif
     </div>
