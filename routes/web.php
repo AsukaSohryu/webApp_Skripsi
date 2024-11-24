@@ -81,6 +81,13 @@ Route::prefix('admin', ['middleware' => 'role:Admin'])->group(function () {
         Route::post('/edit-form-adopsi-post', [FormAdopsiController::class, 'editPost'])->name('formAdopsi.edit.post');
     });
 
+    Route::prefix('form-handover')->group(function () {
+        Route::get('/daftar', [FormHandoverController::class, 'index'])->name('formHandover.index');
+        Route::get('/detail-form-handover/{handover_form_id}', [FormHandoverController::class, 'detail'])->name('formHandover.detail');
+        Route::get('/edit-form-handover/{handover_form_id}', [FormHandoverController::class, 'edit'])->name('formHandover.edit');
+        Route::post('/edit-form-handover-post', [FormHandoverController::class, 'editPost'])->name('formHandover.edit.post');
+    });
+
     // REGION KONFIGURASI
     Route::prefix('data-informasi-shelter')->group(function () {
         Route::get('/daftar', [InformasiShelterController::class, 'index'])->name('informasiShelter.index');

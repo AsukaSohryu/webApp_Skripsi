@@ -13,7 +13,6 @@ class FormAdopsiController extends Controller
     public function index()
     {
         $adoptionForm = adoptionForm::with(['users', 'status', 'animal'])->get();
-
         return view('internal.content.form.formAdopsi.formAdopsiDashboard', [
             'title' => 'Form Adopsi',
             'pageTitle' => 'Form Adopsi',
@@ -36,9 +35,9 @@ class FormAdopsiController extends Controller
         // $adoptionQuestions = $adoptionForm->adoptionQuestions;
 
         return view('internal.content.form.formAdopsi.detail', [
-            'title' => 'Detail Data Laporan',
-            'pageTitle' => 'Detail Data Laporan',
-            'pageSubTitle' => 'Adoption Form - ' . $userName,
+            'title' => 'Detail Form Adopsi',
+            'pageTitle' => 'Detail Form Adopsi',
+            'pageSubTitle' => 'Formulir Adopsi - ' . $userName,
             'detail' => $adoptionForm,
 
             // 'adoptionQuestions' => $adoptionQuestions,
@@ -49,11 +48,12 @@ class FormAdopsiController extends Controller
     {
         $adoptionForm = adoptionForm::with(['users', 'status', 'animal'])->where('adoption_form_id', $adoption_form_id)->first();
         $status = status::where('config', 'Form_Adoption_Status')->get();
+        $userName = $adoptionForm->users->name;
 
         return view('internal.content.form.formAdopsi.edit', [
-            'title' => 'Informasi Shelter',
-            'pageTitle' => 'Konfigurasi Informasi Shelter',
-            'pageSubTitle' => 'Daftar Informasi Shelter',
+            'title' => 'Detail Form Adopsi',
+            'pageTitle' => 'Detail Form Adopsi',
+            'pageSubTitle' => 'Formulir Adopsi - ' . $userName,
             'detail' => $adoptionForm,
             'adoptionFormStatus' => $status
         ]);
@@ -61,11 +61,11 @@ class FormAdopsiController extends Controller
 
     public function editPost(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         // if ($request->fotoHewan == null) {
         if ($request != null) {
 
-            $update = adoptionForm::where('adoption_form_id', $request->adoptionID)->update([
+            $update = adoptionForm::where('adoption_form_id', $request->adoptionFormID)->update([
 
                 // 'shelter_name' => $request->namaShelter,
                 'status_id' => $request->statusID,
