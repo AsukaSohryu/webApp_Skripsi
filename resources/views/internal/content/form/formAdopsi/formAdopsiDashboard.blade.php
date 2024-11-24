@@ -1,7 +1,7 @@
 @extends('internal.layout.dashboard')
 
 @section('content')
-{{-- <div class="container">
+<div class="container">
     <table class="table table-striped table-bordered">
         <thead class="thead">
             <tr class="fw-bold text-center border-2 border-bottom border-dark">
@@ -40,6 +40,6 @@
             @endforeach
         </tbody>
     <table>
-<div> --}}
+<div>
 
 @endsection

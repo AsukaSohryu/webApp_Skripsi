@@ -25,7 +25,7 @@ class InformasiShelterController extends Controller
         $detail = shelterInformation::where('shelter_id', 1)->first();
 
         return view('internal.content.settings.shelterInformation.edit', [
-            'title' => 'Informasi Shelter',
+            'title' => 'Informasi Shelter', 
             'pageTitle' => 'Konfigurasi Informasi Shelter',
             'pageSubTitle' => 'Daftar Informasi Shelter',
             'shelterInformation' => $detail

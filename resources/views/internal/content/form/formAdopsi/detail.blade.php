@@ -1,7 +1,7 @@
 @extends('internal.layout.dashboard')
 
 @section('content')
-{{-- <div class="card mb-5 mb-xxl-8">
+<div class="card mb-5 mb-xxl-8">
     <div class="card-body py-9">
         <h1 class="text-center">Detail Pengajuan Pengadopsian Hewan</h1>
         <div class="row my-3">
@@ -54,15 +54,20 @@
         <div class="row my-3">
             <div class="col">
                 <label for="">Status Laporan</label>
-                <input type="text" name="idHewan" id="idHewan" value="{{$detail->status->status}}" class="form-control" disabled>
+                <input type="text" name="statusID" id="statusID" value="{{$detail->status->status}}" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
                 <label for="">Admin Feedback</label>
-                <input type="text" name="idHewan" id="idHewan" value="Tidak ada feedback dari admin" class="form-control" disabled>
-            </div> {{-- value="{{$detail->status->status}}" --}}
+                <input type="text" name="adminFeedback" id="adminFeedback" value="{{$detail->admin_feedback}}" class="form-control" disabled>
+            </div>
+        </div>
+        <div class=" my-3 d-flex justify-content-end">
+            <form action="{{ route('formAdopsi.edit', $detail->adoption_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengubah Data Formulir Adopsi Ini?');">
+                <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Data Formulir Adopsi</button>
+            </form>
         </div>
     </div>
-</div> --}}
+</div>
 @endsection
