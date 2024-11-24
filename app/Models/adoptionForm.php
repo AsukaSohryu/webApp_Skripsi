@@ -22,17 +22,20 @@ class adoptionForm extends Model
     protected $primaryKey = 'adoption_form_id';
     public $timestamps = true;
 
-    public function users(){
+    public function users()
+    {
 
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function status(){
+    public function status()
+    {
 
         return $this->belongsTo(status::class, 'status_id');
     }
 
-    public function animal(){
+    public function animal()
+    {
 
         return $this->belongsTo(animal::class, 'animal_id');
     }
@@ -40,7 +43,7 @@ class adoptionForm extends Model
     public function adoptionQuestions()
     {
         return $this->belongsToMany(adoptionQuestions::class, 'adoption_answer', 'adoption_question_id', 'adoption_form_id')
-                    ->withPivot('answer')
-                    ->withTimestamps();
+            ->withPivot('answer')
+            ->withTimestamps();
     }
 }

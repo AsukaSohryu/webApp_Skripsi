@@ -44,10 +44,18 @@ class FormReportController extends Controller
     }
 
     public function edit($report_form_id){
+        
 
-        $detail = reportForm::with('users')
+        $detail = reportForm::with(['users', 'status'])
             ->where('report_form_id', $report_form_id)
             ->first();
+
+            
+        if(in_array($detail->status_id, [3, 4, 5])){
+            return redirect()
+                ->route('formReport.detail', $report_form_id)
+                ->with('error', 'Status laporan sudah selesai, tidak bisa diupdate');
+        }
 
         $photos = explode(';', $detail->photo);
         $photo_animal = $photos[0] ?? null;
@@ -68,13 +76,12 @@ class FormReportController extends Controller
     }
 
     public function editPost(Request $request){
-
         try {
             // Update report
             $update = ReportForm::where('report_form_id', $request->report_form_id)
                 ->update([
                     'status_id' => $request->statusLaporan,
-                    'admin_response' => $request->responAdmin,
+                    'admin_feedback' => $request->responAdmin,
                     'updated_at' => now()
                 ]);
     

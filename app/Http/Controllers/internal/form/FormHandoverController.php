@@ -9,7 +9,7 @@ class FormHandoverController extends Controller
 {
     public function index(){
 
-        return view('internal.content.form.formHandover', [
+        return view('internal.content.form.formHandover.formHandoverDashboard', [
             'title' => 'Form Handover',
             'pageTitle' => 'Form Handover',
             'pageSubTitle' => 'Form Handover'
