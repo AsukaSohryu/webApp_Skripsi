@@ -31,7 +31,7 @@ return new class  extends Migration
             $table->string('whatsapp_number');
             $table->string('phone_number');
             $table->text('photo');
-            $table->string('role');
+            $table->string('role')->default('User');
             $table->text('otp')->nullable();
 
             $table->index(["shelter_id"], 'fk_user_shelter_information1_idx');

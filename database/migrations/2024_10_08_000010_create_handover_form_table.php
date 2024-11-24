@@ -32,7 +32,7 @@ return new class  extends Migration
             $table->index(["status_id"], 'fk_handover_form_status_configuration1_idx');
             $table->nullableTimestamps();
 
-
+            
             $table->foreign('user_id')
                 ->references('user_id')->on('user')
                 ->onDelete('no action')

@@ -122,6 +122,7 @@ function searchQuestions() {
     }
 }
 </script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const checkboxes = document.querySelectorAll('.toggle-checkbox');
