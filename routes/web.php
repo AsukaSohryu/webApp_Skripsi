@@ -65,7 +65,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/edit-data-hewan-post', [DataHewanController::class, 'editPost'])->name('dataHewan.edit.post');
     });
 
-    Route::prefix('form-report')->group(function(){
+    Route::prefix('form-report')->group(function () {
         Route::get('/daftar', [FormReportController::class, 'index'])->name('formReport.index');
         Route::get('/detail-report/{report_id}', [FormReportController::class, 'detail'])->name('formReport.detail');
         Route::get('/edit-data-report/{report_id}', [FormReportController::class, 'edit'])->name('formReport.edit');
@@ -76,6 +76,11 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/daftar', [FormAdopsiController::class, 'index'])->name('formAdopsi.index');
         Route::get('/detail-report/{adoption_form_id}', [FormAdopsiController::class, 'detail'])->name('formAdopsi.detail');
+    });
+
+    Route::prefix('informasi-shelter')->group(function () {
+        Route::get('/edit-informasi-shelter/1', [InformasiShelterController::class, 'edit'])->name('informasiShelter.edit');
+        Route::post('/edit-informasi-shelter-post', [InformasiShelterController::class, 'editPost'])->name('informasiShelter.edit.post');
     });
 });
 

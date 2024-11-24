@@ -13,10 +13,6 @@ class FormAdopsiController extends Controller
 
     public function index()
     {
-
-        $animal = animal::all();
-        $status = status::all();
-
         $adoptionForm = adoptionForm::with(['users', 'status', 'animal'])->get();
 
         return view('internal.content.form.formHandover.formHandoverDashboard', [
