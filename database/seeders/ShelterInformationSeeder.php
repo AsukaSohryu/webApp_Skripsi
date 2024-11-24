@@ -17,7 +17,7 @@ class ShelterInformationSeeder extends Seeder
             [
                 'shelter_name' => 'Shelter Us',
                 'shelter_logo' => '',
-                'address' => '',
+                'address' => 'Jl. Lorem Ipsum Blok A No 20, Jakarta, Jakarta Selatan',
                 'email' => 'shelterus@gmail.com',
                 // 'operational_hour' => '
                 //     Senin: 09.00 - 15.00 WIB
@@ -46,11 +46,11 @@ class ShelterInformationSeeder extends Seeder
                     4. Kolaborasi Komunitas: Bekerja sama dengan individu, organisasi, dan relawan untuk menciptakan jaringan dukungan yang kuat bagi kesejahteraan hewan dan mendorong partisipasi aktif dalam kegiatan perlindungan hewan.
                     5. Advokasi Kesejahteraan Hewan: Mendorong kebijakan dan praktik yang mendukung perlindungan dan kesejahteraan hewan di tingkat lokal dan nasional, serta berperan sebagai suara bagi hewan yang tidak memiliki suara.
                 ',
-                // 'founder_name' => 'Dr. Alexandra Lexiana',
+                'founder_name' => 'Dr. Alexandra Lexiana',
                 'founder_photo' => '',
-                // 'founder_description' => 'Dr. Alexandra Lexiana adalah seorang dokter hewan yang berdedikasi dan pendiri sebuah tempat penampungan hewan yang terkemuka. Dengan semangat untuk kesejahteraan hewan, ia telah mengabdikan karirnya untuk memberikan perawatan yang penuh kasih dan memperjuangkan kebutuhan hewan yang terlantar dan ditinggalkan. Di bawah kepemimpinannya, tempat penampungan ini telah menjadi tempat yang aman bagi banyak hewan peliharaan, memberikan mereka kesempatan kedua untuk hidup.',
+                'founder_description' => 'Dr. Alexandra Lexiana adalah seorang dokter hewan yang berdedikasi dan pendiri sebuah tempat penampungan hewan yang terkemuka. Dengan semangat untuk kesejahteraan hewan, ia telah mengabdikan karirnya untuk memberikan perawatan yang penuh kasih dan memperjuangkan kebutuhan hewan yang terlantar dan ditinggalkan. Di bawah kepemimpinannya, tempat penampungan ini telah menjadi tempat yang aman bagi banyak hewan peliharaan, memberikan mereka kesempatan kedua untuk hidup.',
                 'history' => 'Shelter Us didirikan oleh Dr. Alexandra, seorang dokter hewan yang memiliki kecintaan mendalam terhadap hewan dan komitmen untuk meningkatkan kesejahteraan mereka. Dengan visi untuk memberikan perlindungan dan perawatan bagi hewan-hewan terlantar dan terabaikan, Dr. Alexandria memulai perjalanan ini dengan tekad yang kuat. Sejak dibuka, Shelter Us telah menjadi rumah bagi lebih dari 100 anjing dan 50 kucing, yang semuanya telah menerima perawatan medis dan kasih sayang yang mereka butuhkan. Melalui program adopsi yang bertanggung jawab dan inisiatif edukasi untuk masyarakat, Dr. Alexandria dan timnya berusaha untuk menciptakan lingkungan yang lebih baik bagi hewan-hewan ini, serta meningkatkan kesadaran akan pentingnya perlindungan hewan. Dengan dedikasi dan kerja keras, Shelter Us terus berupaya untuk memberikan harapan dan kesempatan baru bagi setiap hewan yang membutuhkan.',
-                'additional_information' => '',
+                'additional_information' => 'Shelter Saat ini memerlukan bantuan berupa makanan, air, dan uang untuk biaya pengobatan beberapa anjing yang terluka parah saat ditemukan, besar harapan kami agar ',
                 'is_accepting_report' => 1,
                 'is_accepting_handover' => 1,
                 'is_accepting_adoption' => 1,
