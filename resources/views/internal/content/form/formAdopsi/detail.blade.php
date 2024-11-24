@@ -7,40 +7,40 @@
         <div class="row my-3">
             <div class="col">
                 <label for="">Nama Pengguna</label>
-                <input type="text" name="idHewan" id="idHewan" value="{{$detail->users->name}}" class="form-control" disabled>
+                <input type="text" name="userName" id="userName" value="{{$detail->users->name}}" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
                 <label for="">No Telepon</label>
-                <input type="text" name="jenisHewan" id="jenisHewan" value="{{$detail->users->phone_number}}" class="form-control" disabled>
+                <input type="text" name="phoneNumber" id="phoneNumber" value="{{$detail->users->phone_number}}" class="form-control" disabled>
             </div>
             <div class="col">
                 <label for="">No Whatsapp</label>
-                <input type="text" name="umur" id="umur" value="{{$detail->users->whatsapp_number}}" class="form-control" disabled>
+                <input type="text" name="whatsappNumber" id="whatsappNumber" value="{{$detail->users->whatsapp_number}}" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
                 <label for="">Alamat Pengguna</label>
-                <input type="text" name="idHewan" id="idHewan" value="{{$detail->users->address}}" class="form-control" disabled>
+                <input type="text" name="address" id="address" value="{{$detail->users->address}}" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
                 <label for="">Pekerjaan Pengguna</label>
-                <input type="text" name="idHewan" id="idHewan" value="{{$detail->users->job}}" class="form-control" disabled>
+                <input type="text" name="job" id="job" value="{{$detail->users->job}}" class="form-control" disabled>
             </div>
         </div>
         {{-- Area Detail Hewan --}}
         <div class="row my-3">
             <div class="col">
                 <label for="">Nama Hewan</label>
-                <input type="text" name="jenisHewan" id="jenisHewan" value="{{$detail->animal->animal_name}}" class="form-control" disabled>
+                <input type="text" name="animalName" id="animalName" value="{{$detail->animal->animal_name}}" class="form-control" disabled>
             </div>
             <div class="col">
                 <label for="">Umur</label>
-                <input type="text" name="umur" id="umur" value="{{$detail->animal->age}}" class="form-control" disabled>
+                <input type="text" name="animalAge" id="animalAge" value="{{$detail->animal->age}}" class="form-control" disabled>
             </div>
         </div>
         {{-- Area Adoption Form Questions --}}

@@ -1,7 +1,7 @@
 @extends('internal.layout.dashboard')
 
 @section('content')
-{{-- <div class="container">
+<div class="container">
     <table class="table table-striped table-bordered">
         <thead class="thead">
             <tr class="fw-bold text-center border-2 border-bottom border-dark">
@@ -13,26 +13,30 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($adoptionForm as $r)
+            @foreach ($handoverForm as $r)
+            {{-- @php
+                dd($handoverForm);
+            @endphp --}}
             <tr class="fw-bold text-center border-2 border-bottom border-dark py-auto">
-                <td>{{ $r->adoption_form_id }}</td>
+                <td>{{ $r->handover_form_id }}</td>
                 <td>{{ $r->users->name }}</td>
+                {{-- <td>Testing</td> --}}
                 <td>{{ $r->created_at }}</td>
                 <td>
-                    @if($r->status_id == 11)
-                        <span class="btn btn-primary">Adopsi Diajukan</span>
-                    @elseif($r->status_id == 12)
-                        <span class="btn btn-primary">Pengajuan Adopsi Disetujui</span>
-                    @elseif($r->status_id == 13)
-                        <span class="btn btn-primary">Pengajuan Adopsi Ditolak</span>
-                    @elseif($r->status_id == 14)
-                        <span class="btn btn-primary">Adopsi Berhasil</span>
-                    @elseif($r->status_id == 15)
-                        <span class="btn btn-primary">Adopsi Dibatalkan</span>
+                    @if($r->status_id == 6)
+                        <span class="btn btn-primary">Penyerahan Diajukan</span>
+                    @elseif($r->status_id == 7)
+                        <span class="btn btn-primary">Pengajuan Penyerahan Disetujui</span>
+                    @elseif($r->status_id == 8)
+                        <span class="btn btn-primary">Pengajuan Penyerahan Ditolak</span>
+                    @elseif($r->status_id == 9)
+                        <span class="btn btn-primary">Penyerahan Berhasil</span>
+                    @elseif($r->status_id == 10)
+                        <span class="btn btn-primary">Penyerahan Dibatalkan</span>
                     @endif
                 </td> 
                 <td>
-                    <form action="{{route('formAdopsi.detail', $r->adoption_form_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
+                    <form action="{{route('formHandover.detail', $r->handover_form_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
                         <button class="btn btn-secondary border border-dark"><i class="fa-regular fa-pen-to-square"></i></button>
                     </form>
                 </td> 
@@ -40,6 +44,6 @@
             @endforeach
         </tbody>
     <table>
-<div> --}}
+<div>
 
 @endsection

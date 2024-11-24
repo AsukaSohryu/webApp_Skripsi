@@ -24,7 +24,7 @@ class handoverForm extends Model
 
     public function users(){
 
-        return $this->belongsTo(User::class, 'users_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function status(){
