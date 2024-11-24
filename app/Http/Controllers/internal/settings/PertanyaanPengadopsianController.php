@@ -18,4 +18,13 @@ class PertanyaanPengadopsianController extends Controller
             'adoptionQuestions' => $adoptionQuestions,
         ]);
     }
+
+    public function edit(){
+
+        return view('internal.content.settings.adoptionQuestions.edit', [
+            'title' => 'Edit Pertanyaan Pengadopsian',
+            'pageTitle' => 'Edit Pertanyaan Pengadopsian',
+            'pageSubTitle' => 'Edit Pertanyaan Pengadopsian',
+        ]);
+    }
 }

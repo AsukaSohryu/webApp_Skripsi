@@ -4,16 +4,16 @@
 <div class="container">
     <!-- Search Bar -->
     <div class="row mb-4">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-12">
             <div class="input-group">
                 <input type="text" 
-                       class="form-control border-2" 
+                       class="form-control rounded-1" 
                        id="searchQuestion" 
                        placeholder="Cari Pertanyaan..."
                        onkeyup="searchQuestions()">
-                <span class="input-group-text border-2">
-                    <i class="fas fa-search"></i>
-                </span>
+                <a href="{{ route('pertanyaanPengadopsian.edit') }}" class="btn btn-primary ms-5 rounded-1">
+                    <i class="fas fa-edit me-2"></i>Update Pertanyaan
+                </a>
             </div>
         </div>
     </div>
