@@ -21,10 +21,13 @@ class PertanyaanPengadopsianController extends Controller
 
     public function edit(){
 
+        $adoptionQuestions = adoptionQuestions::all();
+
         return view('internal.content.settings.adoptionQuestions.edit', [
             'title' => 'Edit Pertanyaan Pengadopsian',
             'pageTitle' => 'Edit Pertanyaan Pengadopsian',
             'pageSubTitle' => 'Edit Pertanyaan Pengadopsian',
+            'adoptionQuestions' => $adoptionQuestions,
         ]);
     }
 }

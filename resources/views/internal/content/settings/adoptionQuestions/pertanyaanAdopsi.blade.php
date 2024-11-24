@@ -2,18 +2,10 @@
 
 @section('content')
 <div class="container">
-    <!-- Search Bar -->
     <div class="row mb-4">
-        <div class="col-md-12">
+        <div class="col-md-10 mx-auto">
             <div class="input-group">
-                <input type="text" 
-                       class="form-control rounded-1" 
-                       id="searchQuestion" 
-                       placeholder="Cari Pertanyaan..."
-                       onkeyup="searchQuestions()">
-                <a href="{{ route('pertanyaanPengadopsian.edit') }}" class="btn btn-primary ms-5 rounded-1">
-                    <i class="fas fa-edit me-2"></i>Update Pertanyaan
-                </a>
+                <input type="text" class="form-control rounded-1" id="searchQuestion" placeholder="Cari Pertanyaan" onkeyup="searchQuestions()">
             </div>
         </div>
     </div>
@@ -38,7 +30,12 @@
             </tr>
             @endforeach
         </tbody>
-    <table>
+    </table>
+    <div class="d-flex justify-content-end py-8">
+        <a href="{{ route('pertanyaanPengadopsian.edit') }}" class="btn btn-primary">
+            <i class="fas fa-edit me-2"></i>Ubah Pertanyaan
+        </a>
+    </div>
 <div>
 <script>
 function searchQuestions() {
