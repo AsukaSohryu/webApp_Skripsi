@@ -55,10 +55,9 @@ Route::get('/pertanyaan-pengadopsian', [PertanyaanPengadopsianController::class,
 
 Route::get('/pertanyaan-penyerahan', [PertanyaanPenyerahanController::class, 'index'])->name('pertanyaanPenyerahan.index');
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->group(function(){
 
-    Route::prefix('data-hewan')->group(function () {
-
+    Route::prefix('data-hewan')->group(function(){
         Route::get('/daftar', [DataHewanController::class, 'index'])->name('dataHewan.index');
         Route::get('/detail-hewan/{animal_id}', [DataHewanController::class, 'detail'])->name('dataHewan.detail');
         Route::get('/edit-data-hewan/{animal_id}', [DataHewanController::class, 'edit'])->name('dataHewan.edit');
@@ -72,15 +71,19 @@ Route::prefix('admin')->group(function () {
         Route::post('/edit-data-report-post', [FormReportController::class, 'editPost'])->name('formReport.edit.post');
     });
 
-    Route::prefix('form-adopsi')->group(function () {
-
-        Route::get('/daftar', [FormAdopsiController::class, 'index'])->name('formAdopsi.index');
-        Route::get('/detail-report/{adoption_form_id}', [FormAdopsiController::class, 'detail'])->name('formAdopsi.detail');
+    Route::prefix('data-pertanyaan-pengadopsian')->group(function(){
+        Route::get('/daftar', [PertanyaanPengadopsianController::class, 'index'])->name('pertanyaanPengadopsian.index');
+        Route::get('/edit', [PertanyaanPengadopsianController::class, 'edit'])->name('pertanyaanPengadopsian.edit');
     });
 
-    Route::prefix('informasi-shelter')->group(function () {
-        Route::get('/edit-informasi-shelter/1', [InformasiShelterController::class, 'edit'])->name('informasiShelter.edit');
-        Route::post('/edit-informasi-shelter-post', [InformasiShelterController::class, 'editPost'])->name('informasiShelter.edit.post');
+    Route::prefix('data-pertanyaan-pengadopsian')->group(function(){
+        Route::get('/daftar', [PertanyaanPengadopsianController::class, 'index'])->name('pertanyaanPengadopsian.index');
+        Route::get('/edit', [PertanyaanPengadopsianController::class, 'edit'])->name('pertanyaanPengadopsian.edit');
+    });
+
+    Route::prefix('data-pertanyaan-penyerahan')->group(function(){
+        Route::get('/daftar', [PertanyaanPenyerahanController::class, 'index'])->name('pertanyaanPenyerahan.index');
+        Route::get('/edit', [PertanyaanPenyerahanController::class, 'edit'])->name('pertanyaanPenyerahan.edit');
     });
 });
 

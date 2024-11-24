@@ -126,20 +126,20 @@
                 <textarea name="responAdmin" id="responAdmin" class="form-control" rows="4">{{$detail->admin_feedback}}</textarea>
             </div>
             @if(!in_array($detail->status_id, [3, 4, 5]))
-                <div class="my-10 d-flex justify-content-end">
-                    <form action="{{ route('formReport.edit', $detail->report_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
-                        <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Status Laporan</button>
-                    </form>
+                <div class="gap-3 my-10 d-flex justify-content-end">
+                    <a href="{{ route('formReport.detail', $detail->report_form_id) }}" 
+                        class="btn btn-secondary"
+                        style="border: 0;">
+                         Batalkan
+                    </a>
+                    <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Status Laporan</button>
                 </div>
             @else
                 <div class="my-10 d-flex justify-content-end">
                     <button class="btn btn-secondary" disabled title="Laporan  sudah final">Status Tidak Dapat Diubah</button>
                 </div>
             @endif
-
-            <div class=" my-10 d-flex justify-content-end">
-                <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Status Laporan</button>
-            </div>
+            
         </form>
     </div>
 </div>
