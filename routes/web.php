@@ -45,15 +45,15 @@ Route::get('/status-pengajuan-penyerahan-hewan', [StatusPengajuanPenyerahanHewan
 //admin
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/form-adopsi', [FormAdopsiController::class, 'index'])->name('formAdopsi.index');
+// Route::get('/form-adopsi', [FormAdopsiController::class, 'index'])->name('formAdopsi.index');
 
-Route::get('/form-handover', [FormHandoverController::class, 'index'])->name('formHandover.index');
+// Route::get('/form-handover', [FormHandoverController::class, 'index'])->name('formHandover.index');
 
-Route::get('/informasi-shelter', [InformasiShelterController::class, 'index'])->name('informasiShelter.index');
+// Route::get('/informasi-shelter', [InformasiShelterController::class, 'index'])->name('informasiShelter.index');
 
-Route::get('/pertanyaan-pengadopsian', [PertanyaanPengadopsianController::class, 'index'])->name('pertanyaanPengadopsian.index');
+// Route::get('/pertanyaan-pengadopsian', [PertanyaanPengadopsianController::class, 'index'])->name('pertanyaanPengadopsian.index');
 
-Route::get('/pertanyaan-penyerahan', [PertanyaanPenyerahanController::class, 'index'])->name('pertanyaanPenyerahan.index');
+// Route::get('/pertanyaan-penyerahan', [PertanyaanPenyerahanController::class, 'index'])->name('pertanyaanPenyerahan.index');
 
 Route::prefix('admin')->group(function () {
 
@@ -78,6 +78,13 @@ Route::prefix('admin')->group(function () {
         Route::get('/detail-form-adopsi/{adoption_form_id}', [FormAdopsiController::class, 'detail'])->name('formAdopsi.detail');
         Route::get('/edit-form-adopsi/{adoption_form_id}', [FormAdopsiController::class, 'edit'])->name('formAdopsi.edit');
         Route::post('/edit-form-adopsi-post', [FormAdopsiController::class, 'editPost'])->name('formAdopsi.edit.post');
+    });
+
+    Route::prefix('form-handover')->group(function () {
+        Route::get('/daftar', [FormHandoverController::class, 'index'])->name('formHandover.index');
+        Route::get('/detail-form-handover/{handover_form_id}', [FormHandoverController::class, 'detail'])->name('formHandover.detail');
+        Route::get('/edit-form-handover/{handover_form_id}', [FormHandoverController::class, 'edit'])->name('formHandover.edit');
+        Route::post('/edit-form-handover-post', [FormHandoverController::class, 'editPost'])->name('formHandover.edit.post');
     });
 
     // REGION KONFIGURASI

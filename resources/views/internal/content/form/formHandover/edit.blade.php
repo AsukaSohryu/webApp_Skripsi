@@ -37,8 +37,8 @@
 
 <div class="card mb-5 mb-xxl-8">
     <div class="card-body py-9">
-        <h1 class="text-center">Edit Formulir Adopsi</h1>
-        <div>
+        <h1 class="text-center">Edit Formulir Penyerahan</h1>
+        <div class="row my-3">
             <div class="col">
                 <label for="">Nama Pengguna</label>
                 <input type="text" name="userName" id="userName" value="{{$detail->users->name}}" class="form-control" disabled>
@@ -66,30 +66,20 @@
                 <input type="text" name="job" id="job" value="{{$detail->users->job}}" class="form-control" disabled>
             </div>
         </div>
-        {{-- Area Detail Hewan --}}
-        <div class="row my-3">
-            <div class="col">
-                <label for="">Nama Hewan</label>
-                <input type="text" name="animalName" id="animalName" value="{{$detail->animal->animal_name}}" class="form-control" disabled>
-            </div>
-            <div class="col">
-                <label for="">Umur</label>
-                <input type="text" name="animalAge" id="animalAge" value="{{$detail->animal->age}}" class="form-control" disabled>
-            </div>
-        </div>
 
 
-        <form action="{{ route('formAdopsi.edit.post') }}" method="post" enctype="multipart/form-data">
+
+        <form action="{{ route('formHandover.edit.post') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row my-3">
                 <div class="col">
-                    <input type="text" name="adoptionFormID" id="adoptionFormID" value="{{$detail->adoption_form_id}}" class="form-control" hidden>
+                    <input type="text" name="handoverFormID" id="handoverFormID" value="{{$detail->handover_form_id}}" class="form-control" hidden>
                 </div>
             </div>
             <div class="col">
-                <label for="" class="my-3">Status Formulir Adopsi</label>
+                <label for="" class="my-3">Status Formulir Penyerahan</label>
                 <select class="form-control custom-dropdown" id="statusID" name="statusID" required>
-                    @foreach($adoptionFormStatus as $s)
+                    @foreach($handoverFormStatus as $s)
                         <option value="{{ $s->status_id }}" {{ $s->status_id == $detail->status_id ? 'selected' : '' }}>
                             {{ $s->status }}
                         </option>
