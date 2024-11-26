@@ -12,15 +12,15 @@
     <table class="table table-striped table-bordered" id="questionTable">
         <thead class="thead">
             <tr class="fw-bold text-center border-2 border-bottom border-dark">
-                <th scope="col">Pertanyaan</th>
-                <th scope="col">Status Pertanyaan</th>
+                <th scope="col" class="text-start ps-3" style="width: 85%">Pertanyaan</th>
+                <th scope="col" class="text-start ps-3" style="width: 15%">Status Pertanyaan</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($adoptionQuestions as $a)
-            <tr class="fw-bold text-center border-2 border-bottom border-dark py-auto mx-5">
-                <td class="text-start px-10 py-5">{{ $a->questions }}</td>
-                <td class="text-center px-10 py-5">
+            <tr class="fw-bold text-center border-2 border-bottom border-dark">
+                <td class="text-start px-10 py-5" style="width: 85%">{{ $a->questions }}</td>
+                <td class="text-center px-10 py-5" style="width: 15%">
                     @if($a->is_active == 1)
                         <span class="btn btn-primary" style="min-width: 120px">Aktif</span>
                     @elseif($a->is_active == 0)
@@ -46,14 +46,10 @@ function searchQuestions() {
 
     for (var i = 1; i < tr.length; i++) {
         var tdQuestion = tr[i].getElementsByTagName("td")[0];
-        var tdStatus = tr[i].getElementsByTagName("td")[1];
         
-        if (tdQuestion && tdStatus) {
+        if (tdQuestion) {
             var questionText = tdQuestion.textContent || tdQuestion.innerText;
-            var statusText = tdStatus.textContent || tdStatus.innerText;
-            
-            if (questionText.toLowerCase().indexOf(filter) > -1 || 
-                statusText.toLowerCase().indexOf(filter) > -1) {
+            if (questionText.toLowerCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
             } else {
                 tr[i].style.display = "none";
