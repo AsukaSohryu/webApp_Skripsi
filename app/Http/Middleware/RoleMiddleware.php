@@ -20,7 +20,7 @@ class RoleMiddleware
     {
         // Check if the user is authenticated
         if (!Auth::check()) {
-            return redirect('/login')->with('error', 'You must be logged in to access this page.');
+            return redirect('/masuk')->with('error', 'You must be logged in to access this page.');
         }
 
         // Check the user's role

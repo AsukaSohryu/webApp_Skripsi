@@ -78,7 +78,6 @@
             </div>
         </div>
 
-
         <form action="{{ route('formAdopsi.edit.post') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row my-3">
@@ -107,6 +106,25 @@
                     <input type="text" name="isSeen" id="isSeen" value="0" class="form-control" hidden>
                 </div>
             </div>
+            <hr>
+            @foreach ($detail->adoptionQuestions as $question)
+            <div class="row my-3">
+                <div class="col">
+                    <!-- Label for the question -->
+                    <label for="question-{{ $question->id }}" class="form-label">
+                        {{ $question->questions }}
+                    </label>
+
+                    <!-- Input for the answer -->
+                    <input type="text" 
+                        id="question-{{ $question->id }}" 
+                        name="answers[{{ $question->id }}]" 
+                        class="form-control" 
+                        value="{{ $question->pivot->answer ?? '' }}" 
+                        placeholder="Enter your answer" disabled>
+                </div>
+            </div>
+            @endforeach
             <div class=" my-3 d-flex justify-content-end">
                 <button class="btn btn-primary" type="submit" style="border: 0;">Simpan Perubahan</button>
             </div>            

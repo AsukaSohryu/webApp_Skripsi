@@ -53,6 +53,25 @@
                 <input type="text" name="adminFeedback" id="adminFeedback" value="{{$detail->admin_feedback}}" class="form-control" disabled>
             </div>
         </div>
+        <hr>
+        @foreach ($detail->handoverQuestions as $question)
+            <div class="row my-3">
+                <div class="col">
+                    <!-- Label for the question -->
+                    <label for="question-{{ $question->id }}" class="form-label">
+                        {{ $question->questions }}
+                    </label>
+
+                    <!-- Input for the answer -->
+                    <input type="text" 
+                        id="question-{{ $question->id }}" 
+                        name="answers[{{ $question->id }}]" 
+                        class="form-control" 
+                        value="{{ $question->pivot->answer ?? '' }}" 
+                        placeholder="Enter your answer" disabled>
+                </div>
+            </div>
+        @endforeach
         <div class=" my-3 d-flex justify-content-end">
             <form action="{{ route('formHandover.edit', $detail->handover_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengubah Data Formulir Penyerahan Ini?');">
                 <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Data Formulir Penyerahan</button>

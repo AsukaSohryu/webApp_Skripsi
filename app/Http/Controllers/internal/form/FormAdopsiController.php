@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\adoptionForm;
 use Illuminate\Http\Request;
 use App\Models\status;
+use GuzzleHttp\Psr7\Query;
 
 class FormAdopsiController extends Controller
 {
@@ -23,7 +24,12 @@ class FormAdopsiController extends Controller
 
     public function detail($adoption_form_id)
     {
-        $adoptionForm = adoptionForm::with(['users', 'status', 'animal'])->where('adoption_form_id', $adoption_form_id)->first();
+        // $adoptionForm = adoptionForm::with(['users', 'status', 'animal'])->where('adoption_form_id', $adoption_form_id)->first();
+        $adoptionForm = adoptionForm::with(['users', 'status', 'animal', 'adoptionQuestions' => function($query) {
+            $query->withPivot('answer');
+        }])->findOrFail($adoption_form_id);
+
+        // dd($adoptionForm->adoptionQuestions);
 
         if (!$adoptionForm) {
             // Handle the case where the adoption form is not found (e.g., redirect or show an error)
@@ -46,7 +52,10 @@ class FormAdopsiController extends Controller
 
     public function edit($adoption_form_id)
     {
-        $adoptionForm = adoptionForm::with(['users', 'status', 'animal'])->where('adoption_form_id', $adoption_form_id)->first();
+        $adoptionForm = adoptionForm::with(['users', 'status', 'animal', 'adoptionQuestions' => function($query) {
+            $query->withPivot('answer');
+        }])->findOrFail($adoption_form_id);
+        // $adoptionForm = adoptionForm::with(['users', 'status', 'animal'])->where('adoption_form_id', $adoption_form_id)->first();
         $status = status::where('config', 'Form_Adoption_Status')->get();
         $userName = $adoptionForm->users->name;
 
@@ -55,7 +64,8 @@ class FormAdopsiController extends Controller
             'pageTitle' => 'Detail Form Adopsi',
             'pageSubTitle' => 'Formulir Adopsi - ' . $userName,
             'detail' => $adoptionForm,
-            'adoptionFormStatus' => $status
+            'adoptionFormStatus' => $status,
+            'adoptionForm' => $adoptionForm,
         ]);
     }
 

@@ -23,8 +23,10 @@ return new class  extends Migration
             $table->unsignedInteger('adoption_form_id');
             $table->unsignedInteger('adoption_questions_id');
             $table->text('answer');
-
+            $table->nullableTimestamps();
+ 
             $table->index(["adoption_questions_id"], 'fk_adoption_form_has_adoption_questions_adoption_questions1_idx');
+            
 
             $table->index(["adoption_form_id"], 'fk_adoption_form_has_adoption_questions_adoption_form1_idx');
 

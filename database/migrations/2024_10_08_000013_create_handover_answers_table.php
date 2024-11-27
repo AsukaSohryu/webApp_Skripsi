@@ -23,6 +23,7 @@ return new class  extends Migration
             $table->unsignedInteger('handover_form_id');
             $table->unsignedInteger('handover_questions_id');
             $table->longText('answer');
+            $table->nullableTimestamps();
 
             $table->index(["handover_form_id"], 'fk_handover_questions_has_handover_form_handover_form1_idx');
 

@@ -42,7 +42,7 @@ class adoptionForm extends Model
 
     public function adoptionQuestions()
     {
-        return $this->belongsToMany(adoptionQuestions::class, 'adoption_answer', 'adoption_question_id', 'adoption_form_id')
+        return $this->belongsToMany(adoptionQuestions::class, 'adoption_answers', 'adoption_form_id', 'adoption_questions_id')
             ->withPivot('answer')
             ->withTimestamps();
     }

@@ -21,7 +21,7 @@ class handoverQuestions extends Model
 
     public function handoverForm()
     {
-        return $this->belongsToMany(handoverForm::class, 'handover_answers', 'handover_questions_id', 'handover_form_id', )
+        return $this->belongsToMany(handoverForm::class, 'handover_answers', 'handover_questions_id', 'handover_form_id')
                     ->withPivot('answer')
                     ->withTimestamps();
     }

@@ -53,8 +53,8 @@ Route::get('/status-pengajuan-penyerahan-hewan', [StatusPengajuanPenyerahanHewan
 // Route::get('/pertanyaan-pengadopsian', [PertanyaanPengadopsianController::class, 'index'])->name('pertanyaanPengadopsian.index');
 
 // Route::get('/pertanyaan-penyerahan', [PertanyaanPenyerahanController::class, 'index'])->name('pertanyaanPenyerahan.index');
-
-Route::prefix('admin', ['middleware' => 'role:Admin'])->group(function () {
+// middleware('role:Admin')->
+Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

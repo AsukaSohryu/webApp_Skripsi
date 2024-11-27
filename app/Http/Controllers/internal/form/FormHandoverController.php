@@ -24,7 +24,10 @@ class FormHandoverController extends Controller
 
     public function detail($handover_form_id)
     {
-        $handoverForm = handoverForm::with(['users', 'status'])->where('handover_form_id', $handover_form_id)->first();
+        // $handoverForm = handoverForm::with(['users', 'status'])->where('handover_form_id', $handover_form_id)->first();
+        $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function($query) {
+            $query->withPivot('answer');
+        }])->findOrFail($handover_form_id);
 
         if (!$handoverForm) {
             // Handle the case where the adoption form is not found (e.g., redirect or show an error)
@@ -45,7 +48,10 @@ class FormHandoverController extends Controller
 
     public function edit($handover_form_id)
     {
-        $handoverForm = handoverForm::with(['users', 'status'])->where('handover_form_id', $handover_form_id)->first();
+        // $handoverForm = handoverForm::with(['users', 'status'])->where('handover_form_id', $handover_form_id)->first();
+        $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function($query) {
+            $query->withPivot('answer');
+        }])->findOrFail($handover_form_id);
         $status = status::where('config', 'Form_Handover_Status')->get();
 
         return view('internal.content.form.formHandover.edit', [
