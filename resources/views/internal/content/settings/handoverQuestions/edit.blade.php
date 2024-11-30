@@ -39,7 +39,7 @@
 
 @section('content')
 <div class="container">
-    <form action="{{ route('pertanyaanPengadopsian.edit.post') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('pertanyaanPenyerahan.edit.post') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row mb-4">
             <div class="col-md-10 mx-auto">
@@ -56,21 +56,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($adoptionQuestions as $a)
+                @foreach ($handoverQuestions as $h)
                 <tr class="fw-bold text-center border-2 border-bottom border-dark">
-                    <td class="text-start px-10 py-5" style="width: 85%">{{ $a->questions }}</td>
+                    <td class="text-start px-10 py-5" style="width: 85%">{{ $h->questions }}</td>
                     <td style="width: 15%">
                         <div class="d-flex align-items-center justify-content-start gap-3 py-3">
-                            <input type="hidden" name="activeStatus[{{ $a->adoption_question_id }}]" value="off">
+                            <input type="hidden" name="activeStatus[{{ $h->handover_questions_id }}]" value="off">
                             <input type="checkbox" 
                                 class="toggle-checkbox"
-                                id="check-{{ $a->adoption_question_id }}" 
-                                name="activeStatus[{{ $a->adoption_question_id }}]"
-                                data-id="{{ $a->adoption_question_id }}"
-                                {{ $a->is_active == 1 ? 'checked' : '' }}>
-                            <label for="check-{{ $a->adoption_question_id }}" class="button"></label>
-                            <label class="py-3 mb-0" id="isActive-{{ $a->adoption_question_id }}">
-                                <b>{{ $a->is_active == 1 ? 'Aktif' : 'Tidak Aktif' }}</b>
+                                id="check-{{ $h->handover_questions_id }}" 
+                                name="activeStatus[{{ $h->handover_questions_id }}]"
+                                data-id="{{ $h->handover_questions_id }}"
+                                {{ $h->is_active == 1 ? 'checked' : '' }}>
+                            <label for="check-{{ $h->handover_questions_id }}" class="button"></label>
+                            <label class="py-3 mb-0" id="isActive-{{ $h->handover_questions_id }}">
+                                <b>{{ $h->is_active == 1 ? 'Aktif' : 'Tidak Aktif' }}</b>
                             </label>
                         </div>
                     </td>
@@ -85,7 +85,7 @@
             </button>
         </div>
         <div class="d-flex justify-content-end gap-2 mt-3">
-            <a href="{{ route('pertanyaanPengadopsian.index') }}" class="btn btn-secondary">
+            <a href="{{ route('pertanyaanPenyerahan.index') }}" class="btn btn-secondary">
                 Batalkan Perubahan
             </a>
             <button type="submit" class="btn btn-primary">
@@ -126,13 +126,13 @@ document.addEventListener('DOMContentLoaded', function () {
         
         checkbox.addEventListener('change', function() {
             // For Debug
-            // console.log('Checkbox changed:', {
-            //     id: dataId,
-            //     newState: this.checked,
-            //     timestamp: new Date().toISOString(),
-            //     labelExists: !!statusLabel,
-            //     labelContent: statusLabel ? statusLabel.innerHTML : null
-            // });
+            console.log('Checkbox changed:', {
+                id: dataId,
+                newState: this.checked,
+                timestamp: new Date().toISOString(),
+                labelExists: !!statusLabel,
+                labelContent: statusLabel ? statusLabel.innerHTML : null
+            });
             if (statusLabel) {
                 statusLabel.innerHTML = this.checked ? '<b>Aktif</b>' : '<b>Tidak Aktif</b>';
             } else {

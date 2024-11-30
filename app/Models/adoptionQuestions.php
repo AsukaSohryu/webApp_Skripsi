@@ -9,6 +9,8 @@ class adoptionQuestions extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
 
         'questions',
@@ -17,12 +19,11 @@ class adoptionQuestions extends Model
 
     protected $table = 'adoption_questions';
     protected $primaryKey = 'adoption_question_id';
-    public $timestamps = true;
 
     public function adoptionForm()
     {
         return $this->belongsToMany(adoptionForm::class, 'adoption_answers', 'adoption_questions_id', 'adoption_form_id')
-                    ->withPivot('answer')
-                    ->withTimestamps();
+                    ->withPivot('answer');
+                    // ->withTimestamps();
     }
 }

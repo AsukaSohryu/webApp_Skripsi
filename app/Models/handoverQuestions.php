@@ -9,6 +9,8 @@ class handoverQuestions extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
 
         'questions',
@@ -17,12 +19,11 @@ class handoverQuestions extends Model
 
     protected $table = 'handover_questions';
     protected $primaryKey = 'handover_questions_id';
-    public $timestamps = true;
 
     public function handoverForm()
     {
         return $this->belongsToMany(handoverForm::class, 'handover_answers', 'handover_questions_id', 'handover_form_id')
-                    ->withPivot('answer')
-                    ->withTimestamps();
+                    ->withPivot('answer');
+                    // ->withTimestamps();
     }
 }
