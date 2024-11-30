@@ -36,8 +36,6 @@ class PertanyaanPengadopsianController extends Controller
 
     public function editPost(Request $request){
         try {
-            // DB::beginTransaction();
-
             // Handle existing questions status updates
             $activeStatus = $request->input('activeStatus', []);
             if (!empty($activeStatus)) {
@@ -63,15 +61,12 @@ class PertanyaanPengadopsianController extends Controller
                     }
                 }
             }
-        
-            // DB::commit();
 
             return redirect()
                 ->route('pertanyaanPengadopsian.index')
                 ->with('success', 'Pertanyaan pengadopsian berhasil diperbarui');
                 
         } catch (\Exception $e) {
-            // DB::rollBack();
             return redirect()
                 ->back()
                 ->with('error', 'Gagal memperbarui pertanyaan pengadopsian: ' . $e->getMessage());

@@ -36,8 +36,6 @@ class PertanyaanPenyerahanController extends Controller
 
     public function editPost(Request $request){
         try {
-            // DB::beginTransaction();
-
             // Handle existing questions status updates
             $activeStatus = $request->input('activeStatus', []);
             if (!empty($activeStatus)) {
@@ -63,15 +61,11 @@ class PertanyaanPenyerahanController extends Controller
                     }
                 }
             }
-        
-            // DB::commit();
-
             return redirect()
                 ->route('pertanyaanPenyerahan.index')
                 ->with('success', 'Pertanyaan penyerahan berhasil diperbarui');
                 
         } catch (\Exception $e) {
-            // DB::rollBack();
             return redirect()
                 ->back()
                 ->with('error', 'Gagal memperbarui pertanyaan penyerahan: ' . $e->getMessage());
