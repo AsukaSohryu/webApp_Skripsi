@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 
 class FormReportController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         $reportForm = reportForm::with(['users'])->get();
 
@@ -20,7 +21,8 @@ class FormReportController extends Controller
         ]);
     }
 
-    public function detail($report_form_id){
+    public function detail($report_form_id)
+    {
 
         $detail = reportForm::with('users')
             ->where('report_form_id', $report_form_id)
@@ -28,13 +30,17 @@ class FormReportController extends Controller
 
         $photos = explode(';', $detail->photo);
         $photo_animal = $photos[0] ?? null;
-        $photo_location = $photos[1] ?? null; 
+        $photo_location = $photos[1] ?? null;
         $photo_additional = $photos[2] ?? null;
+
+        $detail->is_seen = 1;
+        $detail->save();
+
         // dd($detail);
 
         return view('internal.content.form.formReport.detail',[
             'title' => 'Detail Laporan Penemuan',
-            'pageTitle' => 'Detail Laporan Penemuan Hewan Liar',   
+            'pageTitle' => 'Detail Laporan Penemuan Hewan Liar',
             'pageSubTitle' => 'Detail Formulir ID: ' . $report_form_id,
             'detail' => $detail,
             'photo_animal' => $photo_animal,
@@ -43,15 +49,16 @@ class FormReportController extends Controller
         ]);
     }
 
-    public function edit($report_form_id){
-        
+    public function edit($report_form_id)
+    {
+
 
         $detail = reportForm::with(['users', 'status'])
             ->where('report_form_id', $report_form_id)
             ->first();
 
-            
-        if(in_array($detail->status_id, [3, 4, 5])){
+
+        if (in_array($detail->status_id, [3, 4, 5])) {
             return redirect()
                 ->route('formReport.detail', $report_form_id)
                 ->with('error', 'Status laporan sudah selesai, tidak bisa diupdate');
@@ -59,7 +66,7 @@ class FormReportController extends Controller
 
         $photos = explode(';', $detail->photo);
         $photo_animal = $photos[0] ?? null;
-        $photo_location = $photos[1] ?? null; 
+        $photo_location = $photos[1] ?? null;
         $photo_additional = $photos[2] ?? null;
         // dd($detail);
 
@@ -67,7 +74,7 @@ class FormReportController extends Controller
         return view('internal.content.form.formReport.edit',[
             'title' => 'Edit Laporan Penemuan',
             'pageTitle' => 'Edit Laporan Penemuan Hewan Liar',
-            'pageSubTitle' => 'Edit Formulir ID: '.$report_form_id,
+            'pageSubTitle' => 'Edit Formulir ID: ' . $report_form_id,
             'detail' => $detail,
             'photo_animal' => $photo_animal,
             'photo_location' => $photo_location,
@@ -75,7 +82,8 @@ class FormReportController extends Controller
         ]);
     }
 
-    public function editPost(Request $request){
+    public function editPost(Request $request)
+    {
         try {
             // Update report
             $update = ReportForm::where('report_form_id', $request->report_form_id)
@@ -84,17 +92,16 @@ class FormReportController extends Controller
                     'admin_feedback' => $request->responAdmin,
                     'updated_at' => now()
                 ]);
-    
+
             if (!$update) {
                 return redirect()
                     ->back()
                     ->with('error', 'Gagal mengupdate status laporan');
             }
-    
+
             return redirect()
                 ->route('formReport.detail', $request->report_form_id)
                 ->with('success', 'Status laporan berhasil diupdate');
-    
         } catch (\Exception $e) {
             return redirect()
                 ->back()

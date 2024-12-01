@@ -25,7 +25,7 @@ class FormHandoverController extends Controller
     public function detail($handover_form_id)
     {
         // $handoverForm = handoverForm::with(['users', 'status'])->where('handover_form_id', $handover_form_id)->first();
-        $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function($query) {
+        $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function ($query) {
             $query->withPivot('answer');
         }])->findOrFail($handover_form_id);
 
@@ -36,20 +36,22 @@ class FormHandoverController extends Controller
 
         $userName = $handoverForm->users->name;
 
+        $handoverForm->is_seen = 1;
+        $handoverForm->save();
+
         return view('internal.content.form.formHandover.detail', [
             'title' => 'Detail Form Penyerahan',
             'pageTitle' => 'Detail Form Penyerahan',
             'pageSubTitle' => 'Formulir Penyerahan - ' . $userName,
             'detail' => $handoverForm,
 
-            // 'adoptionQuestions' => $adoptionQuestions,
         ]);
     }
 
     public function edit($handover_form_id)
     {
         // $handoverForm = handoverForm::with(['users', 'status'])->where('handover_form_id', $handover_form_id)->first();
-        $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function($query) {
+        $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function ($query) {
             $query->withPivot('answer');
         }])->findOrFail($handover_form_id);
         $status = status::where('config', 'Form_Handover_Status')->get();
