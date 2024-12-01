@@ -40,7 +40,12 @@
         <h1 class="text-center">Data Informasi Shelter</h1>
         <form action="{{ route('informasiShelter.edit.post') }}" method="post" enctype="multipart/form-data">
             @csrf
-            {{-- Upload Shelter Logo Blm ditambahin--}}
+            <div class="row my-3">
+                <div class="col my-3 d-flex flex-column justify-content-center">
+                    <input type="file" class="form-control" name="shelterLogo">
+                    <div class="mt-2 ps-3">Currrent File: {{ $shelterInformation->shelter_logo }}</div>
+                </div>
+            </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="">Nama Shelter</label>
@@ -103,11 +108,12 @@
                 </div>
             </div>
             {{-- Informasi Halaman Tentang Kami --}}
-            {{-- <div class="row my-3">
-                <div class="col my-3 d-flex justify-content-center">
-                    <img src="{{ asset('storage/animal/' . $detail->photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
+            <div class="row my-3">
+                <div class="col my-3 d-flex flex-column justify-content-center">
+                    <input type="file" class="form-control" name="shelterPhoto">
+                    <div class="mt-2 ps-3">Currrent File: {{ $shelterInformation->shelter_photo }}</div>
                 </div>
-            </div> --}}
+            </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="">Informasi Tentang Shelter</label>
@@ -127,11 +133,12 @@
                 </div>
             </div>
             <h1 class="text-center">Informasi Halaman Tentang Kami</h1>
-            {{-- <div class="row my-3">
-                <div class="col my-3 d-flex justify-content-center">
-                    <img src="{{ asset('storage/animal/' . $detail->photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
+            <div class="row my-3">
+                <div class="col my-3 d-flex flex-column justify-content-center">
+                    <input type="file" class="form-control" name="founderPhoto">
+                    <div class="mt-2 ps-3">Currrent File: {{ $shelterInformation->founder_photo }}</div>
                 </div>
-            </div> --}}
+            </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="">Nama Pendiri</label>
@@ -181,11 +188,12 @@
             <div class="row my-3 p-3">
                 <div class="d-flex flex-row justify-content-between p-3" style="background-color: #CADFF2; border-radius: .475rem;">
                     <div class="col d-flex align-items-center">
-                        <label for=""><b>Status Penerimaan Laporan Penemuan Hewan Liar</b></label>
+                        <label for="reportToggle"><b>Status Penerimaan Laporan Penemuan Hewan Liar</b></label>
                     </div>
                     <div class="col d-flex align-items-center justify-content-end">
-                        <input type="checkbox" id="check" {{ $shelterInformation->is_accepting_report == 1 ? 'checked' : '' }}>
-                        <label for="check" class="button"></label>
+                        <input type="hidden" name="is_accepting_report" value="0"> <!-- Hidden input for unchecked state -->
+                        <input type="checkbox" id="reportToggle" name="is_accepting_report" value="1" {{ $shelterInformation->is_accepting_report == 1 ? 'checked' : '' }}>
+                        <label for="reportToggle" class="button"></label>
                         @if($shelterInformation->is_accepting_report == 1)
                             <label for="" class="ps-3"><b>Aktif</b></label>
                         @else
@@ -197,11 +205,12 @@
             <div class="row my-3 p-3">
                 <div class="d-flex flex-row justify-content-between p-3" style="background-color: #CADFF2; border-radius: .475rem;">
                     <div class="col d-flex align-items-center">
-                        <label for=""><b>Status Penerimaan Formulir Pengajuan Penyerahan Hewan</b></label>
+                        <label for="handoverToggle"><b>Status Penerimaan Formulir Pengajuan Penyerahan Hewan</b></label>
                     </div>
                     <div class="col d-flex align-items-center justify-content-end">
-                        <input type="checkbox" id="check" {{ $shelterInformation->is_accepting_handover == 1 ? 'checked' : '' }}>
-                        <label for="check" class="button"></label>
+                        <input type="hidden" name="is_accepting_handover" value="0"> <!-- Hidden input for unchecked state -->
+                        <input type="checkbox" id="handoverToggle" name="is_accepting_handover" value="1" {{ $shelterInformation->is_accepting_handover == 1 ? 'checked' : '' }}>
+                        <label for="handoverToggle" class="button"></label>
                         @if($shelterInformation->is_accepting_handover == 1)
                             <label for="" class="ps-3"><b>Aktif</b></label>
                         @else
@@ -213,11 +222,12 @@
             <div class="row my-3 p-3">
                 <div class="d-flex flex-row justify-content-between p-3" style="background-color: #CADFF2; border-radius: .475rem;">
                     <div class="col d-flex align-items-center">
-                        <label for=""><b>Status Penerimaan Formulir Pengajuan Pengadopsian Hewan</b></label>
+                        <label for="adoptionToggle"><b>Status Penerimaan Formulir Pengajuan Pengadopsian Hewan</b></label>
                     </div>
                     <div class="col d-flex align-items-center justify-content-end">
-                        <input type="checkbox" id="check" {{ $shelterInformation->is_accepting_adoption == 1 ? 'checked' : '' }}>
-                        <label for="check" class="button"></label>
+                        <input type="hidden" name="is_accepting_adoption" value="0"> <!-- Hidden input for unchecked state -->
+                        <input type="checkbox" id="adoptionToggle" name="is_accepting_adoption" value="1" {{ $shelterInformation->is_accepting_adoption == 1 ? 'checked' : '' }}>
+                        <label for="adoptionToggle" class="button"></label>
                         @if($shelterInformation->is_accepting_adoption == 1)
                             <label for="" class="ps-3"><b>Aktif</b></label>
                         @else
@@ -227,9 +237,58 @@
                 </div>
             </div>
             <div class=" my-3 d-flex justify-content-end">
-                <button class="btn btn-primary" type="submit" style="border: 0;">Simpan Data Shelter</button>
+                <button class="btn btn-primary" type="submit" style="border: 0;">Simpan Perubahan Data Shelter</button>
             </div>            
         </form>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-body">
+            <h2>{{ session('success') }}</h2>
+        </div>
+        <div class="modal-footer">
+            <a href="{{ route('informasiShelter.index', $shelterInformation->shelter_id) }}" type="button" class="btn btn-secondary" data-dismiss="modal">kembali</a>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-body">
+            {{ session('error') }}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+@if(session('success'))
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Show the modal
+        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+        successModal.show();
+    });
+</script>
+@endif
+
+@if(session('error'))
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Show the modal
+        const successModal = new bootstrap.Modal(document.getElementById('errorModal'));
+        successModal.show();
+    });
+</script>
+@endif
+
 @endsection

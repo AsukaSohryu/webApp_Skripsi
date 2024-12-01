@@ -18,21 +18,28 @@
                 dd($handoverForm);
             @endphp --}}
             <tr class="fw-bold text-center border-2 border-bottom border-dark py-auto">
-                <td>{{ $r->handover_form_id }}</td>
+                <td>
+                    <div style="position: relative;">
+                        @if($r->is_seen == 0)
+                            <span class="text-danger" style="position: absolute; left: 0; top: 0;">!</span>
+                        @endif
+                        {{ $r->handover_form_id }}
+                    </div>
+                </td>
                 <td>{{ $r->users->name }}</td>
                 {{-- <td>Testing</td> --}}
                 <td>{{ $r->created_at }}</td>
                 <td>
                     @if($r->status_id == 6)
-                        <span class="btn btn-primary">Penyerahan Diajukan</span>
+                        <span class="btn btn-secondary">Penyerahan Diajukan</span>
                     @elseif($r->status_id == 7)
-                        <span class="btn btn-primary">Pengajuan Penyerahan Disetujui</span>
+                        <span class="btn btn-warning">Pengajuan Penyerahan Disetujui</span>
                     @elseif($r->status_id == 8)
-                        <span class="btn btn-primary">Pengajuan Penyerahan Ditolak</span>
+                        <span class="btn btn-danger">Pengajuan Penyerahan Ditolak</span>
                     @elseif($r->status_id == 9)
                         <span class="btn btn-primary">Penyerahan Berhasil</span>
                     @elseif($r->status_id == 10)
-                        <span class="btn btn-primary">Penyerahan Dibatalkan</span>
+                        <span class="btn btn-danger">Penyerahan Dibatalkan</span>
                     @endif
                 </td> 
                 <td>

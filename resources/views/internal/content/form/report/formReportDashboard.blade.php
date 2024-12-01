@@ -15,20 +15,27 @@
         <tbody>
             @foreach ($reportForm as $r)
             <tr class="fw-bold text-center border-2 border-bottom border-dark py-auto">
-                <td>{{ $r->report_form_id }}</td>
+                <td>
+                    <div style="position: relative;">
+                        @if($r->is_seen == 0)
+                            <span class="text-danger" style="position: absolute; left: 0; top: 0;">!</span>
+                        @endif
+                        {{ $r->report_form_id }}
+                    </div>
+                </td>
                 <td>{{ $r->users->name }}</td>
                 <td>{{ $r->created_at }}</td>
                 <td>
                     @if($r->status_id == 1)
-                        <span class="btn btn-primary">Penyelematkan Diajukan</span>
+                        <span class="btn btn-secondary">Penyelematkan Diajukan</span>
                     @elseif($r->status_id == 2)
-                        <span class="btn btn-primary">Dalam Proses Penyelematan</span>
+                        <span class="btn btn-warning">Dalam Proses Penyelematan</span>
                     @elseif($r->status_id == 3)
                         <span class="btn btn-primary">Hewan Sukses Diselamatkan</span>
                     @elseif($r->status_id == 4)
-                        <span class="btn btn-primary">Hewan Tidak Ditemukan</span>
+                        <span class="btn btn-danger">Hewan Tidak Ditemukan</span>
                     @elseif($r->status_id == 5)
-                        <span class="btn btn-primary">Lainnya</span>
+                        <span class="btn btn-danger">Lainnya</span>
                     @endif
                 </td> 
                 <td>

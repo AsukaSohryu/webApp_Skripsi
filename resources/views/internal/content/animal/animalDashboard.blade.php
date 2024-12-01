@@ -20,19 +20,19 @@
                 <td>{{ $a->created_at }}</td>
                 <td>
                     @if($a->status_id == 16)
-                        <span class="btn btn-primary">Baru Diselamatkan</span>
+                        <span class="btn btn-secondary">Baru Diselamatkan</span>
                     @elseif($a->status_id == 17)
-                        <span class="btn btn-primary">Dalam Proses Perawatan</span>
+                        <span class="btn btn-warning">Dalam Proses Perawatan</span>
                     @elseif($a->status_id == 18)
                         <span class="btn btn-primary">Tersedia Untuk Adopsi</span>
                     @elseif($a->status_id == 19)
-                        <span class="btn btn-primary">Tidak Tersedia Untuk Adopsi</span>
+                        <span class="btn btn-danger">Tidak Tersedia Untuk Adopsi</span>
                     @elseif($a->status_id == 20)
-                        <span class="btn btn-primary">Dalam Proses Adopsi</span>
+                        <span class="btn btn-warning">Dalam Proses Adopsi</span>
                     @elseif($a->status_id == 21)
-                        <span class="btn btn-primary">Telah Diadopsi</span>
+                        <span class="btn btn-danger">Telah Diadopsi</span>
                     @elseif($a->status_id == 22)
-                        <span class="btn btn-primary">Dikembalikan Pada Pemilik</span>
+                        <span class="btn btn-danger">Dikembalikan Pada Pemilik</span>
                     @endif
                 </td> 
                 <td>
