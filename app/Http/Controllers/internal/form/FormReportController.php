@@ -12,7 +12,7 @@ class FormReportController extends Controller
 
         $reportForm = reportForm::with(['users'])->get();
 
-        return view('internal.content.form.report.formReportDashboard', [
+        return view('internal.content.form.formReport.formReportDashboard', [
             'title' => 'Form Report',
             'pageTitle' => 'Daftar Penemuan Hewan Liar',
             'pageSubTitle' => 'Daftar Penemuan Hewan Liar',
@@ -32,7 +32,7 @@ class FormReportController extends Controller
         $photo_additional = $photos[2] ?? null;
         // dd($detail);
 
-        return view('internal.content.form.report.detail',[
+        return view('internal.content.form.formReport.detail',[
             'title' => 'Detail Laporan Penemuan',
             'pageTitle' => 'Detail Laporan Penemuan Hewan Liar',   
             'pageSubTitle' => 'Detail Formulir ID: ' . $report_form_id,
@@ -64,7 +64,7 @@ class FormReportController extends Controller
         // dd($detail);
 
 
-        return view('internal.content.form.report.edit',[
+        return view('internal.content.form.formReport.edit',[
             'title' => 'Edit Laporan Penemuan',
             'pageTitle' => 'Edit Laporan Penemuan Hewan Liar',
             'pageSubTitle' => 'Edit Formulir ID: '.$report_form_id,
