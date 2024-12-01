@@ -170,12 +170,12 @@ function addNewQuestion() {
             </div>
         </td>
     `;
-    
+
     tbody.appendChild(newRow);
 
     const newCheckbox = newRow.querySelector('.toggle-checkbox');
-    const statusLabel = document.getElementById(`isActive-${tempId}`);
-    
+    const statusLabel = document.getElementById(`isActive-new-${index}`);
+
     newCheckbox.addEventListener('change', function() {
         statusLabel.innerHTML = this.checked ? '<b>Aktif</b>' : '<b>Tidak Aktif</b>';
     });
