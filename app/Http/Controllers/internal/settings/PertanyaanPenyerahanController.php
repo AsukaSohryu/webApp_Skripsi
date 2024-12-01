@@ -50,13 +50,15 @@ class PertanyaanPenyerahanController extends Controller
             // Handle new questions
             $newQuestions = $request->input('new_questions', []);
             $newActiveStatus = $request->input('new_activeStatus', []);
-            
+
             if (!empty($newQuestions)) {
                 foreach ($newQuestions as $index => $question) {
                     if (!empty($question)) {
-                        handoverQuestions::create([
+                        $isActive = isset($newActiveStatus[$index]) && $newActiveStatus[$index] == "1";
+                        
+                        HandoverQuestions::create([
                             'questions' => $question,
-                            'is_active' => isset($newActiveStatus[$index]) ? 1 : 0
+                            'is_active' => $isActive ? 1 : 0
                         ]);
                     }
                 }

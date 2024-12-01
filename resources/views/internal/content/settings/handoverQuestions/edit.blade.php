@@ -138,27 +138,28 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
 function addNewQuestion() {
     const tbody = document.querySelector('#questionTable tbody');
+    const rows = tbody.getElementsByTagName('tr');
+    const index = rows.length;
+    
     const newRow = document.createElement('tr');
     newRow.className = 'fw-bold text-center border-2 border-bottom border-dark';
-    
-    const tempId = 'new-' + Date.now();
     
     newRow.innerHTML = `
         <td class="text-start px-10 py-5">
             <input type="text" 
-                   name="new_questions[]" 
-                   class="form-control" 
-                   placeholder="Masukkan pertanyaan baru">
+                name="new_questions[${index}]" 
+                class="form-control" 
+                placeholder="Masukkan pertanyaan baru">
         </td>
         <td>
             <div class="col d-flex align-items-center justify-content-start gap-3 py-3">
                 <input type="checkbox" 
-                       class="toggle-checkbox"
-                       id="check-${tempId}"
-                       name="new_activeStatus[]"
-                       data-id="${tempId}">
-                <label for="check-${tempId}" class="button"></label>
-                <label id="isActive-${tempId}">
+                    class="toggle-checkbox"
+                    id="check-new-${index}"
+                    name="new_activeStatus[${index}]"
+                    value="1">
+                <label for="check-new-${index}" class="button"></label>
+                <label id="isActive-new-${index}">
                     <b>Tidak Aktif</b>
                 </label>
                 <button type="button" 
