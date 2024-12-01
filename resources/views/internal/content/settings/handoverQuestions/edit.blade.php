@@ -42,9 +42,9 @@
     <form action="{{ route('pertanyaanPenyerahan.edit.post') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row mb-4">
-            <div class="col-md-10 mx-auto">
+            <div class="col-md-10">
                 <div class="input-group">
-                    <input type="text" class="form-control rounded-1" id="searchQuestion" placeholder="Cari Pertanyaan" onkeyup="searchQuestions()">
+                    <input type="text" class="form-control rounded-1" id="searchQuestion" placeholder="Pencarian" onkeyup="searchQuestions()">
                 </div>
             </div>
         </div>
@@ -125,14 +125,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const statusLabel = document.getElementById(`isActive-${dataId}`); 
         
         checkbox.addEventListener('change', function() {
-            // For Debug
-            console.log('Checkbox changed:', {
-                id: dataId,
-                newState: this.checked,
-                timestamp: new Date().toISOString(),
-                labelExists: !!statusLabel,
-                labelContent: statusLabel ? statusLabel.innerHTML : null
-            });
             if (statusLabel) {
                 statusLabel.innerHTML = this.checked ? '<b>Aktif</b>' : '<b>Tidak Aktif</b>';
             } else {
