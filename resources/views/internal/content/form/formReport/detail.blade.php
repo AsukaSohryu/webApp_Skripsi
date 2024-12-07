@@ -125,7 +125,7 @@
         @if(!in_array($detail->status_id, [3, 4, 5]))
             <div class="my-10 d-flex justify-content-end">
                 <form action="{{ route('formReport.edit', $detail->report_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
-                    <button class="btn btn-primary" style="border: 0;" title="Edit">Simpan Perubahan</button>
+                    <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Data Formulir Pelaporan</button>
                 </form>
             </div>
         @else

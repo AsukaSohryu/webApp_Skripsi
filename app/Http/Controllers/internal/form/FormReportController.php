@@ -5,6 +5,7 @@ namespace App\Http\Controllers\internal\form;
 use App\Http\Controllers\Controller;
 use App\Models\reportForm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class FormReportController extends Controller
 {
@@ -57,7 +58,6 @@ class FormReportController extends Controller
             ->where('report_form_id', $report_form_id)
             ->first();
 
-
         if (in_array($detail->status_id, [3, 4, 5])) {
             return redirect()
                 ->route('formReport.detail', $report_form_id)
@@ -84,28 +84,19 @@ class FormReportController extends Controller
 
     public function editPost(Request $request)
     {
-        try {
-            // Update report
+        if($request != null){
             $update = ReportForm::where('report_form_id', $request->report_form_id)
-                ->update([
-                    'status_id' => $request->statusLaporan,
-                    'admin_feedback' => $request->responAdmin,
-                    'updated_at' => now()
-                ]);
-
-            if (!$update) {
-                return redirect()
-                    ->back()
-                    ->with('error', 'Gagal mengupdate status laporan');
-            }
-
-            return redirect()
-                ->route('formReport.detail', $request->report_form_id)
-                ->with('success', 'Status laporan berhasil diupdate');
-        } catch (\Exception $e) {
-            return redirect()
-                ->back()
-                ->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+                    ->update([
+                        'status_id' => $request->statusLaporan,
+                        'admin_feedback' => $request->responAdmin,
+                        'updated_at' => now()
+                    ]);
+            
         }
+        // dd($update);
+        if ($update) {
+            return back()->with('success', 'Form Adopsi Berhasil di Update');
+        }
+        
     }
 }
