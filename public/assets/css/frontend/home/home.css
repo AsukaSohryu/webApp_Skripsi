@@ -1,0 +1,231 @@
+#hero{
+    position: relative;
+    /* padding: 10px; */
+    display: flex;
+    justify-content: center;
+    height: max-content;
+    max-height: 80%;
+    padding-top: 5%;
+}
+
+#hero-mobile{
+    position: relative;
+    /* padding: 10px; */
+    display: flex;
+    justify-content: center;
+    height: max-content;
+    max-height: 80%;
+    padding-top: 0;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#hero img, #hero-mobile img{
+    /* height: auto; */
+    height: 100vh;
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#hero .image , #hero-mobile .image{
+    display: none;
+    opacity: 0;
+}
+
+#hero .image-active, #hero-mobile .image-active{
+    display: block !important;
+    opacity: 1;
+}
+
+#hero .home-carousel, #hero-mobile .home-carousel-mobile{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+#hero .home-carousel .detail{
+    max-width: 1320px;
+    height: 100%;
+    background:none !important;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    align-items: end;
+    padding: 35px 10px;
+}
+
+#hero-mobile .home-carousel-mobile .detail{
+
+    max-width: 1320px;
+    height: 100%;
+    background:none !important;
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+    align-items: end;
+    padding: 25px 10px;
+}
+/* @media(max-width:991px){
+    #hero{
+        margin-top: 0px !important;
+        padding-top: 70px;
+    }
+    #hero .home-carousel .detail{
+        padding-top: 70px;
+        padding-bottom: 10px;
+    }
+} */
+
+#hero .home-carousel .detail .slide, #hero-mobile .home-carousel-mobile .detail .slide-mobile{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 100%;
+    gap: 8px;
+}
+
+#hero .home-carousel .detail .button, #hero-mobile .home-carousel-mobile .detail .button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#hero .home-carousel .detail .button button, #hero-mobile .home-carousel-mobile .detail .button button{
+    border-radius: 100%;
+    padding: 8px;
+    width: 45px;
+    height: 45px;
+    border: 2px solid white;
+    background: none
+}
+
+#hero .home-carousel .detail .button button i, #hero-mobile .home-carousel-mobile .detail .button button i{
+    color: white;
+}
+@keyframes slide {
+    0% {
+        width: 8px;
+    }
+    100%{
+        width: 30px;
+    }
+}
+@keyframes slideout {
+    0% {
+        width: 30px;
+    }
+    100%{
+        width: 8px;
+    }
+}
+#hero .home-carousel .detail .slide .slide-button, #hero-mobile .home-carousel-mobile .detail .slide-mobile .slide-button{
+    width: 8px;
+    height: 8px;
+    background: #5c5c5c;
+    border-radius: 8px;
+    border: 0;
+    animation: slideout 0.2s ease-in-out;
+}
+
+#hero .home-carousel .detail .slide .slide-active, #hero-mobile .home-carousel-mobile .detail .slide-mobile .slide-active{
+    width: 30px;
+    background: #fff;
+    border-radius: 4px;
+    animation: slide 0.2s ease-in-out;
+}
+
+#home-1-desktop .container h1{
+
+    color: #2D4C98;
+}
+
+#home-1-desktop .container .card{
+
+    box-shadow: 4px 4px 20px 0px #0000001A;
+}
+
+#blog-desktop .box, #blog-mobile .box{
+    display: grid;
+    padding: 12px;
+    /* box-shadow: 4px 4px 20px 0px #0000001A; */
+
+
+}
+#blog-desktop .boxs, #blog-mobile .boxs{
+    display: grid;
+}
+
+#blog-desktop .card, #blog-mobile .card{
+    border: 0;
+    height: 100%;
+    box-shadow: 4px 4px 20px 0px #0000001A;
+
+}
+
+#blog-desktop .card .card-body, #blog-mobile .card .card-body{
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+
+}
+
+#blog-desktop .card .date, #blog-mobile .card .date{
+    font-weight: 400;
+    font-size: 14px;
+}
+
+#blog-desktop .card .main, #blog-mobile .card .main{
+    height: 100%;
+}
+
+#blog-desktop .card .more a, #blog-mobile .card .more a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-bottom: 2px solid #002D71;
+    color: #5E6666;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+#blog-desktop .card .more, #blog-mobile .card .more {
+    display: flex;
+    align-items: end;
+    height: 100%;
+}
+#blog-desktop .card .more a i, #blog-mobile .card .more a i{
+    color: #002D71;
+}
+#blog-desktop .boxs .card img, #blog-mobile .boxs .card img{
+    height: 200px;
+}
+
+@media (min-width: 0px) and (max-width: 766px){
+
+} 
+
+@media (min-width: 767px) and (max-width: 821px){
+
+}
+
+@media (min-width: 822px) and (max-width: 1023px){
+
+}
+
+@media (min-width: 1024px){
+
+}

@@ -43,16 +43,6 @@ Route::get('/status-pengajuan-pengadopsian-hewan', [StatusPengajuanPengadopsianH
 Route::get('/status-pengajuan-penyerahan-hewan', [StatusPengajuanPenyerahanHewanController::class, 'index'])->name('status-penyerahan');
 
 //admin
-
-// Route::get('/form-adopsi', [FormAdopsiController::class, 'index'])->name('formAdopsi.index');
-
-// Route::get('/form-handover', [FormHandoverController::class, 'index'])->name('formHandover.index');
-
-// Route::get('/informasi-shelter', [InformasiShelterController::class, 'index'])->name('informasiShelter.index');
-
-// Route::get('/pertanyaan-pengadopsian', [PertanyaanPengadopsianController::class, 'index'])->name('pertanyaanPengadopsian.index');
-
-// Route::get('/pertanyaan-penyerahan', [PertanyaanPenyerahanController::class, 'index'])->name('pertanyaanPenyerahan.index');
 // middleware('role:Admin')->
 Route::prefix('admin')->group(function () {
 
