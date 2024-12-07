@@ -132,7 +132,7 @@
                         style="border: 0;">
                          Batalkan
                     </a>
-                    <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Status Laporan</button>
+                    <button class="btn btn-primary" style="border: 0;" title="Edit">Simpan Perubahan</button>
                 </div>
             @else
                 <div class="my-10 d-flex justify-content-end">

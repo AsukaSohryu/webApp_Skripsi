@@ -17,102 +17,102 @@ class HandoverAnswersSeeder extends Seeder
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 1,
-                'answer' => 'Choco', 
+                'answer' => 'Choco',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 2,
-                'answer' => 'Anjing', 
+                'answer' => 'Anjing',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 3,
-                'answer' => '7', 
+                'answer' => '7',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 4,
-                'answer' => '2017-01-04', 
+                'answer' => '2017-01-04',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 5,
-                'answer' => 'Jantan', 
+                'answer' => 'Jantan',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 6,
-                'answer' => 'Chihuahua', 
+                'answer' => 'Chihuahua',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 7,
-                'answer' => 'Coklat Kehitaman', 
+                'answer' => 'Coklat Kehitaman',
             ],
-            [
+            [ // Berat Hewan
                 'handover_form_id' => 1,
                 'handover_questions_id' => 8,
-                'answer' => '3 kg', 
+                'answer' => 3,
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 9,
-                'answer' => 'DHLPP, Rabies, Bordetella, Influenza Canine, Leptospirosis, Lyme Disease, dan Coronavirus Canine', 
+                'answer' => 'DHLPP, Rabies, Bordetella, Influenza Canine, Leptospirosis, Lyme Disease, dan Coronavirus Canine',
             ],
-            [
+            [ // Is Sterile
                 'handover_form_id' => 1,
                 'handover_questions_id' => 10,
-                'answer' => 'Iya', 
+                'answer' => 1,
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 11,
-                'answer' => '2023-05-06', 
+                'answer' => '2023-05-06',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 12,
-                'answer' => 'Umur saya sudah terlalu tua dan tidak dapat mengurus dengan baik', 
+                'answer' => 'Umur saya sudah terlalu tua dan tidak dapat mengurus dengan baik',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 13,
-                'answer' => 'Makanan kaleng, Nasi, dan Daging', 
+                'answer' => 'Makanan kaleng, Nasi, dan Daging',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 14,
-                'answer' => 'Tidak', 
+                'answer' => 'Tidak',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 15,
-                'answer' => 'Iya', 
+                'answer' => 'Iya',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 16,
-                'answer' => 'Iya', 
+                'answer' => 'Iya',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 17,
-                'answer' => 'Didalam', 
+                'answer' => 'Didalam',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 18,
-                'answer' => 'Didalam', 
+                'answer' => 'Didalam',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 19,
-                'answer' => 'Iya', 
+                'answer' => 'Iya',
             ],
             [
                 'handover_form_id' => 1,
                 'handover_questions_id' => 20,
-                'answer' => 'Choco tidak suka dijahili secara terus menerus, dapat menjadi sangat galak', 
+                'answer' => 'Choco tidak suka dijahili secara terus menerus, dapat menjadi sangat galak',
             ],
         ]);
     }

@@ -74,7 +74,7 @@
             </div>
             <div class="col">
                 <label for="">Umur</label>
-                <input type="text" name="animalAge" id="animalAge" value="{{$detail->animal->age}}" class="form-control" disabled>
+                <input type="text" name="animalAge" id="animalAge" value="{{$detail->animal->age}} Tahun" class="form-control" disabled>
             </div>
         </div>
 
@@ -83,27 +83,6 @@
             <div class="row my-3">
                 <div class="col">
                     <input type="text" name="adoptionFormID" id="adoptionFormID" value="{{$detail->adoption_form_id}}" class="form-control" hidden>
-                </div>
-            </div>
-            <div class="col">
-                <label for="" class="my-3">Status Formulir Adopsi</label>
-                <select class="form-control custom-dropdown" id="statusID" name="statusID" required>
-                    @foreach($adoptionFormStatus as $s)
-                        <option value="{{ $s->status_id }}" {{ $s->status_id == $detail->status_id ? 'selected' : '' }}>
-                            {{ $s->status }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="row my-3">
-                <div class="col">
-                    <label for="">Admin Feedback</label>
-                    <input type="text" name="adminFeedback" id="adminFeedback" value="{{$detail->admin_feedback}}" class="form-control">
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col">
-                    <input type="text" name="isSeen" id="isSeen" value="0" class="form-control" hidden>
                 </div>
             </div>
             <hr>
@@ -116,18 +95,50 @@
                     </label>
 
                     <!-- Input for the answer -->
-                    <input type="text" 
+                    <textarea 
                         id="question-{{ $question->id }}" 
                         name="answers[{{ $question->id }}]" 
                         class="form-control" 
-                        value="{{ $question->pivot->answer ?? '' }}" 
-                        placeholder="Enter your answer" disabled>
+                        placeholder="Enter your answer" 
+                        disabled>{{ $question->pivot->answer ?? '' }}
+                    </textarea>
                 </div>
             </div>
             @endforeach
-            <div class=" my-3 d-flex justify-content-end">
+            <hr>
+            <div class="col">
+                <label for="" class="my-3">Status Formulir Adopsi</label>
+                <select class="form-control custom-dropdown" id="statusID" name="statusID" required>
+                    @foreach($adoptionFormStatus as $s)
+                        <option value="{{ $s->status_id }}" {{ $s->status_id == $detail->status_id ? 'selected' : '' }}>
+                            {{ $s->status }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    <label for="adminFeedback">Respon Admin</label>
+                    <textarea 
+                        name="adminFeedback" 
+                        id="adminFeedback" 
+                        class="form-control">{{ $detail->admin_feedback }}</textarea>
+                </div>
+            </div>
+            @if(!in_array($detail->status_id, [13, 14, 15]))
+            <div class="gap-3 my-10 d-flex justify-content-end">
+                <a href="{{ route('formAdopsi.detail', $detail->adoption_form_id) }}" 
+                    class="btn btn-secondary"
+                    style="border: 0;">
+                     Batalkan
+                </a>
                 <button class="btn btn-primary" type="submit" style="border: 0;">Simpan Perubahan</button>
-            </div>            
+            </div>
+            @else
+                <div class="my-10 d-flex justify-content-end">
+                    <button class="btn btn-secondary" disabled title="Laporan  sudah final">Status Tidak Dapat Diubah</button>
+                </div>
+            @endif          
         </form>
     </div>
 </div>

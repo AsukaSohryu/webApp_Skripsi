@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\handoverForm;
 use Illuminate\Http\Request;
 use App\Models\status;
+use App\Models\animal;
 
 class FormHandoverController extends Controller
 {
@@ -14,9 +15,9 @@ class FormHandoverController extends Controller
         $handoverForm = handoverForm::with(['users', 'status'])->get();
 
         return view('internal.content.form.formHandover.formHandoverDashboard', [
-            'title' => 'Form Handover',
-            'pageTitle' => 'Form Handover',
-            'pageSubTitle' => 'Form Handover',
+            'title' => 'Form Penyerahan',
+            'pageTitle' => 'Daftar Formulir Penyerahan',
+            'pageSubTitle' => 'Daftar Formulir Penyerahan',
             'handoverForm' => $handoverForm
 
         ]);
@@ -40,8 +41,8 @@ class FormHandoverController extends Controller
         $handoverForm->save();
 
         return view('internal.content.form.formHandover.detail', [
-            'title' => 'Detail Form Penyerahan',
-            'pageTitle' => 'Detail Form Penyerahan',
+            'title' => 'Detail Formulir Penyerahan',
+            'pageTitle' => 'Detail Formulir Penyerahan',
             'pageSubTitle' => 'Formulir Penyerahan - ' . $userName,
             'detail' => $handoverForm,
 
@@ -50,16 +51,19 @@ class FormHandoverController extends Controller
 
     public function edit($handover_form_id)
     {
-        // $handoverForm = handoverForm::with(['users', 'status'])->where('handover_form_id', $handover_form_id)->first();
         $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function ($query) {
             $query->withPivot('answer');
+            // dd($query->withPivot('answer'));
         }])->findOrFail($handover_form_id);
         $status = status::where('config', 'Form_Handover_Status')->get();
+        $userName = $handoverForm->users->name;
+
+        // dd($handoverForm->all());
 
         return view('internal.content.form.formHandover.edit', [
-            'title' => 'Informasi Shelter',
-            'pageTitle' => 'Konfigurasi Informasi Shelter',
-            'pageSubTitle' => 'Daftar Informasi Shelter',
+            'title' => 'Perubahan Formulir Penyerahan',
+            'pageTitle' => 'Perubahan Formulir Penyerahan',
+            'pageSubTitle' => 'Perubahan Formulir Penyerahan - ' . $userName,
             'detail' => $handoverForm,
             'handoverFormStatus' => $status
         ]);
@@ -75,14 +79,70 @@ class FormHandoverController extends Controller
 
                 'status_id' => $request->statusID,
                 'admin_feedback' => $request->adminFeedback,
-                'is_seen' => $request->isSeen,
-
             ]);
+
+            $successCreate = 'false';
+            if ($request->statusID == 9) {
+                $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function ($query) {
+                    $query->withPivot('answer');
+                }])->findOrFail($request->handoverFormID);
+
+                foreach ($handoverForm->handoverQuestions as $question) {
+
+                    if ($question->handover_questions_id == 1) {
+                        $animalName = $question->pivot->answer;
+                    } else if ($question->handover_questions_id == 2) {
+                        $animalType = $question->pivot->answer;
+                    } else if ($question->handover_questions_id == 3) {
+                        $age = $question->pivot->answer;
+                    } else if ($question->handover_questions_id == 4) {
+                        $birth_date = $question->pivot->answer;
+                    } else if ($question->handover_questions_id == 5) {
+                        $sex = $question->pivot->answer;
+                    } else if ($question->handover_questions_id == 6) {
+                        $race = $question->pivot->answer;
+                    } else if ($question->handover_questions_id == 7) {
+                        $color = $question->pivot->answer;
+                    } else if ($question->handover_questions_id == 8) {
+                        $weight = $question->pivot->answer;
+                    } else if ($question->handover_questions_id == 9) {
+                        $vaccine = $question->pivot->answer;
+                    } else if ($question->handover_questions_id == 10) {
+                        $is_sterile = $question->pivot->answer;
+                    }
+                }
+                // dd($weight);
+                $newAnimal = animal::create([
+                    'status_id' => 17,
+                    'animal_name' => $animalName,
+                    'animal_type' => $animalType,
+                    'age' => $age,
+                    'birth_date' => $birth_date,
+                    'sex' => $sex,
+                    'race' => $race,
+                    'color' => $color,
+                    'weight' => $weight,
+                    'vaccine' => $vaccine,
+                    'is_sterile' => $is_sterile,
+                    'source' => 'Diserahkan pemilik lama',
+                    'characteristics' => 'Belum ada data',
+                    'description' => 'Belum ada data',
+                    'medical_note' => 'Belum ada data',
+                    'photo' => ' ',
+                    'is_active' => 1,
+                ]);
+                $successCreate = 'true';
+            }
         }
 
         // dd($update);
         if ($update) {
-            return back()->with('success', 'Form Penyerahan Berhasil di Update');
+            $message = 'Form Penyerahan Berhasil di Update';
+
+            if ($successCreate == 'true') {
+                $message = 'Form Penyerahan Berhasil di Update, Data Hewan Berhasil dibuat';
+            }
+            return back()->with('success', $message);
         }
     }
 }

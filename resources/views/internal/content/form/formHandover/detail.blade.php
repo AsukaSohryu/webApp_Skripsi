@@ -32,15 +32,50 @@
                 <input type="text" name="job" id="job" value="{{$detail->users->job}}" class="form-control" disabled>
             </div>
         </div>
-        {{-- Area Adoption Form Questions --}}
-        {{-- <div class="row my-3">
-            <div class="col">
-                <label for="">Alamat Pengguna</label>
-                <input type="text" name="idHewan" id="idHewan" value="{{$adoptionQuestions->questions}}" class="form-control" disabled>
+        <hr>
+        @foreach ($detail->handoverQuestions as $question)
+            <div class="row my-3">
+                <div class="col">
+                    <!-- Label for the question -->
+                    <label for="question-{{ $question->handover_questions_id }}" class="form-label">
+                        {{ $question->questions }}
+                    </label>
+        
+                    @php
+                        // Initialize the value based on the question ID
+                        $inputValue = '';
+                        $unit = '';
+        
+                        switch ($question->handover_questions_id) {
+                            case 3:
+                                $unit = ' Tahun';
+                                $inputValue = $question->pivot->answer ?? '';
+                                break;
+                            case 8:
+                                $unit = ' Kg';
+                                $inputValue = $question->pivot->answer ?? '';
+                                break;
+                            case 10:
+                                $inputValue = ($question->pivot->answer == 1) ? 'Sudah' : 'Belum';
+                                break;
+                            default:
+                                $inputValue = $question->pivot->answer ?? '';
+                                break;
+                        }
+                    @endphp
+        
+                    <textarea 
+                        id="question-{{ $question->handover_questions_id }}" 
+                        name="answers[{{ $question->handover_questions_id }}]" 
+                        class="form-control" 
+                        placeholder="Enter your answer" 
+                        disabled>{{ $inputValue . $unit }}
+                    </textarea>
+                </div>
             </div>
-        </div> --}}
-
+        @endforeach
         {{-- Updateable Field --}}
+        <hr>
         <div class="row my-3">
             <div class="col">
                 <label for="">Status Laporan</label>
@@ -49,34 +84,28 @@
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Admin Feedback</label>
-                <input type="text" name="adminFeedback" id="adminFeedback" value="{{$detail->admin_feedback}}" class="form-control" disabled>
+                <label for="adminFeedback">Respon Admin</label>
+                <textarea 
+                    name="adminFeedback" 
+                    id="adminFeedback" 
+                    class="form-control" 
+                    disabled>{{ $detail->admin_feedback }}</textarea>
             </div>
         </div>
-        <hr>
-        @foreach ($detail->handoverQuestions as $question)
-            <div class="row my-3">
-                <div class="col">
-                    <!-- Label for the question -->
-                    <label for="question-{{ $question->id }}" class="form-label">
-                        {{ $question->questions }}
-                    </label>
+        @if($detail->status->status_id == 8 || $detail->status->status_id == 9 || $detail->status->status_id == 10)
+            <div class=" my-3 d-flex justify-content-end">
+                <form action="{{ route('formHandover.edit', $detail->handover_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengubah Data Formulir Penyerahan Ini?');">
+                    <button class="btn btn-secondary" style="border: 0;" title="Edit" disabled>Status Tidak Dapat Diubah</button>
+                </form>
+            </div>
+        @else
+            <div class=" my-3 d-flex justify-content-end">
+                <form action="{{ route('formHandover.edit', $detail->handover_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengubah Data Formulir Penyerahan Ini?');">
+                    <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Data Formulir Penyerahan</button>
+                </form>
+            </div>
+        @endif
 
-                    <!-- Input for the answer -->
-                    <input type="text" 
-                        id="question-{{ $question->id }}" 
-                        name="answers[{{ $question->id }}]" 
-                        class="form-control" 
-                        value="{{ $question->pivot->answer ?? '' }}" 
-                        placeholder="Enter your answer" disabled>
-                </div>
-            </div>
-        @endforeach
-        <div class=" my-3 d-flex justify-content-end">
-            <form action="{{ route('formHandover.edit', $detail->handover_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengubah Data Formulir Penyerahan Ini?');">
-                <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Data Formulir Penyerahan</button>
-            </form>
-        </div>
     </div>
 </div>
 @endsection

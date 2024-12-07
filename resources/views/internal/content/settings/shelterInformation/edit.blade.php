@@ -42,6 +42,7 @@
             @csrf
             <div class="row my-3">
                 <div class="col my-3 d-flex flex-column justify-content-center">
+                    <label for="">Upload Logo Shelter</label>
                     <input type="file" class="form-control" name="shelterLogo">
                     <div class="mt-2 ps-3">Currrent File: {{ $shelterInformation->shelter_logo }}</div>
                 </div>
@@ -110,6 +111,7 @@
             {{-- Informasi Halaman Tentang Kami --}}
             <div class="row my-3">
                 <div class="col my-3 d-flex flex-column justify-content-center">
+                    <label for="">Upload Foto Shelter</label>
                     <input type="file" class="form-control" name="shelterPhoto">
                     <div class="mt-2 ps-3">Currrent File: {{ $shelterInformation->shelter_photo }}</div>
                 </div>
@@ -135,6 +137,7 @@
             <h1 class="text-center">Informasi Halaman Tentang Kami</h1>
             <div class="row my-3">
                 <div class="col my-3 d-flex flex-column justify-content-center">
+                    <label for="">Upload Foto Pendiri</label>
                     <input type="file" class="form-control" name="founderPhoto">
                     <div class="mt-2 ps-3">Currrent File: {{ $shelterInformation->founder_photo }}</div>
                 </div>

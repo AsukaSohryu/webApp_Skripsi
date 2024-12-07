@@ -18,6 +18,7 @@ class HandoverFormSeeder extends Seeder
             'status_id' => 6,
             'photo' => '',
             'is_seen' => 0,
+            'created_at' => '2024-12-01 00:00:00'
         ]);
     }
 }

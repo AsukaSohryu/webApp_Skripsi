@@ -15,7 +15,7 @@ class InformasiShelterController extends Controller
         return view('internal.content.settings.shelterInformation.informasiShelter', [
             'title' => 'Informasi Shelter',
             'pageTitle' => 'Konfigurasi Informasi Shelter',
-            'pageSubTitle' => 'Daftar Informasi Shelter',
+            'pageSubTitle' => 'Detail Informasi Shelter',
             'shelterInformation' => $shelterInformation
         ]);
     }
@@ -27,7 +27,7 @@ class InformasiShelterController extends Controller
         return view('internal.content.settings.shelterInformation.edit', [
             'title' => 'Informasi Shelter',
             'pageTitle' => 'Konfigurasi Informasi Shelter',
-            'pageSubTitle' => 'Daftar Informasi Shelter',
+            'pageSubTitle' => 'Perubahan Informasi Shelter',
             'shelterInformation' => $detail
         ]);
     }

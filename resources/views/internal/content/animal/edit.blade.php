@@ -54,7 +54,7 @@
         ];
     @endphp
     <div class="card-body py-9">
-        <h1 class="text-center">Detail Data Hewan</h1>
+        <h1 class="text-center">Edit Data Hewan</h1>
         <form action="{{ route('dataHewan.edit.post') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row my-3">
@@ -80,8 +80,8 @@
                     <input type="text" name="jenisHewan" id="jenisHewan" value="{{$detail->animal_type}}" class="form-control">
                 </div>
                 <div class="col">
-                    <label for="" class="my-3">Usia Hewan</label>
-                    <input type="text" name="usiaHewan" id="usiaHewan" value="{{ $detail->age }}" class="form-control">
+                    <label for="" class="my-3">Usia Hewan (Tahun)</label>
+                    <input type="number" name="usiaHewan" id="usiaHewan" value="{{ $detail->age }}" class="form-control" min="0">
                 </div>
             </div>
             <div class="row my-3">
@@ -107,8 +107,8 @@
                     <input type="text" name="warnaHewan" id="warnaHewan" value="{{ $detail->color }}" class="form-control">
                 </div>
                 <div class="col">
-                    <label for="" class="my-3">Berat Hewan</label>
-                    <input type="text" name="beratHewan" id="beratHewan" value="{{ $detail->weight }}" class="form-control">
+                    <label for="" class="my-3">Berat Hewan (Kg)</label>
+                    <input type="number" name="beratHewan" id="beratHewan" value="{{ $detail->weight }}" class="form-control" step="0.01" min="0">
                 </div>
             </div>
             <div class="row my-3">
@@ -185,8 +185,13 @@
                     </div>
                 </div>
             </div>
-            <div class=" my-3 d-flex justify-content-end">
-                <button class="btn btn-primary" type="submit" style="border: 0;">Simpan Data Hewan</button>
+            <div class="gap-3 my-10 d-flex justify-content-end">
+                <a href="{{ route('dataHewan.detail', $detail->animal_id) }}" 
+                    class="btn btn-secondary"
+                    style="border: 0;">
+                     Batalkan
+                </a>
+                <button class="btn btn-primary" type="submit" style="border: 0;">Simpan Perubahan</button>
             </div>
         </form>
     </div>

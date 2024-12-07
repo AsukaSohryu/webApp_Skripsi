@@ -19,12 +19,14 @@ class AdoptionFormSeeder extends Seeder
                 'animal_id' => 3,
                 'status_id' => 11,
                 'is_seen' => 0,
+                'created_at' => '2024-12-01 00:00:00'
             ],
             [
                 'user_id' => 1,
                 'animal_id' => 3,
                 'status_id' => 11,
                 'is_seen' => 1,
+                'created_at' => '2024-12-01 00:00:00'
             ],
         ]);
     }
