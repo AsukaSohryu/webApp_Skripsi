@@ -60,14 +60,20 @@
                 <tr class="fw-bold text-center border-2 border-bottom border-dark">
                     <td class="text-start px-10 py-5" style="width: 85%">{{ $h->questions }}</td>
                     <td style="width: 15%">
-                        <div class="d-flex align-items-center justify-content-start gap-3 py-3">
+                        @if($h->handover_questions_id >= 1 && $h->handover_questions_id <= 10)
+                            <div class="d-flex align-items-center justify-content-start gap-3 py-3" 
+                                style="opacity: 0.6; pointer-events: none;">
+                        @else
+                            <div class="d-flex align-items-center justify-content-start gap-3 py-3">
+                        @endif
                             <input type="hidden" name="activeStatus[{{ $h->handover_questions_id }}]" value="off">
                             <input type="checkbox" 
                                 class="toggle-checkbox"
                                 id="check-{{ $h->handover_questions_id }}" 
                                 name="activeStatus[{{ $h->handover_questions_id }}]"
                                 data-id="{{ $h->handover_questions_id }}"
-                                {{ $h->is_active == 1 ? 'checked' : '' }}>
+                                {{ $h->is_active == 1 ? 'checked' : '' }}
+                                {{ ($h->handover_questions_id >= 1 && $h->handover_questions_id <= 10) ? 'disabled' : '' }}>
                             <label for="check-{{ $h->handover_questions_id }}" class="button"></label>
                             <label class="py-3 mb-0" id="isActive-{{ $h->handover_questions_id }}">
                                 <b>{{ $h->is_active == 1 ? 'Aktif' : 'Tidak Aktif' }}</b>
