@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\frontEnd\HomeController;
+use App\Http\Controllers\frontend\layanan\HewanDiselamatkanController;
 use App\Http\Controllers\frontend\layanan\LayananLaporanHewanHilangController;
 use App\Http\Controllers\frontend\layanan\LayananLihatHewanSiapAdopsiController;
 use App\Http\Controllers\frontend\layanan\LayananPengajuanPenyerahanHewanController;
@@ -34,6 +35,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/tentang-kami', [TentangKamiController::class, 'index'])->name('tentang-kami');
 
+Route::get('/hewan-diselamatkan', [HewanDiselamatkanController::class, 'index'])->name('layanan-hewan-diselamatkan');
 Route::get('/layanan-laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'index'])->name('layanan-laporan');
 Route::get('/layanan-lihat-hewan-siap-adopsi', [LayananLihatHewanSiapAdopsiController::class, 'index'])->name('layanan-lihat');
 Route::get('/layanan-pengajuan-penyerahan-hewan', [LayananPengajuanPenyerahanHewanController::class, 'index'])->name('layanan-pengajuan');

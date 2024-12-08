@@ -12,6 +12,7 @@
             </li>
             <li class="dropdown"><a href="#"><span style="font-size: 16px;">Layanan Kami</span><i class="bi bi-chevron-down"></i></a>
               <ul>
+                <li><a href="{{ url('layanan-hewan-diselamatkan') }}"><span style="font-size: 16px;"><b>Lihat daftar hewan yang diselamatkan</b></span> </a></li>
                 <li><a href="{{ url('layanan-laporan-hewan-hilang') }}"><span style="font-size: 16px;"><b>Laporkan Penemuan Hewan Liar</b></span> </a></li>
                 <li><a href="{{ url('layanan-pengajuan-penyerahan-hewan') }}"><span style="font-size: 16px;"><b>Ajukan Penyerahan Hewan</b></span> </a></li>
                 <li><a href="{{ url('layanan-lihat-hewan-siap-adopsi') }}"><span style="font-size: 16px;"><b>Lihat Hewan Siap Adopsi</b></span></a></li>
