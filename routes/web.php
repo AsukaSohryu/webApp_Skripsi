@@ -64,6 +64,9 @@ Route::prefix('admin')->group(function () {
         Route::get('/detail-hewan/{animal_id}', [DataHewanController::class, 'detail'])->name('dataHewan.detail');
         Route::get('/edit-data-hewan/{animal_id}', [DataHewanController::class, 'edit'])->name('dataHewan.edit');
         Route::post('/edit-data-hewan-post', [DataHewanController::class, 'editPost'])->name('dataHewan.edit.post');
+        Route::get('/create-hewan', [DataHewanController::class, 'create'])->name('dataHewan.create');
+        Route::post('/create-hewan-post', [DataHewanController::class, 'createPost'])->name('dataHewan.create.post');
+        
     });
 
     // REGION FORM

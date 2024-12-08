@@ -51,6 +51,11 @@
             @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-between mb-4">
+        <a href="{{ route('dataHewan.create') }}" class="btn btn-success">
+            <i class="fas fa-plus me-2"></i>Tambah Hewan
+        </a>
+    </div>
 </div>
 
 {{-- <div class="container">

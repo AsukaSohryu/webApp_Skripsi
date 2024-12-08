@@ -110,6 +110,49 @@ class DataHewanController extends Controller
         }
     }
 
+    public function create() {
+        return view('internal.content.animal.create', [
+            'title' => 'Tambah Hewan Baru',
+            'pageTitle' => 'Tambah Hewan Baru',
+            'pageSubTitle' => 'Tambah Hewan Baru'
+        ]);
+    }
+
+    public function createPost(Request $request) {
+        
+        $file_web = $request->file('fotoHewan');
+        $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
+
+        $path_web = $file_web->storeAs('animal', $file_web_name, 'public');
+
+        $create = animal::create([
+            'photo' => $file_web_name,
+            'animal_name' => $request->namaHewan,
+            'animal_type' => $request->jenisHewan,
+            'status_id' => $request->statusHewan,
+            // nanti diremove age-nya
+            'age' => 1,
+            'birth_date' => $request->tanggalLahir,
+            'sex' => $request->jenisKelamin,
+            'race' => $request->rasHewan,
+            'color' => $request->warnaHewan,
+            'weight' => $request->beratHewan,
+            'vaccine' => $request->informasiVaksin,
+            'is_sterile' => $request->sterile,
+            'source' => $request->asalHewan,
+            'characteristics' => $request->karakteristikHewan,
+            'description' => $request->deskripsiHewan,
+            'medical_note' => $request->catatanMedisHewan,
+            'is_active' => $request->activeStatus,
+        ]);
+        
+
+        // dd($update);
+        if ($create) {
+            return back()->with('success', 'Data Hewan Berhasil Dibuat');
+        }
+    }
+
     // public function testUploadGambar(Request $request){
 
     // $file_web = $request->file('gambar');
