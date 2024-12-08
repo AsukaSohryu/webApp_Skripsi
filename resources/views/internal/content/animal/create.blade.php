@@ -45,126 +45,126 @@
         box-sizing: border-box;
     }
 </style>
-    
+
 <div class="card mb-5 mb-xxl-8">
-    @php
-        $steril = [
-            0 => 'Belum',
-            1 => 'Sudah',
-        ];
-    @endphp
     <div class="card-body py-9">
-        <h1 class="text-center">Edit Data Hewan</h1>
-        <form action="{{ route('dataHewan.edit.post') }}" method="post" enctype="multipart/form-data">
+        <h1 class="text-center">Tambah Data Hewan</h1>
+        <form action="{{ route('dataHewan.create.post') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row my-3">
                 <div class="col my-3 d-flex flex-column justify-content-center">
-                    <input type="file" class="form-control" name="fotoHewan">
-                    <div class="mt-2 ps-3">Currrent File: {{ $detail->photo }}</div>
+                    <label for="" class="my-3">Upload Foto Hewan</label>
+                    <input type="file" class="form-control" name="fotoHewan" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">ID Hewan</label>
-                    <input type="text" value="{{$detail->animal_id}}" class="form-control" disabled>
-                    <input type="hidden" name="idHewan" id="idHewan" value="{{$detail->animal_id}}" class="form-control">
+                    <input type="text" value="-" class="form-control" disabled>
                 </div>
                 <div class="col">
                     <label for="" class="my-3">Nama Hewan</label>
-                    <input type="text" name="namaHewan" id="namaHewan" value="{{$detail->animal_name}}" class="form-control">
+                    <input type="text" name="namaHewan" id="namaHewan" value="" placeholder="Nama Hewan" class="form-control" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Jenis Hewan</label>
-                    <input type="text" name="jenisHewan" id="jenisHewan" value="{{$detail->animal_type}}" class="form-control">
+                    <select name="jenisHewan" id="jenisHewan" class="form-select" required>
+                        <option value="" selected disabled>Jenis Hewan</option>
+                        <option value="Anjing">Anjing</option>
+                        <option value="Kucing" >Kucing</option>
+                    </select>
                 </div>
                 <div class="col">
-                    <label for="" class="my-3">Usia Hewan (Tahun)</label>
-                    <input type="number" name="usiaHewan" id="usiaHewan" value="{{ $detail->age }}" class="form-control" min="0">
+                    <label for="" class="my-3">Status Hewan</label>
+                    <select name="statusHewan" id="statusHewan" class="form-select" required>
+                        <option value="" selected disabled>Status Hewan</option>
+                        <option value="16">Baru Diselamatkan</option>
+                        <option value="17">Dalam Proses Perawatan</option>
+                        <option value="18">Tersedia Untuk Adopsi</option>
+                        <option value="19">Tidak Tersedia Untuk Adopsi</option>
+                        <option value="20">Dalam Proses Adopsi</option>
+                        <option value="21">Telah Diadopsi</option>
+                        <option value="22">Dikembalikan Pada Pemilik</option>
+                    </select>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <label for="" class="my-3">Status Hewan</label>
-                    <select class="form-control custom-dropdown" id="statusID" name="statusID" required>
-                        @foreach($status as $s)
-                            <option value="{{ $s->status_id }}" {{ $s->status_id == $detail->status_id ? 'selected' : '' }}>
-                                {{ $s->status }}
-                            </option>
-                        @endforeach
-                    </select>
-
+                    <label for="" class="my-3">Usia Hewan</label>
+                    <input type="text" name="usiaHewan" id="usiaHewan" value="" placeholder="Usia Hewan" class="form-control" disabled>
                 </div>
                 <div class="col">
                     <label for="" class="my-3">Tanggal Lahir</label>
-                    <input type="date" name="tanggalLahir" id="tanggalLahir" value="{{ $detail->birth_date }}" class="form-control">
+                    <input type="date" name="tanggalLahir" id="tanggalLahir" value="" class="form-control" required>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    <label for="" class="my-3">Jenis Kelamin</label>
+                    <select name="jenisKelamin" id="jenisKelamin" class="form-select" required>
+                        <option value="" selected disabled>Jenis Kelamin</option>
+                        <option value="Jantan">Jantan</option>
+                        <option value="Betina" >Betina</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="" class="my-3">Ras Hewan</label>
+                    <input type="text" name="rasHewan" id="rasHewan" value="" placeholder="Ras Hewan" class="form-control" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Warna Hewan</label>
-                    <input type="text" name="warnaHewan" id="warnaHewan" value="{{ $detail->color }}" class="form-control">
+                    <input type="text" name="warnaHewan" id="warnaHewan" value="" placeholder="Warna Hewan" class="form-control" required>
                 </div>
                 <div class="col">
                     <label for="" class="my-3">Berat Hewan (Kg)</label>
-                    <input type="number" name="beratHewan" id="beratHewan" value="{{ $detail->weight }}" class="form-control" step="0.01" min="0">
+                    <input type="number" name="beratHewan" id="beratHewan" value="" placeholder="Berat Hewan" class="form-control" step="0.01" min="0" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Informasi Vaksin Hewan</label>
-                    <input type="text" name="informasiVaksin" id="informasiVaksin" value="{{ $detail->vaccine }}" class="form-control">
+                    <input type="text" name="informasiVaksin" id="informasiVaksin" value=""  placeholder="Informasi Vaksin Hewan" class="form-control" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Hewan Sudah Disteril</label>
                     <select class="form-control custom-dropdown" id="sterile" name="sterile" required>
-                        @foreach ($steril as $key => $value)
-                            <option value="{{ $key }}" {{ old('sterile', $detail->is_sterile) == $key ? 'selected' : '' }}>
-                                {{ $value }}
-                            </option>
-                        @endforeach
+                        <option value="" selected disabled>Hewan Sudah Disteril</option>
+                        <option value="1">Sudah</option>
+                        <option value="0" >Belum</option>
                     </select>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Asal Hewan</label>
-                    <input type="text" name="asalHewan" id="asalHewan" value="{{ $detail->source }}" class="form-control">
+                    <input type="text" name="asalHewan" id="asalHewan" value="" placeholder="Asal Hewan" class="form-control" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Karakteristik Hewan</label>
-                    <textarea type="text" name="karakteristikHewan" id="karakteristikHewan" class="form-control">{{ $detail->characteristics }}</textarea>
+                    <textarea type="text" name="karakteristikHewan" id="karakteristikHewan" value="" placeholder="Karakterisitk Hewan" class="form-control" required></textarea>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Deskripsi Hewan</label>
-                    <textarea type="text" name="deskripsiHewan" id="deskripsiHewan" class="form-control">{{ $detail->description }}</textarea>
+                    <textarea type="text" name="deskripsiHewan" id="deskripsiHewan" value="" placeholder="Deskripsi Hewan" class="form-control" required></textarea>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Catatan Medis Hewan</label>
-                    <textarea type="text" name="catatanMedisHewan" id="catatanMedisHewan" class="form-control">{{ $detail->medical_note }}</textarea>
+                    <textarea type="text" name="catatanMedisHewan" id="catatanMedisHewan" value="" placeholder="Catatan Medis Hewan" class="form-control" required></textarea>
                 </div>
             </div>
-            <div class="row my-3">
-                <div class="col">
-                    <label for="" class="my-3">Tanggal Hewan Masuk Shelter</label>
-                    <input type="text" name="tanggalMasuk" id="tanggalMasuk" value="{{ $detail->created_at }}" class="form-control" disabled>
-                </div>
-            </div> 
-            <div class="row my-3">
-                <div class="col">
-                    <label for="" class="my-3">Tanggal Data Terakhir Diperbaharui</label>
-                    <input type="text" name="tanggalUpdate" id="tanggalUpdate" value="{{ $detail->updated_at }}" class="form-control" disabled>
-                </div>
-            </div> 
+
             <div class="row my-3 p-3">
                 <div class="d-flex flex-row justify-content-between p-3" style="background-color: #CADFF2; border-radius: .475rem;">
                     <div class="col d-flex align-items-center">
@@ -176,22 +176,22 @@
                         type="checkbox" 
                         id="check" 
                         name="activeStatus"
-                        value="1"
-                        {{ $detail->is_active == 1 ? 'checked' : '' }}>
+                        value="1">
                         <label for="check" class="button"></label>
                         <label for="" class="ps-3" id="isActive">
-                            <b>{{ $detail->is_active == 1 ? 'Aktif' : 'Tidak Aktif' }}</b>
+                            <b>Tidak Aktif</b>
                         </label>
                     </div>
                 </div>
             </div>
+
             <div class="gap-3 my-10 d-flex justify-content-end">
-                <a href="{{ route('dataHewan.detail', $detail->animal_id) }}" 
-                    class="btn btn-secondary"
-                    style="border: 0;">
+                <a href="{{ route('dataHewan.index') }}"
+                   class="btn btn-secondary" 
+                   style="border: 0;">
                      Batalkan
                 </a>
-                <button class="btn btn-primary" type="submit" style="border: 0;">Simpan Perubahan</button>
+                <button class="btn btn-primary" type="submit" style="border: 0;">Tambah Perubahan</button>
             </div>
         </form>
     </div>
@@ -205,7 +205,7 @@
             <h2>{{ session('success') }}</h2>
         </div>
         <div class="modal-footer">
-            <a href="{{ route('dataHewan.detail', $detail->animal_id ) }}" type="button" class="btn btn-secondary" data-dismiss="modal">kembali</a>
+            <a href="{{ route('dataHewan.create') }}" type="button" class="btn btn-secondary" data-dismiss="modal">kembali</a>
         </div>
         </div>
     </div>
@@ -226,46 +226,46 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const checkbox = document.getElementById('check');
-        const isActiveLabel = document.getElementById('isActive');
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const checkbox = document.getElementById('check');
+    const statusLabel = document.getElementById('isActive');
 
-        // Update label on page load based on checkbox state
-        if (checkbox.checked) {
-            isActiveLabel.innerHTML = '<b>Aktif</b>';
-        } else {
-            isActiveLabel.innerHTML = '<b>Tidak Aktif</b>';
+
+    checkbox.addEventListener('change', function() {
+        checkbox.value = this.checked ? "1" : "0";
+        statusLabel.innerHTML = this.checked ? '<b>Aktif</b>' : '<b>Tidak Aktif</b>';
+        console.log(checkbox, statusLabel);
+
+    });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tanggalLahirInput = document.getElementById('tanggalLahir');
+    const usiaHewanInput = document.getElementById('usiaHewan');
+
+    tanggalLahirInput.addEventListener('change', function() {
+        const birthDate = new Date(this.value);
+        const today = new Date();
+        
+        let ageInMonths = (today.getFullYear() - birthDate.getFullYear()) * 12;
+        ageInMonths -= birthDate.getMonth();
+        ageInMonths += today.getMonth();
+
+        let years = Math.floor(ageInMonths / 12);
+        let months = ageInMonths % 12;
+
+        let ageString = '';
+        if (years > 0) {
+            ageString += `${years} Tahun `;
+        }
+        if (months > 0 || years === 0) {
+            ageString += `${months} Bulan`;
         }
 
-        // Add event listener to handle checkbox state change
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                isActiveLabel.innerHTML = '<b>Aktif</b>';
-            } else {
-                isActiveLabel.innerHTML = '<b>Tidak Aktif</b>';
-            }
-        });
+        usiaHewanInput.value = ageString;
     });
+});
 </script>
-
-@if(session('success'))
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Show the modal
-        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-        successModal.show();
-    });
-</script>
-@endif
-
-@if(session('error'))
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Show the modal
-        const successModal = new bootstrap.Modal(document.getElementById('errorModal'));
-        successModal.show();
-    });
-</script>
-@endif
-
 @endsection

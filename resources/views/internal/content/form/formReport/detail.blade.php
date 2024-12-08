@@ -55,7 +55,7 @@
             </div>
             <div class="col-auto mx-3">
                 @if($photo_location)
-                    <img src="{{ asset('storage/report/' . $detail->photo_animal) }}" alt="Foto Lokasi" class="border border-2 report-image">
+                    <img src="{{ asset('storage/report/' . $detail->photo_location) }}" alt="Foto Lokasi" class="border border-2 report-image">
                 @else
                     <div class="border border-2 d-flex align-items-center justify-content-center image-placeholder">
                         <span style="color: #6c757d">Foto lokasi</span>
@@ -64,7 +64,7 @@
             </div>
             <div class="col-auto mx-3">
                 @if($photo_additional)
-                    <img src="{{ asset('storage/report/' . $detail->photo_animal) }}" alt="Foto Tambahan" class="border border-2 report-image">
+                    <img src="{{ asset('storage/report/' . $detail->photo_additional) }}" alt="Foto Tambahan" class="border border-2 report-image">
                 @else
                     <div class="border border-2 d-flex align-items-center justify-content-center image-placeholder">
                         <span style="color: #6c757d">Foto Tambahan</span>
@@ -125,7 +125,7 @@
         @if(!in_array($detail->status_id, [3, 4, 5]))
             <div class="my-10 d-flex justify-content-end">
                 <form action="{{ route('formReport.edit', $detail->report_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
-                    <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Status Laporan</button>
+                    <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Data Formulir Pelaporan</button>
                 </form>
             </div>
         @else

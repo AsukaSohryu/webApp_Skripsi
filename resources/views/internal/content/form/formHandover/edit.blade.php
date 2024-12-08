@@ -66,9 +66,7 @@
                 <input type="text" name="job" id="job" value="{{$detail->users->job}}" class="form-control" disabled>
             </div>
         </div>
-
-
-
+        <hr>
         <form action="{{ route('formHandover.edit.post') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row my-3">
@@ -76,6 +74,48 @@
                     <input type="text" name="handoverFormID" id="handoverFormID" value="{{$detail->handover_form_id}}" class="form-control" hidden>
                 </div>
             </div>
+            @foreach ($detail->handoverQuestions as $question)
+            <div class="row my-3">
+                <div class="col">
+                    <!-- Label for the question -->
+                    <label for="question-{{ $question->handover_questions_id }}" class="form-label">
+                        {{ $question->questions }}
+                    </label>
+        
+                    @php
+                        // Initialize the value based on the question ID
+                        $inputValue = '';
+                        $unit = '';
+        
+                        switch ($question->handover_questions_id) {
+                            case 3:
+                                $unit = ' Tahun';
+                                $inputValue = $question->pivot->answer ?? '';
+                                break;
+                            case 8:
+                                $unit = ' Kg';
+                                $inputValue = $question->pivot->answer ?? '';
+                                break;
+                            case 10:
+                                $inputValue = ($question->pivot->answer == 1) ? 'Sudah' : 'Belum';
+                                break;
+                            default:
+                                $inputValue = $question->pivot->answer ?? '';
+                                break;
+                        }
+                    @endphp
+        
+                    <textarea 
+                        id="question-{{ $question->handover_questions_id }}" 
+                        name="answers[{{ $question->handover_questions_id }}]" 
+                        class="form-control" 
+                        placeholder="Enter your answer" 
+                        disabled>{{ $inputValue . $unit }}
+                    </textarea>
+                </div>
+            </div>
+            @endforeach
+            <hr>
             <div class="col">
                 <label for="" class="my-3">Status Formulir Penyerahan</label>
                 <select class="form-control custom-dropdown" id="statusID" name="statusID" required>
@@ -88,40 +128,77 @@
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Admin Feedback</label>
-                    <input type="text" name="adminFeedback" id="adminFeedback" value="{{$detail->admin_feedback}}" class="form-control">
+                    <label for="adminFeedback">Respon Admin</label>
+                    <textarea 
+                        name="adminFeedback" 
+                        id="adminFeedback" 
+                        class="form-control">{{ $detail->admin_feedback }}</textarea>
                 </div>
             </div>
-            <div class="row my-3">
-                <div class="col">
-                    <input type="text" name="isSeen" id="isSeen" value="0" class="form-control" hidden>
+            @if(!in_array($detail->status_id, [8, 9, 10]))
+                <div class="gap-3 my-10 d-flex justify-content-end">
+                    <a href="{{ route('formHandover.detail', $detail->handover_form_id) }}" 
+                        class="btn btn-secondary"
+                        style="border: 0;">
+                         Batalkan
+                    </a>
+                    <button class="btn btn-primary" type="submit" style="border: 0;">Simpan Perubahan</button>
                 </div>
-            </div>
-            <hr>
-            @foreach ($detail->handoverQuestions as $question)
-                <div class="row my-3">
-                    <div class="col">
-                        <!-- Label for the question -->
-                        <label for="question-{{ $question->id }}" class="form-label">
-                            {{ $question->questions }}
-                        </label>
-
-                        <!-- Input for the answer -->
-                        <input type="text" 
-                            id="question-{{ $question->id }}" 
-                            name="answers[{{ $question->id }}]" 
-                            class="form-control" 
-                            value="{{ $question->pivot->answer ?? '' }}" 
-                            placeholder="Enter your answer" disabled>
-                    </div>
+            @else
+                <div class="my-10 d-flex justify-content-end">
+                    <button class="btn btn-secondary" disabled title="Laporan  sudah final">Status Tidak Dapat Diubah</button>
                 </div>
-            @endforeach
-            <div class=" my-3 d-flex justify-content-end">
-                <button class="btn btn-primary" type="submit" style="border: 0;">Simpan Perubahan</button>
-            </div>            
+            @endif
         </form>
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-body">
+            <h2>{{ session('success') }}</h2>
+        </div>
+        <div class="modal-footer">
+            <a href="{{ route('formHandover.detail', $detail->handover_form_id) }}" type="button" class="btn btn-secondary" data-dismiss="modal">kembali</a>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-body">
+            {{ session('error') }}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+@if(session('success'))
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Show the modal
+        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+        successModal.show();
+    });
+</script>
+@endif
+
+@if(session('error'))
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Show the modal
+        const successModal = new bootstrap.Modal(document.getElementById('errorModal'));
+        successModal.show();
+    });
+</script>
+@endif
 
 @endsection

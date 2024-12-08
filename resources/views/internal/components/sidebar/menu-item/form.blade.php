@@ -4,7 +4,7 @@
             <span class="menu-bullet">
                 <span class="bullet bullet-dot"></span>
             </span>
-            <span class="menu-title">Form Report</span>
+            <span class="menu-title">Laporan Penemuan</span>
         </a>
     </div>
 </div>
@@ -14,7 +14,7 @@
             <span class="menu-bullet">
                 <span class="bullet bullet-dot"></span>
             </span>
-            <span class="menu-title">Form Handover</span>
+            <span class="menu-title">Pengajuan Penyerahan</span>
         </a>
     </div>
 </div>
@@ -24,7 +24,7 @@
             <span class="menu-bullet">
                 <span class="bullet bullet-dot"></span>
             </span>
-            <span class="menu-title">Form Adopsi</span>
+            <span class="menu-title">Pengajuan Pengadopsian</span>
         </a>
     </div>
 </div>

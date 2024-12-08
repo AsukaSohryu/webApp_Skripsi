@@ -2,7 +2,14 @@
 
 @section('content')
 <div class="container">
-    <table class="table table-striped table-bordered">
+    <div class="row mb-4">
+        <div class="col-md-10">
+            <div class="input-group">
+                <input type="text" class="form-control rounded-1" id="searchAnimal" placeholder="Pencarian" onkeyup="searchAnimals()">
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped table-bordered" id="animalTable">
         <thead class="thead">
             <tr class="fw-bold text-center border-2 border-bottom border-dark">
                 <th scope="col">ID Hewan</th>
@@ -20,19 +27,19 @@
                 <td>{{ $a->created_at }}</td>
                 <td>
                     @if($a->status_id == 16)
-                        <span class="btn btn-primary">Baru Diselamatkan</span>
+                        <span class="btn btn-secondary">Baru Diselamatkan</span>
                     @elseif($a->status_id == 17)
-                        <span class="btn btn-primary">Dalam Proses Perawatan</span>
+                        <span class="btn btn-warning">Dalam Proses Perawatan</span>
                     @elseif($a->status_id == 18)
                         <span class="btn btn-primary">Tersedia Untuk Adopsi</span>
                     @elseif($a->status_id == 19)
-                        <span class="btn btn-primary">Tidak Tersedia Untuk Adopsi</span>
+                        <span class="btn btn-danger">Tidak Tersedia Untuk Adopsi</span>
                     @elseif($a->status_id == 20)
-                        <span class="btn btn-primary">Dalam Proses Adopsi</span>
+                        <span class="btn btn-warning">Dalam Proses Adopsi</span>
                     @elseif($a->status_id == 21)
-                        <span class="btn btn-primary">Telah Diadopsi</span>
+                        <span class="btn btn-danger">Telah Diadopsi</span>
                     @elseif($a->status_id == 22)
-                        <span class="btn btn-primary">Dikembalikan Pada Pemilik</span>
+                        <span class="btn btn-danger">Dikembalikan Pada Pemilik</span>
                     @endif
                 </td> 
                 <td>
@@ -44,6 +51,11 @@
             @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-between mb-4">
+        <a href="{{ route('dataHewan.create') }}" class="btn btn-success">
+            <i class="fas fa-plus me-2"></i>Tambah Hewan
+        </a>
+    </div>
 </div>
 
 {{-- <div class="container">
@@ -57,4 +69,31 @@
         <button>submit</button>
     </form>
 </div> --}}
+
+<script>
+function searchAnimals() {
+    var input = document.getElementById("searchAnimal");
+    var filter = input.value.toLowerCase();
+    var table = document.getElementById("animalTable");
+    var tr = table.getElementsByTagName("tr");
+
+    for (var i = 1; i < tr.length; i++) {
+        var show = false;
+        var tds = tr[i].getElementsByTagName("td");
+        
+        for (var j = 0; j < tds.length; j++) {
+            var td = tds[j];
+            if (td) {
+                var txtValue = td.textContent || td.innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    show = true;
+                    break;
+                }
+            }
+        }
+        
+        tr[i].style.display = show ? "" : "none";
+    }
+}
+</script>
 @endsection

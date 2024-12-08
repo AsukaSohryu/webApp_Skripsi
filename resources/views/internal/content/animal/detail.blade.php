@@ -60,7 +60,7 @@
             </div>
             <div class="col">
                 <label for="">Usia Hewan</label>
-                <input type="text" name="usiaHewan" id="usiaHewan" value="{{ $detail->age }}" class="form-control" disabled>
+                <input type="text" name="usiaHewan" id="usiaHewan" value="{{ $detail->age }} Tahun" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
@@ -93,8 +93,8 @@
                 <input type="text" name="warnaHewan" id="warnaHewan" value="{{ $detail->color }}" class="form-control" disabled>
             </div>
             <div class="col">
-                <label for="">Berat Hewam</label>
-                <input type="text" name="beratHewan" id="beratHewan" value="{{ $detail->weight }} KG" class="form-control" disabled>
+                <label for="">Berat Hewan</label>
+                <input type="text" name="beratHewan" id="beratHewan" value="{{ $detail->weight }} Kg" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
@@ -107,7 +107,7 @@
             <div class="col">
                 <label for="">Hewan Sudah Disteril</label>
                 @if($detail->is_sterile == 1)
-                <input type="text" name="sterilHewan" id="sterilHewan" value="Iya" class="form-control" disabled>
+                <input type="text" name="sterilHewan" id="sterilHewan" value="Sudah" class="form-control" disabled>
                 @else
                 <input type="text" name="sterilHewan" id="sterilHewan" value="Belum" class="form-control" disabled>
                 @endif

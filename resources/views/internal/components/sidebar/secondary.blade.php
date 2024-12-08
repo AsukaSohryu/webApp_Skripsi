@@ -47,7 +47,7 @@
                     <span class="menu-bullet">
                         <span class="bullet bullet-dot"></span>
                     </span>
-                    <span class="menu-title">Form Report</span>
+                    <span class="menu-title">Laporan Penemuan</span>
                 </a>
                 <!--end:Menu link-->
             </div>
@@ -58,7 +58,7 @@
                     <span class="menu-bullet">
                         <span class="bullet bullet-dot"></span>
                     </span>
-                    <span class="menu-title">Form Handover</span>
+                    <span class="menu-title">Formulir Penyerahan</span>
                 </a>
                 <!--end:Menu link-->
             </div>
@@ -69,7 +69,7 @@
                     <span class="menu-bullet">
                         <span class="bullet bullet-dot"></span>
                     </span>
-                    <span class="menu-title">Form Adopsi</span>
+                    <span class="menu-title">Formulir Pengadopsian</span>
                 </a>
                 <!--end:Menu link-->
             </div>

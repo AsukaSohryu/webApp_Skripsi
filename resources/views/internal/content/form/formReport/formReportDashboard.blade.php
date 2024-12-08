@@ -20,37 +20,33 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($handoverForm as $r)
-            {{-- @php
-                dd($handoverForm);
-            @endphp --}}
+            @foreach ($reportForm as $r)
             <tr class="fw-bold text-center border-2 border-bottom border-dark py-auto">
                 <td>
                     <div style="position: relative;">
                         @if($r->is_seen == 0)
                             <span class="text-danger" style="position: absolute; left: 0; top: 0;">!</span>
                         @endif
-                        {{ $r->handover_form_id }}
+                        {{ $r->report_form_id }}
                     </div>
                 </td>
                 <td>{{ $r->users->name }}</td>
-                {{-- <td>Testing</td> --}}
                 <td>{{ $r->created_at }}</td>
                 <td>
-                    @if($r->status_id == 6)
-                        <span class="btn btn-secondary">Penyerahan Diajukan</span>
-                    @elseif($r->status_id == 7)
-                        <span class="btn btn-warning">Pengajuan Penyerahan Disetujui</span>
-                    @elseif($r->status_id == 8)
-                        <span class="btn btn-danger">Pengajuan Penyerahan Ditolak</span>
-                    @elseif($r->status_id == 9)
-                        <span class="btn btn-primary">Penyerahan Berhasil</span>
-                    @elseif($r->status_id == 10)
-                        <span class="btn btn-danger">Penyerahan Dibatalkan</span>
+                    @if($r->status_id == 1)
+                        <span class="btn btn-secondary">Penyelematkan Diajukan</span>
+                    @elseif($r->status_id == 2)
+                        <span class="btn btn-warning">Dalam Proses Penyelematan</span>
+                    @elseif($r->status_id == 3)
+                        <span class="btn btn-primary">Hewan Sukses Diselamatkan</span>
+                    @elseif($r->status_id == 4)
+                        <span class="btn btn-danger">Hewan Tidak Ditemukan</span>
+                    @elseif($r->status_id == 5)
+                        <span class="btn btn-danger">Lainnya</span>
                     @endif
                 </td> 
                 <td>
-                    <form action="{{route('formHandover.detail', $r->handover_form_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
+                    <form action="{{route('formReport.detail', $r->report_form_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
                         <button class="btn btn-secondary border border-dark"><i class="fa-regular fa-pen-to-square"></i></button>
                     </form>
                 </td> 
@@ -85,4 +81,5 @@ function searchForms() {
     }
 }
 </script>
+
 @endsection

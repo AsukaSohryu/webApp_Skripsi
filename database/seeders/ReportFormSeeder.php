@@ -22,6 +22,7 @@ class ReportFormSeeder extends Seeder
             'photo' => '',
             'description' => 'Anjing ditemukan dekat tempat sampah Mc Donald',
             'is_seen' => 0,
+            'created_at' => '2024-12-01 00:00:00'
         ]);
     }
 }

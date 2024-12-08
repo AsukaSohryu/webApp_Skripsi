@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row mb-4">
-        <div class="col-md-10 mx-auto">
+        <div class="col-md-10">
             <div class="input-group">
-                <input type="text" class="form-control rounded-1" id="searchQuestion" placeholder="Cari Pertanyaan" onkeyup="searchQuestions()">
+                <input type="text" class="form-control rounded-1" id="searchQuestion" placeholder="Pencarian" onkeyup="searchQuestions()">
             </div>
         </div>
     </div>

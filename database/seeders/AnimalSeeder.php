@@ -32,7 +32,8 @@ class AnimalSeeder extends Seeder
                 'characteristics' => 'Kocheng sangat manja dan suka dielus-elus',
                 'description' => 'Kocheng merupakan kucing yang lucu dan memiliki kemampuan tinggi. Sangat cocok untuk dijual ke orang yang ingin mencari kucing yang tinggi.',
                 'medical_note' => 'Kucing ini tidak memiliki riwayat penyakit',
-                'photo' => ''
+                'photo' => '',
+                'created_at' => '2024-12-01 00:00:00'
             ],
             [
                 'status_id' => 17,
@@ -51,7 +52,8 @@ class AnimalSeeder extends Seeder
                 'characteristics' => 'Mimi sangat ramah dan suka bermain dengan anak-anak',
                 'description' => 'Mimi adalah kucing yang ceria dan penuh energi. Dia sangat cocok untuk keluarga yang aktif.',
                 'medical_note' => 'Mimi telah divaksin dan tidak memiliki riwayat penyakit',
-                'photo' => ''
+                'photo' => '',
+                'created_at' => '2024-12-01 00:00:00'
             ],
             [
                 'status_id' => 18,
@@ -70,7 +72,8 @@ class AnimalSeeder extends Seeder
                 'characteristics' => 'Tommy sangat penyayang dan suka berinteraksi dengan manusia',
                 'description' => 'Tommy adalah kucing besar yang sangat lembut dan penuh kasih sayang. Dia akan menjadi teman yang setia.',
                 'medical_note' => 'Tommy dalam kondisi sehat dan telah menjalani pemeriksaan rutin',
-                'photo' => ''
+                'photo' => '',
+                'created_at' => '2024-12-01 00:00:00'
             ],
             [
                 'status_id' => 19,
@@ -89,7 +92,8 @@ class AnimalSeeder extends Seeder
                 'characteristics' => 'Luna sangat tenang dan suka berjemur di bawah sinar matahari',
                 'description' => 'Luna adalah kucing yang anggun dan penuh kasih. Dia sangat cocok untuk pemilik yang mencari kucing yang santai.',
                 'medical_note' => 'Luna tidak memiliki riwayat penyakit dan telah divaksin lengkap',
-                'photo' => ''
+                'photo' => '',
+                'created_at' => '2024-12-01 00:00:00'
             ],
         ]);
     }

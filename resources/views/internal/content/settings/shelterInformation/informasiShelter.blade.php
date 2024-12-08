@@ -39,6 +39,11 @@
     <div class="card-body py-9">
         <h1 class="text-center">Data Informasi Shelter</h1>
         <div class="row my-3">
+            <div class="col my-3 d-flex justify-content-center">
+                <img src="{{ asset('storage/informasiShelter/' . $shelterInformation->shelter_logo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
+            </div>
+        </div>
+        <div class="row my-3">
             <div class="col">
                 <label for="">Nama Shelter</label>
                 <input type="text" name="namaShelter" id="namaShelter" value="{{$shelterInformation->shelter_name}}" class="form-control" disabled>
@@ -100,11 +105,11 @@
             </div>
         </div>
         {{-- Informasi Halaman Tentang Kami --}}
-        {{-- <div class="row my-3">
+        <div class="row my-3">
             <div class="col my-3 d-flex justify-content-center">
-                <img src="{{ asset('storage/animal/' . $detail->photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
+                <img src="{{ asset('storage/informasiShelter/' . $shelterInformation->shelter_photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
             </div>
-        </div> --}}
+        </div>
         <div class="row my-3">
             <div class="col">
                 <label for="">Informasi Tentang Shelter</label>
@@ -124,11 +129,11 @@
             </div>
         </div>
         <h1 class="text-center">Informasi Halaman Tentang Kami</h1>
-        {{-- <div class="row my-3">
+        <div class="row my-3">
             <div class="col my-3 d-flex justify-content-center">
-                <img src="{{ asset('storage/animal/' . $detail->photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
+                <img src="{{ asset('storage/informasiShelter/' . $shelterInformation->founder_photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
             </div>
-        </div> --}}
+        </div>
         <div class="row my-3">
             <div class="col">
                 <label for="">Nama Pendiri</label>

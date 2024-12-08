@@ -15,17 +15,16 @@ class FormAdopsiController extends Controller
     {
         $adoptionForm = adoptionForm::with(['users', 'status', 'animal'])->get();
         return view('internal.content.form.formAdopsi.formAdopsiDashboard', [
-            'title' => 'Form Adopsi',
-            'pageTitle' => 'Form Adopsi',
-            'pageSubTitle' => 'Form Adopsi',
+            'title' => 'Formulir Adopsi',
+            'pageTitle' => 'Daftar Formulir Adopsi',
+            'pageSubTitle' => 'Daftar Formulir Adopsi',
             'adoptionForm' => $adoptionForm
         ]);
     }
 
     public function detail($adoption_form_id)
     {
-        // $adoptionForm = adoptionForm::with(['users', 'status', 'animal'])->where('adoption_form_id', $adoption_form_id)->first();
-        $adoptionForm = adoptionForm::with(['users', 'status', 'animal', 'adoptionQuestions' => function($query) {
+        $adoptionForm = adoptionForm::with(['users', 'status', 'animal', 'adoptionQuestions' => function ($query) {
             $query->withPivot('answer');
         }])->findOrFail($adoption_form_id);
 
@@ -38,31 +37,29 @@ class FormAdopsiController extends Controller
 
         $userName = $adoptionForm->users->name;
 
-        // $adoptionQuestions = $adoptionForm->adoptionQuestions;
+        $adoptionForm->is_seen = 1;
+        $adoptionForm->save();
 
         return view('internal.content.form.formAdopsi.detail', [
-            'title' => 'Detail Form Adopsi',
-            'pageTitle' => 'Detail Form Adopsi',
-            'pageSubTitle' => 'Formulir Adopsi - ' . $userName,
+            'title' => 'Detail Formulir Adopsi',
+            'pageTitle' => 'Detail Formulir Adopsi',
+            'pageSubTitle' => 'Detail Formulir Adopsi - ' . $userName,
             'detail' => $adoptionForm,
-
-            // 'adoptionQuestions' => $adoptionQuestions,
         ]);
     }
 
     public function edit($adoption_form_id)
     {
-        $adoptionForm = adoptionForm::with(['users', 'status', 'animal', 'adoptionQuestions' => function($query) {
+        $adoptionForm = adoptionForm::with(['users', 'status', 'animal', 'adoptionQuestions' => function ($query) {
             $query->withPivot('answer');
         }])->findOrFail($adoption_form_id);
-        // $adoptionForm = adoptionForm::with(['users', 'status', 'animal'])->where('adoption_form_id', $adoption_form_id)->first();
         $status = status::where('config', 'Form_Adoption_Status')->get();
         $userName = $adoptionForm->users->name;
 
         return view('internal.content.form.formAdopsi.edit', [
-            'title' => 'Detail Form Adopsi',
-            'pageTitle' => 'Detail Form Adopsi',
-            'pageSubTitle' => 'Formulir Adopsi - ' . $userName,
+            'title' => 'Perubahan Formulir Adopsi',
+            'pageTitle' => 'Perubahan Formulir Adopsi',
+            'pageSubTitle' => 'Perubahan Formulir Adopsi - ' . $userName,
             'detail' => $adoptionForm,
             'adoptionFormStatus' => $status,
             'adoptionForm' => $adoptionForm,
@@ -72,7 +69,6 @@ class FormAdopsiController extends Controller
     public function editPost(Request $request)
     {
         // dd($request->all());
-        // if ($request->fotoHewan == null) {
         if ($request != null) {
 
             $update = adoptionForm::where('adoption_form_id', $request->adoptionFormID)->update([
@@ -80,8 +76,6 @@ class FormAdopsiController extends Controller
                 // 'shelter_name' => $request->namaShelter,
                 'status_id' => $request->statusID,
                 'admin_feedback' => $request->adminFeedback,
-                'is_seen' => $request->isSeen,
-
             ]);
         }
 
