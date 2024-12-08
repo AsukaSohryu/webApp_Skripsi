@@ -64,7 +64,8 @@ class DataHewanController extends Controller
             $update = animal::where('animal_id', $request->idHewan)->update([
                 'animal_name' => $request->namaHewan,
                 'animal_type' => $request->jenisHewan,
-                'age' => $request->usiaHewan,
+                // nanti diremove age-nya
+                'age' => 1,
                 'status_id' => $request->statusID,
                 'birth_date' => $request->tanggalLahir,
                 'color' => $request->warnaHewan,
@@ -89,7 +90,8 @@ class DataHewanController extends Controller
                 'photo' => $file_web_name,
                 'animal_name' => $request->namaHewan,
                 'animal_type' => $request->jenisHewan,
-                'age' => $request->usiaHewan,
+                // nanti diremove age-nya
+                'age' => 1,
                 'status_id' => $request->statusID,
                 'birth_date' => $request->tanggalLahir,
                 'color' => $request->warnaHewan,

@@ -60,7 +60,7 @@
             </div>
             <div class="col">
                 <label for="">Usia Hewan</label>
-                <input type="text" name="usiaHewan" id="usiaHewan" value="{{ $detail->age }} Tahun" class="form-control" disabled>
+               <input type="text" name="usiaHewan" id="usiaHewan" value="" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
@@ -172,4 +172,49 @@
         </div>
     </div>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tanggalLahirInput = document.getElementById('tanggalLahir');
+    const usiaHewanInput = document.getElementById('usiaHewan');
+
+    function calculateAge() {
+        const birthDate = new Date(tanggalLahirInput.value);
+        const today = new Date();
+        
+        let ageInMonths = (today.getFullYear() - birthDate.getFullYear()) * 12;
+        ageInMonths += today.getMonth() - birthDate.getMonth();
+        
+        if (today.getDate() < birthDate.getDate()) {
+            ageInMonths--;
+        }
+
+        let years = Math.floor(ageInMonths / 12);
+        let months = ageInMonths % 12;
+
+        if (ageInMonths < 0) {
+            years = 0;
+            months = 0;
+        }
+
+        let ageString = '';
+        if (years > 0) {
+            ageString += `${years} Tahun `;
+        }
+        if (months > 0 || years === 0) {
+            ageString += `${months} Bulan`;
+        }
+        if (years === 0 && months === 0) {
+            ageString = '0 Bulan';
+        }
+
+        usiaHewanInput.value = ageString;
+    }
+
+    if (tanggalLahirInput.value) {
+        calculateAge();
+    }
+
+    tanggalLahirInput.addEventListener('change', calculateAge);
+});
+</script>
 @endsection
