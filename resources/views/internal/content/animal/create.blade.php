@@ -241,42 +241,48 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const tanggalLahirInput = document.getElementById('tanggalLahir');
-        const usiaHewanInput = document.getElementById('usiaHewan');
-    
-        tanggalLahirInput.addEventListener('change', function() {
-            const birthDate = new Date(this.value);
-            const today = new Date();
-            
-            let ageInMonths = (today.getFullYear() - birthDate.getFullYear()) * 12;
-            ageInMonths += today.getMonth() - birthDate.getMonth();
-            
-            if (today.getDate() < birthDate.getDate()) {
-                ageInMonths--;
-            }
-    
-            let years = Math.floor(ageInMonths / 12);
-            let months = ageInMonths % 12;
-    
-            if (ageInMonths < 0) {
-                years = 0;
-                months = 0;
-            }
-    
-            let ageString = '';
-            if (years > 0) {
-                ageString += `${years} Tahun `;
-            }
-            if (months > 0 || years === 0) {
-                ageString += `${months} Bulan`;
-            }
-            if (years === 0 && months === 0) {
-                ageString = '0 Bulan';
-            }
-    
-            usiaHewanInput.value = ageString;
-        });
-    });
-    </script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tanggalLahirInput = document.getElementById('tanggalLahir');
+    const usiaHewanInput = document.getElementById('usiaHewan');
+
+    function calculateAge() {
+        const birthDate = new Date(tanggalLahirInput.value);
+        const today = new Date();
+        
+        let ageInMonths = (today.getFullYear() - birthDate.getFullYear()) * 12;
+        ageInMonths += today.getMonth() - birthDate.getMonth();
+        
+        if (today.getDate() < birthDate.getDate()) {
+            ageInMonths--;
+        }
+
+        let years = Math.floor(ageInMonths / 12);
+        let months = ageInMonths % 12;
+
+        if (ageInMonths < 0) {
+            years = 0;
+            months = 0;
+        }
+
+        let ageString = '';
+        if (years > 0) {
+            ageString += `${years} Tahun `;
+        }
+        if (months > 0 || years === 0) {
+            ageString += `${months} Bulan`;
+        }
+        if (years === 0 && months === 0) {
+            ageString = '0 Bulan';
+        }
+
+        usiaHewanInput.value = ageString;
+    }
+
+    if (tanggalLahirInput.value) {
+        calculateAge();
+    }
+
+    tanggalLahirInput.addEventListener('change', calculateAge);
+});
+</script>
 @endsection
