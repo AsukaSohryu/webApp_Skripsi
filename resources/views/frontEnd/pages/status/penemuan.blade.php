@@ -17,7 +17,7 @@
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Status</p>
-        <p class="type-2">Status Laporan Penemuan</p>
+        <p class="type-2">Status Laporan Penemuan Hewan Liar</p>
     </div>
 </section>
 
@@ -34,9 +34,15 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title">Tanggal</h5>
+                        <p class="card-text">Alamat</p>
+                        <br />
+                        <p class="card-text">Jenis Hewan</p>
+                        <p class="card-text">Deskripsi Hewan</p>
+                        <br />
+                        <div class="border border-black">
+                            <p>Respon Admin: </p>
+                        </div>
                     </div>
                 </div>
             </div>
