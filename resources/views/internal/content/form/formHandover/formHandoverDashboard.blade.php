@@ -59,6 +59,19 @@
         </tbody>
     <table>
 <div>
+
+{{-- <div class="container">
+    <form action="{{ route('formHandover.uploadGambar') }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="row">
+            <div class="col">
+                <input type="file" name="gambar" id="gambarWeb" class="form-control">
+            </div>
+        </div>
+        <button>submit</button>
+    </form>
+</div> --}}
+
 <script>
 function searchForms() {
     var input = document.getElementById("searchForm");

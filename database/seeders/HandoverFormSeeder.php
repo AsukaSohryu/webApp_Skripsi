@@ -14,11 +14,20 @@ class HandoverFormSeeder extends Seeder
     public function run(): void
     {
         DB::table('handover_form')->insert([
-            'user_id' => 1,
-            'status_id' => 6,
-            'photo' => '',
-            'is_seen' => 0,
-            'created_at' => '2024-12-01 00:00:00'
+            [
+                'user_id' => 1,
+                'status_id' => 6,
+                'photo' => '',
+                'is_seen' => 0,
+                'created_at' => '2024-12-01 00:00:00'
+            ],
+            [
+                'user_id' => 2,
+                'status_id' => 6,
+                'photo' => '',
+                'is_seen' => 0,
+                'created_at' => '2024-12-02 01:01:01'
+            ],
         ]);
     }
 }
