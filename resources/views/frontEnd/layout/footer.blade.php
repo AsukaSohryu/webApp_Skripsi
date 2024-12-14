@@ -4,7 +4,7 @@
     <div class="footer-top" style="background-color: unset">
         <div class="container">
             <div class="row mx-auto">
-                <div class="col-lg-6 col-md-12 footer-contact">
+                <div class="col-lg-5 col-md-12 footer-contact">
                     <div class="dflex flex-direction-row">
                         <img class="icon-logo" src="./assets/img/main_logo.png" alt="">
                     </div>
@@ -14,8 +14,8 @@
                             <i class="fa-solid fa-location-dot fa-xs"></i>
                         </div>
                         <div class="content">
-                            <h4><b>Head Office - Jakarta</b></h4>
-                            <p>Angkasa Land (The Airport City), Blok D2 Kav.A-F Teluknaga, Tangerang, Banten 15510</p>
+                            <h4><b>Shelter Us</b></h4>
+                            <p>Jl. Lorem Ipsum Blok A No 20, Jakarta, Jakarta Selatan</p>
                         </div>
                     </div>
 
@@ -24,8 +24,8 @@
                             <i class="fa-solid fa-phone fa-xs"></i>
                         </div>
                         <div class="content">
-                            <h4><b>Telephone</b></h4>
-                            <p>+6221-222-935-67</p>
+                            <h4><b>Nomor Telepon</b></h4>
+                            <p>+62 21-123-456-78</p>
                         </div>
                     </div>
                     <div class="detail">
@@ -33,8 +33,8 @@
                             <i class="fa fa-whatsapp fa-lg"></i>
                         </div>
                         <div class="content">
-                            <h4><b>Whatsapp</b></h4>
-                            <p>+62 812-9546-3027</p>
+                            <h4><b>Nomor Whatsapp</b></h4>
+                            <p>+62 81234567891</p>
                         </div>
                     </div>
                 </div>
@@ -42,28 +42,30 @@
                 <div class="col-lg-2 col-sm-6 col-12 footer-links">
                     <h4>Tentang</h4>
                     <ul>
-                        <li><a href="{{ url('tentang-kami') }}">Tentang</a></li>
+                        <li><a href="{{ url('tentang-kami') }}">Tentang Kami</a></li>
                         <li><a href="{{ url('visi-misi') }}">Visi Misi</a></li>
-                        <li><a href="{{ url('mengapa-IDL-express') }}">Mengapa IDL Express</a></li>
-                        <li><a href="{{ url('sektor-industri') }}">Sektor Industri</a></li>
-                        <li><a href="{{ url('karir') }}">Karier</a></li>
+                        <li><a href="{{ url('mengapa-IDL-express') }}">Profil Pendiri</a></li>
+                        <li><a href="{{ url('sektor-industri') }}">Sejarah Shelter</a></li>
                     </ul>
                 </div>
                 
-                <div class="col-lg-2 col-sm-6 col-12 footer-links">
-                    <h4>Layanan</h4>
+                <div class="col-lg-3 col-sm-6 col-12 footer-links">
+                    <h4>Layanan Kami</h4>
                     <ul>
-                        <li><a href="{{ url('layanan-pengiriman-unggulan') }}">Pengiriman Unggulan</a></li>
-                        <li><a href="{{ url('layanan-pengiriman-khusus') }}">Pengiriman Khusus</a></li>
-                        <li><a href="{{ url('layanan-pengiriman-kargo') }}">Pengiriman Kargo</a></li>
+                        <li><a href="{{ url('layanan-pengiriman-unggulan') }}">Laporkan Penemuan</a></li>
+                        <li><a href="{{ url('layanan-pengiriman-khusus') }}">Ajukan Penyerahan</a></li>
+                        <li><a href="{{ url('layanan-pengiriman-kargo') }}">Ajukan Adopsi</a></li>
+                        <li><a href="{{ url('layanan-pengiriman-kargo') }}">Daftar Hewan Diselamatkan</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-sm-6 col-12 footer-links">
                     <h4>Lainnya</h4>
                     <ul>
-                        <li><a href="{{ url('blog') }}">Blog</a></li>
-                        <li><a href="{{ url('hubungi-kami') }}">Hubungi Kami</a></li>
+                        <li><a href="{{ url('blog') }}">Youtube - Shelter Us</a></li>
+                        <li><a href="{{ url('blog') }}">Instagram - Shelter Us</a></li>
+                        <li><a href="{{ url('blog') }}">Twitter - Shelter Us</a></li>
+                        <li><a href="{{ url('blog') }}">Facebook - Shelter Us</a></li>
                     </ul>
                     <br/>
                 </div>
@@ -74,7 +76,7 @@
     <div class="container footer-bottom clearfix" style="background-color: unset">
         <hr class="mb-3 mt-0">
         <div class="copyright flex-wrap">
-            <p>&copy; 2024 PT. Indotama Domestik Lestari</p>
+            <p>&copy; 2025 Shelter US</p>
             <span class="circle"></span> 
             <p>All Rights Reserved</p>
             <p> | <p>   
@@ -82,7 +84,7 @@
             <span class="circle"></span> 
             <p>Privacy Policy</p>
             <span class="circle"></span> 
-            <p>Sitemap</p>
+            <p>Informasi Donasi: Transfer 5271321654</p>
         </div>
         <div class="copyright right">
 

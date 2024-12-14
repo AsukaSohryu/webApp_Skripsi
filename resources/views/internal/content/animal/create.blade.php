@@ -245,16 +245,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const tanggalLahirInput = document.getElementById('tanggalLahir');
     const usiaHewanInput = document.getElementById('usiaHewan');
 
-    tanggalLahirInput.addEventListener('change', function() {
-        const birthDate = new Date(this.value);
+    function calculateAge() {
+        const birthDate = new Date(tanggalLahirInput.value);
         const today = new Date();
         
         let ageInMonths = (today.getFullYear() - birthDate.getFullYear()) * 12;
-        ageInMonths -= birthDate.getMonth();
-        ageInMonths += today.getMonth();
+        ageInMonths += today.getMonth() - birthDate.getMonth();
+        
+        if (today.getDate() < birthDate.getDate()) {
+            ageInMonths--;
+        }
 
         let years = Math.floor(ageInMonths / 12);
         let months = ageInMonths % 12;
+
+        if (ageInMonths < 0) {
+            years = 0;
+            months = 0;
+        }
 
         let ageString = '';
         if (years > 0) {
@@ -263,9 +271,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (months > 0 || years === 0) {
             ageString += `${months} Bulan`;
         }
+        if (years === 0 && months === 0) {
+            ageString = '0 Bulan';
+        }
 
         usiaHewanInput.value = ageString;
-    });
+    }
+
+    if (tanggalLahirInput.value) {
+        calculateAge();
+    }
+
+    tanggalLahirInput.addEventListener('change', calculateAge);
 });
 </script>
 @endsection

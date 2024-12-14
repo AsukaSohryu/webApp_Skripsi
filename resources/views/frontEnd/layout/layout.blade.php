@@ -26,12 +26,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"/>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
-
-
+    
     <!-- Template Main CSS File -->
     <link href="{{url('/')}}/assets/css/style.css" rel="stylesheet">
     <link href="{{url('/')}}/assets/css/main.css" rel="stylesheet">
@@ -50,12 +48,12 @@
     @include('frontend.layout.footer')
 
     
-    <a id="whatsapp" style="position: fixed;bottom: 20px;right: 20px;display:flex;flex-direction:row;align-items:center;z-index:1000"
+    {{-- <a id="whatsapp" style="position: fixed;bottom: 20px;right: 20px;display:flex;flex-direction:row;align-items:center;z-index:1000"
         href="https://api.whatsapp.com/send?phone=6281295463027&text=Halo+IDL+Express+saya+ingin+informasi+lebih+lanjut+mengenai+jasa+ekspedisi+ke+" target="_blank">
         <div class="box" style="width: 72px;height:70px;border-radius:24px 24px 0px 24px;background: linear-gradient(180deg, #121C45 -22.77%, #FF5E14 251.91%);padding:12px">
             <img src="{{url('/')}}/assets/icon/whatsapp2.png" alt="" style="height: 100%;width:100%">
         </div>
-    </a>
+    </a> --}}
 
     <!-- <div id="preloader"></div> -->
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center" style="position: fixed; bottom: 110px;"><i class="bi bi-arrow-up-short"></i></a>
@@ -72,28 +70,14 @@
     <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     
-    
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
 
     <!-- Template Main JS File -->
-    <!-- <script src="{{url('/')}}/assets/js/main.js"></script> -->
+    {{-- <!-- <script src="{{url('/')}}/assets/js/main.js"></script> --> --}}
     <script src="{{ asset('assets/js/main.js') }}"></script>
-    <!-- <script>
-        if (window.screen.width === 1280 && window.screen.height === 720) {
-            // Set the desired zoom level
-            const zoomLevel = 0.9;
-
-            // Calculate the scale factor based on the desired zoom level
-            const scaleFactor = 1 / zoomLevel;
-
-            // Apply the scale factor to the body element
-            document.body.style.transform = `scale(${scaleFactor})`;
-            document.body.style.transformOrigin = '0 0'; // Set the transform origin to the top left corner
-        }
-    </script> -->
 
     <script src="https://kit.fontawesome.com/95a745a1a3.js" crossorigin="anonymous"></script>
     @yield('js')

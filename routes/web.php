@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\frontEnd\HomeController;
+use App\Http\Controllers\frontend\layanan\HewanDiselamatkanController;
 use App\Http\Controllers\frontend\layanan\LayananLaporanHewanHilangController;
 use App\Http\Controllers\frontend\layanan\LayananLihatHewanSiapAdopsiController;
 use App\Http\Controllers\frontend\layanan\LayananPengajuanPenyerahanHewanController;
@@ -34,6 +35,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/tentang-kami', [TentangKamiController::class, 'index'])->name('tentang-kami');
 
+Route::get('/hewan-diselamatkan', [HewanDiselamatkanController::class, 'index'])->name('layanan-hewan-diselamatkan');
 Route::get('/layanan-laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'index'])->name('layanan-laporan');
 Route::get('/layanan-lihat-hewan-siap-adopsi', [LayananLihatHewanSiapAdopsiController::class, 'index'])->name('layanan-lihat');
 Route::get('/layanan-pengajuan-penyerahan-hewan', [LayananPengajuanPenyerahanHewanController::class, 'index'])->name('layanan-pengajuan');
@@ -43,16 +45,6 @@ Route::get('/status-pengajuan-pengadopsian-hewan', [StatusPengajuanPengadopsianH
 Route::get('/status-pengajuan-penyerahan-hewan', [StatusPengajuanPenyerahanHewanController::class, 'index'])->name('status-penyerahan');
 
 //admin
-
-// Route::get('/form-adopsi', [FormAdopsiController::class, 'index'])->name('formAdopsi.index');
-
-// Route::get('/form-handover', [FormHandoverController::class, 'index'])->name('formHandover.index');
-
-// Route::get('/informasi-shelter', [InformasiShelterController::class, 'index'])->name('informasiShelter.index');
-
-// Route::get('/pertanyaan-pengadopsian', [PertanyaanPengadopsianController::class, 'index'])->name('pertanyaanPengadopsian.index');
-
-// Route::get('/pertanyaan-penyerahan', [PertanyaanPenyerahanController::class, 'index'])->name('pertanyaanPenyerahan.index');
 // middleware('role:Admin')->
 Route::prefix('admin')->group(function () {
 
