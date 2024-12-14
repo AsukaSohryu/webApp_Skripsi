@@ -59,7 +59,6 @@ Route::prefix('admin')->group(function () {
         Route::post('/edit-data-hewan-post', [DataHewanController::class, 'editPost'])->name('dataHewan.edit.post');
         Route::get('/create-hewan', [DataHewanController::class, 'create'])->name('dataHewan.create');
         Route::post('/create-hewan-post', [DataHewanController::class, 'createPost'])->name('dataHewan.create.post');
-        
     });
 
     // REGION FORM
@@ -82,6 +81,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/detail-form-handover/{handover_form_id}', [FormHandoverController::class, 'detail'])->name('formHandover.detail');
         Route::get('/edit-form-handover/{handover_form_id}', [FormHandoverController::class, 'edit'])->name('formHandover.edit');
         Route::post('/edit-form-handover-post', [FormHandoverController::class, 'editPost'])->name('formHandover.edit.post');
+        Route::post('/test-upload', [FormHandoverController::class, 'testUploadGambar'])->name('formHandover.uploadGambar');
     });
 
     // REGION KONFIGURASI

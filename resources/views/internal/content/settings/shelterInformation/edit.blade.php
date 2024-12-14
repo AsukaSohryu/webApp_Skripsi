@@ -182,7 +182,7 @@
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Informasi Formulir Lpaoran Penemuan Hewan Liar</label>
+                    <label for="">Informasi Formulir Laporan Penemuan Hewan Liar</label>
                     <textarea name="adoptionInfo" id="adoptionInfo" class="form-control" rows="4">{{$shelterInformation->adoption_information}}</textarea>
                 </div>
             </div>

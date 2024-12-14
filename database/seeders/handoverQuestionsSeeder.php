@@ -15,83 +15,83 @@ class HandoverQuestionsSeeder extends Seeder
     {
         DB::table('handover_questions')->insert([
             [
-                'questions' => 'Nama Hewan', 
+                'questions' => 'Nama Hewan',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Jenis Hewan', 
+                'questions' => 'Jenis Hewan',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Umur Hewan', 
+                'questions' => 'Umur Hewan',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Tanggal Lahir Hewan', 
+                'questions' => 'Tanggal Lahir Hewan',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Jenis Kelamin Hewan', 
+                'questions' => 'Jenis Kelamin Hewan',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Ras Hewan', 
+                'questions' => 'Ras Hewan',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Warna Hewan', 
+                'questions' => 'Warna Hewan',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Berat Hewan', 
+                'questions' => 'Berat Hewan',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Vaksin Hewan', 
+                'questions' => 'Vaksin Hewan',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Apakah hewan sudah steril?', 
+                'questions' => 'Apakah hewan sudah steril?',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Tanggal vaksinasi terakhir', 
+                'questions' => 'Tanggal vaksinasi terakhir',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Alasan penyerahan hewan', 
+                'questions' => 'Alasan penyerahan hewan',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Makanan yang biasa diberikan? (Makanan Kaleng/Makanan Kering/Nasi + Daging/Lainnya)', 
+                'questions' => 'Makanan yang biasa diberikan? (Makanan Kaleng/Makanan Kering/Nasi + Daging/Lainnya)',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Apakah hewan jinak pada anak?', 
+                'questions' => 'Apakah hewan jinak pada anak?',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Apakah hewan menggigit/galak?', 
+                'questions' => 'Apakah hewan menggigit/galak?',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Apakah hewan bisa bergaul dengan anjing/kucing lain?', 
+                'questions' => 'Apakah hewan bisa bergaul dengan anjing/kucing lain?',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Dimanakah hewan biasa tidur? (Didalam/Diluar rumah?)', 
+                'questions' => 'Dimanakah hewan biasa tidur? (Didalam/Diluar rumah?)',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Apakah hewan biasa berada didalam rumah atau bebas berkeliaran?', 
+                'questions' => 'Apakah hewan biasa berada didalam rumah atau bebas berkeliaran?',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Apakah hewan terlatih untuk buang air di kotak pasir?', 
+                'questions' => 'Apakah hewan terlatih untuk buang air di kotak pasir?',
                 'is_active' => 1
             ],
             [
-                'questions' => 'Adakah sifat/hal lain yang perlu kami ketahui?', 
+                'questions' => 'Adakah sifat/hal lain yang perlu kami ketahui?',
                 'is_active' => 1
             ],
         ]);

@@ -74,6 +74,11 @@
                     <input type="text" name="handoverFormID" id="handoverFormID" value="{{$detail->handover_form_id}}" class="form-control" hidden>
                 </div>
             </div>
+            <div class="row my-3">
+                <div class="col my-3 d-flex justify-content-center">
+                    <img src="{{ asset('storage/formHandover/' . $detail->photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
+                </div>
+            </div>
             @foreach ($detail->handoverQuestions as $question)
             <div class="row my-3">
                 <div class="col">

@@ -145,4 +145,22 @@ class FormHandoverController extends Controller
             return back()->with('success', $message);
         }
     }
+
+    public function testUploadGambar(Request $request)
+    {
+
+        $file_web = $request->file('gambar');
+        $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
+
+        $path_web = $file_web->storeAs('formHandover', $file_web_name, 'public');
+
+        $edit = handoverForm::where('handover_form_id', 1)->update([
+
+            'photo' => $file_web_name,
+        ]);
+
+        if ($edit) {
+            return redirect('/dashboard')->with('Insert Sukses');
+        }
+    }
 }
