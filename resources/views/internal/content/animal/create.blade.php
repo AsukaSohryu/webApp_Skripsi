@@ -54,7 +54,8 @@
             <div class="row my-3">
                 <div class="col my-3 d-flex flex-column justify-content-center">
                     <label for="" class="my-3">Upload Foto Hewan</label>
-                    <input type="file" class="form-control" name="fotoHewan" required>
+                    <input type="file" class="form-control" name="fotoHewan" required accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml">
+                    <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
                 </div>
             </div>
             <div class="row my-3">
