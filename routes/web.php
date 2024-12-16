@@ -37,6 +37,7 @@ Route::get('/tentang-kami', [TentangKamiController::class, 'index'])->name('tent
 
 Route::get('/hewan-diselamatkan', [HewanDiselamatkanController::class, 'index'])->name('layanan-hewan-diselamatkan');
 Route::get('/layanan-laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'index'])->name('layanan-laporan');
+Route::post('/layanan-laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'indexPost'])->name('layanan-laporan-post');
 Route::get('/layanan-lihat-hewan-siap-adopsi', [LayananLihatHewanSiapAdopsiController::class, 'index'])->name('layanan-lihat');
 
 // REGION LAYANAN PENGAJUAN PENYERAHAN HEWAN

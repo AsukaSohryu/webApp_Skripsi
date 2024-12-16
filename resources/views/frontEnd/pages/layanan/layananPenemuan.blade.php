@@ -11,9 +11,6 @@
     <br />
 </section>
 
-<section id="hero" style='height: 72vh; background-image: url("./assets/images/tentangKami/1148760.jpg"); background-position: center;'>
-</section>
-
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Layanan Kami</p>
@@ -41,69 +38,79 @@
         <h5 style="font-weight: 900">*Pemilik akun bertanggung jawab atas laporan yang dibuat</h5>
     </div>
     <div class="container border border-black my-3" style="border-radius: 16px">
-        <form action="" enctype="multipart/form-data">
+        <form action="{{ route('layanan-laporan-post') }}" method="POST" class="m-4" enctype="multipart/form-data">
+            @csrf
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Nama Pelapor</label>
-                    <input type="text" class="form-control" placeholder="Nama Pelapor">
+                    <input type="text" name="namaPelapor" id="namaPelapor" value="" placeholder="Nama Pelapor" class="form-control" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">No Telepon</label>
-                    <input type="text" class="form-control" placeholder="No Telepon">
+                    <input type="text" name="" id="" class="form-control" placeholder="No Telepon" required>
                 </div>
                 <div class="col">
                     <label for="" class="my-3">No Whatsapp</label>
-                    <input type="text" class="form-control" placeholder="No Whatsapp">
+                    <input type="text" name="" id="" class="form-control" placeholder="No Whatsapp" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Jenis Hewan</label>
-                    <select name="statusLaporan" id="statusLaporan" class="form-select">
-                        <option value="">Puddle</option>
-                        <option value="">Puddle</option>
-                        <option value="">Puddle</option>
+                    <select name="jenisHewan" id="jenisHewan" class="form-select" required>
+                        <option value="" selected disabled>Pilih Jenis Hewan</option>
+                        <option value="Anjing">Anjing</option>
+                        <option value="Kucing" >Kucing</option>
                     </select>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Lokasi (Deskripsi, Patokan)</label>
-                    <input type="text" class="form-control" placeholder="Lokasi (Deskripsi, Patokan)">
+                    <input type="text" name="lokasi" id="lokasi" value="" placeholder="Lokasi (Deskripsi, Patokan)" class="form-control" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Lokasi Google Maps</label>
-                    <input type="text" class="form-control" placeholder="Lokasi Google Maps">
+                    <input type="text" name="lokasiMaps" id="lokasiMaps" value="" placeholder="Lokasi Google Maps" class="form-control" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Deskripsi</label>
-                    <input type="text" class="form-control" placeholder="Deskripsi hewan, kondisi hewan, tempat/lokasi, dan penjelasan yang dapat membantu, Hari/Tanggal dan waktu ditemukan">
+                    <textarea name="deskripsi" id="deskripsi" class="form-control" rows="4" placeholder="Deskripsi hewan, kondisi hewan, tempat/lokasi, dan penjelasan yang dapat membantu, Hari/Tanggal dan waktu ditemukan" required></textarea>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Upload Foto Hewan</label>
-                    <input type="file" class="form-control">
+                    <input type="file" name="fotoHewan" id="fotoHewan" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml" required>
+                    <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Upload Foto Lokasi Penemuan</label>
-                    <input type="file" class="form-control">
+                    <input type="file" name="fotoLokasi" id="fotoLokasi" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml" required>
+                    <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Upload Foto Pendukung</label>
-                    <input type="file" class="form-control">
+                    <input type="file" name="fotoBebas" id="fotoBebas" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml">
+                    <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
                 </div>
             </div>
+            <div class="row my-3">
+                <div class="gap-3 mt-4 d-flex justify-content-center">
+                    <button class="btn btn-primary" style="border: 0;" title="Edit">Kirim Laporan</button>
+                </div>
+            </div>
+            
         </form>
     </div>
 </section>

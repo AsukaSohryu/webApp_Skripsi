@@ -43,7 +43,8 @@
             <div class="row my-3">
                 <div class="col my-3 d-flex flex-column justify-content-center">
                     <label for="">Upload Logo Shelter</label>
-                    <input type="file" class="form-control" name="shelterLogo">
+                    <input type="file" class="form-control" name="shelterLogo" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml">
+                    <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
                     <div class="mt-2 ps-3">Currrent File: {{ $shelterInformation->shelter_logo }}</div>
                 </div>
             </div>
