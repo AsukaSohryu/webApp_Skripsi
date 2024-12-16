@@ -25,7 +25,6 @@ class FormHandoverController extends Controller
 
     public function detail($handover_form_id)
     {
-        // $handoverForm = handoverForm::with(['users', 'status'])->where('handover_form_id', $handover_form_id)->first();
         $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function ($query) {
             $query->withPivot('answer');
         }])->findOrFail($handover_form_id);
@@ -83,8 +82,8 @@ class FormHandoverController extends Controller
 
             $successCreate = 'false';
             if ($request->statusID == 9) {
-                $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function ($query) {
-                    $query->withPivot('answer');
+                    $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function ($query) {
+                        $query->withPivot('answer');
                 }])->findOrFail($request->handoverFormID);
 
                 foreach ($handoverForm->handoverQuestions as $question) {

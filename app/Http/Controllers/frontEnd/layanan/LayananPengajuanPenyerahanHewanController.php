@@ -4,13 +4,52 @@ namespace App\Http\Controllers\frontend\layanan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\handoverQuestions;
+use App\Models\User;
+use App\Models\shelterInformation;
+use App\Models\handoverForm;
+use App\Models\handoverAnswers;
+
+
 
 class LayananPengajuanPenyerahanHewanController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        $handoverQuestions = handoverQuestions::where('is_active', 1)->get();
+        $user = User::where('user_id', 1)->first(); //USER HARDCODE
+        $shelterInformation = shelterInformation::where('shelter_id', 1)->first();
 
         return view('frontend.pages.layanan.layananPengajuan', [
-            'pagetitle' => 'Pengajuan Penyerahan hewan'
+            'pagetitle' => 'Formulir Pengajuan Penyerahan hewan',
+            'handoverQuestions' => $handoverQuestions,
+            'user' => $user,
+            'shelterInformation' => $shelterInformation
         ]);
+    }
+
+    public function createPost(Request $request)
+    {
+        // dd($request->all());
+
+        $file_web = $request->file('fotoHewanHandover');
+        $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
+
+        $path_web = $file_web->storeAs('animal', $file_web_name, 'public');
+
+        $handoverForm = handoverForm::create([
+            'user_id' => 1, // Hardcoded 
+            'status_id' => 6,
+            'photo' => $request->file_web_name,
+            // 'photo' => '',
+            'is_seen' => 0,
+            'admin_feedback' => '',
+        ]);
+
+        foreach ($request->answers as $questionId => $answer) {
+            $handoverForm->handoverQuestions()->attach($questionId, ['answer' => $answer]);
+        }
+
+        return redirect()->route('layanan-pengajuan')->with('success', 'Pengajuan berhasil dibuat!');
     }
 }

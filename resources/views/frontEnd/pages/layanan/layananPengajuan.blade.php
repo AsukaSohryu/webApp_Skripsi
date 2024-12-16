@@ -23,46 +23,137 @@
 
 <section id="section-1-layanan-penyerahan">
     <div class="container">
-        <h5>Perhatikan!!!</h5>
-        <ol type="1">
-            <li><b>Sebelum menyerahkan hewan milik pribadi</b>, pertimbangkan juga alternatif lain sebelum menyerahkan hewan ke shelter, seperti mencari pemilik baru yang dapat merawat hewan tersebut.</li>
-            <li><b>Sebelum menyerahkan hewan peliharaan liar (anjing/kucing) yang ditemukan dijalan:</b>
-                <ul>
-                    <li>Bawa hewan ke dokter hewan untuk pemeriksaan kesehatan menyeluruh.</li>
-                    <li>Pastikan hewan tersebut sudah mendapatkan vaksinasi yang diperlukan.</li>
-                    <li>Berikan pengobatan terhadap parasit seperti cacing, kutu, dan tungau.</li>
-                </ul>
-            </li>
-        </ol>
-        <h5>Ketentuan menyerahkan hewan miliki pribadi:</h5>
-        <ol type="1">
-            <li><b>Sediakan informasi lengkap berupa:</b>
-                <ul>
-                    <li>Sediakan informasi rinci mengenai hewan tersebut, seperti usia, jenis kelamin, perilaku, kebiasaan makan, dan sejarah kesehatan.</li>
-                    <li>hewan tersebut memiliki riwayat medis atau obat-obatan yang perlu diberikan, informasikan secara jelas kepada shelter.</li>
-                </ul>
-            </li>
-            <li><b>Perlengkapan Hewan:</b>
-                <ul>
-                    <li>Bawa barang-barang pribadi hewan seperti tempat tidur, mainan, atau makanan favoritnya. Ini akan membantu hewan merasa lebih nyaman di lingkungan baru.</li>
-                </ul>
-            </li>
-        </ol>
-        <h5 style="font-weight: 900">*Harap mengontak Admin via whatsapp terlebih dahulu jika ada yang ingin ditanyakan sebelum mengisi formulir</h5>
+        <div class="row my-3">
+            <div class="col">
+                <label for="">Formulir Pengajuan Penyerahan Hewan</label>
+                <p class="form-control" style="border: none; background: none; margin-top: 10px;">{{$shelterInformation->handover_information}}</p>
+            </div>
+        </div>
     </div>
     <div class="container border border-black my-3" style="border-radius: 16px">
-        <form action="" enctype="multipart/form-data">  
-            {{-- formnya --}}
-        </form>
-    </div>
-    <div class="container my-3" style="border-radius: 16px; background-color: grey;">
-        <form action="" enctype="multipart/form-data">
-            {{-- formnya --}}
+        <form action="{{ route('layanan-pengajuan.create.Post') }}" method="post" enctype="multipart/form-data">  
+            @csrf
+            {{-- Profile User --}}
+            <div class="row my-3">
+                <div class="col">
+                    <label for="" class="my-3">Nama Pemilik</label>
+                    <input type="text" name="namaPemilik" id="namaPemilik" class="form-control" value="{{$user->name}}" disabled>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    <label for="" class="my-3">Nomor Telepon</label>
+                    <input type="text" name="noTelp" id="noTelp" class="form-control" value="{{$user->phone_number}}" disabled>
+                </div>
+                <div class="col">
+                    <label for="" class="my-3">Nomor Whatsapp</label>
+                    <input type="text" name="noWhatsapp" id="noWhatsapp" class="form-control" value="{{$user->whatsapp_number}}" disabled>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    <label for="" class="my-3">Alamat Pemilik</label>
+                    <input type="text" name="alamatPemilik" id="alamatPemilik" class="form-control" value="{{$user->address}}" disabled>
+                </div>
+            </div>
+            <hr>
+            <div class="row my-3">
+                <div class="col my-3 d-flex flex-column justify-content-center">
+                    <label for="" class="my-3">Upload Foto Hewan Anda</label>
+                    <input type="file" class="form-control" name="fotoHewanHandover" required>
+                </div>
+            </div>
+            <div class="row my-3">
+            <!-- Displaying the handover questions -->
+            <div class="row my-3">
+                <div class="col">
+                    <h5>Handover Questions:</h5>
+                    @foreach($handoverQuestions as $question)
+                    <div class="form-group">
+                        <label>{{ $question->questions }}</label>
+                        @switch($question->handover_questions_id)
+                            @case(2)
+                                <select class="form-control" name="answers[{{ $question->handover_questions_id }}]">
+                                    <option value="Anjing">Anjing</option>
+                                    <option value="Kucing">Kucing</option>
+                                </select>
+                                @break
+                            @case(3)
+                                <input type="text" class="form-control" name="answers[{{ $question->handover_questions_id }}]" id="usiaHewan" disabled> <!-- Ensure this is enabled -->
+                                @break
+                            @case(4)
+                                <input type="date" class="form-control" name="answers[{{ $question->handover_questions_id }}]" id="tanggalLahir"> <!-- Added ID for tanggal lahir -->
+                                @break
+                            @case(5)
+                                <select class="form-control" name ="answers[{{ $question->handover_questions_id }}]">
+                                    <option value="Jantan">Jantan</option>
+                                    <option value="Betina">Betina</option>
+                                </select>
+                                @break
+                            @case(8)
+                                <input type="number" class="form-control" name="answers[{{ $question->handover_questions_id }}]">
+                                @break
+                            @case(10)
+                                <select class="form-control" name="answers[{{ $question->handover_questions_id }}]">
+                                    <option value="1">Sudah</option>
+                                    <option value="0">Belum</option>
+                                </select>
+                                @break
+                            @default
+                                <textarea class="form-control" name="answers[{{ $question->handover_questions_id }}]" rows="3" placeholder="Your answer here"></textarea>
+                        @endswitch
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="gap-3 my-10 d-flex justify-content-end">
+                <button class="btn btn-primary" type="submit" style="border: 0;">Kirim Pengajuan</button>
+            </div>
         </form>
     </div>
 </section>
 @endsection
 
 @section('js')
-
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tanggalLahirInput = document.getElementById('tanggalLahir');
+        const usiaHewanInput = document.getElementById('usiaHewan'); // Ensure this input is enabled
+    
+        function calculateAge() {
+            const birthDate = new Date(tanggalLahirInput.value);
+            const today = new Date();
+            
+            let ageInMonths = (today.getFullYear() - birthDate.getFullYear()) * 12;
+            ageInMonths += today.getMonth() - birthDate.getMonth();
+            
+            if (today.getDate() < birthDate.getDate()) {
+                ageInMonths--;
+            }
+    
+            let years = Math.floor(ageInMonths / 12);
+            let months = ageInMonths % 12;
+    
+            if (ageInMonths < 0) {
+                years = 0;
+                months = 0;
+            }
+    
+            let ageString = '';
+            if (years > 0) {
+                ageString += `${years} Tahun `;
+            }
+            if (months > 0 || years === 0) {
+                ageString += `${months} Bulan`;
+            }
+            if (years === 0 && months === 0) {
+                ageString = '0 Bulan';
+            }
+    
+            usiaHewanInput.value = ageString; // Display the calculated age
+        }
+    
+        tanggalLahirInput.addEventListener('change', calculateAge); // Calculate age on date change
+    });
+</script>
 @endsection
