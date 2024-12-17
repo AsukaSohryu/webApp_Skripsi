@@ -14,16 +14,25 @@ class LayananLihatHewanSiapAdopsiController extends Controller
                          ->paginate(9);
         //  dd($animals);
         
-        return view('frontend.pages.layanan.layananPengadopsian', [
+        return view('frontend.pages.layanan.pengadopsian.layananPengadopsian', [
             'pagetitle' => 'Hewan Diselamatkan',
             'animals' => $animals
         ]);
     }
 
-    public function show($animal_id){
+    public function detailHewan($animal_id){
         $animal = animal::findOrFail($animal_id);
         
-        return view('frontend.pages.layanan.animalDetail', [
+        return view('frontend.pages.layanan.pengadopsian.detailHewan', [
+            'pagetitle' => 'Detail Hewan',
+            'animal' => $animal
+        ]);
+    }
+
+    public function adoptionFormulir($animal_id){
+        $animal = animal::findOrFail($animal_id);
+        
+        return view('frontend.pages.layanan.pengadopsian.adoptionFormulir', [
             'pagetitle' => 'Detail Hewan',
             'animal' => $animal
         ]);
