@@ -20,7 +20,7 @@
         <p class="type-2">Pengajuan Pengadopsian Hewan</p>
     </div>
 </section>
-<section id="section-1-layanan-penyerahan">
+<section id="section-1-layanan-pengadopsian">
     <div class="container">
         <div class="row">
             @foreach($animals as $animal)
@@ -60,13 +60,12 @@
                                         if ($years === 0 && $months === 0) {
                                             $ageString = '0 Bulan';
                                         }
-                                        
                                         echo $ageString;
                                     @endphp
                                 </h6>
                                 <h6 class="card-text small">Deskripsi Hewan: {{ $animal->description }}</h6>
                             </div>
-                            <a href="" class="btn d-flex justify-content-center btn-secondary btn-block rounded-0">Adopsi</a>
+                            <a href="{{ route('layanan-lihat-detail', $animal->animal_id ) }}" class="btn d-flex justify-content-center btn-secondary btn-block rounded-0">Adopsi</a>
                         </div>
                     </div>
                 </div>

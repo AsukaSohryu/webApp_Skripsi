@@ -39,8 +39,8 @@ Route::get('/hewan-diselamatkan', [HewanDiselamatkanController::class, 'index'])
 Route::get('/layanan-laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'index'])->name('layanan-laporan');
 Route::post('/layanan-laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'indexPost'])->name('layanan-laporan-post');
 Route::get('/layanan-lihat-hewan-siap-adopsi', [LayananLihatHewanSiapAdopsiController::class, 'index'])->name('layanan-lihat');
-
-// REGION LAYANAN PENGAJUAN PENYERAHAN HEWAN
+Route::get('/layanan-lihat-hewan-siap-adopsi/detail-hewan/{animal_id}', [LayananLihatHewanSiapAdopsiController::class, 'detailHewan'])->name('layanan-lihat-detail');
+Route::get('/layanan-lihat-hewan-siap-adopsi/adoption-formulir/{animal_id}', [LayananLihatHewanSiapAdopsiController::class, 'adoptionFormulir'])->name('layanan-lihat-adoption');
 Route::get('/layanan-pengajuan-penyerahan-hewan', [LayananPengajuanPenyerahanHewanController::class, 'index'])->name('layanan-pengajuan');
 Route::post('/layanan-pengajuan-penyerahan-hewan-create', [LayananPengajuanPenyerahanHewanController::class, 'createPost'])->name('layanan-pengajuan.create.Post');
 
