@@ -1,7 +1,9 @@
 @extends('frontend.layout.layout')
 
 @section('link')
-
+<!-- Include SweetAlert CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 
 @section('content')
@@ -73,7 +75,7 @@
                         <label>{{ $question->questions }}</label>
                         @switch($question->handover_questions_id)
                             @case(2)
-                                <select class="form-control" name="answers[{{ $question->handover_questions_id }}]">
+                                <select class="form-control" name="answers[{{ $question->handover_questions_id }}]" required>
                                     <option value="Anjing">Anjing</option>
                                     <option value="Kucing">Kucing</option>
                                 </select>
@@ -82,25 +84,25 @@
                                 <input type="text" class="form-control" name="answers[{{ $question->handover_questions_id }}]" id="usiaHewan" disabled> <!-- Ensure this is enabled -->
                                 @break
                             @case(4)
-                                <input type="date" class="form-control" name="answers[{{ $question->handover_questions_id }}]" id="tanggalLahir"> <!-- Added ID for tanggal lahir -->
+                                <input type="date" class="form-control" name="answers[{{ $question->handover_questions_id }}]" id="tanggalLahir" required> <!-- Added ID for tanggal lahir -->
                                 @break
                             @case(5)
-                                <select class="form-control" name ="answers[{{ $question->handover_questions_id }}]">
+                                <select class="form-control" name ="answers[{{ $question->handover_questions_id }}]" required>
                                     <option value="Jantan">Jantan</option>
                                     <option value="Betina">Betina</option>
                                 </select>
                                 @break
                             @case(8)
-                                <input type="number" class="form-control" name="answers[{{ $question->handover_questions_id }}]">
+                                <input type="number" class="form-control" name="answers[{{ $question->handover_questions_id }}]" required>
                                 @break
                             @case(10)
-                                <select class="form-control" name="answers[{{ $question->handover_questions_id }}]">
+                                <select class="form-control" name="answers[{{ $question->handover_questions_id }}]" required>
                                     <option value="1">Sudah</option>
                                     <option value="0">Belum</option>
                                 </select>
                                 @break
                             @default
-                                <textarea class="form-control" name="answers[{{ $question->handover_questions_id }}]" rows="3" placeholder="Your answer here"></textarea>
+                                <textarea class="form-control" name="answers[{{ $question->handover_questions_id }}]" rows="3" placeholder="Your answer here" required></textarea>
                         @endswitch
                     </div>
                     @endforeach
@@ -156,4 +158,6 @@
         tanggalLahirInput.addEventListener('change', calculateAge); // Calculate age on date change
     });
 </script>
+
+
 @endsection

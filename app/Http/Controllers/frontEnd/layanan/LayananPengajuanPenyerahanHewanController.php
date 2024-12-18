@@ -8,6 +8,7 @@ use App\Models\handoverQuestions;
 use App\Models\User;
 use App\Models\shelterInformation;
 use App\Models\handoverForm;
+use Illuminate\Support\Facades\Validator; // Add this line
 use App\Models\handoverAnswers;
 
 
@@ -32,16 +33,16 @@ class LayananPengajuanPenyerahanHewanController extends Controller
     {
         // dd($request->all());
 
+
         $file_web = $request->file('fotoHewanHandover');
         $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
 
-        $path_web = $file_web->storeAs('animal', $file_web_name, 'public');
+        $path_web = $file_web->storeAs('formHandover', $file_web_name, 'public');
 
         $handoverForm = handoverForm::create([
             'user_id' => 1, // Hardcoded 
             'status_id' => 6,
-            'photo' => $request->file_web_name,
-            // 'photo' => '',
+            'photo' =>  $file_web_name,
             'is_seen' => 0,
             'admin_feedback' => '',
         ]);
