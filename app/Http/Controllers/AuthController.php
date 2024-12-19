@@ -23,6 +23,8 @@ class AuthController extends Controller
     }
 
     public function masukPost(Request $request){
+        
+        // dd('tes');
 
         $credentials = $request->validate([
             'email' => 'required|email',
@@ -35,9 +37,9 @@ class AuthController extends Controller
             // Redirect based on role
             $user = Auth::user();
             if ($user->role === 'Admin') {
-                return redirect()->route('dashboard');
+                return redirect()->route('dashboard'); 
             } elseif ($user->role === 'User') {
-                return redirect()->route('');
+                return redirect()->route('home'); 
             }
 
             return redirect('/');

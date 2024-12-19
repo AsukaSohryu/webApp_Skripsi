@@ -67,7 +67,8 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Content-->
 						<div class="w-md-400px">
 							<!--begin::Form-->
-							<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="{{ route('masuk.post') }}">
+							<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="{{ route('masuk.post') }}" method="POST">
+								@csrf
 								<!--begin::Heading-->
 								<div class="text-center mb-11">
 									<!--begin::Title-->
@@ -153,17 +154,17 @@ License: For each use you must have a valid license purchased only from above li
 			</div>
 			<!--end::Authentication - Sign-in-->
 		</div>
-		<!--end::Root-->
-		<!--begin::Javascript-->
+		// <!--end::Root-->
+		// <!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
-		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
+		// <!--begin::Global Javascript Bundle(mandatory for all pages)-->
 		<script src="{{asset('/')}}assets/internal/plugins/global/plugins.bundle.js"></script>
 		<script src="{{asset('/')}}assets/internal/js/scripts.bundle.js"></script>
-		<!--end::Global Javascript Bundle-->
-		<!--begin::Custom Javascript(used for this page only)-->
+		// <!--end::Global Javascript Bundle-->
+		// <!--begin::Custom Javascript(used for this page only)-->
 		<script src="{{asset('/')}}assets/internal/js/custom/authentication/sign-in/general.js"></script>
-		<!--end::Custom Javascript-->
-		<!--end::Javascript-->
+		// <!--end::Custom Javascript-->
+		// <!--end::Javascript-->
 	</body>
 	<!--end::Body-->
 </html>

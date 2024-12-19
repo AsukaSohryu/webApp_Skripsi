@@ -50,7 +50,7 @@ Route::get('/status-pengajuan-penyerahan-hewan', [StatusPengajuanPenyerahanHewan
 
 //admin
 // middleware('role:Admin')->
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('role:Admin')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

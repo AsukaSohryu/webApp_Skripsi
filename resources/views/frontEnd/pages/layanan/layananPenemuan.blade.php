@@ -15,7 +15,7 @@
     <div class="container">
         <p class="type-2">Layanan Kami</p>
         <p class="type-2">Laporan Penemuan Hewan Peliharaan Liar</p>
-    </div>
+    </div> 
 </section>
 
 <section id="section-1-laporan-penemuan">
