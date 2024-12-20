@@ -25,84 +25,83 @@
 
 <section id="section-1-layanan-penyerahan">
     <div class="container">
-        <div class="row my-3">
+        <div class="row my-2">
             <div class="col">
                 <label for="">Formulir Pengajuan Penyerahan Hewan</label>
                 <p class="form-control" style="border: none; background: none; margin-top: 10px;">{{$shelterInformation->handover_information}}</p>
             </div>
         </div>
     </div>
-    <div class="container border border-black my-3" style="border-radius: 16px">
-        <form action="{{ route('layanan-pengajuan.create.Post') }}" method="post" enctype="multipart/form-data">  
+    <div class="container border border-black my-2" style="border-radius: 16px">
+        <form action="{{ route('layanan-pengajuan.create.Post') }}" method="post" class="m-4" enctype="multipart/form-data">  
             @csrf
             {{-- Profile User --}}
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">Nama Pemilik</label>
+                    <label for="" class="my-2">Nama Pemilik</label>
                     <input type="text" name="namaPemilik" id="namaPemilik" class="form-control" value="{{$user->name}}" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">Nomor Telepon</label>
+                    <label for="" class="my-2">Nomor Telepon</label>
                     <input type="text" name="noTelp" id="noTelp" class="form-control" value="{{$user->phone_number}}" disabled>
                 </div>
                 <div class="col">
-                    <label for="" class="my-3">Nomor Whatsapp</label>
+                    <label for="" class="my-2">Nomor Whatsapp</label>
                     <input type="text" name="noWhatsapp" id="noWhatsapp" class="form-control" value="{{$user->whatsapp_number}}" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">Alamat Pemilik</label>
+                    <label for="" class="my-2">Alamat Pemilik</label>
                     <input type="text" name="alamatPemilik" id="alamatPemilik" class="form-control" value="{{$user->address}}" disabled>
                 </div>
             </div>
             <hr>
-            <div class="row my-3">
-                <div class="col my-3 d-flex flex-column justify-content-center">
-                    <label for="" class="my-3">Upload Foto Hewan Anda</label>
+            <div class="row my-1">
+                <div class="col my-2 d-flex flex-column justify-content-center">
+                    <label for="" class="my-2">Unggah Foto Hewan Anda</label>
                     <input type="file" class="form-control" name="fotoHewanHandover" required>
                 </div>
             </div>
-            <div class="row my-3">
+            
             <!-- Displaying the handover questions -->
-            <div class="row my-3">
+            <div class="row my-2">
                 <div class="col">
-                    <h5>Handover Questions:</h5>
                     @foreach($handoverQuestions as $question)
-                    <div class="form-group">
+                    <div class="col">
                         <label>{{ $question->questions }}</label>
                         @switch($question->handover_questions_id)
                             @case(2)
-                                <select class="form-control" name="answers[{{ $question->handover_questions_id }}]" required>
+                                <select class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
                                     <option value="Anjing">Anjing</option>
                                     <option value="Kucing">Kucing</option>
                                 </select>
                                 @break
                             @case(3)
-                                <input type="text" class="form-control" name="answers[{{ $question->handover_questions_id }}]" id="usiaHewan" disabled> <!-- Ensure this is enabled -->
+                                <input type="text" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" id="usiaHewan" disabled> <!-- Ensure this is enabled -->
                                 @break
                             @case(4)
-                                <input type="date" class="form-control" name="answers[{{ $question->handover_questions_id }}]" id="tanggalLahir" required> <!-- Added ID for tanggal lahir -->
+                                <input type="date" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" id="tanggalLahir" placeholder="Masukan Jawaban Anda" required> <!-- Added ID for tanggal lahir -->
                                 @break
                             @case(5)
-                                <select class="form-control" name ="answers[{{ $question->handover_questions_id }}]" required>
+                                <select class="form-control my-2" name ="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
                                     <option value="Jantan">Jantan</option>
                                     <option value="Betina">Betina</option>
                                 </select>
                                 @break
                             @case(8)
-                                <input type="number" class="form-control" name="answers[{{ $question->handover_questions_id }}]" required>
+                                <input type="number" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
                                 @break
                             @case(10)
-                                <select class="form-control" name="answers[{{ $question->handover_questions_id }}]" required>
+                                <select class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
                                     <option value="1">Sudah</option>
                                     <option value="0">Belum</option>
                                 </select>
                                 @break
                             @default
-                                <textarea class="form-control" name="answers[{{ $question->handover_questions_id }}]" rows="3" placeholder="Your answer here" required></textarea>
+                                <textarea class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" rows="3" placeholder="Masukan Jawaban Anda" required></textarea>
                         @endswitch
                     </div>
                     @endforeach

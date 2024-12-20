@@ -65,7 +65,7 @@
                                 </h6>
                                 <h6 class="card-text small">Deskripsi Hewan: {{ $animal->description }}</h6>
                             </div>
-                            <a href="{{ route('layanan-lihat-detail', $animal->animal_id ) }}" class="btn d-flex justify-content-center btn-secondary btn-block rounded-0">Adopsi</a>
+                            <a href="{{ route('layanan-adopsi.detail', $animal->animal_id ) }}" class="btn d-flex justify-content-center btn-secondary btn-block rounded-0">Adopsi</a>
                         </div>
                     </div>
                 </div>

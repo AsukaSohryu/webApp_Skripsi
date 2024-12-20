@@ -26,23 +26,23 @@
     <div class="container border border-black p-4" style="border-radius: 16px">
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Nama Pengguna</label>
+                <label for="" class="my-1">Nama Pengguna</label>
                 <input type="text" name="namaPengguna" id="namaPengguna" value="" class="form-control text-muted" readonly>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">No Telepon Pengguna</label>
+                <label for="" class="my-1">No Telepon Pengguna</label>
                 <input type="text" name="noWhatsappPengguna" id="noWhatsappPengguna" value="" class="form-control text-muted" readonly>
             </div>
             <div class="col">
-                <label for="" class="my-2">No Whatsapp Pengguna</label>
+                <label for="" class="my-1">No Whatsapp Pengguna</label>
                 <input type="text" name="noWhatsappPengguna" id="noWhatsappPengguna" value="" class="form-control text-muted" readonly>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Alamat Pengguna</label>
+                <label for="" class="my-1">Alamat Pengguna</label>
                 <input type="text" name="alamatPengguna" id="alamatPengguna" value="" class="form-control text-muted" readonly>
             </div>
         </div>
@@ -55,17 +55,17 @@
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Nama Hewan</label>
+                <label for="" class="my-1">Nama Hewan</label>
                 <input type="text" name="namaHewan" id="namaHewan" value="{{ $animal->animal_name }}" class="form-control text-muted" readonly>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Jenis Hewan</label>
+                <label for="" class="my-1">Jenis Hewan</label>
                 <input type="text" name="jenisHewan" id="jenisHewan" value="{{ $animal->animal_type }}" class="form-control text-muted" readonly>
             </div>
             <div class="col">
-                <label for="" class="my-2">Status Hewan</label>
+                <label for="" class="my-1">Status Hewan</label>
                 <input type="text" name="statusHewan" id="statusHewan" 
                 value="@if($animal->status_id == 16) Baru Diselamatkan 
                        @elseif($animal->status_id == 17) Dalam Proses Perawatan
@@ -80,43 +80,43 @@
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Usia Hewan</label>
+                <label for="" class="my-1">Usia Hewan</label>
                 <input type="text" name="usiaHewan" id="usiaHewan" value="" class="form-control text-muted" readonly>
             </div>
             <div class="col">
-                <label for="" class="my-2">Tanggal Lahir</label>
+                <label for="" class="my-1">Tanggal Lahir</label>
                 <input type="text" name="tanggalLahir" id="tanggalLahir" value="{{ $animal->birth_date }}" class="form-control text-muted" readonly>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Jenis Kelamin</label>
+                <label for="" class="my-1">Jenis Kelamin</label>
                 <input type="text" name="jenisKelamin" id="jenisKelamin" value="{{ $animal->sex }}" class="form-control text-muted" readonly>
             </div>
             <div class="col">
-                <label for="" class="my-2">Ras Hewan</label>
+                <label for="" class="my-1">Ras Hewan</label>
                 <input type="text" name="rasHewan" id="rasHewan" value="{{ $animal->race }}" class="form-control text-muted" readonly>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Warna Hewan</label>
+                <label for="" class="my-1">Warna Hewan</label>
                 <input type="text" name="warnaHewan" id="warnaHewan" value="{{ $animal->color }}" class="form-control text-muted" readonly>
             </div>
             <div class="col">
-                <label for="" class="my-2">Berat Hewan</label>
+                <label for="" class="my-1">Berat Hewan</label>
                 <input type="text" name="beratHewan" id="beratHewan" value="{{ $animal->weight }}" class="form-control text-muted" readonly>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Informasi Vaksin Hewan</label>
+                <label for="" class="my-1">Informasi Vaksin Hewan</label>
                 <input type="text" name="informasiVaksinHewan" id="informasiVaksinHewan" value="{{ $animal->vaccine }}" class="form-control text-muted" readonly>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Apakah Hewan Sudah Disteril</label>
+                <label for="" class="my-1">Apakah Hewan Sudah Disteril</label>
                 <input type="text" name="apakahHewanSudahDisteril" id="apakahHewanSudahDisteril" 
                        value="@if($animal->is_sterile == 1) Sudah
                               @else Belum @endif"  
@@ -125,37 +125,37 @@
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Asal Hewan</label>
+                <label for="" class="my-1">Asal Hewan</label>
                 <textarea name="asalHewan" id="asalHewan" rows="3" class="form-control text-muted" readonly>{{ $animal->source }}</textarea>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Karakteristik Hewan</label>
+                <label for="" class="my-1">Karakteristik Hewan</label>
                 <textarea name="karakteristikHewan" id="karakteristikHewan" rows="3" class="form-control text-muted" readonly>{{ $animal->characteristics }}</textarea>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Deskripsi Hewan</label>
+                <label for="" class="my-1">Deskripsi Hewan</label>
                 <textarea name="deskripsiHewan" id="deskripsiHewan" rows="3" class="form-control text-muted" readonly>{{ $animal->description }}</textarea>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Catatan Medis Hewan</label>
+                <label for="" class="my-1">Catatan Medis Hewan</label>
                 <textarea name="catatanMedisHewan" id="catatanMedisHewan" rows="3" class="form-control text-muted" readonly>{{ $animal->medical_note }}</textarea>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Tanggal Hewan Masuk Shelter</label>
+                <label for="" class="my-1">Tanggal Hewan Masuk Shelter</label>
                 <input type="text" name="tanggalHewanMasukShelter" id="tanggalHewanMasukShelter" value="{{ $animal->created_at }}" class="form-control text-muted" readonly>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <label for="" class="my-2">Tanggal Data Terakhir Diperbaharui</label>
+                <label for="" class="my-1">Tanggal Data Terakhir Diperbaharui</label>
                 <input type="text" name="tanggalDataTerakhirDiperbaharui" id="tanggalDataTerakhirDiperbaharui" value="{{ $animal->updated_at }}" class="form-control text-muted" readonly>
             </div>
         </div>
@@ -163,7 +163,7 @@
     <div class="container">
         <div class="row my-4">
             <div class="col-12 d-flex justify-content-center">
-                <a href="{{ route('layanan-lihat-adoption', $animal->animal_id ) }}" 
+                <a href="{{ route('layanan-adopsi.create', $animal->animal_id ) }}" 
                    class="btn btn-primary px-5 py-2">
                     Isi Formulir Adopsi
                 </a>
