@@ -192,7 +192,7 @@
                    style="border: 0;">
                      Batalkan
                 </a>
-                <button class="btn btn-primary" type="submit" style="border: 0;">Tambah Perubahan</button>
+                <button class="btn btn-primary" type="submit" style="border: 0;">Tambah Hewan</button>
             </div>
         </form>
     </div>
@@ -225,6 +225,26 @@
         </div>
     </div>
 </div>
+
+@if(session('success'))
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Show the modal
+        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+        successModal.show();
+    });
+</script>
+@endif
+
+@if(session('error'))
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Show the modal
+        const successModal = new bootstrap.Modal(document.getElementById('errorModal'));
+        successModal.show();
+    });
+</script>
+@endif
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
