@@ -53,20 +53,29 @@ class LayananLihatHewanSiapAdopsiController extends Controller
 
     public function createPost($animal_id, Request $request)
     {
-        // dd($request->all());
+        // Validate the request
+        $request->validate([
+            'answers' => 'required|array',
+            'answers.*' => 'required|string'
+        ]);
 
-        $adoptionForm = adoptionForm::create([
-            'user_id' => 1, // Hardcoded 
+        // Create the adoption form
+        $adoptionForm = AdoptionForm::create([
+            'user_id' => auth()->id(), // Use authenticated user ID
             'animal_id' => $animal_id,
             'status_id' => 11,
             'is_seen' => 0,
             'admin_feedback' => '',
         ]);
 
-        // foreach ($request->answers as $questionId => $answer) {
-        //     $handoverForm->handoverQuestions()->attach($questionId, ['answer' => $answer]);
-        // }
+        // Save the answers
+        foreach ($request->answers as $questionId => $answer) {
+            $adoptionForm->adoptionQuestions()->attach($questionId, ['answer' => $answer]);
+        }
 
         return redirect()->route('layanan-lihat')->with('success', 'Pengajuan berhasil dibuat!');
     }
+
+    // Logic hewan setelah diajukan adopsi, statusnya berubah
+    // Logic di admin ketika hewan pengajuan ditolak, stauts hewan kembali available
 }

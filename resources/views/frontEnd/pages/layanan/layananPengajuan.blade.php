@@ -28,7 +28,7 @@
         <div class="row my-2">
             <div class="col">
                 <label for="">Formulir Pengajuan Penyerahan Hewan</label>
-                <p class="form-control" style="border: none; background: none; margin-top: 10px;">{{$shelterInformation->handover_information}}</p>
+                <p class="form-control" style="border: none; background: none; margin-top: 10px;">{!! $shelterInformation->handover_information !!}</p>
             </div>
         </div>
     </div>
@@ -119,7 +119,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const tanggalLahirInput = document.getElementById('tanggalLahir');
-        const usiaHewanInput = document.getElementById('usiaHewan'); // Ensure this input is enabled
+        const usiaHewanInput = document.getElementById('usiaHewan'); 
     
         function calculateAge() {
             const birthDate = new Date(tanggalLahirInput.value);
