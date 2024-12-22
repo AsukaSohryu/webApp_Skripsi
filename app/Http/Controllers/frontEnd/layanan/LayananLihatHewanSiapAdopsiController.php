@@ -9,6 +9,7 @@ use App\Models\adoptionQuestions;
 use App\Models\User;
 use App\Models\shelterInformation;
 use App\Models\adoptionForm;
+use App\Models\status;
 
 class LayananLihatHewanSiapAdopsiController extends Controller
 {
@@ -59,11 +60,20 @@ class LayananLihatHewanSiapAdopsiController extends Controller
             'answers.*' => 'required|string'
         ]);
 
+        // dd($request->all());
+
+        // Retrieve the status_id from the configuration table
+        $status = status::where('config', 'Form_Adoption_Status')
+            ->where('key', 'REQ')
+            ->first();
+
+        $statusId = $status->status_id;
+
         // Create the adoption form
         $adoptionForm = AdoptionForm::create([
-            'user_id' => auth()->id(), // Use authenticated user ID
+            'user_id' => auth()->id(),
             'animal_id' => $animal_id,
-            'status_id' => 11,
+            'status_id' => $statusId,
             'is_seen' => 0,
             'admin_feedback' => '',
         ]);
