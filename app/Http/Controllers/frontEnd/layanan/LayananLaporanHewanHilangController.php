@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend\layanan;
 
 use App\Http\Controllers\Controller;
 use App\Models\reportForm;
+use App\Models\shelterInformation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -11,8 +12,11 @@ class LayananLaporanHewanHilangController extends Controller
 {
     public function index(){
 
+        $shelterInformation = shelterInformation::where('shelter_id', 1)->first();
+
         return view('frontend.pages.layanan.layananPenemuan', [
-            'pagetitle' => 'Layanan Pelaporan Hewan Hilang'
+            'pagetitle' => 'Layanan Pelaporan Hewan Hilang',
+            'shelterInformation' => $shelterInformation
         ]);
     }
 

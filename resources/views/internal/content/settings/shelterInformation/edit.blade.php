@@ -2,6 +2,10 @@
 
 @section('content')
 
+<!-- Summernote -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
 <style>
     .button{
         background-color: #d2d2d2;
@@ -79,7 +83,7 @@
             <div class="row my-3">
                 <div class="col">
                     <label for="">Jam Operasional Shelter</label>
-                    <textarea name="operationalHour" id="operationalHour" class="form-control" rows="4">{{$shelterInformation->operational_hour}}</textarea>
+                    <textarea name="operationalHour" id="summernote4" class="form-control" rows="4">{{$shelterInformation->operational_hour}}</textarea>
                 </div>
             </div>
             {{-- Social Media --}}
@@ -120,19 +124,19 @@
             <div class="row my-3">
                 <div class="col">
                     <label for="">Informasi Tentang Shelter</label>
-                    <textarea name="aboutUs" id="aboutUs" class="form-control" rows="4">{{$shelterInformation->about_shelter}}</textarea>
+                    <textarea name="aboutUs" id="summernote5" class="form-control">{{$shelterInformation->about_shelter}}</textarea>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="">Visi Shelter</label>
-                    <textarea name="vision" id="vision" class="form-control" rows="4">{{$shelterInformation->vision}}</textarea>
+                    <textarea name="vision" id="summernote6" class="form-control">{{$shelterInformation->vision}}</textarea>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="">Misi Shelter</label>
-                    <textarea name="mission" id="mission" class="form-control" rows="4">{{$shelterInformation->mission}}</textarea>
+                    <textarea name="mission" id="summernote7" class="form-control">{{$shelterInformation->mission}}</textarea>
                 </div>
             </div>
             <h1 class="text-center">Informasi Halaman Tentang Kami</h1>
@@ -152,19 +156,19 @@
             <div class="row my-3">
                 <div class="col">
                     <label for="">Informasi Pendiri</label>
-                    <textarea name="fdesc" id="fdesc" class="form-control" rows="4">{{$shelterInformation->founder_description}}</textarea>
+                    <textarea name="fdesc" id="summernote8" class="form-control">{{$shelterInformation->founder_description}}</textarea>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="">Sejarah Shelter</label>
-                    <textarea name="history" id="history" class="form-control" rows="4">{{$shelterInformation->history}}</textarea>
+                    <textarea name="history" id="summernote9" class="form-control">{{$shelterInformation->history}}</textarea>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="">Informasi Tambahan</label>
-                    <textarea name="addInfo" id="addInfo" class="form-control" rows="4">{{$shelterInformation->additional_information}}</textarea>
+                    <textarea name="addInfo" id="summernote10" class="form-control">{{$shelterInformation->additional_information}}</textarea>
                 </div>
             </div>
             {{-- Pengaturan Informasi Formulir --}}
@@ -172,19 +176,19 @@
             <div class="row my-3">
                 <div class="col">
                     <label for="">Informasi Formulir Laporan Penemuan Hewan Liar</label>
-                    <textarea name="reportInfo" id="reportInfo" class="form-control" rows="4">{{$shelterInformation->report_information}}</textarea>
+                    <textarea name="reportInfo" id="summernote1" class="form-control" rows="4">{{$shelterInformation->report_information}}</textarea>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="">Informasi Formulir Pengajuan Penyerahan Hewan</label>
-                    <textarea name="handoverInfo" id="handoverInfo" class="form-control" rows="4">{{$shelterInformation->handover_information}}</textarea>
+                    <textarea name="handoverInfo" id="summernote2" class="form-control" rows="4">{{$shelterInformation->handover_information}}</textarea>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="">Informasi Formulir Laporan Penemuan Hewan Liar</label>
-                    <textarea name="adoptionInfo" id="adoptionInfo" class="form-control" rows="4">{{$shelterInformation->adoption_information}}</textarea>
+                    <textarea name="adoptionInfo" id="summernote3" class="form-control" rows="4">{{$shelterInformation->adoption_information}}</textarea>
                 </div>
             </div>
 
@@ -274,6 +278,52 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('#summernote1').summernote({
+        height: 200,
+    });   
+
+    $('#summernote2').summernote({
+        height: 200,
+    });
+
+    $('#summernote3').summernote({
+        height: 200,
+    });
+
+    $('#summernote4').summernote({
+        height: 200,
+    });
+
+    $('#summernote5').summernote({
+        height: 200,
+    });
+
+    $('#summernote5').summernote({
+        height: 200,
+    });
+
+    $('#summernote6').summernote({
+        height: 200,
+    });
+
+    $('#summernote7').summernote({
+        height: 200,
+    });
+
+    $('#summernote8').summernote({
+        height: 200,
+    });
+
+    $('#summernote9').summernote({
+        height: 200,
+    });
+
+    $('#summernote10').summernote({
+        height: 200,
+    });
+</script>
 
 @if(session('success'))
 <script>

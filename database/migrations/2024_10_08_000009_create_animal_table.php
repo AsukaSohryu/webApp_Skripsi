@@ -24,7 +24,6 @@ return new class  extends Migration
             $table->unsignedInteger('status_id');
             $table->string('animal_name');
             $table->string('animal_type');
-            $table->integer('age');
             $table->date('birth_date');
             $table->string('sex');
             $table->string('race');

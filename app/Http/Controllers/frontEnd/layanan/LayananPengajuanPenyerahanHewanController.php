@@ -28,6 +28,8 @@ class LayananPengajuanPenyerahanHewanController extends Controller
 
     public function createPost(Request $request)
     {
+        // dd($request->all());
+        
         $file_web = $request->file('fotoHewanHandover');
         $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
 
