@@ -54,22 +54,18 @@ class LayananLihatHewanSiapAdopsiController extends Controller
 
     public function createPost($animal_id, Request $request)
     {
-        // Validate the request
+
         $request->validate([
             'answers' => 'required|array',
             'answers.*' => 'required|string'
         ]);
 
-        // dd($request->all());
-
-        // Retrieve the status_id from the configuration table
         $status = status::where('config', 'Form_Adoption_Status')
             ->where('key', 'REQ')
             ->first();
 
         $statusId = $status->status_id;
 
-        // Create the adoption form
         $adoptionForm = AdoptionForm::create([
             'user_id' => auth()->id(),
             'animal_id' => $animal_id,
@@ -78,10 +74,19 @@ class LayananLihatHewanSiapAdopsiController extends Controller
             'admin_feedback' => '',
         ]);
 
-        // Save the answers
         foreach ($request->answers as $questionId => $answer) {
             $adoptionForm->adoptionQuestions()->attach($questionId, ['answer' => $answer]);
         }
+
+        $statusAnimal = status::where('config', 'Animal_Status')
+            ->where('key', 'RSV')
+            ->first();
+
+        $statusAnimalId = $statusAnimal->status_id;
+
+        animal::where('animal_id', $animal_id)->update([
+            'status_id' => $statusAnimalId,
+        ]);
 
         return redirect()->route('layanan-lihat')->with('success', 'Pengajuan berhasil dibuat!');
     }
