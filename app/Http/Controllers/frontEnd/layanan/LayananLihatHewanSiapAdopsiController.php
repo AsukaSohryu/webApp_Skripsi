@@ -40,7 +40,8 @@ class LayananLihatHewanSiapAdopsiController extends Controller
     public function create($animal_id)
     {
         $adoptionQuestions = adoptionQuestions::where('is_active', 1)->get();
-        $user = User::where('user_id', 2)->first(); //USER HARDCODE
+        $userID = auth()->id();
+        $user = User::where('user_id', $userID)->first();
         $shelterInformation = shelterInformation::where('shelter_id', 1)->first();
         $animal = animal::findOrFail($animal_id);
 
@@ -55,10 +56,6 @@ class LayananLihatHewanSiapAdopsiController extends Controller
 
     public function createPost($animal_id, Request $request)
     {
-
-
-        // dd($request->all());
-        
         // Validate the request
         $request->validate([
             'answers' => 'required|array',

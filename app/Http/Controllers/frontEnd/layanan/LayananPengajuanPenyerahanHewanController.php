@@ -15,7 +15,8 @@ class LayananPengajuanPenyerahanHewanController extends Controller
     public function index()
     {
         $handoverQuestions = handoverQuestions::where('is_active', 1)->get();
-        $user = User::where('user_id', 1)->first(); //USER HARDCODE
+        $userID = auth()->id();
+        $user = User::where('user_id', $userID)->first();
         $shelterInformation = shelterInformation::where('shelter_id', 1)->first();
 
         return view('frontend.pages.layanan.layananPengajuan', [
@@ -29,7 +30,7 @@ class LayananPengajuanPenyerahanHewanController extends Controller
     public function createPost(Request $request)
     {
         // dd($request->all());
-        
+
         $file_web = $request->file('fotoHewanHandover');
         $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
 

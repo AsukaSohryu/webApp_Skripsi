@@ -43,30 +43,18 @@
                 <h1 class="text-center">Form Penemuan Hewan Liar</h1>
             </div>
         </div>
-        <div class="row my-3 justify-content-center g-2">
-            <div class="col-auto mx-3">
-                @if($photo_animal)
-                    <img src="{{ asset('storage/report/' . $detail->photo_animal) }}" alt="Foto Hewan" class="border border-2 report-image">
-                @else
-                    <div class="border border-2 d-flex align-items-center justify-content-center image-placeholder">
-                        <span style="color: #6c757d">Foto Hewan</span>
-                    </div>
-                @endif
+        <div class="row my-3 d-flex flex-row flex-wrap justify-content-center g-2" style="gap: 8px;">
+            <div class="col-3 d-flex justify-content-center">
+                <img src="{{ asset('storage/formReport/' . $detail->animal_photo) }}" alt="Foto Hewan" class="border border-2 report-image img-fluid" style="height: 200px; object-fit: cover;">
             </div>
-            <div class="col-auto mx-3">
-                @if($photo_location)
-                    <img src="{{ asset('storage/report/' . $detail->photo_location) }}" alt="Foto Lokasi" class="border border-2 report-image">
-                @else
-                    <div class="border border-2 d-flex align-items-center justify-content-center image-placeholder">
-                        <span style="color: #6c757d">Foto lokasi</span>
-                    </div>
-                @endif
+            <div class="col-3 d-flex justify-content-center">
+                <img src="{{ asset('storage/formReport/' . $detail->location_photo) }}" alt="Foto Lokasi" class="border border-2 report-image img-fluid" style="height: 200px; object-fit: cover;">
             </div>
-            <div class="col-auto mx-3">
-                @if($photo_additional)
-                    <img src="{{ asset('storage/report/' . $detail->photo_additional) }}" alt="Foto Tambahan" class="border border-2 report-image">
+            <div class="col-3 d-flex justify-content-center">
+                @if($detail->additional_photo)
+                    <img src="{{ asset('storage/formReport/' . $detail->additional_photo) }}" alt="Foto Tambahan" class="border border-2 report-image img-fluid" style="height: 200px; object-fit: cover;">
                 @else
-                    <div class="border border-2 d-flex align-items-center justify-content-center image-placeholder">
+                    <div class="border border-2 d-flex align-items-center justify-content-center image-placeholder" style="height: 200px;">
                         <span style="color: #6c757d">Foto Tambahan</span>
                     </div>
                 @endif

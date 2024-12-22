@@ -16,22 +16,27 @@ class reportForm extends Model
         'animal_type',
         'location',
         'location_map',
-        'photo',
+        'animal_photo',
+        'location_photo',
+        'additional_photo',
         'description',
         'is_seen',
-        'admin_feedback'
+        'admin_feedback',
+        'admin_feedback_photo',
     ];
 
     protected $table = 'report_form';
     protected $primaryKey = 'report_form_id';
     public $timestamps = true;
 
-    public function users(){
+    public function users()
+    {
 
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function status(){
+    public function status()
+    {
 
         return $this->belongsTo(status::class, 'status_id');
     }

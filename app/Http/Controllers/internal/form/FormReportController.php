@@ -29,10 +29,10 @@ class FormReportController extends Controller
             ->where('report_form_id', $report_form_id)
             ->first();
 
-        $photos = explode(';', $detail->photo);
-        $photo_animal = $photos[0] ?? null;
-        $photo_location = $photos[1] ?? null;
-        $photo_additional = $photos[2] ?? null;
+        // $photos = explode(';', $detail->photo);
+        // $photo_animal = $photos[0] ?? null;
+        // $photo_location = $photos[1] ?? null;
+        // $photo_additional = $photos[2] ?? null;
 
         $detail->is_seen = 1;
         $detail->save();
@@ -44,15 +44,14 @@ class FormReportController extends Controller
             'pageTitle' => 'Detail Laporan Penemuan Hewan Liar',
             'pageSubTitle' => 'Detail Formulir ID: ' . $report_form_id,
             'detail' => $detail,
-            'photo_animal' => $photo_animal,
-            'photo_location' => $photo_location,
-            'photo_additional' => $photo_additional,
+            // 'photo_animal' => $detail=>$animal_photo,
+            // 'photo_location' => $detail,
+            // 'photo_additional' => $detail,
         ]);
     }
 
     public function edit($report_form_id)
     {
-
 
         $detail = reportForm::with(['users', 'status'])
             ->where('report_form_id', $report_form_id)
@@ -64,10 +63,10 @@ class FormReportController extends Controller
                 ->with('error', 'Status laporan sudah selesai, tidak bisa diupdate');
         }
 
-        $photos = explode(';', $detail->photo);
-        $photo_animal = $photos[0] ?? null;
-        $photo_location = $photos[1] ?? null;
-        $photo_additional = $photos[2] ?? null;
+        // $photos = explode(';', $detail->photo);
+        // $photo_animal = $photos[0] ?? null;
+        // $photo_location = $photos[1] ?? null;
+        // $photo_additional = $photos[2] ?? null;
         // dd($detail);
 
 
@@ -76,27 +75,25 @@ class FormReportController extends Controller
             'pageTitle' => 'Edit Laporan Penemuan Hewan Liar',
             'pageSubTitle' => 'Edit Formulir ID: ' . $report_form_id,
             'detail' => $detail,
-            'photo_animal' => $photo_animal,
-            'photo_location' => $photo_location,
-            'photo_additional' => $photo_additional,
+            // 'photo_animal' => $photo_animal,
+            // 'photo_location' => $photo_location,
+            // 'photo_additional' => $photo_additional,
         ]);
     }
 
     public function editPost(Request $request)
     {
-        if($request != null){
+        if ($request != null) {
             $update = ReportForm::where('report_form_id', $request->report_form_id)
-                    ->update([
-                        'status_id' => $request->statusLaporan,
-                        'admin_feedback' => $request->responAdmin,
-                        'updated_at' => now()
-                    ]);
-            
+                ->update([
+                    'status_id' => $request->statusLaporan,
+                    'admin_feedback' => $request->responAdmin,
+                    'updated_at' => now()
+                ]);
         }
         // dd($update);
         if ($update) {
             return back()->with('success', 'Form Adopsi Berhasil di Update');
         }
-        
     }
 }

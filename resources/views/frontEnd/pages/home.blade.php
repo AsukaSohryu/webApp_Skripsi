@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-12 col-sm-12">
                 <div class="card" style="width: 18rem;">
-                    <img src="{{ asset('assets/images/home/1-desktop/Gak Boleh.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('assets/images/home/1-desktop/Home_Report.png') }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">Laporan Penemuan Hewan Liar</h5>
                     </div>
@@ -44,7 +44,7 @@
             <div class="col">
                 <div class="col-lg-3 col-md-12 col-sm-12">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('assets/images/home/1-desktop/Gak Boleh.jpg') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/images/home/1-desktop/Home_Adoption.png') }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">Ajukan Pengadopsian Hewan</h5>
                         </div>
@@ -54,7 +54,7 @@
             <div class="col">
                 <div class="col-lg-3 col-md-12 col-sm-12">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('assets/images/home/1-desktop/Gak Boleh.jpg') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/images/home/1-desktop/Home_Handover.png') }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">Ajukan Penyerahan Hewan</h5>
                         </div>
@@ -64,7 +64,7 @@
             <div class="col">
                 <div class="col-lg-3 col-md-12 col-sm-12">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('assets/images/home/1-desktop/Gak Boleh.jpg') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/images/home/1-desktop/Home_RescuedAnimal.png') }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">Lihat Hewan Yang Baru Diselamatkan</h5>
                         </div>

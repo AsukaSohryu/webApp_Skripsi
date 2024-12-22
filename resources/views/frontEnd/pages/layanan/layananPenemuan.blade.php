@@ -27,20 +27,21 @@
     <div class="container border border-black my-3" style="border-radius: 16px">
         <form action="{{ route('layanan-laporan-post') }}" method="POST" class="m-4" enctype="multipart/form-data">
             @csrf
-            <div class="row my-3">
+            {{-- Profile User --}}
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">Nama Pelapor</label>
-                    <input type="text" name="namaPelapor" id="namaPelapor" value="" placeholder="Nama Pelapor" class="form-control" required>
+                    <label for="" class="my-2">Nama Pelapor</label>
+                    <input type="text" name="namaPemilik" id="namaPemilik" class="form-control" value="{{$user->name}}" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">No Telepon</label>
-                    <input type="text" name="" id="" class="form-control" placeholder="No Telepon" required>
+                    <label for="" class="my-2">Nomor Telepon</label>
+                    <input type="text" name="noTelp" id="noTelp" class="form-control" value="{{$user->phone_number}}" disabled>
                 </div>
                 <div class="col">
-                    <label for="" class="my-3">No Whatsapp</label>
-                    <input type="text" name="" id="" class="form-control" placeholder="No Whatsapp" required>
+                    <label for="" class="my-2">Nomor Whatsapp</label>
+                    <input type="text" name="noWhatsapp" id="noWhatsapp" class="form-control" value="{{$user->whatsapp_number}}" disabled>
                 </div>
             </div>
             <div class="row my-3">
