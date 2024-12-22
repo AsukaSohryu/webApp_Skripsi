@@ -35,7 +35,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/tentang-kami', [TentangKamiController::class, 'index'])->name('tentang-kami');
 
-Route::get('/hewan-diselamatkan', [HewanDiselamatkanController::class, 'index'])->name('layanan-hewan-diselamatkan');
+Route::get('/layanan-hewan-diselamatkan', [HewanDiselamatkanController::class, 'index'])->name('layanan-hewan-diselamatkan');
 Route::get('/layanan-laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'index'])->name('layanan-laporan');
 Route::post('/layanan-laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'indexPost'])->name('layanan-laporan-post');
 

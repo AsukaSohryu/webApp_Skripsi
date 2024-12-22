@@ -1,9 +1,5 @@
 @extends('frontend.layout.layout')
 
-@section('link')
-
-@endsection
-
 @section('content')
 <section id="nav-rep" class="p-0 mb-2 pb-1">
     <br /> 
@@ -23,37 +19,61 @@
 
 <section id="section-1-status-penemuan">
     <div class="container">
-        <h1 class="text-center">Status Laporan Penemuan Hewan Liar</h1>
+        <h4 class="text-center">Status Laporan Penemuan Hewan Liar</h4>
         <hr>
     </div>
     <div class="container">
-        @foreach($report as $item)
+        @foreach($reports as $item)
             <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        @if($item->photo_animal)
-                            <img src="{{ asset('storage/report-photos/' . $item->photo_animal) }}" 
-                                class="img-fluid rounded-start" 
+                <div class="row align-items-center justify-content-between">
+                    <div class="col align-items-left p-0">
+                        <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-0 p-0">
+                            <img src="{{ asset('storage/formReport/' . $item->animal_photo) }}" 
+                                class="img-fluid rounded-start w-100 m-0" 
                                 alt="Foto Hewan"
-                                style="height: 300px; object-fit: cover;">
-                        @else
-                            <div class="bg-light d-flex align-items-center justify-content-center" 
-                                style="height: 300px;">
-                                <span class="text-muted">No Image</span>
-                            </div>
-                        @endif
+                                style="object-fit: cover; max-width: 300px;">
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Tanggal: {{ \Carbon\Carbon::parse($item->created_at)->format('d/m/Y') }}</h5>
-                            <p class="card-text">Alamat: {{ $item->location }}</p>
-                            <br />
+                    <div class="col-md-9 h-100">
+                        <div class="card-body p-0 m-0 ms-2">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title d-flex align-items-center mb-0">
+                                    {{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}
+                                </h5>
+                                <div class="alert 
+                                @if($item->status_id == 1)
+                                    alert-warning
+                                @elseif($item->status_id == 2)
+                                    alert-warning
+                                @elseif($item->status_id == 3)
+                                    alert-danger
+                                @elseif($item->status_id == 4)
+                                    alert-success
+                                @else
+                                    alert-danger
+                                @endif
+                                py-2 px-1 mb-0">
+                                    Status: 
+                                    @if($item->status_id == 1)
+                                        Penyelematkan Diajukan
+                                    @elseif($item->status_id == 2)
+                                        Dalam Proses Penyelematan
+                                    @elseif($item->status_id == 3)
+                                        Hewan Sukses Diselamatkan
+                                    @elseif($item->status_id == 4)
+                                        Hewan Tidak Ditemukan
+                                    @else
+                                        Lainnya
+                                    @endif
+                                </div>
+                            </div>
+                            <p class="card-text">Lokasi: {{ $item->location }}</p>
                             <p class="card-text">Jenis Hewan: {{ $item->animal_type }}</p>
-                            <p class="card-text">Deskripsi Hewan: {{ $item->description }}</p>
-                            <br />
-                            <div class="border border-black p-3">
-                                <p class="mb-2 fw-bold">Respon Admin: </p>
-                                <p class="mb-0">{{ $item->admin_response ?? 'Belum ada respon' }}</p>
+                            <p class="card-text">Deskripsi: {{ $item->description }}</p>
+                            
+                            <div class="border border-black p-3 me-3 my-3">
+                                <p class="mb-2 fw-bold">Catatan Admin: </p>
+                                <p class="mb-0">{{ $item->admin_feedback ?? 'Belum ada catatan' }}</p>
                             </div>
                         </div>
                     </div>
@@ -61,15 +81,11 @@
             </div>
         @endforeach
 
-        @if($report->isEmpty())
+        @if($reports->isEmpty())
             <div class="alert alert-info text-center">
                 Belum ada laporan yang dibuat
             </div>
         @endif
     </div>
 </section>
-@endsection
-
-@section('js')
-
 @endsection

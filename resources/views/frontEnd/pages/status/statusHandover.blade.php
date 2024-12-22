@@ -48,7 +48,7 @@
                                 @if($item->status_id == 6)
                                     alert-warning
                                 @elseif($item->status_id == 7)
-                                    alert-success
+                                    alert-warning
                                 @elseif($item->status_id == 8)
                                     alert-danger
                                 @elseif($item->status_id == 9)

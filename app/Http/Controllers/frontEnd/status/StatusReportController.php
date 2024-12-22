@@ -15,7 +15,7 @@ class StatusReportController extends Controller
 
         return view('frontend.pages.status.statusReport', [
             'pagetitle' => 'Status Laporan Penemuan Hewan Hilang',
-            'report' => $report,
+            'reports' => $report,
             'user' => $userId
         ]);
     }

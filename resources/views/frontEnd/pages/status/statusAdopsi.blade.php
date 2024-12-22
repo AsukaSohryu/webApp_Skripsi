@@ -49,7 +49,7 @@
                                 @if($item->status_id == 11)
                                     alert-warning
                                 @elseif($item->status_id == 12)
-                                    alert-success
+                                    alert-warning
                                 @elseif($item->status_id == 13)
                                     alert-danger
                                 @elseif($item->status_id == 14)
