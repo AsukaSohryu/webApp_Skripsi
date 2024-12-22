@@ -19,7 +19,9 @@ class ReportFormSeeder extends Seeder
             'animal_type' => 'Anjing',
             'location' => 'Jakarta Selatan dekat Mc Donald',
             'location_map' => 'https://www.google.com/maps/search/?api=1&query=-6.2500,106.845',
-            'photo' => '',
+            'animal_photo' => '',
+            'location_photo' => '',
+            'additional_photo' => '',
             'description' => 'Anjing ditemukan dekat tempat sampah Mc Donald',
             'is_seen' => 0,
             'created_at' => '2024-12-01 00:00:00'
