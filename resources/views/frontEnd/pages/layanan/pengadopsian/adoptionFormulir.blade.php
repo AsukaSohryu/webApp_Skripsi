@@ -60,7 +60,7 @@
             <hr>
             
             <!-- Displaying the handover questions -->
-            <div class="row my-2">
+            <div class="row my-2">  
                 <div class="col">
                     @foreach($adoptionQuestions as $question)
                     <div class="col">

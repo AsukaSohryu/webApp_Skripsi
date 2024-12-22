@@ -23,30 +23,6 @@
         <h3 class="text-center">Detail Hewan: {{$animal->animal_name}}</h3>
         <hr>
     </div>
-    <div class="container border border-black p-4" style="border-radius: 16px">
-        <div class="row">
-            <div class="col">
-                <label for="" class="my-1">Nama Pengguna</label>
-                <input type="text" name="namaPengguna" id="namaPengguna" value="" class="form-control text-muted" readonly>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="" class="my-1">No Telepon Pengguna</label>
-                <input type="text" name="noWhatsappPengguna" id="noWhatsappPengguna" value="" class="form-control text-muted" readonly>
-            </div>
-            <div class="col">
-                <label for="" class="my-1">No Whatsapp Pengguna</label>
-                <input type="text" name="noWhatsappPengguna" id="noWhatsappPengguna" value="" class="form-control text-muted" readonly>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="" class="my-1">Alamat Pengguna</label>
-                <input type="text" name="alamatPengguna" id="alamatPengguna" value="" class="form-control text-muted" readonly>
-            </div>
-        </div>
-    </div>
     <div class="container border border-black my-4 p-4 bg-light" style="border-radius: 16px">
         <div class="row my-3">
             <div class="col my-3 d-flex justify-content-center">
