@@ -114,6 +114,7 @@ Route::prefix('admin')->middleware('role:Admin')->group(function () {
 
 // Auth Routing
 Route::get('/daftar', [AuthController::class, 'daftar'])->name('daftar');
+Route::post('/daftar-post', [AuthController::class, 'daftarPost'])->name('daftar.post');
 
 Route::get('/masuk', [AuthController::class, 'masuk'])->name('masuk');
 Route::post('/masuk-post', [AuthController::class, 'masukPost'])->name('masuk.post');
