@@ -1,7 +1,7 @@
 <!-- ======= Header ======= -->
 <header id="desktop-header" class="fixed-top">
-    <div class="container d-flex justify-content-around" sty>
-      <nav id="navbar" class="navbar d-flex align-items-center">
+    <div class="container d-flex justify-content-around align-items-center">
+      <nav id="navbar" class="navbar d-flex">
         <ul>
             <a href="{{ url('/') }}" class="logo"><img src="{{url('/')}}/assets/img/main_logo.png" alt="" class="img-fluid"></a>
             <li>
@@ -20,15 +20,51 @@
             </li>
             <li class="dropdown"><a href="#"><span style="font-size:20px;">Laporan dan Pengajuan</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="{{ url('status-laporan-penemuan-hewan-hilang') }}"></i><span style="font-size:20px;">Status Laporan Penemuan Hewan Hilang</span></a></li>
-                <li><a href="{{ url('status-pengajuan-penyerahan-hewan') }}"></i><span style="font-size:20px;">Status Pengajuan Penyerahan Hewan</span></a></li>
-                <li><a href="{{ url('status-pengajuan-pengadopsian-hewan') }}"></i><span style="font-size:20px;">Status Pengajuan Pengadopsian Hewan</span></a></li>
+                <li><a href="{{ url('status-laporan-penemuan-hewan-hilang') }}"><span style="font-size:20px;">Status Laporan Penemuan Hewan Hilang</span></a></li>
+                <li><a href="{{ url('status-pengajuan-penyerahan-hewan') }}"><span style="font-size:20px;">Status Pengajuan Penyerahan Hewan</span></a></li>
+                <li><a href="{{ url('status-pengajuan-pengadopsian-hewan') }}"><span style="font-size:20px;">Status Pengajuan Pengadopsian Hewan</span></a></li>
               </ul>
+            </li>
+            <li>
+            @if(auth()->check())
+              <li class="dropdown">
+                <a href="#" class="d-flex flex-row">
+                  <span style="font-size:20px;">Hai, {{ auth()->user()->name }}!</span>
+                  <img src="" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ffffff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);">
+                </a>
+                <ul>
+                  <li><a href=""><span style="font-size:20px;">Detail Profil</span></a></li>
+                  <li>
+                    <form action="{{ route('logout') }}" method="post" id="logoutForm">
+                      @csrf
+                      <a onclick="document.getElementById('logoutForm').submit();">
+                        <span style="font-size:20px;">Logout</span>
+                      </a>
+                  </form>
+                </li>
+                </ul>
+              </li>
+              @else
+              <li class="dropdown">
+                <a href="#" class="d-flex flex-row">
+                  <span style="font-size:20px;">Hai, Rescuer!</span>
+                  <img src="{{ asset('assets/images/home/Guest.png') }}" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: contain; border: 2px solid #ffffff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);">
+                </a>
+                <ul>
+                  <li><a href="{{ route('masuk') }}"><span style="font-size:20px;">Masuk</span></a></li>
+                  <li><a href="{{ route('daftar') }}"><span style="font-size:20px;">Daftar</span></a></li>
+                </li>
+                </ul>
+              </li>
+            @endif
             </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle" style="color: black"></i>
       </nav>
-<!-- end nav -->
+      <!-- end nav -->
+      <div class="d-flex flex-row" >
+        
+      </div>
     </div>
 </header>
 
