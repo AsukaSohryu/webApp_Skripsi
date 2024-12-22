@@ -6,9 +6,9 @@ use App\Http\Controllers\frontend\layanan\HewanDiselamatkanController;
 use App\Http\Controllers\frontend\layanan\LayananLaporanHewanHilangController;
 use App\Http\Controllers\frontend\layanan\LayananLihatHewanSiapAdopsiController;
 use App\Http\Controllers\frontend\layanan\LayananPengajuanPenyerahanHewanController;
-use App\Http\Controllers\frontend\status\StatusLaporanPenemuanHewanHilangController;
-use App\Http\Controllers\frontend\status\StatusPengajuanPengadopsianHewanController;
-use App\Http\Controllers\frontend\status\StatusPengajuanPenyerahanHewanController;
+use App\Http\Controllers\frontend\status\StatusReportController;
+use App\Http\Controllers\frontend\status\StatusAdopsiController;
+use App\Http\Controllers\frontend\status\StatusHandoverController;
 use App\Http\Controllers\frontEnd\TentangKamiController;
 use App\Http\Controllers\internal\animal\DataHewanController;
 use App\Http\Controllers\internal\form\FormAdopsiController;
@@ -47,9 +47,9 @@ Route::post('/layanan-lihat-hewan-siap-adopsi/adoption-formulir-create/{animal_i
 Route::get('/layanan-pengajuan-penyerahan-hewan', [LayananPengajuanPenyerahanHewanController::class, 'index'])->name('layanan-pengajuan');
 Route::post('/layanan-pengajuan-penyerahan-hewan-create', [LayananPengajuanPenyerahanHewanController::class, 'createPost'])->name('layanan-pengajuan.create.Post');
 
-Route::get('/status-laporan-penemuan-hewan-hilang', [StatusLaporanPenemuanHewanHilangController::class, 'index'])->name('status-laporan');
-Route::get('/status-pengajuan-pengadopsian-hewan', [StatusPengajuanPengadopsianHewanController::class, 'index'])->name('status-adopsi');
-Route::get('/status-pengajuan-penyerahan-hewan', [StatusPengajuanPenyerahanHewanController::class, 'index'])->name('status-penyerahan');
+Route::get('/status-laporan-penemuan-hewan-hilang', [StatusReportController::class, 'index'])->name('status-laporan');
+Route::get('/status-pengajuan-pengadopsian-hewan', [StatusAdopsiController::class, 'index'])->name('status-adopsi');
+Route::get('/status-pengajuan-penyerahan-hewan', [StatusHandoverController::class, 'index'])->name('status-penyerahan');
 
 
 //admin
