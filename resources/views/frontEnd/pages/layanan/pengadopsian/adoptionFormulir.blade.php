@@ -65,7 +65,7 @@
                     @foreach($adoptionQuestions as $question)
                     <div class="col">
                         <label>{{ $question->questions }}</label>
-                        <textarea class="form-control my-2" name="answers[{{ $question->adoption_questions_id }}]" rows="3" placeholder="Masukan Jawaban Anda" required></textarea>
+                        <textarea class="form-control my-2" name="answers[{{ $question->adoption_question_id }}]" rows="3" placeholder="Masukan Jawaban Anda" required></textarea>
                     </div>
                     @endforeach
                 </div>

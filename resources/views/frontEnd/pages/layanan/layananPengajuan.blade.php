@@ -27,8 +27,10 @@
     <div class="container">
         <div class="row my-2">
             <div class="col">
-                <label for="">Formulir Pengajuan Penyerahan Hewan</label>
-                <p class="form-control" style="border: none; background: none; margin-top: 10px;">{!! $shelterInformation->handover_information !!}</p>
+                <h5>Formulir Pengajuan Penyerahan Hewan</h5>
+                <div class="mt-3">
+                    {!! $shelterInformation->handover_information !!}
+                </div>
             </div>
         </div>
     </div>

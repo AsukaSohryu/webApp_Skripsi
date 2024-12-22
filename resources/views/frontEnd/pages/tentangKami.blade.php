@@ -35,7 +35,7 @@
 
                                 <p class="text-muted mb-lg-4 mb-md-4">Pendiri Shelter</p>
 
-                                <p>{{$shelterInformation->founder_description}}</p>
+                                <p>{!!$shelterInformation->founder_description!!}</p>
                             </div> 
                         </div>
                     </div>
@@ -56,30 +56,30 @@
             <div class="col-lg-6 col-12">
                 <div class="custom-text-box">
                     <h2 class="mb-2">Tentang Kami</h2>
-                    <p class="mb-0">{{$shelterInformation->about_shelter}}</p>
+                    <p class="mb-0">{!! $shelterInformation->about_shelter !!}</p>
                 </div>
             </div>
             <div class="col-lg-6 col-12">
                 <div class="custom-text-box">
                     <h2 class="mb-2">Sejarah Kami</h2>
-                    <p class="mb-0">{{$shelterInformation->history}}</p>
+                    <p class="mb-0">{!! $shelterInformation->history !!}</p>
                 </div>
             </div>
         </div>
         <div class="row mb-4">
             <div class="col-lg-6 col-12">
                 <h2 class="mb-2">Visi</h2>
-                {{$shelterInformation->vision}}
+                {!! $shelterInformation->vision !!}
             </div>
             <div class="col-lg-6 col-12">
                 <h2 class="mb-2">Misi</h2>
-                {{$shelterInformation->mission}}
+                {!! $shelterInformation->mission !!}
             </div>
         </div>
         <div class="row mb-4">
             <div class="col-lg-6 col-12">
-                {{-- {{$shelterInformation->operational_hour}} --}}
-                loooooooooo ooooooooooooooo ooooooooooo ooooooorem mmmm mmmmmmm mmmmmm mmmmmmm m mmmmmmmmmm mipppppp pppppp ppssssssssss summmmmmmmmmmmmmmmmmmmm mmmmmmmmmmmmmmmmmmmmmmmmmm
+                <h2 class="mb-2">Jam Operasional</h2>
+                {!!$shelterInformation->operational_hour!!}
             </div>
             <div class="col-lg-6 col-12">
                 <ul class="social-icon mt-4">

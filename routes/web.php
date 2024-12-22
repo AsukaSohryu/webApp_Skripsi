@@ -44,7 +44,6 @@ Route::get('/layanan-lihat-hewan-siap-adopsi/detail-hewan/{animal_id}', [Layanan
 Route::get('/layanan-lihat-hewan-siap-adopsi/adoption-formulir/{animal_id}', [LayananLihatHewanSiapAdopsiController::class, 'create'])->name('layanan-adopsi.create');
 Route::post('/layanan-lihat-hewan-siap-adopsi/adoption-formulir-create/{animal_id}', [LayananLihatHewanSiapAdopsiController::class, 'createPost'])->name('layanan-adopsi.create.post');
 
-
 Route::get('/layanan-pengajuan-penyerahan-hewan', [LayananPengajuanPenyerahanHewanController::class, 'index'])->name('layanan-pengajuan');
 Route::post('/layanan-pengajuan-penyerahan-hewan-create', [LayananPengajuanPenyerahanHewanController::class, 'createPost'])->name('layanan-pengajuan.create.Post');
 
@@ -52,8 +51,8 @@ Route::get('/status-laporan-penemuan-hewan-hilang', [StatusLaporanPenemuanHewanH
 Route::get('/status-pengajuan-pengadopsian-hewan', [StatusPengajuanPengadopsianHewanController::class, 'index'])->name('status-adopsi');
 Route::get('/status-pengajuan-penyerahan-hewan', [StatusPengajuanPenyerahanHewanController::class, 'index'])->name('status-penyerahan');
 
+
 //admin
-// middleware('role:Admin')->
 Route::prefix('admin')->middleware('role:Admin')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -119,7 +118,5 @@ Route::get('/daftar', [AuthController::class, 'daftar'])->name('daftar');
 Route::get('/masuk', [AuthController::class, 'masuk'])->name('masuk');
 Route::post('/masuk-post', [AuthController::class, 'masukPost'])->name('masuk.post');
 
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::group(['middleware' => 'role:admin'], function () {});
-
-Route::group(['middleware' => 'role:user'], function () {});

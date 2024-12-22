@@ -26,10 +26,13 @@ return new class  extends Migration
             $table->string('animal_type');
             $table->text('location');
             $table->text('location_map');
-            $table->text('photo');
+            $table->text('animal_photo');
+            $table->text('location_photo');
+            $table->text('additional_photo');
             $table->longText('description');
             $table->tinyInteger('is_seen');
             $table->text('admin_feedback')->nullable();
+            $table->text('admin_feedback_photo')->nullable();
 
             $table->index(["status_id"], 'fk_report_form_status_configuration1_idx');
 

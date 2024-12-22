@@ -9,6 +9,7 @@ use App\Models\adoptionQuestions;
 use App\Models\User;
 use App\Models\shelterInformation;
 use App\Models\adoptionForm;
+use Illuminate\Support\Facades\Hash;
 
 class LayananLihatHewanSiapAdopsiController extends Controller
 {
@@ -53,6 +54,9 @@ class LayananLihatHewanSiapAdopsiController extends Controller
 
     public function createPost($animal_id, Request $request)
     {
+
+        // dd($request->all());
+        
         // Validate the request
         $request->validate([
             'answers' => 'required|array',
