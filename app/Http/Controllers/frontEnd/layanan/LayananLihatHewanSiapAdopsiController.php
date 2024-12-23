@@ -73,7 +73,6 @@ class LayananLihatHewanSiapAdopsiController extends Controller
             'animal_id' => $animal_id,
             'status_id' => $statusId,
             'is_seen' => 0,
-            'admin_feedback' => '',
         ]);
 
         foreach ($request->answers as $questionId => $answer) {

@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
 <section id="nav-rep" class="p-0 mb-2 pb-1">
     <br /> 
     <br />
@@ -18,22 +17,22 @@
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Status</p>
-        <p class="type-2">Status Laporan Penemuan</p>
+        <p class="type-2">Status Laporan Pengajuan Penyerahan Hewan</p>
     </div>
 </section>
 
 <section id="section-1-status-penemuan">
     <div class="container">
-        <h4 class="text-center">Status Laporan Pengajuan Pengadopsian Hewan</h4>
+        <h4 class="text-center">Status Laporan Pengajuan Penyerahan Hewan</h4>
         <hr>
     </div>
     <div class="container">
-        @foreach($adoptions as $item)
+        @foreach($handovers as $item)
             <div class="card mb-3">
                 <div class="row align-items-center justify-content-between">
                     <div class="col align-items-left mx-auto">
                         <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-0 p-0">
-                            <img src="{{ asset('storage/animal/' . $item->animal->photo) }}" 
+                            <img src="{{ asset('storage/formHandover/' . $item->photo) }}" 
                                 class="img-fluid rounded-start w-100 m-0" 
                                 alt="Foto Hewan"
                                 style="object-fit: cover; max-width: 300px;">
@@ -46,35 +45,35 @@
                                     {{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}
                                 </h5>
                                 <div class="alert 
-                                @if($item->status_id == 11)
+                                @if($item->status_id == 6)
                                     alert-warning
-                                @elseif($item->status_id == 12)
+                                @elseif($item->status_id == 7)
                                     alert-warning
-                                @elseif($item->status_id == 13)
+                                @elseif($item->status_id == 8)
                                     alert-danger
-                                @elseif($item->status_id == 14)
+                                @elseif($item->status_id == 9)
                                     alert-success
                                 @else
                                     alert-danger
                                 @endif
                                 py-2 px-1 mb-0">
                                     Status: 
-                                    @if($item->status_id == 11)
-                                        Adopsi Diajukan
-                                    @elseif($item->status_id == 12)
-                                        Pengajuan Adopsi Disetujui
-                                    @elseif($item->status_id == 13)
-                                        Pengajuan Adopsi Ditolak
-                                    @elseif($item->status_id == 14)
-                                        Adopsi Berhasil
+                                    @if($item->status_id == 6)
+                                        Penyerahan Diajukan
+                                    @elseif($item->status_id == 7)
+                                        Pengajuan Penyerahan Disetujui
+                                    @elseif($item->status_id == 8)
+                                        Pengajuan Penyerahan Ditolak
+                                    @elseif($item->status_id == 9)
+                                        Penyerahan Berhasil
                                     @else
-                                        Adopsi Dibatalkan
+                                        Penyerahan Dibatalkan
                                     @endif
                                 </div>
                                 
                             </div>
-                            <p class="card-text">Nama Hewan: {{ $item->animal->animal_name }}</p>
-                            <p class="card-text">Jenis Hewan: {{ $item->animal->animal_type }}</p>
+                            <p class="card-text">Nama Hewan: {{ $item->handoverQuestions->where('handover_questions_id', 1)->first()->pivot->answer }}</p>
+                            <p class="card-text">Jenis Hewan: {{ $item->handoverQuestions->where('handover_questions_id', 2)->first()->pivot->answer }}</p>
                             
                             <div class="border border-black p-3 me-3 my-3">
                                 <p class="mb-2 fw-bold">Catatan Admin: </p>
@@ -86,9 +85,9 @@
             </div>
         @endforeach
 
-        @if($adoptions->isEmpty())
+        @if($handovers->isEmpty())
             <div class="alert alert-info text-center">
-                Belum ada pengajuan adopsi yang dibuat
+                Belum ada pengajuan penyerahan yang dibuat
             </div>
         @endif
     </div>

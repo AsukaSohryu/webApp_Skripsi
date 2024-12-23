@@ -47,7 +47,6 @@ class LayananPengajuanPenyerahanHewanController extends Controller
             'status_id' => $statusId,
             'photo' =>  $file_web_name,
             'is_seen' => 0,
-            'admin_feedback' => '',
         ]);
 
         foreach ($request->answers as $questionId => $answer) {
