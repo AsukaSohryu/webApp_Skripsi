@@ -11,6 +11,9 @@
     <br />
 </section>
 
+<section id="hero" style='height: 72vh; background-image: url("./assets/images/tentangKami/owl.jpg"); background-position: center;'>
+</section>
+
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Layanan Kami</p>

@@ -9,9 +9,9 @@
 <section id="hero" style="position: relative; height: 100vh;">
 
     {{-- @foreach ($banner as $b) --}}
-    <img src="{{ asset('assets/images/home/hero/black test wp.jpg') }}" alt="" class="image  home-image">
-    <img src="{{ asset('assets/images/home/hero/blakaf.jpg') }}" alt="" class="image  home-image">
-    <img src="{{ asset('assets/images/home/hero/Mara Anya.jpg') }}" alt="" class="image  home-image">
+    <img src="{{ asset('assets/images/home/hero/kumaBear.jpg') }}" alt="" class="image  home-image">
+    <img src="{{ asset('assets/images/home/hero/iguana.jpg') }}" alt="" class="image  home-image">
+    <img src="{{ asset('assets/images/home/hero/elephant.jpg') }}" alt="" class="image  home-image">
     {{-- @endforeach --}}
     
     <div class="home-carousel">
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-12 col-sm-12">
                 <div class="card" style="width: 18rem;">
-                    <img src="{{ asset('assets/images/home/1-desktop/Home_Report.png') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('assets/images/home/1-desktop/Home_Report.png') }}" class="card-img-top p-4" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">Laporan Penemuan Hewan Liar</h5>
                     </div>
@@ -44,7 +44,7 @@
             <div class="col">
                 <div class="col-lg-3 col-md-12 col-sm-12">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('assets/images/home/1-desktop/Home_Adoption.png') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/images/home/1-desktop/Home_Adoption.png') }}" class="card-img-top p-4" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">Ajukan Pengadopsian Hewan</h5>
                         </div>
@@ -54,7 +54,7 @@
             <div class="col">
                 <div class="col-lg-3 col-md-12 col-sm-12">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('assets/images/home/1-desktop/Home_Handover.png') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/images/home/1-desktop/Home_Handover.png') }}" class="card-img-top p-4" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">Ajukan Penyerahan Hewan</h5>
                         </div>
@@ -64,7 +64,7 @@
             <div class="col">
                 <div class="col-lg-3 col-md-12 col-sm-12">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{ asset('assets/images/home/1-desktop/Home_RescuedAnimal.png') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('assets/images/home/1-desktop/Home_RescuedAnimal.png') }}" class="card-img-top p-4   " alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">Lihat Hewan Yang Baru Diselamatkan</h5>
                         </div>
