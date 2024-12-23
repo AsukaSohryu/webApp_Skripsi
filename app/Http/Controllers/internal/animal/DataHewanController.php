@@ -30,12 +30,14 @@ class DataHewanController extends Controller
 
         $detail = animal::where('animal_id', $animal_id)->first();
         $name = $detail->animal_name;
-
+        $status = Status::where('status_id', $detail->status_id)->first();
+        $animalStatus = $status->status;
         return view('internal.content.animal.detail', [
             'title' => 'Detail Data Hewan ',
             'pageTitle' => 'Detail Data Hewan - ' . $name,
             'pageSubTitle' => 'Detail Data Hewan - ' . $name,
             'detail' => $detail,
+            'animalStatus' => $animalStatus
         ]);
     }
 
@@ -64,8 +66,6 @@ class DataHewanController extends Controller
             $update = animal::where('animal_id', $request->idHewan)->update([
                 'animal_name' => $request->namaHewan,
                 'animal_type' => $request->jenisHewan,
-                // nanti diremove age-nya
-                'age' => 1,
                 'status_id' => $request->statusID,
                 'birth_date' => $request->tanggalLahir,
                 'color' => $request->warnaHewan,
@@ -90,8 +90,6 @@ class DataHewanController extends Controller
                 'photo' => $file_web_name,
                 'animal_name' => $request->namaHewan,
                 'animal_type' => $request->jenisHewan,
-                // nanti diremove age-nya
-                'age' => 1,
                 'status_id' => $request->statusID,
                 'birth_date' => $request->tanggalLahir,
                 'color' => $request->warnaHewan,
@@ -112,16 +110,20 @@ class DataHewanController extends Controller
         }
     }
 
-    public function create() {
+    public function create()
+    {
+        $status = status::where('config', 'Animal_Status')->get();
         return view('internal.content.animal.create', [
             'title' => 'Tambah Hewan Baru',
             'pageTitle' => 'Tambah Hewan Baru',
-            'pageSubTitle' => 'Tambah Hewan Baru'
+            'pageSubTitle' => 'Tambah Hewan Baru',
+            'status' => $status,
         ]);
     }
 
-    public function createPost(Request $request) {
-        
+    public function createPost(Request $request)
+    {
+
         $file_web = $request->file('fotoHewan');
         $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
 
@@ -131,9 +133,7 @@ class DataHewanController extends Controller
             'photo' => $file_web_name,
             'animal_name' => $request->namaHewan,
             'animal_type' => $request->jenisHewan,
-            'status_id' => $request->statusHewan,
-            // nanti diremove age-nya
-            'age' => 1,
+            'status_id' => $request->statusID,
             'birth_date' => $request->tanggalLahir,
             'sex' => $request->jenisKelamin,
             'race' => $request->rasHewan,
@@ -147,7 +147,7 @@ class DataHewanController extends Controller
             'medical_note' => $request->catatanMedisHewan,
             'is_active' => $request->activeStatus,
         ]);
-        
+
 
         // dd($update);
         if ($create) {

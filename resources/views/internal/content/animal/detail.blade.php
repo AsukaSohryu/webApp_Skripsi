@@ -66,21 +66,7 @@
         <div class="row my-3">
             <div class="col">
                 <label for="">Status Hewan</label>
-                @if($detail->status_id == 16)
-                    <input type="text" name="statusHewan" class="form-control" disabled value="Baru Diselamatkan">
-                @elseif($detail->status_id == 17)
-                    <input type="text" name="statusHewan" class="form-control" disabled value="Dalam Proses Perawatan">
-                @elseif($detail->status_id == 18)
-                    <input type="text" name="statusHewan" class="form-control" disabled value="Tersedia Untuk Adopsi">
-                @elseif($detail->status_id == 19)
-                    <input type="text" name="statusHewan" class="form-control" disabled value="Tidak Tersedia Untuk Adopsi">
-                @elseif($detail->status_id == 20)
-                    <input type="text" name="statusHewan" class="form-control" disabled value="Dalam Proses Adopsi">
-                @elseif($detail->status_id == 21)
-                    <input type="text" name="statusHewan" class="form-control" disabled value="Telah Diadopsi">
-                @elseif($detail->status_id == 22)
-                    <input type="text" name="statusHewan" class="form-control" disabled value="Dikembalikan Pada Pemilik">
-                @endif
+                <input type="text" name="statusHewan" id="statusHewan" value="{{ $animalStatus }}" class="form-control" disabled>
             </div>
             <div class="col">
                 <label for="">Tanggal Lahir</label>

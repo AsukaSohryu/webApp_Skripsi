@@ -19,15 +19,7 @@ class ShelterInformationSeeder extends Seeder
                 'shelter_logo' => '',
                 'address' => 'Jl. Lorem Ipsum Blok A No 20, Jakarta, Jakarta Selatan',
                 'email' => 'shelterus@gmail.com',
-                // 'operational_hour' => '
-                //     Senin: 09.00 - 15.00 WIB
-                //     Selasa: 09.00 - 15.00 WIB
-                //     Rabu: 09.00 - 15.00 WIB
-                //     Kamis: 09.00 - 15.00 WIB
-                //     Jumat: 09.00 - 15.00 WIB
-                //     Sabtu: 10.00 - 14.00 WIB
-                //     Minggu: Tutup
-                // ',
+                'operational_hour' => ' <p>Senin 09.00 - 17.00<br>Selasa 09.00 - 17.00<br>Rabu 09.00 - 17.00<br>Kamis 09.00 - 17.00<br>Jumat 09.00 - 17.00<br></p>',
                 'whatsapp_number' => '087889360769',
                 'phone_number' => '087889360769',
                 'instagram' => 'www.instagram/ShelterUs.com',
