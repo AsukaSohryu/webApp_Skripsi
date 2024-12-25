@@ -41,11 +41,11 @@
                                 @if($animal->status_id == 16)
                                     alert-warning
                                 @elseif($animal->status_id == 17)
-                                    alert-info
+                                    alert-warning
                                 @elseif($animal->status_id == 18)
-                                    alert-success
+                                    alert-warning
                                 @else
-                                    alert-secondary
+                                    alert-danger
                                 @endif py-2 px-1 mb-0">
                                     Status: 
                                     @if($animal->status_id == 16)

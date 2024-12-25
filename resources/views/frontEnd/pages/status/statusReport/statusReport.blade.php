@@ -50,9 +50,9 @@
                                 @elseif($item->status_id == 2)
                                     alert-warning
                                 @elseif($item->status_id == 3)
-                                    alert-danger
-                                @elseif($item->status_id == 4)
                                     alert-success
+                                @elseif($item->status_id == 4)
+                                    alert-danger
                                 @else
                                     alert-danger
                                 @endif
