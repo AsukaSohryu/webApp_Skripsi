@@ -13,7 +13,7 @@ class StatusAdopsiController extends Controller
         $userId = auth()->id();
         $adoption = AdoptionForm::where('user_id', $userId)->get();
 
-        return view('frontend.pages.status.statusAdopsi', [
+        return view('frontend.pages.status.statusAdopsi.statusAdopsi', [
             'pagetitle' => 'Status Pengajuan Pengadopsian Hewan',
             'adoptions' => $adoption,
             'user' => $userId

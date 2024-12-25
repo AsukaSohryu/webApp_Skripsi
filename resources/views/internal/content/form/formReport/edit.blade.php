@@ -48,7 +48,14 @@
             @csrf
             <div class="row my-3 d-flex flex-row flex-wrap justify-content-center g-2" style="gap: 8px;">
                 <div class="col-3 d-flex justify-content-center">
-                    <img src="{{ asset('storage/formReport/' . $detail->animal_photo) }}" alt="Foto Hewan" class="border border-2 report-image img-fluid" style="height: 200px; object-fit: cover;">
+                    <img src="@if($detail->admin_feedback_photo) 
+                                 {{ asset('storage/formReport/' . $detail->admin_feedback_photo) }}
+                              @else
+                                 {{ asset('storage/formReport/' . $detail->animal_photo) }}
+                              @endif"
+                         alt="Foto Hewan" 
+                         class="border border-2 report-image img-fluid" 
+                         style="height: 200px; object-fit: cover;">
                 </div>
                 <div class="col-3 d-flex justify-content-center">
                     <img src="{{ asset('storage/formReport/' . $detail->location_photo) }}" alt="Foto Lokasi" class="border border-2 report-image img-fluid" style="height: 200px; object-fit: cover;">
@@ -112,6 +119,14 @@
             <div class="col my-3">
                 <label for="" class="mb-2">Respon Admin</label>
                 <textarea name="responAdmin" id="responAdmin" class="form-control" rows="4">{{$detail->admin_feedback}}</textarea>
+            </div>
+            <div class="col my-3">
+                <div class="col">
+                    <label for="" class="mb-2">Admin Feedback Photo</label>
+                    <input type="file" class="form-control" id="fotoResponAdmin" name="fotoResponAdmin" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml">
+                    <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
+                    <div class="mt-2 ps-3">Currrent File: {{ $detail->admin_feedback_photo }}</div>
+                </div>
             </div>
             @if(!in_array($detail->status_id, [3, 4, 5]))
                 <div class="gap-3 my-10 d-flex justify-content-end">

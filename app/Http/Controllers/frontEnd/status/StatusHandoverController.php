@@ -16,7 +16,7 @@ class StatusHandoverController extends Controller
             }])
             ->get();
             
-        return view('frontend.pages.status.statusHandover', [
+        return view('frontend.pages.status.statusHandover.statusHandover', [
             'pagetitle' => 'Status Pengajuan Penyerahan Hewan',
             'handovers' => $handover,
         ]);

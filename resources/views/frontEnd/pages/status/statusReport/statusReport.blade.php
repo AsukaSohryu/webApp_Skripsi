@@ -28,7 +28,11 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col align-items-left p-0">
                         <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-0 p-0">
-                            <img src="{{ asset('storage/formReport/' . $item->animal_photo) }}" 
+                            <img src="@if($item->admin_feedback_photo) 
+                                         {{ asset('storage/formReport/' . $item->admin_feedback_photo) }}
+                                      @else
+                                         {{ asset('storage/formReport/' . $item->animal_photo) }}
+                                      @endif"
                                 class="img-fluid rounded-start w-100 m-0" 
                                 alt="Foto Hewan"
                                 style="object-fit: cover; max-width: 300px;">

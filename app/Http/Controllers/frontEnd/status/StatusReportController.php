@@ -13,7 +13,7 @@ class StatusReportController extends Controller
         $userId = auth()->id();
         $report = reportForm::where('user_id', $userId)->get();
 
-        return view('frontend.pages.status.statusReport', [
+        return view('frontend.pages.status.statusReport.statusReport', [
             'pagetitle' => 'Status Laporan Penemuan Hewan Hilang',
             'reports' => $report,
             'user' => $userId
