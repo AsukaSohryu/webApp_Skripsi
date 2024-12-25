@@ -52,15 +52,11 @@
                         $unit = '';
         
                         switch ($question->handover_questions_id) {
-                            case 3:
-                                $unit = ' Tahun';
-                                $inputValue = $question->pivot->answer ?? '';
-                                break;
-                            case 8:
+                            case 7:
                                 $unit = ' Kg';
                                 $inputValue = $question->pivot->answer ?? '';
                                 break;
-                            case 10:
+                            case 9:
                                 $inputValue = ($question->pivot->answer == 1) ? 'Sudah' : 'Belum';
                                 break;
                             default:
@@ -97,7 +93,7 @@
                     disabled>{{ $detail->admin_feedback }}</textarea>
             </div>
         </div>
-        @if($detail->status->status_id == 8 || $detail->status->status_id == 9 || $detail->status->status_id == 10)
+        @if(in_array($detail->status_id, $nonEditableStatuses))
             <div class=" my-3 d-flex justify-content-end">
                 <form action="{{ route('formHandover.edit', $detail->handover_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengubah Data Formulir Penyerahan Ini?');">
                     <button class="btn btn-secondary" style="border: 0;" title="Edit" disabled>Status Tidak Dapat Diubah</button>

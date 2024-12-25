@@ -20,7 +20,6 @@
             </tr>
         </thead>
         <tbody>
-            {{-- @if($r->is_seen == 0) table-warning @endif --}}
             @foreach ($adoptionForm as $r)
             <tr class="fw-bold text-center border-2 border-bottom border-dark py-auto"> 
                 <td>
@@ -33,19 +32,7 @@
                 </td>
                 <td>{{ $r->users->name }}</td>
                 <td>{{ $r->created_at }}</td>
-                <td>
-                    @if($r->status_id == 11)
-                        <span class="btn btn-secondary">Adopsi Diajukan</span>
-                    @elseif($r->status_id == 12)
-                        <span class="btn btn-warning">Pengajuan Adopsi Disetujui</span>
-                    @elseif($r->status_id == 13)
-                        <span class="btn btn-danger">Pengajuan Adopsi Ditolak</span>
-                    @elseif($r->status_id == 14)
-                        <span class="btn btn-primary">Adopsi Berhasil</span>
-                    @elseif($r->status_id == 15)
-                        <span class="btn btn-danger">Adopsi Dibatalkan</span>
-                    @endif
-                </td> 
+                <td>{{ $r->status_name }}</td>
                 <td>
                     <form action="{{route('formAdopsi.detail', $r->adoption_form_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
                         <button class="btn btn-secondary border border-dark"><i class="fa-regular fa-pen-to-square"></i></button>

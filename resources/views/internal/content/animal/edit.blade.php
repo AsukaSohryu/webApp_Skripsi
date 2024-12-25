@@ -95,7 +95,6 @@
                             </option>
                         @endforeach
                     </select>
-
                 </div>
                 <div class="col">
                     <label for="" class="my-3">Tanggal Lahir</label>

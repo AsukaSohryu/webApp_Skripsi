@@ -108,12 +108,12 @@
             </div>
             <div class="col my-3">
                 <label for="" class="mb-2">Status Laporan</label>
-                <select name="statusLaporan" id="statusLaporan" class="form-select">
-                    <option value="1" {{ $detail->status_id == 1 ? 'selected' : '' }}>Penyelamatan Diajukan</option>
-                    <option value="2" {{ $detail->status_id == 2 ? 'selected' : '' }}>Dalam Proses Penyelamatan</option>
-                    <option value="3" {{ $detail->status_id == 3 ? 'selected' : '' }}>Hewan Sukses Diselamatkan</option>
-                    <option value="4" {{ $detail->status_id == 4 ? 'selected' : '' }}>Hewan Tidak Ditemukan</option>
-                    <option value="5" {{ $detail->status_id == 5 ? 'selected' : '' }}>Lainnya</option>
+                <select class="form-control custom-dropdown" id="statusLaporan" name="statusLaporan" required>
+                    @foreach($reportFormStatus as $s)
+                        <option value="{{ $s->status_id }}" {{ $s->status_id == $detail->status_id ? 'selected' : '' }}>
+                            {{ $s->status }}
+                        </option>
+                    @endforeach
                 </select>
             </div>
             <div class="col my-3">
@@ -128,7 +128,7 @@
                     <div class="mt-2 ps-3">Currrent File: {{ $detail->admin_feedback_photo }}</div>
                 </div>
             </div>
-            @if(!in_array($detail->status_id, [3, 4, 5]))
+            @if(!in_array($detail->status_id, $nonEditableStatuses))
                 <div class="gap-3 my-10 d-flex justify-content-end">
                     <a href="{{ route('formReport.detail', $detail->report_form_id) }}" 
                         class="btn btn-secondary"

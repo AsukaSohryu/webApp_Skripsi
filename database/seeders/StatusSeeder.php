@@ -132,6 +132,16 @@ class StatusSeeder extends Seeder
                 'key' => 'RTO',
                 'status' => 'Dikembalikan Pada Pemilik',
             ],
+            [
+                'config' => 'Animal_Status',
+                'key' => 'DAS',
+                'status' => 'Hewan Meninggal',
+            ],
+            [
+                'config' => 'Animal_Status',
+                'key' => 'OTH',
+                'status' => 'Lainnya',
+            ],
         ]);
     }
 }

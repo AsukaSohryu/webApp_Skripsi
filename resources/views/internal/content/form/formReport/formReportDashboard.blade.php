@@ -32,19 +32,7 @@
                 </td>
                 <td>{{ $r->users->name }}</td>
                 <td>{{ $r->created_at }}</td>
-                <td>
-                    @if($r->status_id == 1)
-                        <span class="btn btn-secondary">Penyelematkan Diajukan</span>
-                    @elseif($r->status_id == 2)
-                        <span class="btn btn-warning">Dalam Proses Penyelematan</span>
-                    @elseif($r->status_id == 3)
-                        <span class="btn btn-primary">Hewan Sukses Diselamatkan</span>
-                    @elseif($r->status_id == 4)
-                        <span class="btn btn-danger">Hewan Tidak Ditemukan</span>
-                    @elseif($r->status_id == 5)
-                        <span class="btn btn-danger">Lainnya</span>
-                    @endif
-                </td> 
+                <td>{{ $r->status_name }}</td>
                 <td>
                     <form action="{{route('formReport.detail', $r->report_form_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
                         <button class="btn btn-secondary border border-dark"><i class="fa-regular fa-pen-to-square"></i></button>

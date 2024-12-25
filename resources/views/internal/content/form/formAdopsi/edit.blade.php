@@ -125,7 +125,7 @@
                         class="form-control">{{ $detail->admin_feedback }}</textarea>
                 </div>
             </div>
-            @if(!in_array($detail->status_id, [13, 14, 15]))
+            @if(!in_array($detail->status_id, $nonEditableStatuses))
             <div class="gap-3 my-10 d-flex justify-content-end">
                 <a href="{{ route('formAdopsi.detail', $detail->adoption_form_id) }}" 
                     class="btn btn-secondary"

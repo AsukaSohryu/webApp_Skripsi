@@ -79,15 +79,12 @@
                 </div>
                 <div class="col">
                     <label for="" class="my-3">Status Hewan</label>
-                    <select name="statusHewan" id="statusHewan" class="form-select" required>
-                        <option value="" selected disabled>Status Hewan</option>
-                        <option value="16">Baru Diselamatkan</option>
-                        <option value="17">Dalam Proses Perawatan</option>
-                        <option value="18">Tersedia Untuk Adopsi</option>
-                        <option value="19">Tidak Tersedia Untuk Adopsi</option>
-                        <option value="20">Dalam Proses Adopsi</option>
-                        <option value="21">Telah Diadopsi</option>
-                        <option value="22">Dikembalikan Pada Pemilik</option>
+                    <select class="form-control custom-dropdown" id="statusID" name="statusID" required>
+                        @foreach($status as $s)
+                            <option value="{{ $s->status_id }}">
+                                {{ $s->status }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
             </div>

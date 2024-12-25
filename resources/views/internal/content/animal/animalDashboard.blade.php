@@ -20,28 +20,12 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($animal as $a)
+            @foreach ($animals as $a)
             <tr class="fw-bold text-center border-2 border-bottom border-dark py-auto">
                 <td>{{ $a->animal_id }}</td>
                 <td>{{ $a->animal_name }}</td>
                 <td>{{ $a->created_at }}</td>
-                <td>
-                    @if($a->status_id == 16)
-                        <span class="btn btn-secondary">Baru Diselamatkan</span>
-                    @elseif($a->status_id == 17)
-                        <span class="btn btn-warning">Dalam Proses Perawatan</span>
-                    @elseif($a->status_id == 18)
-                        <span class="btn btn-primary">Tersedia Untuk Adopsi</span>
-                    @elseif($a->status_id == 19)
-                        <span class="btn btn-danger">Tidak Tersedia Untuk Adopsi</span>
-                    @elseif($a->status_id == 20)
-                        <span class="btn btn-warning">Dalam Proses Adopsi</span>
-                    @elseif($a->status_id == 21)
-                        <span class="btn btn-danger">Telah Diadopsi</span>
-                    @elseif($a->status_id == 22)
-                        <span class="btn btn-danger">Dikembalikan Pada Pemilik</span>
-                    @endif
-                </td> 
+                <td>{{ $a->status_name }}</td>
                 <td>
                     <form action="{{route('dataHewan.detail', $a->animal_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengedit Hewan Ini?');">
                         <button class="btn btn-secondary border border-dark"><i class="fa-regular fa-pen-to-square"></i></button>

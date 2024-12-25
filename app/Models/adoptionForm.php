@@ -46,4 +46,9 @@ class adoptionForm extends Model
             ->withPivot('answer')
             ->withTimestamps();
     }
+
+    public function getStatusNameAttribute()
+    {
+        return $this->status->status ?? 'Unknown';
+    }
 }

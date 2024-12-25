@@ -40,4 +40,9 @@ class reportForm extends Model
 
         return $this->belongsTo(status::class, 'status_id');
     }
+
+    public function getStatusNameAttribute()
+    {
+        return $this->status->status ?? 'Unknown';
+    }
 }
