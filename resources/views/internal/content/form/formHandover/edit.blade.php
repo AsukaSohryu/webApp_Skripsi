@@ -140,7 +140,7 @@
                         class="form-control">{{ $detail->admin_feedback }}</textarea>
                 </div>
             </div>
-            @if(!in_array($detail->status_id, [8, 9, 10]))
+            @if(!in_array($detail->status_id, $nonEditableStatuses))
                 <div class="gap-3 my-10 d-flex justify-content-end">
                     <a href="{{ route('formHandover.detail', $detail->handover_form_id) }}" 
                         class="btn btn-secondary"

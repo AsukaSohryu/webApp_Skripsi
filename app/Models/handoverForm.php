@@ -22,12 +22,14 @@ class handoverForm extends Model
     protected $primaryKey = 'handover_form_id';
     public $timestamps = true;
 
-    public function users(){
+    public function users()
+    {
 
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function status(){
+    public function status()
+    {
 
         return $this->belongsTo(status::class, 'status_id');
     }
@@ -35,7 +37,12 @@ class handoverForm extends Model
     public function handoverQuestions()
     {
         return $this->belongsToMany(handoverQuestions::class, 'handover_answers', 'handover_form_id', 'handover_questions_id')
-                    ->withPivot('answer')
-                    ->withTimestamps();
+            ->withPivot('answer')
+            ->withTimestamps();
+    }
+
+    public function getStatusNameAttribute()
+    {
+        return $this->status->status ?? 'Unknown';
     }
 }

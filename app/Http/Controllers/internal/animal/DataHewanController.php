@@ -11,17 +11,18 @@ class DataHewanController extends Controller
 {
     public function index()
     {
+        $animals = animal::all();
+        $statuses = Status::all()->keyBy('status_id');
 
-        $animal = animal::all();
-        $status = status::all();
-        // dd($status);
+        foreach ($animals as $animal) {
+            $animal->status_name = $statuses[$animal->status_id]->status ?? 'Unknown';
+        }
 
         return view('internal.content.animal.animalDashboard', [
             'title' => 'Data Hewan',
             'pageTitle' => 'Daftar Data Hewan',
             'pageSubTitle' => 'Data Hewan Kucing dan Anjing',
-            'animal' => $animal,
-            'status' => $status,
+            'animals' => $animals,
         ]);
     }
 

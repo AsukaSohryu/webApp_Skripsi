@@ -81,7 +81,7 @@
                     disabled>{{ $detail->admin_feedback }}</textarea>
             </div>
         </div>
-        @if($detail->status->status_id == 13 || $detail->status->status_id == 14 || $detail->status->status_id == 15)
+        @if(in_array($detail->status_id, $nonEditableStatuses))
         <div class=" my-3 d-flex justify-content-end">
             <form action="{{ route('formAdopsi.edit', $detail->adoption_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengubah Data Formulir Adopsi Ini?');">
                 <button class="btn btn-secondary" style="border: 0;" title="Edit" disabled>Status Tidak Dapat Diubah</button>

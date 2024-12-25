@@ -97,20 +97,16 @@
             <input type="text" name="tanggalLaporanDibuat" id="tanggalLaporanDibuat" value="{{$detail->created_at}}" class="form-control" disabled>
         </div>
         <div class="col my-3">
-            <label for="" class="mb-2">Status Laporan</label>
-            <select name="statusLaporan" id="statusLaporan" class="form-select" disabled>
-                <option value="1" {{ $detail->status_id == 1 ? 'selected' : '' }}>Penyelamatan Diajukan</option>
-                <option value="2" {{ $detail->status_id == 2 ? 'selected' : '' }}>Dalam Proses Penyelamatan</option>
-                <option value="3" {{ $detail->status_id == 3 ? 'selected' : '' }}>Hewan Sukses Diselamatkan</option>
-                <option value="4" {{ $detail->status_id == 4 ? 'selected' : '' }}>Hewan Tidak Ditemukan</option>
-                <option value="5" {{ $detail->status_id == 5 ? 'selected' : '' }}>Lainnya</option>
-            </select>
+            <div class="col">
+                <label for="">Status Laporan</label>
+                <input type="text" name="statusLaporan" id="statusLaporan" value="{{$detail->status->status}}" class="form-control" disabled>
+            </div>
         </div>
         <div class="col my-3">
             <label for="" class="mb-2">Respon Admin</label>
             <textarea name="responAdmin" id="responAdmin" class="form-control" rows="4" disabled>{{$detail->admin_feedback}}</textarea>
         </div>
-        @if(!in_array($detail->status_id, [3, 4, 5]))
+        @if(!in_array($detail->status_id, $nonEditableStatuses))
             <div class="my-10 d-flex justify-content-end">
                 <form action="{{ route('formReport.edit', $detail->report_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
                     <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Data Formulir Pelaporan</button>

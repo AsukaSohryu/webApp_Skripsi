@@ -14,6 +14,7 @@ class FormAdopsiController extends Controller
     public function index()
     {
         $adoptionForm = adoptionForm::with(['users', 'status', 'animal'])->get();
+
         return view('internal.content.form.formAdopsi.formAdopsiDashboard', [
             'title' => 'Formulir Adopsi',
             'pageTitle' => 'Daftar Formulir Adopsi',
@@ -31,7 +32,6 @@ class FormAdopsiController extends Controller
         // dd($adoptionForm->adoptionQuestions);
 
         if (!$adoptionForm) {
-            // Handle the case where the adoption form is not found (e.g., redirect or show an error)
             return redirect()->back()->with('error', 'Adoption form not found.');
         }
 
@@ -40,11 +40,20 @@ class FormAdopsiController extends Controller
         $adoptionForm->is_seen = 1;
         $adoptionForm->save();
 
+        // Get the status IDs for RJT, SUC, CAN
+        $status = status::where('config', 'Form_Adoption_Status')->get();
+        $statusRJT = $status->where('key', 'RJT')->first()->status_id ?? null;
+        $statusSUC = $status->where('key', 'SUC')->first()->status_id ?? null;
+        $statusCAN = $status->where('key', 'CAN')->first()->status_id ?? null;
+        $statusOTH = $status->where('key', 'OTH')->first()->status_id ?? null;
+        $nonEditableStatuses = [$statusRJT, $statusSUC, $statusCAN, $statusOTH];
+
         return view('internal.content.form.formAdopsi.detail', [
             'title' => 'Detail Formulir Adopsi',
             'pageTitle' => 'Detail Formulir Adopsi',
             'pageSubTitle' => 'Detail Formulir Adopsi - ' . $userName,
             'detail' => $adoptionForm,
+            'nonEditableStatuses' => $nonEditableStatuses,
         ]);
     }
 
@@ -53,8 +62,16 @@ class FormAdopsiController extends Controller
         $adoptionForm = adoptionForm::with(['users', 'status', 'animal', 'adoptionQuestions' => function ($query) {
             $query->withPivot('answer');
         }])->findOrFail($adoption_form_id);
-        $status = status::where('config', 'Form_Adoption_Status')->get();
+
         $userName = $adoptionForm->users->name;
+
+        // Get the status IDs for RJT, SUC, CAN
+        $status = status::where('config', 'Form_Adoption_Status')->get();
+        $statusRJT = $status->where('key', 'RJT')->first()->status_id ?? null;
+        $statusSUC = $status->where('key', 'SUC')->first()->status_id ?? null;
+        $statusCAN = $status->where('key', 'CAN')->first()->status_id ?? null;
+        $statusOTH = $status->where('key', 'OTH')->first()->status_id ?? null;
+        $nonEditableStatuses = [$statusRJT, $statusSUC, $statusCAN, $statusOTH];
 
         return view('internal.content.form.formAdopsi.edit', [
             'title' => 'Perubahan Formulir Adopsi',
@@ -62,7 +79,7 @@ class FormAdopsiController extends Controller
             'pageSubTitle' => 'Perubahan Formulir Adopsi - ' . $userName,
             'detail' => $adoptionForm,
             'adoptionFormStatus' => $status,
-            'adoptionForm' => $adoptionForm,
+            'nonEditableStatuses' => $nonEditableStatuses,
         ]);
     }
 
@@ -73,7 +90,6 @@ class FormAdopsiController extends Controller
 
             $update = adoptionForm::where('adoption_form_id', $request->adoptionFormID)->update([
 
-                // 'shelter_name' => $request->namaShelter,
                 'status_id' => $request->statusID,
                 'admin_feedback' => $request->adminFeedback,
             ]);

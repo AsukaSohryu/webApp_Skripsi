@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\reportForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Models\status;
+
 
 class FormReportController extends Controller
 {
@@ -16,8 +18,8 @@ class FormReportController extends Controller
 
         return view('internal.content.form.formReport.formReportDashboard', [
             'title' => 'Formulir Report',
-            'pageTitle' => 'Daftar Penemuan Hewan Liar',
-            'pageSubTitle' => 'Daftar Penemuan Hewan Liar',
+            'pageTitle' => 'Daftar Formulir Penemuan Hewan Liar',
+            'pageSubTitle' => 'Daftar Formulir Penemuan Hewan Liar',
             'reportForm' => $reportForm
         ]);
     }
@@ -29,24 +31,23 @@ class FormReportController extends Controller
             ->where('report_form_id', $report_form_id)
             ->first();
 
-        // $photos = explode(';', $detail->photo);
-        // $photo_animal = $photos[0] ?? null;
-        // $photo_location = $photos[1] ?? null;
-        // $photo_additional = $photos[2] ?? null;
-
         $detail->is_seen = 1;
         $detail->save();
 
         // dd($detail);
+
+        $status = status::where('config', 'Form_Report_Status')->get();
+        $statusRSC = $status->where('key', 'RSC')->first()->status_id ?? null;
+        $statusNFD = $status->where('key', 'NFD')->first()->status_id ?? null;
+        $statusOTH = $status->where('key', 'OTH')->first()->status_id ?? null;
+        $nonEditableStatuses = [$statusRSC, $statusNFD, $statusOTH];
 
         return view('internal.content.form.formReport.detail', [
             'title' => 'Detail Laporan Penemuan',
             'pageTitle' => 'Detail Laporan Penemuan Hewan Liar',
             'pageSubTitle' => 'Detail Formulir ID: ' . $report_form_id,
             'detail' => $detail,
-            // 'photo_animal' => $detail=>$animal_photo,
-            // 'photo_location' => $detail,
-            // 'photo_additional' => $detail,
+            'nonEditableStatuses' => $nonEditableStatuses,
         ]);
     }
 
@@ -61,23 +62,21 @@ class FormReportController extends Controller
             return redirect()
                 ->route('formReport.detail', $report_form_id)
                 ->with('error', 'Status laporan sudah selesai, tidak bisa diupdate');
-        }
+        } // Penjagan buat gabisa nembak url langsung ke edit
 
-        // $photos = explode(';', $detail->photo);
-        // $photo_animal = $photos[0] ?? null;
-        // $photo_location = $photos[1] ?? null;
-        // $photo_additional = $photos[2] ?? null;
-        // dd($detail);
-
+        $status = status::where('config', 'Form_Report_Status')->get();
+        $statusRSC = $status->where('key', 'RSC')->first()->status_id ?? null;
+        $statusNFD = $status->where('key', 'NFD')->first()->status_id ?? null;
+        $statusOTH = $status->where('key', 'OTH')->first()->status_id ?? null;
+        $nonEditableStatuses = [$statusRSC, $statusNFD, $statusOTH];
 
         return view('internal.content.form.formReport.edit', [
             'title' => 'Edit Laporan Penemuan',
             'pageTitle' => 'Edit Laporan Penemuan Hewan Liar',
             'pageSubTitle' => 'Edit Formulir ID: ' . $report_form_id,
             'detail' => $detail,
-            // 'photo_animal' => $photo_animal,
-            // 'photo_location' => $photo_location,
-            // 'photo_additional' => $photo_additional,
+            'reportFormStatus' => $status,
+            'nonEditableStatuses' => $nonEditableStatuses
         ]);
     }
 

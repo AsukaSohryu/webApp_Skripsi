@@ -30,7 +30,7 @@ class FormHandoverController extends Controller
         }])->findOrFail($handover_form_id);
 
         if (!$handoverForm) {
-            // Handle the case where the adoption form is not found (e.g., redirect or show an error)
+
             return redirect()->back()->with('error', 'Adoption form not found.');
         }
 
@@ -39,11 +39,20 @@ class FormHandoverController extends Controller
         $handoverForm->is_seen = 1;
         $handoverForm->save();
 
+        // Get the status IDs for RJT, SUC, CAN
+        $status = status::where('config', 'Form_Handover_Status')->get();
+        $statusRJT = $status->where('key', 'RJT')->first()->status_id ?? null;
+        $statusSUC = $status->where('key', 'SUC')->first()->status_id ?? null;
+        $statusCAN = $status->where('key', 'CAN')->first()->status_id ?? null;
+        $statusOTH = $status->where('key', 'OTH')->first()->status_id ?? null;
+        $nonEditableStatuses = [$statusRJT, $statusSUC, $statusCAN, $statusOTH];
+
         return view('internal.content.form.formHandover.detail', [
             'title' => 'Detail Formulir Penyerahan',
             'pageTitle' => 'Detail Formulir Penyerahan',
             'pageSubTitle' => 'Formulir Penyerahan - ' . $userName,
             'detail' => $handoverForm,
+            'nonEditableStatuses' => $nonEditableStatuses,
 
         ]);
     }
@@ -54,17 +63,24 @@ class FormHandoverController extends Controller
             $query->withPivot('answer');
             // dd($query->withPivot('answer'));
         }])->findOrFail($handover_form_id);
-        $status = status::where('config', 'Form_Handover_Status')->get();
+
         $userName = $handoverForm->users->name;
 
-        // dd($handoverForm->all());
+        // Get the status IDs for RJT, SUC, CAN
+        $status = status::where('config', 'Form_Handover_Status')->get();
+        $statusRJT = $status->where('key', 'RJT')->first()->status_id ?? null;
+        $statusSUC = $status->where('key', 'SUC')->first()->status_id ?? null;
+        $statusCAN = $status->where('key', 'CAN')->first()->status_id ?? null;
+        $statusOTH = $status->where('key', 'OTH')->first()->status_id ?? null;
+        $nonEditableStatuses = [$statusRJT, $statusSUC, $statusCAN, $statusOTH];
 
         return view('internal.content.form.formHandover.edit', [
             'title' => 'Perubahan Formulir Penyerahan',
             'pageTitle' => 'Perubahan Formulir Penyerahan',
             'pageSubTitle' => 'Perubahan Formulir Penyerahan - ' . $userName,
             'detail' => $handoverForm,
-            'handoverFormStatus' => $status
+            'handoverFormStatus' => $status,
+            'nonEditableStatuses' => $nonEditableStatuses,
         ]);
     }
 
@@ -81,9 +97,18 @@ class FormHandoverController extends Controller
             ]);
 
             $successCreate = 'false';
-            if ($request->statusID == 9) {
-                    $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function ($query) {
-                        $query->withPivot('answer');
+
+            $statusSuccess = Status::where('config', 'Form_Handover_Status')
+                ->where('key', 'SUC')
+                ->first();
+
+            $statusOnCare = Status::where('config', 'Animal_Status')
+                ->where('key', 'ONC')
+                ->first();
+
+            if ($request->statusID == $statusSuccess->status_id) {
+                $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function ($query) {
+                    $query->withPivot('answer');
                 }])->findOrFail($request->handoverFormID);
 
                 foreach ($handoverForm->handoverQuestions as $question) {
@@ -93,29 +118,30 @@ class FormHandoverController extends Controller
                     } else if ($question->handover_questions_id == 2) {
                         $animalType = $question->pivot->answer;
                     } else if ($question->handover_questions_id == 3) {
-                        $age = $question->pivot->answer;
-                    } else if ($question->handover_questions_id == 4) {
                         $birth_date = $question->pivot->answer;
-                    } else if ($question->handover_questions_id == 5) {
+                    } else if ($question->handover_questions_id == 4) {
                         $sex = $question->pivot->answer;
-                    } else if ($question->handover_questions_id == 6) {
+                    } else if ($question->handover_questions_id == 5) {
                         $race = $question->pivot->answer;
-                    } else if ($question->handover_questions_id == 7) {
+                    } else if ($question->handover_questions_id == 6) {
                         $color = $question->pivot->answer;
-                    } else if ($question->handover_questions_id == 8) {
+                    } else if ($question->handover_questions_id == 7) {
                         $weight = $question->pivot->answer;
-                    } else if ($question->handover_questions_id == 9) {
+                    } else if ($question->handover_questions_id == 8) {
                         $vaccine = $question->pivot->answer;
-                    } else if ($question->handover_questions_id == 10) {
+                    } else if ($question->handover_questions_id == 9) {
+                        $is_sterile = $question->pivot->answer;
+                    } else if ($question->handover_questions_id == 9) {
                         $is_sterile = $question->pivot->answer;
                     }
                 }
                 // dd($weight);
+
                 $newAnimal = animal::create([
-                    'status_id' => 17,
+                    'status_id' => $statusOnCare->status_id,
+                    // 'detail_status' => 'Belum ada data',
                     'animal_name' => $animalName,
                     'animal_type' => $animalType,
-                    'age' => $age,
                     'birth_date' => $birth_date,
                     'sex' => $sex,
                     'race' => $race,

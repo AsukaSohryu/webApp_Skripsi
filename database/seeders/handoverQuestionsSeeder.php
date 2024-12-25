@@ -23,10 +23,6 @@ class HandoverQuestionsSeeder extends Seeder
                 'is_active' => 1
             ],
             [
-                'questions' => 'Umur Hewan',
-                'is_active' => 1
-            ],
-            [
                 'questions' => 'Tanggal Lahir Hewan',
                 'is_active' => 1
             ],
