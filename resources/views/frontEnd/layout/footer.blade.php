@@ -42,30 +42,30 @@
                 <div class="col-lg-2 col-sm-6 col-12 footer-links">
                     <h4>Tentang</h4>
                     <ul>
-                        <li><a href="{{ url('tentang-kami') }}">Tentang Kami</a></li>
-                        <li><a href="{{ url('visi-misi') }}">Visi Misi</a></li>
-                        <li><a href="{{ url('mengapa-IDL-express') }}">Profil Pendiri</a></li>
-                        <li><a href="{{ url('sektor-industri') }}">Sejarah Shelter</a></li>
+                        <li><a href="{{ route('tentang-kami') }}">Tentang Kami</a></li>
+                        <li><a href="{{ route('tentang-kami') }}#section-2">Visi Misi</a></li>
+                        <li><a href="{{ route('tentang-kami') }}#section-1-tentang">Profil Pendiri</a></li>
+                        <li><a href="{{ route('tentang-kami') }}#section-2">Sejarah Shelter</a></li>
                     </ul>
                 </div>
                 
                 <div class="col-lg-3 col-sm-6 col-12 footer-links">
                     <h4>Layanan Kami</h4>
                     <ul>
-                        <li><a href="{{ url('layanan-pengiriman-unggulan') }}">Laporkan Penemuan</a></li>
-                        <li><a href="{{ url('layanan-pengiriman-khusus') }}">Ajukan Penyerahan</a></li>
-                        <li><a href="{{ url('layanan-pengiriman-kargo') }}">Ajukan Adopsi</a></li>
-                        <li><a href="{{ url('layanan-pengiriman-kargo') }}">Daftar Hewan Diselamatkan</a></li>
+                        <li><a href="{{ route('layanan-laporan') }}">Laporkan Penemuan</a></li>
+                        <li><a href="{{ route('layanan-pengajuan') }}">Ajukan Penyerahan</a></li>
+                        <li><a href="{{ route('layanan-lihat') }}">Ajukan Adopsi</a></li>
+                        <li><a href="{{ route('layanan-hewan-diselamatkan') }}">Daftar Hewan Diselamatkan</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-sm-6 col-12 footer-links">
                     <h4>Lainnya</h4>
                     <ul>
-                        <li><a href="{{ url('blog') }}">Youtube - Shelter Us</a></li>
-                        <li><a href="{{ url('blog') }}">Instagram - Shelter Us</a></li>
-                        <li><a href="{{ url('blog') }}">Twitter - Shelter Us</a></li>
-                        <li><a href="{{ url('blog') }}">Facebook - Shelter Us</a></li>
+                        <li><a href="">Youtube - Shelter Us</a></li>
+                        <li><a href="">Instagram - Shelter Us</a></li>
+                        <li><a href="">Twitter - Shelter Us</a></li>
+                        <li><a href="">Facebook - Shelter Us</a></li>
                     </ul>
                     <br/>
                 </div>
@@ -94,7 +94,7 @@
 <!-- End Footer -->
 
 <!-- ======= Footer ======= -->
-<footer id="mobile-footer" class="section-bg-2">
+{{-- <footer id="mobile-footer" class="section-bg-2">
 
     <div class="footer-top" style="background-color: unset">
         <div class="container">
@@ -204,4 +204,4 @@
 
         </div>
     </div>
-</footer>
+</footer> --}}

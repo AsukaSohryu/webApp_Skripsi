@@ -6,6 +6,7 @@ use App\Http\Controllers\frontend\layanan\HewanDiselamatkanController;
 use App\Http\Controllers\frontend\layanan\LayananLaporanHewanHilangController;
 use App\Http\Controllers\frontend\layanan\LayananLihatHewanSiapAdopsiController;
 use App\Http\Controllers\frontend\layanan\LayananPengajuanPenyerahanHewanController;
+use App\Http\Controllers\frontEnd\profile\ProfileController;
 use App\Http\Controllers\frontend\status\StatusReportController;
 use App\Http\Controllers\frontend\status\StatusAdopsiController;
 use App\Http\Controllers\frontend\status\StatusHandoverController;
@@ -31,6 +32,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Auth Routing
+Route::get('/daftar', [AuthController::class, 'daftar'])->name('daftar');
+Route::post('/daftar-post', [AuthController::class, 'daftarPost'])->name('daftar.post');
+
+Route::get('/masuk', [AuthController::class, 'masuk'])->name('masuk');
+Route::post('/masuk-post', [AuthController::class, 'masukPost'])->name('masuk.post');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+//Rescuer Pages Routing
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/tentang-kami', [TentangKamiController::class, 'index'])->name('tentang-kami');
@@ -50,6 +61,12 @@ Route::post('/layanan-pengajuan-penyerahan-hewan-create', [LayananPengajuanPenye
 Route::get('/status-laporan-penemuan-hewan-hilang', [StatusReportController::class, 'index'])->name('status-laporan');
 Route::get('/status-pengajuan-pengadopsian-hewan', [StatusAdopsiController::class, 'index'])->name('status-adopsi');
 Route::get('/status-pengajuan-penyerahan-hewan', [StatusHandoverController::class, 'index'])->name('status-penyerahan');
+
+Route::get('/detail-profil', [ProfileController::class, 'index'])->name('detail-profil');
+Route::get('/edit-profil', [ProfileController::class, 'editShow'])->name('edit-profil');
+Route::post('/edit-profil-post', [ProfileController::class, 'editPost'])->name('edit-profil.post');
+Route::get('/edit-password', [ProfileController::class, 'editPasswordShow'])->name('edit-password');
+Route::post('/edit-password-post', [ProfileController::class, 'editPasswordPost'])->name('edit-password.post');
 
 
 //admin
@@ -111,13 +128,4 @@ Route::prefix('admin')->middleware('role:Admin')->group(function () {
 });
 
 // Route::post('/test-upload', [DataHewanController::class, 'testUploadGambar'])->name('animal.uploadGambar');
-
-// Auth Routing
-Route::get('/daftar', [AuthController::class, 'daftar'])->name('daftar');
-Route::post('/daftar-post', [AuthController::class, 'daftarPost'])->name('daftar.post');
-
-Route::get('/masuk', [AuthController::class, 'masuk'])->name('masuk');
-Route::post('/masuk-post', [AuthController::class, 'masukPost'])->name('masuk.post');
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 

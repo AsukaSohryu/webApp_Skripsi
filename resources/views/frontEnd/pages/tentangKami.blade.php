@@ -20,32 +20,40 @@
     </div>
 </section>
 
-<section id="section-1-tentang">
-    <div class="container" style="background-color: #EFF8FF;">
+<section id="section-1-tentang" style="padding-bottom: 0;">
+    <div class="container p-4" style="background-color: #EFF8FF; border-radius: 8px;">
         <div class="row">
-            <section class="about-section section-padding">
-                <div class="container">
-                    <div class="row mb-4">
-                        <div class="col-lg-6 col-md-5 col-12">
-                            <img src="{{ asset('storage/shelterInformation/' . $shelterInformation->founder_photo) }}" class="about-image ms-lg-auto bg-light shadow-lg img-fluid" alt="Shelter Photo">
-                        </div>
-                        <div class="col-lg-5 col-md-7 col-12">
-                            <div class="custom-text-block">
-                                <h2 class="mb-0">{{$shelterInformation->founder_name}}</h2>
-
-                                <p class="text-muted mb-lg-4 mb-md-4">Pendiri Shelter</p>
-
-                                <p>{!!$shelterInformation->founder_description!!}</p>
-                            </div> 
-                        </div>
-                    </div>
+            <div class="col-lg-6 col-12">
+                <img src="{{ asset('storage/shelterInformation/' . $shelterInformation->founder_photo) }}" class="about-image ms-lg-auto bg-light shadow-lg img-fluid" alt="Founder Photo" style="max-width: 200px;">
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="custom-text-box">
+                    <h2 class="mb-2">Profil Pendiri</h2>
+                    <p class="mb-0">{!! $shelterInformation->founder_description!!}</p>
                 </div>
-            </section>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="section-padding section-bg" id="section_2">
+<section id="section-2-tentang">
+    <div class="container g-3 p-4 align-items-center" style="background-color: #EFF8FF; border-radius: 8px;">
+        <h3>Perjalanan Kisah <span style="color: #FF5E14">Kami</span></h3>
+        <p class="text-center">{!! $shelterInformation->history !!}</p>
+        <h3>Tentang Kami</h3>
+        <p class="text-center">{!! $shelterInformation->about_shelter !!}</p>
+        <div class="col p-3" style="background-color: white; border-radius: 8px;">
+            <h3 class="text-center">Visi</h3>
+            <p class="text-center">{!! $shelterInformation->vision !!}</p>
+        </div>
+        <div class="col p-3" style="background-color: white; border-radius: 8px;">
+            <h3 class="text-center">Misi</h3>
+            <p class="text-center">{!! $shelterInformation->mission !!}</p>
+        </div>
+    </div>
+</section>
+
+{{-- <section class="section-padding section-bg" id="section-2">
     <div class="container">
         <div class="row mb-4">
             <div class="col-lg-6 col-12 mb-5 mb-lg-0">
@@ -59,13 +67,15 @@
                     <p class="mb-0">{!! $shelterInformation->about_shelter !!}</p>
                 </div>
             </div>
-            <div class="col-lg-6 col-12">
+            <div class="col-lg-6 col-12" id="sejarah-desktop">
                 <div class="custom-text-box">
                     <h2 class="mb-2">Sejarah Kami</h2>
                     <p class="mb-0">{!! $shelterInformation->history !!}</p>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container" id="visi-misi-desktop">
         <div class="row mb-4">
             <div class="col-lg-6 col-12">
                 <h2 class="mb-2">Visi</h2>
@@ -99,7 +109,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 @endsection
 
 @section('js')

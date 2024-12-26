@@ -122,7 +122,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
 									<div></div>
 									<!--begin::Link-->
-									<a href="../../demo24/dist/authentication/layouts/overlay/reset-password.html" class="link-primary">Lupa Password?</a>
+									<a href="">Lupa Password?</a>
 									<!--end::Link-->
 								</div>
 								<!--end::Wrapper-->
@@ -141,7 +141,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Submit button-->
 								<!--begin::Sign up-->
 								<div class="text-gray-500 text-center fw-semibold fs-6">Belum Memiliki Akun?
-								<a href="../../demo24/dist/authentication/layouts/overlay/sign-up.html" class="link-primary">Daftar</a></div>
+								<a href="{{ route('daftar') }}" class="link-primary">Daftar</a></div>
 								<!--end::Sign up-->
 							</form>
 							<!--end::Form-->
@@ -154,17 +154,17 @@ License: For each use you must have a valid license purchased only from above li
 			</div>
 			<!--end::Authentication - Sign-in-->
 		</div>
-		// <!--end::Root-->
-		// <!--begin::Javascript-->
+		<!--end::Root-->
+		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
-		// <!--begin::Global Javascript Bundle(mandatory for all pages)-->
+		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
 		<script src="{{asset('/')}}assets/internal/plugins/global/plugins.bundle.js"></script>
 		<script src="{{asset('/')}}assets/internal/js/scripts.bundle.js"></script>
-		// <!--end::Global Javascript Bundle-->
-		// <!--begin::Custom Javascript(used for this page only)-->
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Custom Javascript(used for this page only)-->
 		<script src="{{asset('/')}}assets/internal/js/custom/authentication/sign-in/general.js"></script>
-		// <!--end::Custom Javascript-->
-		// <!--end::Javascript-->
+		<!--end::Custom Javascript-->
+		<!--end::Javascript-->
 	</body>
 	<!--end::Body-->
 </html>

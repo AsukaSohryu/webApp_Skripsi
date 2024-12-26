@@ -30,10 +30,10 @@
               <li class="dropdown">
                 <a href="#" class="d-flex flex-row">
                   <span style="font-size:16px;">Hai, {{ auth()->user()->name }}!</span>
-                  <img src="" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ffffff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);">
+                  <img src="{{ asset('storage/profile/' . auth()->user()->photo) }}" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ffffff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);">
                 </a>
                 <ul>
-                  <li><a href=""><span style="font-size:16px;">Detail Profil</span></a></li>
+                  <li><a href="{{ route('detail-profil') }}"><span style="font-size:16px;">Detail Profil</span></a></li>
                   <li>
                     <form action="{{ route('logout') }}" method="post" id="logoutForm">
                       @csrf

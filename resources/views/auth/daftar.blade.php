@@ -114,6 +114,8 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 								</form>
 							</div>
+							<div class="text-gray-500 text-center fw-semibold fs-6">Sudah Memiliki Akun?
+							<a href="{{ route('masuk') }}" class="link-primary">Masuk</a></div>
 
 							<!-- Step 2: Password Setup -->
 							<div id="step2" style="display: none;">

@@ -22,6 +22,7 @@ return new class  extends Migration
             $table->engine = 'InnoDB';
             $table->increments('animal_id');
             $table->unsignedInteger('status_id');
+            $table->text('detail_status');
             $table->string('animal_name');
             $table->string('animal_type');
             $table->date('birth_date');
