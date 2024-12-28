@@ -73,13 +73,21 @@
                 <input type="text" name="animalName" id="animalName" value="{{$detail->animal->animal_name}}" class="form-control" disabled>
             </div>
             <div class="col">
-                <label for="">Umur</label>
-                <input type="text" name="animalAge" id="animalAge" value="{{$detail->animal->age}} Tahun" class="form-control" disabled>
+                <label for="">ID Hewan</label>
+                <input type="text" name="animalID" id="animalID" value="{{$detail->animal->animal_id}}" class="form-control" disabled>
             </div>
         </div>
-
+        <div class="row my-3">
+            <form action="{{route('dataHewan.detail', $detail->animal->animal_id)}}" method="get" onsubmit="return confirm('Halaman formulir akan dialihkan ke halaman detail hewan, apakah anda yakin?');">
+                <button class="btn btn-primary" style="border: 0;" title="Detail">Lihat Detail Hewan</button>
+            </form>
+        </div>
         <form action="{{ route('formAdopsi.edit.post') }}" method="post" enctype="multipart/form-data">
             @csrf
+            <div class="col" hidden>
+                <label for="">animalID</label>
+                <input type="text" name="animalID" id="animalID" value="{{$detail->animal->animal_id}}" class="form-control">
+            </div>
             <div class="row my-3">
                 <div class="col">
                     <input type="text" name="adoptionFormID" id="adoptionFormID" value="{{$detail->adoption_form_id}}" class="form-control" hidden>
@@ -106,6 +114,8 @@
             </div>
             @endforeach
             <hr>
+            {{-- Prevent Editing When Status is "Final" --}}
+            @if(!in_array($detail->status_id, $nonEditableStatuses))
             <div class="col">
                 <label for="" class="my-3">Status Formulir Adopsi</label>
                 <select class="form-control custom-dropdown" id="statusID" name="statusID" required>
@@ -125,6 +135,25 @@
                         class="form-control">{{ $detail->admin_feedback }}</textarea>
                 </div>
             </div>
+            @else
+            <div class="row my-3">
+                <div class="col">
+                    <label for="">Status Laporan</label>
+                    <input type="text" name="statusID" id="statusID" value="{{$detail->status->status}}" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    <label for="adminFeedback">Respon Admin</label>
+                    <textarea 
+                        name="adminFeedback" 
+                        id="adminFeedback" 
+                        class="form-control"
+                        disabled
+                        >{{ $detail->admin_feedback }}</textarea>
+                </div>
+            </div>
+            @endif
             @if(!in_array($detail->status_id, $nonEditableStatuses))
             <div class="gap-3 my-10 d-flex justify-content-end">
                 <a href="{{ route('formAdopsi.detail', $detail->adoption_form_id) }}" 

@@ -39,9 +39,14 @@
                 <input type="text" name="animalName" id="animalName" value="{{$detail->animal->animal_name}}" class="form-control" disabled>
             </div>
             <div class="col">
-                <label for="">Umur</label>
-                <input type="text" name="animalAge" id="animalAge" value="{{$detail->animal->age}} Tahun" class="form-control" disabled>
+                <label for="">ID Hewan</label>
+                <input type="text" name="animalID" id="animalID" value="{{$detail->animal->animal_id}}" class="form-control" disabled>
             </div>
+        </div>
+        <div class="row my-3">
+            <form action="{{route('dataHewan.detail', $detail->animal->animal_id)}}" method="get" onsubmit="return confirm('Halaman formulir akan dialihkan ke halaman detail hewan, apakah anda yakin?');">
+                <button class="btn btn-primary" style="border: 0;" title="Detail">Lihat Detail Hewan</button>
+            </form>
         </div>
         <hr>
         @foreach ($detail->adoptionQuestions as $question)

@@ -59,18 +59,24 @@
                 <input type="text" name="jenisHewan" id="jenisHewan" value="{{$detail->animal_type}}" class="form-control" disabled>
             </div>
             <div class="col">
-                <label for="">Usia Hewan</label>
-               <input type="text" name="usiaHewan" id="usiaHewan" value="" class="form-control" disabled>
+                <label for="">Status Hewan</label>
+                <input type="text" name="statusHewan" id="statusHewan" value="{{ $animalStatus }}" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Status Hewan</label>
-                <input type="text" name="statusHewan" id="statusHewan" value="{{ $animalStatus }}" class="form-control" disabled>
+                <label for="">Usia Hewan</label>
+               <input type="text" name="usiaHewan" id="usiaHewan" value="" class="form-control" disabled>
             </div>
             <div class="col">
                 <label for="">Tanggal Lahir</label>
                 <input type="date" name="tanggalLahir" id="tanggalLahir" value="{{ $detail->birth_date }}" class="form-control" disabled>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col">
+                <label for="">Detail Status Hewan</label>
+                <textarea type="text" name="detailStatusHewan" id="detailStatusHewan" class="form-control" disabled>{{ $detail->detail_status }}</textarea>
             </div>
         </div>
         <div class="row my-3">

@@ -81,12 +81,6 @@
                     <input type="text" name="jenisHewan" id="jenisHewan" value="{{$detail->animal_type}}" class="form-control">
                 </div>
                 <div class="col">
-                    <label for="" class="my-3">Usia Hewan</label>
-                   <input type="text" name="usiaHewan" id="usiaHewan" value="" class="form-control" disabled>
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col">
                     <label for="" class="my-3">Status Hewan</label>
                     <select class="form-control custom-dropdown" id="statusID" name="statusID" required>
                         @foreach($status as $s)
@@ -95,6 +89,18 @@
                             </option>
                         @endforeach
                     </select>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    <label for="">Detail Status Hewan</label>
+                    <textarea type="text" name="detailStatusHewan" id="detailStatusHewan" class="form-control">{{ $detail->detail_status }}</textarea>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    <label for="" class="my-3">Usia Hewan</label>
+                   <input type="text" name="usiaHewan" id="usiaHewan" value="" class="form-control" disabled>
                 </div>
                 <div class="col">
                     <label for="" class="my-3">Tanggal Lahir</label>

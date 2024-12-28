@@ -90,6 +90,12 @@
             </div>
             <div class="row my-3">
                 <div class="col">
+                    <label for="" class="my-3">Detail Status Hewan</label>
+                    <textarea type="text" name="detailStatusHewan" id="detailStatusHewan" value="" placeholder="Detail Status Hewan" class="form-control" required></textarea>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
                     <label for="" class="my-3">Usia Hewan</label>
                     <input type="text" name="usiaHewan" id="usiaHewan" value="" placeholder="Usia Hewan" class="form-control" disabled>
                 </div>

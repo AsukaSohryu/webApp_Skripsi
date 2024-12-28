@@ -17,6 +17,7 @@ class AnimalSeeder extends Seeder
         DB::table('animal')->insert([
             [
                 'status_id' => 16,
+                'detail_status' => 'Hewan baru saja diselamatkan',
                 'animal_name' => 'Kocheng',
                 'animal_type' => 'Kucing',
                 'birth_date' => '2024-10-01',
@@ -36,6 +37,7 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'status_id' => 17,
+                'detail_status' => 'Hewan dalam proses perawatan intensif karena luka bakar',
                 'animal_name' => 'Blackie',
                 'animal_type' => 'Kucing',
                 'birth_date' => '2023-09-15',
@@ -54,7 +56,8 @@ class AnimalSeeder extends Seeder
                 'created_at' => '2024-12-01 00:00:00'
             ],
             [
-                'status_id' => 18,
+                'status_id' => 20,
+                'detail_status' => 'Hewan sudah siap untuk diadopsi',
                 'animal_name' => 'Milky',
                 'animal_type' => 'Kucing',
                 'birth_date' => '2021-05-20',
@@ -74,6 +77,7 @@ class AnimalSeeder extends Seeder
             ],
             [
                 'status_id' => 19,
+                'detail_status' => 'Hewan tidak tersedia untuk diadopsi, hanya dititipkan oleh pemilik sementara',
                 'animal_name' => 'MaoMao',
                 'animal_type' => 'Kucing',
                 'birth_date' => '2016-03-10',

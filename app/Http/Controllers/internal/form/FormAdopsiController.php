@@ -4,6 +4,7 @@ namespace App\Http\Controllers\internal\form;
 
 use App\Http\Controllers\Controller;
 use App\Models\adoptionForm;
+use App\Models\animal;
 use Illuminate\Http\Request;
 use App\Models\status;
 use GuzzleHttp\Psr7\Query;
@@ -93,6 +94,29 @@ class FormAdopsiController extends Controller
                 'status_id' => $request->statusID,
                 'admin_feedback' => $request->adminFeedback,
             ]);
+
+            $status = status::where('config', 'Form_Adoption_Status')->get();
+            $statusRJT = $status->where('key', 'RJT')->first()->status_id ?? null;
+            $statusCAN = $status->where('key', 'CAN')->first()->status_id ?? null;
+            $statusSUC = $status->where('key', 'SUC')->first()->status_id ?? null;
+
+            $statusAnimal = status::where('config', 'Animal_Status')->get();
+            $statusAVL = $statusAnimal->where('key', 'AVL')->first()->status_id ?? null;
+            $statusADP = $statusAnimal->where('key', 'ADP')->first()->status_id ?? null;
+
+            // Update animal status to available if the form is rejected or cancelled
+            if ($request->statusID == $statusRJT || $request->statusID == $statusCAN) {
+                $update = animal::where('animal_id', $request->animalID)->update([
+                    'status_id' => $statusAVL,
+                ]);
+            }
+
+            // Update animal status to adopted if the form is Succeed
+            if ($request->statusID == $statusSUC) {
+                $update = animal::where('animal_id', $request->animalID)->update([
+                    'status_id' => $statusADP,
+                ]);
+            }
         }
 
         // dd($update);
