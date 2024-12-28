@@ -81,22 +81,22 @@
                                     <option value="Kucing">Kucing</option>
                                 </select>
                                 @break
+                            {{-- @case(3)
+                                {{-- <input type="text" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" id="usiaHewan" disabled> <!-- Ensure this is enabled -->
+                                @break --}} --}}
                             @case(3)
-                                <input type="text" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" id="usiaHewan" disabled> <!-- Ensure this is enabled -->
-                                @break
-                            @case(4)
                                 <input type="date" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" id="tanggalLahir" placeholder="Masukan Jawaban Anda" required> <!-- Added ID for tanggal lahir -->
                                 @break
-                            @case(5)
+                            @case(4)
                                 <select class="form-control my-2" name ="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
                                     <option value="Jantan">Jantan</option>
                                     <option value="Betina">Betina</option>
                                 </select>
                                 @break
-                            @case(8)
+                            @case(7)
                                 <input type="number" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
                                 @break
-                            @case(10)
+                            @case(9)
                                 <select class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
                                     <option value="1">Sudah</option>
                                     <option value="0">Belum</option>

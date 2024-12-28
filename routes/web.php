@@ -59,8 +59,11 @@ Route::get('/layanan-pengajuan-penyerahan-hewan', [LayananPengajuanPenyerahanHew
 Route::post('/layanan-pengajuan-penyerahan-hewan-create', [LayananPengajuanPenyerahanHewanController::class, 'createPost'])->name('layanan-pengajuan.create.Post');
 
 Route::get('/status-laporan-penemuan-hewan-hilang', [StatusReportController::class, 'index'])->name('status-laporan');
+Route::get('/status-laporan-penemuan-hewan-hilang/detail/{report_id}', [StatusReportController::class, 'detail'])->name('status-laporan.detail');
 Route::get('/status-pengajuan-pengadopsian-hewan', [StatusAdopsiController::class, 'index'])->name('status-adopsi');
+Route::get('/status-pengajuan-pengadopsian-hewan/detail/{adoption_form_id}', [StatusAdopsiController::class, 'detail'])->name('status-adopsi.detail');
 Route::get('/status-pengajuan-penyerahan-hewan', [StatusHandoverController::class, 'index'])->name('status-penyerahan');
+Route::get('/status-pengajuan-penyerahan-hewan/detail/{handover_form_id}', [StatusHandoverController::class, 'detail'])->name('status-penyerahan.detail');
 
 Route::get('/detail-profil', [ProfileController::class, 'index'])->name('detail-profil');
 Route::get('/edit-profil', [ProfileController::class, 'editShow'])->name('edit-profil');
