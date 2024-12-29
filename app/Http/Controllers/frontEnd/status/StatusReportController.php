@@ -12,7 +12,9 @@ class StatusReportController extends Controller
     public function index(){
         
         $userId = auth()->id();
-        $report = reportForm::where('user_id', $userId)->get();
+        $report = reportForm::where('user_id', $userId)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('frontend.pages.status.statusReport.statusReport', [
             'pagetitle' => 'Status Laporan Penemuan Hewan Hilang',

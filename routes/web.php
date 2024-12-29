@@ -51,20 +51,22 @@ Route::prefix('layanan')->group(function () {
 
     Route::get('/daftar-hewan-yang-diselamatkan', [HewanDiselamatkanController::class, 'index'])->name('layanan-hewan-diselamatkan');
 
-    Route::get('/laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'index'])->name('layanan-laporan');
-    Route::post('/laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'indexPost'])->name('layanan-laporan-post');
+    Route::middleware('auth.popup')->group(function () {
+        Route::get('/laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'index'])->name('layanan-laporan');
+        Route::post('/laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'indexPost'])->name('layanan-laporan-post');
 
-    Route::get('/pengajuan-penyerahan-hewan', [LayananPengajuanPenyerahanHewanController::class, 'index'])->name('layanan-pengajuan');
-    Route::post('/pengajuan-penyerahan-hewan-create', [LayananPengajuanPenyerahanHewanController::class, 'createPost'])->name('layanan-pengajuan.create.Post');
+        Route::get('/pengajuan-penyerahan-hewan', [LayananPengajuanPenyerahanHewanController::class, 'index'])->name('layanan-pengajuan');
+        Route::post('/pengajuan-penyerahan-hewan-create', [LayananPengajuanPenyerahanHewanController::class, 'createPost'])->name('layanan-pengajuan.create.Post');
 
-    Route::get('/lihat-daftar-hewan-siap-adopsi', [LayananLihatHewanSiapAdopsiController::class, 'index'])->name('layanan-lihat');
-    Route::get('/lihat-daftar-hewan-siap-adopsi/detail-hewan/{animal_id}', [LayananLihatHewanSiapAdopsiController::class, 'detailHewan'])->name('layanan-adopsi.detail');
-    Route::get('/pengajuan-pengadopsian-hewan/adoption-formulir/{animal_id}', [LayananLihatHewanSiapAdopsiController::class, 'create'])->name('layanan-adopsi.create');
-    Route::post('/pengajuan-pengadopsian-hewan/adoption-formulir-create/{animal_id}', [LayananLihatHewanSiapAdopsiController::class, 'createPost'])->name('layanan-adopsi.create.post');
+        Route::get('/lihat-daftar-hewan-siap-adopsi', [LayananLihatHewanSiapAdopsiController::class, 'index'])->name('layanan-lihat');
+        Route::get('/lihat-daftar-hewan-siap-adopsi/detail-hewan/{animal_id}', [LayananLihatHewanSiapAdopsiController::class, 'detailHewan'])->name('layanan-adopsi.detail');
+        Route::get('/pengajuan-pengadopsian-hewan/adoption-formulir/{animal_id}', [LayananLihatHewanSiapAdopsiController::class, 'create'])->name('layanan-adopsi.create')->middleware('auth.popup');
+        Route::post('/pengajuan-pengadopsian-hewan/adoption-formulir-create/{animal_id}', [LayananLihatHewanSiapAdopsiController::class, 'createPost'])->name('layanan-adopsi.create.post');
+    });
 });
 
 //status
-Route::prefix('status')->group(function () {
+Route::prefix('status')->middleware('auth.popup')->group(function () {
 
     Route::get('/laporan-penemuan-hewan-hilang', [StatusReportController::class, 'index'])->name('status-laporan');
     Route::get('/laporan-penemuan-hewan-hilang/detail/{report_id}', [StatusReportController::class, 'detail'])->name('status-laporan.detail');
