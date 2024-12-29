@@ -71,6 +71,11 @@ License: For each use you must have a valid license purchased only from above li
 								@csrf
 								<!--begin::Heading-->
 								<div class="text-center mb-11">
+									@if(session('popup_message'))
+										<div class="alert alert-danger">
+											Anda Belum Masuk Ke Dalam Akun!!
+										</div>
+									@endif
 									<!--begin::Title-->
 									<h1 class="text-dark fw-bolder mb-3">Masuk</h1>
 									<!--end::Title-->
