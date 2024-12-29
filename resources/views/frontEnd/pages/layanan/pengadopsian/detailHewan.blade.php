@@ -42,16 +42,13 @@
             </div>
             <div class="col">
                 <label for="" class="my-1">Status Hewan</label>
-                <input type="text" name="statusHewan" id="statusHewan" 
-                value="@if($animal->status_id == 16) Baru Diselamatkan 
-                       @elseif($animal->status_id == 17) Dalam Proses Perawatan
-                       @elseif($animal->status_id == 18) Tersedia Untuk Adopsi
-                       @elseif($animal->status_id == 19) Tidak Tersedia Untuk Adopsi
-                       @elseif($animal->status_id == 20) Dalam Proses Adopsi
-                       @elseif($animal->status_id == 21) Telah Diadopsi
-                       @elseif($animal->status_id == 22) Dikembalikan Pada Pemilik
-                       @else {{ $animal->status_id }} @endif" 
-                class="form-control text-muted" readonly>
+                <input type="text" name="statusHewan" id="statusHewan" value="{{ $animal->status_name }}" class="form-control text-muted" readonly>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="" class="my-1">Detail Status Hewan</label>
+                <textarea name="detailStatusHewan" id="detailStatusHewan" rows="3" class="form-control text-muted" readonly>{{ $animal->detail_status }}</textarea>
             </div>
         </div>
         <div class="row">
@@ -136,6 +133,7 @@
             </div>
         </div>
     </div>
+    @if($animal->status_id == $statusAVL)
     <div class="container">
         <div class="row my-4">
             <div class="col-12 d-flex justify-content-center">
@@ -146,6 +144,20 @@
             </div>
         </div>
     </div>
+    @else
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-12 d-flex justify-content-center">
+                <a href="{{ route('layanan-adopsi.create', $animal->animal_id ) }}" 
+                   class="btn btn-primary px-5 py-2 disabled">
+                    Tidak Bisa Mengajukan Adopsi
+                </a>
+            </div>
+        </div>
+    </div>
+    @endif
+
+
 </section>
 <script>
 document.addEventListener('DOMContentLoaded', function() {

@@ -7,6 +7,7 @@ use App\Models\handoverForm;
 use Illuminate\Http\Request;
 use App\Models\status;
 use App\Models\animal;
+use Illuminate\Support\Facades\Storage;
 
 class FormHandoverController extends Controller
 {
@@ -137,9 +138,16 @@ class FormHandoverController extends Controller
                 }
                 // dd($weight);
 
+                // Copy the photo from formHandover to animal directory
+                $photoPath = 'public/formHandover/' . $request->photo;
+                $newPhotoPath = 'public/animal/' . $request->photo;
+                if (Storage::exists($photoPath)) {
+                    Storage::copy($photoPath, $newPhotoPath);
+                }
+
                 $newAnimal = animal::create([
                     'status_id' => $statusOnCare->status_id,
-                    // 'detail_status' => 'Belum ada data',
+                    'detail_status' => 'Belum ada data',
                     'animal_name' => $animalName,
                     'animal_type' => $animalType,
                     'birth_date' => $birth_date,
@@ -153,7 +161,7 @@ class FormHandoverController extends Controller
                     'characteristics' => 'Belum ada data',
                     'description' => 'Belum ada data',
                     'medical_note' => 'Belum ada data',
-                    'photo' => ' ',
+                    'photo' => $request->photo,
                     'is_active' => 1,
                 ]);
                 $successCreate = 'true';

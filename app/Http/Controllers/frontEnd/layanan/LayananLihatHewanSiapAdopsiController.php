@@ -30,10 +30,14 @@ class LayananLihatHewanSiapAdopsiController extends Controller
     public function detailHewan($animal_id)
     {
         $animal = animal::findOrFail($animal_id);
+        $statusAVL = Status::where('config', 'Animal_Status')
+            ->where('key', 'AVL')
+            ->first();
 
         return view('frontend.pages.layanan.pengadopsian.detailHewan', [
             'pagetitle' => 'Detail Hewan',
-            'animal' => $animal
+            'animal' => $animal,
+            'statusAVL' => $statusAVL->status_id
         ]);
     }
 
@@ -91,7 +95,4 @@ class LayananLihatHewanSiapAdopsiController extends Controller
 
         return redirect()->route('layanan-lihat')->with('success', 'Pengajuan berhasil dibuat!');
     }
-
-    // Logic hewan setelah diajukan adopsi, statusnya berubah
-    // Logic di admin ketika hewan pengajuan ditolak, stauts hewan kembali available
 }
