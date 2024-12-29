@@ -34,14 +34,6 @@
     }
 </style>
 <div class="container">
-    {{-- <div class="row mb-4">
-        <div class="col-md-10">
-            <div class="input-group">
-                <input type="text" class="form-control rounded-1" id="searchForm" placeholder="Pencarian" onkeyup="searchForms()">
-            </div>
-        </div>
-    </div> --}}
-
     <div class="row">
         <!-- Reports Carousel -->
         <div class="col-md-4 mb-4">
