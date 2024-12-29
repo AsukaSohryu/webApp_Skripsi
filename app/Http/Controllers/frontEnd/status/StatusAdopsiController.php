@@ -12,7 +12,9 @@ class StatusAdopsiController extends Controller
     public function index(){
 
         $userId = auth()->id();
-        $adoption = AdoptionForm::where('user_id', $userId)->get();
+        $adoption = AdoptionForm::where('user_id', $userId)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('frontend.pages.status.statusAdopsi.statusAdopsi', [
             'pagetitle' => 'Status Pengajuan Pengadopsian Hewan',

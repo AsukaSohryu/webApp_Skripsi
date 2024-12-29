@@ -45,8 +45,8 @@
         @foreach($reports as $item)
             <div class="card mb-3">
                 <div class="row align-items-center justify-content-between">
-                    <div class="col align-items-left p-0">
-                        <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-0 p-0">
+                    <div class="col align-items-left">
+                        <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-4">
                             <img src="@if($item->admin_feedback_photo) 
                                         {{ asset('storage/formReport/' . $item->admin_feedback_photo) }}
                                     @else
