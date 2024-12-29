@@ -17,10 +17,10 @@ class AuthenticatePopup
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (!Auth::check()) {
-            session()->flash('popup_message', 'You need to log in to access this page.');
+        if (!auth()->check()) {
+            session()->flash('popup_message', true);
             // Optionally redirect them to a login page if necessary
-            // return redirect()->route('login');
+            return redirect()->route('masuk');
         }
 
         return $next($request);
