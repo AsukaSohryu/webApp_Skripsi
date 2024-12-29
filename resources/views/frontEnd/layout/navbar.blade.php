@@ -3,26 +3,26 @@
     <div class="container d-flex justify-content-center align-items-center">
       <nav id="navbar" class="navbar d-flex">
         <ul>
-            <a href="{{ url('/') }}" class="logo"><img src="{{url('/')}}/assets/img/main_logo.png" alt="" class="img-fluid"></a>
+            <a href="{{ route('home') }}" class="logo"><img src="{{url('/')}}/assets/img/main_logo.png" alt="" class="img-fluid"></a>
             <li>
-              <a href="{{ url('/') }}"><span style="font-size:16px;">Home</span></a>
+              <a href="{{ route('home') }}"><span style="font-size:16px;">Home</span></a>
             </li>
             <li>
-              <a href="{{ url('tentang-kami') }}"><span style="font-size:16px;">Tentang Kami</span></a>
+              <a href="{{ route('tentang-kami') }}"><span style="font-size:16px;">Tentang Kami</span></a>
             </li>
             <li class="dropdown"><a href="#"><span style="font-size:16px;">Layanan Kami</span><i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="{{ url('layanan-hewan-diselamatkan') }}"><span style="font-size:16px;">Lihat daftar hewan yang diselamatkan</span> </a></li>
-                <li><a href="{{ url('layanan-laporan-hewan-hilang') }}"><span style="font-size:16px;">Laporkan Penemuan Hewan Liar</span> </a></li>
-                <li><a href="{{ url('layanan-pengajuan-penyerahan-hewan') }}"><span style="font-size:16px;">Ajukan Penyerahan Hewan</span> </a></li>
-                <li><a href="{{ url('layanan-lihat-hewan-siap-adopsi') }}"><span style="font-size:16px;">Lihat Hewan Siap Adopsi</span></a></li>
+                <li><a href="{{ route('layanan-hewan-diselamatkan') }}"><span style="font-size:16px;">Lihat daftar hewan yang diselamatkan</span> </a></li>
+                <li><a href="{{ route('layanan-laporan') }}"><span style="font-size:16px;">Laporkan Penemuan Hewan Liar</span> </a></li>
+                <li><a href="{{ route('layanan-pengajuan') }}"><span style="font-size:16px;">Ajukan Penyerahan Hewan</span> </a></li>
+                <li><a href="{{ route('layanan-lihat') }}"><span style="font-size:16px;">Ajukan Pengadopsian hewan / Lihat Daftar Hewan</span></a></li>
               </ul>
             </li>
             <li class="dropdown"><a href="#"><span style="font-size:16px;">Laporan dan Pengajuan</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="{{ url('status-laporan-penemuan-hewan-hilang') }}"><span style="font-size:16px;">Status Laporan Penemuan Hewan Hilang</span></a></li>
-                <li><a href="{{ url('status-pengajuan-penyerahan-hewan') }}"><span style="font-size:16px;">Status Pengajuan Penyerahan Hewan</span></a></li>
-                <li><a href="{{ url('status-pengajuan-pengadopsian-hewan') }}"><span style="font-size:16px;">Status Pengajuan Pengadopsian Hewan</span></a></li>
+                <li><a href="{{ route('status-laporan') }}"><span style="font-size:16px;">Status Laporan Penemuan Hewan Hilang</span></a></li>
+                <li><a href="{{ route('status-penyerahan') }}"><span style="font-size:16px;">Status Pengajuan Penyerahan Hewan</span></a></li>
+                <li><a href="{{ route('status-adopsi') }}"><span style="font-size:16px;">Status Pengajuan Pengadopsian Hewan</span></a></li>
               </ul>
             </li>
             <li>
