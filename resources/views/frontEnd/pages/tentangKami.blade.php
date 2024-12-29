@@ -36,7 +36,7 @@
     </div>
 </section>
 
-<section id="section-2-tentang">
+<section id="section-2-tentang" style="padding-bottom: 0;">
     <div class="container g-3 p-4 align-items-center" style="background-color: #EFF8FF; border-radius: 8px;">
         <h3>Perjalanan Kisah <span style="color: #FF5E14">Kami</span></h3>
         <p class="text-center">{!! $shelterInformation->history !!}</p>
@@ -49,6 +49,20 @@
         <div class="col p-3" style="background-color: white; border-radius: 8px;">
             <h3 class="text-center">Misi</h3>
             <p class="text-center">{!! $shelterInformation->mission !!}</p>
+        </div>
+    </div>
+</section>
+
+<section id="section-3-tentang">
+    <div class="container g-3 p-4" style="background-color: #EFF8FF; border-radius: 8px;">
+        <div class="row d-flex" style="gap: 16px;">
+            <div class="col d-flex flex-column justify-content-center" style="background-color: white; border-radius: 8px;">
+                <h3>Jam Operasional</h3>
+                <p>{!! $shelterInformation->operational_hour !!}</p>
+            </div>
+            <div class="col d-flex flex-column justify-content-center" style="background-color: white; border-radius: 8px;">
+                <h3>Sosial Media</h3>
+            </div>
         </div>
     </div>
 </section>
