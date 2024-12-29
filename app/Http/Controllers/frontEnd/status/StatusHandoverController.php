@@ -15,6 +15,7 @@ class StatusHandoverController extends Controller
             ->with(['handoverQuestions' => function($query) {
                 $query->withPivot('answer');
             }])
+            ->orderBy('created_at', 'desc')
             ->get();
             
         return view('frontend.pages.status.statusHandover.statusHandover', [

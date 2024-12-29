@@ -44,65 +44,66 @@
     <div class="container">
         @foreach($reports as $item)
             <div class="card mb-3">
-                <a href="{{ route('status-laporan.detail', $item->report_form_id) }}" class="card-link">
-                    <div class="row align-items-center justify-content-between">
-                        <div class="col align-items-left p-0">
-                            <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-0 p-0">
-                                <img src="@if($item->admin_feedback_photo) 
-                                            {{ asset('storage/formReport/' . $item->admin_feedback_photo) }}
-                                        @else
-                                            {{ asset('storage/formReport/' . $item->animal_photo) }}
-                                        @endif"
-                                    class="img-fluid rounded-start w-100 m-0" 
-                                    alt="Foto Hewan"
-                                    style="object-fit: cover; max-width: 300px;">
-                            </div>
-                        </div>
-                        <div class="col-md-9 h-100">
-                            <div class="card-body p-0 m-0 ms-2">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h5 class="card-title d-flex align-items-center mb-0">
-                                        {{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}
-                                    </h5>
-                                    <div class="alert 
-                                    @if($item->status_id == 1)
-                                        alert-warning
-                                    @elseif($item->status_id == 2)
-                                        alert-warning
-                                    @elseif($item->status_id == 3)
-                                        alert-success
-                                    @elseif($item->status_id == 4)
-                                        alert-danger
+                <div class="row align-items-center justify-content-between">
+                    <div class="col align-items-left">
+                        <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-4">
+                            <img src="@if($item->admin_feedback_photo) 
+                                        {{ asset('storage/formReport/' . $item->admin_feedback_photo) }}
                                     @else
-                                        alert-danger
+                                        {{ asset('storage/formReport/' . $item->animal_photo) }}
+                                    @endif"
+                                class="img-fluid rounded-start w-100 m-0" 
+                                alt="Foto Hewan"
+                                style="object-fit: cover; max-width: 300px;">
+                        </div>
+                    </div>
+                    <div class="col-md-9 h-100">
+                        <div class="card-body p-0 m-0 ms-2">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title d-flex align-items-center mb-0">
+                                    {{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}
+                                </h5>
+                                <div class="alert 
+                                @if($item->status_id == 1)
+                                    alert-warning
+                                @elseif($item->status_id == 2)
+                                    alert-warning
+                                @elseif($item->status_id == 3)
+                                    alert-success
+                                @elseif($item->status_id == 4)
+                                    alert-danger
+                                @else
+                                    alert-danger
+                                @endif
+                                py-2 px-1 mb-0">
+                                    Status: 
+                                    @if($item->status_id == 1)
+                                        Penyelematkan Diajukan
+                                    @elseif($item->status_id == 2)
+                                        Dalam Proses Penyelematan
+                                    @elseif($item->status_id == 3)
+                                        Hewan Sukses Diselamatkan
+                                    @elseif($item->status_id == 4)
+                                        Hewan Tidak Ditemukan
+                                    @else
+                                        Lainnya
                                     @endif
-                                    py-2 px-1 mb-0">
-                                        Status: 
-                                        @if($item->status_id == 1)
-                                            Penyelematkan Diajukan
-                                        @elseif($item->status_id == 2)
-                                            Dalam Proses Penyelematan
-                                        @elseif($item->status_id == 3)
-                                            Hewan Sukses Diselamatkan
-                                        @elseif($item->status_id == 4)
-                                            Hewan Tidak Ditemukan
-                                        @else
-                                            Lainnya
-                                        @endif
-                                    </div>
                                 </div>
-                                <p class="card-text">Lokasi: {{ $item->location }}</p>
-                                <p class="card-text">Jenis Hewan: {{ $item->animal_type }}</p>
-                                <p class="card-text">Deskripsi: {{ $item->description }}</p>
-                                
-                                <div class="border border-black p-3 me-3 my-3">
-                                    <p class="mb-2 fw-bold">Catatan Admin: </p>
-                                    <p class="mb-0">{{ $item->admin_feedback ?? 'Belum ada catatan' }}</p>
-                                </div>
+                            </div>
+                            <p class="card-text">Lokasi: {{ $item->location }}</p>
+                            <p class="card-text">Jenis Hewan: {{ $item->animal_type }}</p>
+                            <p class="card-text">Deskripsi: {{ $item->description }}</p>
+                            
+                            <div class="border border-black p-3 me-3 my-3">
+                                <p class="mb-2 fw-bold">Catatan Admin: </p>
+                                <p class="mb-0">{{ $item->admin_feedback ?? 'Belum ada catatan' }}</p>
+                            </div>
+                            <div class="d-flex justify-content-end gap-2 me-3 mb-3">
+                                <a href="{{ route('status-laporan.detail', $item->report_form_id) }}" class="btn btn-primary">Detail Formulir Report</a>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         @endforeach
 

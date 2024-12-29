@@ -49,62 +49,65 @@
     <div class="container">
         @foreach($adoptions as $item)
             <div class="card mb-3">
-                <a href="{{ route('status-adopsi.detail', $item->adoption_form_id) }}" class="card-link">
-                    <div class="row align-items-center justify-content-between">
-                        <div class="col align-items-left mx-auto">
-                            <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-4 p-0">
-                                <img src="{{ asset('storage/animal/' . $item->animal->photo) }}" 
-                                    class="img-fluid rounded-start w-100 m-0" 
-                                    alt="Foto Hewan"
-                                    style="object-fit: cover; max-width: 300px;">
-                            </div>
-                        </div>
-                        <div class="col-md-9 h-100">
-                            <div class="card-body p-0 m-0 ms-2">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h5 class="card-title d-flex align-items-center mb-0">
-                                        {{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}
-                                    </h5>
-                                    <div class="alert 
-                                    @if($item->status_id == 11)
-                                        alert-warning
-                                    @elseif($item->status_id == 12)
-                                        alert-warning
-                                    @elseif($item->status_id == 13)
-                                        alert-danger
-                                    @elseif($item->status_id == 14)
-                                        alert-success
-                                    @else
-                                        alert-danger
-                                    @endif
-                                    py-2 px-1 mb-0">
-                                        Status: 
-                                        @if($item->status_id == 11)
-                                            Adopsi Diajukan
-                                        @elseif($item->status_id == 12)
-                                            Pengajuan Adopsi Disetujui
-                                        @elseif($item->status_id == 13)
-                                            Pengajuan Adopsi Ditolak
-                                        @elseif($item->status_id == 14)
-                                            Adopsi Berhasil
-                                        @else
-                                            Adopsi Dibatalkan
-                                        @endif
-                                    </div>
-                                    
-                                </div>
-                                <p class="card-text">Nama Hewan: {{ $item->animal->animal_name }}</p>
-                                <p class="card-text">Jenis Hewan: {{ $item->animal->animal_type }}</p>
-                                
-                                <div class="border border-black p-3 me-3 my-3">
-                                    <p class="mb-2 fw-bold">Catatan Admin: </p>
-                                    <p class="mb-0">{{ $item->admin_feedback ?? 'Belum ada catatan' }}</p>
-                                </div>
-                            </div>
+                <div class="row align-items-center justify-content-between">
+                    <div class="col align-items-left mx-auto">
+                        <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-4">
+                            <img src="{{ asset('storage/animal/' . $item->animal->photo) }}" 
+                                class="img-fluid rounded-start w-100 m-0" 
+                                alt="Foto Hewan"
+                                style="object-fit: cover; max-width: 300px;">
                         </div>
                     </div>
-                </a>
-                
+                    <div class="col-md-9 h-100">
+                        <div class="card-body p-0 m-0 ms-2">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title d-flex align-items-center mb-0">
+                                    {{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}
+                                </h5>
+                                <div class="alert 
+                                @if($item->status_id == 11)
+                                    alert-warning
+                                @elseif($item->status_id == 12)
+                                    alert-warning
+                                @elseif($item->status_id == 13)
+                                    alert-danger
+                                @elseif($item->status_id == 14)
+                                    alert-success
+                                @else
+                                    alert-danger
+                                @endif
+                                py-2 px-1 mb-0">
+                                    Status: 
+                                    @if($item->status_id == 11)
+                                        Adopsi Diajukan
+                                    @elseif($item->status_id == 12)
+                                        Pengajuan Adopsi Disetujui
+                                    @elseif($item->status_id == 13)
+                                        Pengajuan Adopsi Ditolak
+                                    @elseif($item->status_id == 14)
+                                        Adopsi Berhasil
+                                    @else
+                                        Adopsi Dibatalkan
+                                    @endif
+                                </div>
+                                
+                            </div>
+                            <p class="card-text">Nama Hewan: {{ $item->animal->animal_name }}</p>
+                            <p class="card-text">Jenis Hewan: {{ $item->animal->animal_type }}</p>
+                            
+                            <div class="border border-black p-3 me-3 my-3">
+                                <p class="mb-2 fw-bold">Catatan Admin: </p>
+                                <p class="mb-0">{{ $item->admin_feedback ?? 'Belum ada catatan' }}</p>
+                            </div>
+                            <div class="d-flex justify-content-end gap-2 me-3 mb-3">
+                                <a href="{{ route('layanan-adopsi.detail', $item->animal->animal_id ) }}"  class="btn btn-success">Detail Hewan</a>
+                                <a href="{{ route('status-adopsi.detail', $item->adoption_form_id) }}" class="btn btn-primary">Detail Formulir Adopsi</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
             </div>
             
         @endforeach

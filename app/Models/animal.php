@@ -34,8 +34,14 @@ class animal extends Model
     protected $primaryKey = 'animal_id';
     public $timestamps = true;
 
-    public function status(){
+    public function status()
+    {
 
-        return $this->belongsTo(status::class,'status_id');
+        return $this->belongsTo(status::class, 'status_id');
+    }
+
+    public function getStatusNameAttribute()
+    {
+        return $this->status->status ?? 'Unknown';
     }
 }

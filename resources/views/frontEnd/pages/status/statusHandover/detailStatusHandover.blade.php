@@ -57,7 +57,9 @@
                 </div>
             </div>
             {{-- Area Detail Hewan --}}
-            <hr>
+        </div>
+        <hr class="my-0">
+        <div class="row">
             <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 mt-4 p-0">
                 <img src="{{ asset('storage/formHandover/' . $handovers->photo) }}" 
                     class="img-fluid rounded-start w-100 m-0" 
@@ -83,12 +85,14 @@
                     </div>
                 </div>
             @endforeach
-            <hr>
+        </div>
+        <hr class="my-0">
+        <div class="row">
             {{-- Updateable Field --}}
             <div class="row my-3">
                 <div class="col">
                     <label for="">Status Laporan</label>
-                    <textarea type="text" name="statusAdopsi" id="statusAdopsi" class="form-control" disabled>{{$handovers->status->status}}</textarea>
+                    <input type="text" name="statusAdopsi" id="statusAdopsi" value="{{$handovers->status->status}}" class="form-control" disabled>
                 </div>
             </div>
             <div class="row my-3">
@@ -101,7 +105,6 @@
                         disabled>{{ $handovers->admin_feedback }}</textarea>
                 </div>
             </div>
-            </hr>
             <div class="row my-3">
                 <div class="col">
                     <a href="{{ route('status-penyerahan') }}" class="btn btn-secondary">
