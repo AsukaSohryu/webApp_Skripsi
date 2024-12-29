@@ -15,7 +15,9 @@ class DataHewanController extends Controller
         $statuses = Status::all()->keyBy('status_id');
 
         foreach ($animals as $animal) {
-            $animal->status_name = $statuses[$animal->status_id]->status ?? 'Unknown';
+            $status = $statuses[$animal->status_id] ?? null;
+            $animal->status_name = $status->status ?? 'Unknown';
+            $animal->status_key = $status->key ?? 'Unknown';
         }
 
         return view('internal.content.animal.animalDashboard', [

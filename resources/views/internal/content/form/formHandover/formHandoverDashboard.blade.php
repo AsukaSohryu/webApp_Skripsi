@@ -32,7 +32,19 @@
                 </td>
                 <td>{{ $r->users->name }}</td>
                 <td>{{ $r->created_at }}</td>
-                <td>{{ $r->status_name }}</td>
+                <td>
+                    @php
+                    $btnClass = 'btn-basic';
+                    if (in_array($r->status->key, ['REQ'])) {
+                        $btnClass = 'btn-secondary';
+                    } elseif (in_array($r->status->key, ['APP', 'SUC'])) {
+                        $btnClass = 'btn-primary';
+                    } elseif (in_array($r->status->key, ['RJT', 'CAN'])) {
+                        $btnClass = 'btn-danger';
+                    }
+                    @endphp
+                    <button class="btn {{ $btnClass }}">{{ $r->status_name }}</button>    
+                </td>
                 <td>
                     <form action="{{route('formHandover.detail', $r->handover_form_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
                         <button class="btn btn-secondary border border-dark"><i class="fa-regular fa-pen-to-square"></i></button>

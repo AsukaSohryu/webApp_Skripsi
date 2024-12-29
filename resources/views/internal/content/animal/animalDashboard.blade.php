@@ -25,7 +25,23 @@
                 <td>{{ $a->animal_id }}</td>
                 <td>{{ $a->animal_name }}</td>
                 <td>{{ $a->created_at }}</td>
-                <td>{{ $a->status_name }}</td>
+                <td>
+                    @php
+                        $btnClass = 'btn-basic';
+                        if (in_array($a->status_key, ['RES', 'NAL'])) {
+                            $btnClass = 'btn-secondary';
+                        } elseif (in_array($a->status_key, ['ONC', 'RSV'])) {
+                            $btnClass = 'btn-warning';
+                        } elseif ($a->status_key == 'AVL') {
+                            $btnClass = 'btn-primary';
+                        } elseif (in_array($a->status_key, ['ADP', 'RTO'])) {
+                            $btnClass = 'btn-info';
+                        } elseif (in_array($a->status_key, ['DAS', 'OTH'])) {
+                            $btnClass = 'btn-danger';
+                        }
+                    @endphp
+                    <button class="btn {{ $btnClass }}">{{ $a->status_name }}</button>
+                </td>
                 <td>
                     <form action="{{route('dataHewan.detail', $a->animal_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengedit Hewan Ini?');">
                         <button class="btn btn-secondary border border-dark"><i class="fa-regular fa-pen-to-square"></i></button>
