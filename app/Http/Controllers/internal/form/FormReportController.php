@@ -50,6 +50,15 @@ class FormReportController extends Controller
         ]);
     }
 
+    public function toggleIsSeen($id){
+
+        $notification = reportForm::findOrFail($id);
+        $notification->is_seen = !$notification->is_seen;
+        $notification->save();
+        return back()->with('success', 'Notification status updated!');
+    }
+
+
     public function edit($report_form_id)
     {
 

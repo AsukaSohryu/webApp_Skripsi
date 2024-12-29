@@ -24,6 +24,14 @@ class FormAdopsiController extends Controller
         ]);
     }
 
+    public function toggleIsSeen($id){
+
+        $notification = adoptionForm::findOrFail($id);
+        $notification->is_seen = !$notification->is_seen;
+        $notification->save();
+        return back()->with('success', 'Notification status updated!');
+    }
+
     public function detail($adoption_form_id)
     {
         $adoptionForm = adoptionForm::with(['users', 'status', 'animal', 'adoptionQuestions' => function ($query) {

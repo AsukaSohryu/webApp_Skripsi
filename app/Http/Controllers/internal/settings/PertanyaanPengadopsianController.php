@@ -74,4 +74,22 @@ class PertanyaanPengadopsianController extends Controller
                 ->with('error', 'Gagal memperbarui pertanyaan pengadopsian: ' . $e->getMessage());
         }
     }
+
+    public function deleteQuestion($adoption_question_id)
+    {
+        $question = adoptionQuestions::findOrFail($adoption_question_id);
+
+        // dd($question->adoptionForm()->count());
+
+        // Check if the question has any related answers
+        if ($question->adoptionForm()->count() == 0) {
+            // If there are no related answers, delete the question
+            $question->delete();
+            return redirect()->route('pertanyaanPengadopsian.index')->with('success', 'Pertanyaan Berhasil Dihapus');
+        } else {
+            // dd('tes');
+            return redirect()->route('pertanyaanPengadopsian.index')->with('error', 'Pertanyaan Digunakan di Formulir Pengadopsian');
+        }
+    }
+
 }
