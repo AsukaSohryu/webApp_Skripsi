@@ -92,7 +92,7 @@
             <div class="row my-3">
                 <div class="col">
                     <label for="">Status Laporan</label>
-                    <textarea type="text" name="statusAdopsi" id="statusAdopsi" class="form-control" disabled>{{$handovers->status->status}}</textarea>
+                    <input type="text" name="statusAdopsi" id="statusAdopsi" value="{{$handovers->status->status}}" class="form-control" disabled>
                 </div>
             </div>
             <div class="row my-3">

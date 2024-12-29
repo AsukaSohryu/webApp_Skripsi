@@ -115,18 +115,6 @@
                     <input type="text" name="tanggalLaporanDibuat" id="tanggalLaporanDibuat" value="{{$reports->created_at}}" class="form-control" disabled>
                 </div>
             </div>
-            <div class="row my-3">
-                <div class="col">
-                    <label for="">Status Laporan</label>
-                    <input type="text" name="statusLaporan" id="statusLaporan" value="{{$reports->status->status}}" class="form-control" disabled>
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col">
-                    <label for="" class="mb-2">Respon Admin</label>
-                    <textarea name="responAdmin" id="responAdmin" class="form-control" disabled>{{$reports->admin_feedback}}</textarea>
-                </div>
-            </div>
         </div>
         <hr class="my-0">
         <div class="row">
@@ -134,7 +122,7 @@
             <div class="row my-3">
                 <div class="col">
                     <label for="">Status Laporan</label>
-                    <textarea type="text" name="statusReport" id="statusReport" class="form-control" disabled>{{$reports->status->status}}</textarea>
+                    <input type="text" name="statusReport" id="statusReport" value="{{$reports->status->status}}" class="form-control" disabled>
                 </div>
             </div>
             <div class="row my-3">
