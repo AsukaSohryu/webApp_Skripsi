@@ -100,7 +100,7 @@
                                 <p class="mb-0">{{ $item->admin_feedback ?? 'Belum ada catatan' }}</p>
                             </div>
                             <div class="d-flex justify-content-end gap-2 me-3 mb-3">
-                                <a href="{{ route('status-penyerahan.detail', $item->handover_form_id) }}" class="btn btn-primary">Detail Handover</a>
+                                <a href="{{ route('status-penyerahan.detail', $item->handover_form_id) }}" class="btn btn-primary">Detail Formulir Handover</a>
                             </div>
                         </div>
                     </div>

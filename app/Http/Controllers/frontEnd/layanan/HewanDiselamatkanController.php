@@ -5,16 +5,22 @@ namespace App\Http\Controllers\frontend\layanan;
 use App\Http\Controllers\Controller;
 use App\Models\animal;
 use Carbon\Carbon;
+use App\Models\status;
 use Illuminate\Http\Request;
 
 class HewanDiselamatkanController extends Controller
 {
     public function index(){
-        $oneMonthAgo = Carbon::now()->subMonth();
+        $oneWeekAgo = Carbon::now()->subWeek();
+
+        $statusIds = status::where('config', 'Animal_Status')
+            ->whereIn('key', ['RES', 'ONC'])
+            ->pluck('status_id')
+            ->toArray();
         
         $animals = animal::where('is_active', 1)
-            ->where('created_at', '>=', $oneMonthAgo)
-            ->whereIn('status_id', [16, 17, 18])
+            ->where('created_at', '>=', $oneWeekAgo)
+            ->whereIn('status_id', $statusIds)
             ->orderBy('created_at', 'desc')
             ->get();
             // ->paginate(9);

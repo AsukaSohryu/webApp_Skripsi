@@ -100,8 +100,8 @@
                                 <p class="mb-0">{{ $item->admin_feedback ?? 'Belum ada catatan' }}</p>
                             </div>
                             <div class="d-flex justify-content-end gap-2 me-3 mb-3">
-                                <a href="{{ route('status-adopsi.detail', $item->adoption_form_id) }}" class="btn btn-primary">Detail Adopsi</a>
                                 <a href="{{ route('layanan-adopsi.detail', $item->animal->animal_id ) }}"  class="btn btn-success">Detail Hewan</a>
+                                <a href="{{ route('status-adopsi.detail', $item->adoption_form_id) }}" class="btn btn-primary">Detail Formulir Adopsi</a>
                             </div>
                         </div>
                         

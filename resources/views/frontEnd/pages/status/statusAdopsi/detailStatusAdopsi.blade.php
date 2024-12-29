@@ -24,7 +24,7 @@
 <section id="section-1-status-penemuan">
     <div class="container">
         <h4 class="text-center">Status Laporan Pengajuan Pengadopsian Hewan</h4>
-        <hr>
+        <hr class="my-0">
     </div>
     <div class="container justify-content-center">
         <div class="row my-3">
@@ -56,26 +56,9 @@
                     <input type="text" name="job" id="job" value="{{$adoptions->users->job}}" class="form-control" disabled>
                 </div>
             </div>
-            {{-- Area Detail Hewan --}}
-            <div class="row my-3">
-                <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-0 p-0">
-                    <img src="{{ asset('storage/animal/' . $adoptions->animal->photo) }}" 
-                        class="img-fluid rounded-start w-100 m-0" 
-                        alt="Foto Hewan"
-                        style="object-fit: cover; max-width: 300px;">
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col">
-                    <label for="">Nama Hewan</label>
-                    <input type="text" name="animalName" id="animalName" value="{{$adoptions->animal->animal_name}}" class="form-control" disabled>
-                </div>
-                <div class="col">
-                    <label for="">Umur</label>
-                    <input type="text" name="animalAge" id="animalAge" value="" class="form-control" disabled>
-                </div>
-            </div>
-            <hr>
+        </div>
+        <hr class="my-0">
+        <div class="row">
             @foreach ($adoptions->adoptionQuestions as $question)
                 <div class="row my-3">
                     <div class="col">
@@ -95,7 +78,9 @@
                     </div>
                 </div>
             @endforeach
-            <hr>
+        </div>
+        <hr class="my-0">
+        <div class="row">
             {{-- Updateable Field --}}
             <div class="row my-3">
                 <div class="col">
@@ -113,7 +98,6 @@
                         disabled>{{ $adoptions->admin_feedback }}</textarea>
                 </div>
             </div>
-            </hr>
             <div class="row my-3">
                 <div class="col">
                     <a href="{{ route('status-adopsi') }}" class="btn btn-secondary">
