@@ -101,7 +101,7 @@
                 </div>
                 <div class="col">
                     <label for="" class="my-3">Tanggal Lahir</label>
-                    <input type="date" name="tanggalLahir" id="tanggalLahir" value="" class="form-control" required>
+                    <input type="date" name="tanggalLahir" id="tanggalLahir" value="" class="form-control" max="{{ date('Y-m-d') }}" required>
                 </div>
             </div>
             <div class="row my-3">
@@ -308,5 +308,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     tanggalLahirInput.addEventListener('change', calculateAge);
 });
+</script>
+<script>
+    document.getElementById('tanggalLahir').addEventListener('input', function(e) {
+        const selectedDate = new Date(this.value);
+        const today = new Date();
+    
+        if (selectedDate > today) {
+            alert('Tanggal lahir tidak boleh lebih dari hari ini');
+            this.value = '';
+        }
+    });
 </script>
 @endsection

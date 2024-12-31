@@ -83,7 +83,7 @@
                                 </select>
                                 @break
                             @case(3)
-                                <input type="date" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" id="tanggalLahir" placeholder="Masukan Jawaban Anda" required> <!-- Added ID for tanggal lahir -->
+                                <input type="date" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" id="tanggalLahir" max="{{ date('Y-m-d') }}"  placeholder="Masukan Jawaban Anda" required> <!-- Added ID for tanggal lahir -->
                                 @break
                             @case(4)
                                 <select class="form-control my-2" name ="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
@@ -159,6 +159,16 @@
         tanggalLahirInput.addEventListener('change', calculateAge); // Calculate age on date change
     });
 </script>
-
+<script>
+    document.getElementById('tanggalLahir').addEventListener('input', function(e) {
+        const selectedDate = new Date(this.value);
+        const today = new Date();
+    
+        if (selectedDate > today) {
+            alert('Tanggal lahir tidak boleh lebih dari hari ini');
+            this.value = '';
+        }
+    });
+</script>
 
 @endsection
