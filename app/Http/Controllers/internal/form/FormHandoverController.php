@@ -103,8 +103,8 @@ class FormHandoverController extends Controller
                 ->where('key', 'SUC')
                 ->first();
 
-            $statusOnCare = Status::where('config', 'Animal_Status')
-                ->where('key', 'ONC')
+            $statusNAL = Status::where('config', 'Animal_Status')
+                ->where('key', 'NAL')
                 ->first();
 
             if ($request->statusID == $statusSuccess->status_id) {
@@ -146,8 +146,8 @@ class FormHandoverController extends Controller
                 }
 
                 $newAnimal = animal::create([
-                    'status_id' => $statusOnCare->status_id,
-                    'detail_status' => 'Belum ada data',
+                    'status_id' => $statusNAL->status_id,
+                    'detail_status' => 'Hewan sedang mengalami masa transisi, diserahkan oleh pemilik lama',
                     'animal_name' => $animalName,
                     'animal_type' => $animalType,
                     'birth_date' => $birth_date,
@@ -157,7 +157,7 @@ class FormHandoverController extends Controller
                     'weight' => $weight,
                     'vaccine' => $vaccine,
                     'is_sterile' => $is_sterile,
-                    'source' => 'Diserahkan pemilik lama',
+                    'source' => 'Diserahkan oleh pemilik lama',
                     'characteristics' => 'Belum ada data',
                     'description' => 'Belum ada data',
                     'medical_note' => 'Belum ada data',

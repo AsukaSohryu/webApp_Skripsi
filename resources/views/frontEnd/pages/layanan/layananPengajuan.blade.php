@@ -77,27 +77,27 @@
                         @switch($question->handover_questions_id)
                             @case(2)
                                 <select class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
+                                    <option value="" selected disabled>Pilih Jenis Hewan</option>
                                     <option value="Anjing">Anjing</option>
                                     <option value="Kucing">Kucing</option>
                                 </select>
                                 @break
-                            {{-- @case(3)
-                                {{-- <input type="text" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" id="usiaHewan" disabled> <!-- Ensure this is enabled -->
-                                @break --}} --}}
                             @case(3)
                                 <input type="date" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" id="tanggalLahir" placeholder="Masukan Jawaban Anda" required> <!-- Added ID for tanggal lahir -->
                                 @break
                             @case(4)
                                 <select class="form-control my-2" name ="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
+                                    <option value="" selected disabled>Pilih Jenis Kelamin Hewan</option>
                                     <option value="Jantan">Jantan</option>
                                     <option value="Betina">Betina</option>
                                 </select>
                                 @break
                             @case(7)
-                                <input type="number" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
+                                <input type="number" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" step="0.01" min="0" placeholder="Masukan Jawaban Anda" required>
                                 @break
                             @case(9)
                                 <select class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
+                                    <option value="" selected disabled>Pilih Sudah/Belum</option>
                                     <option value="1">Sudah</option>
                                     <option value="0">Belum</option>
                                 </select>
