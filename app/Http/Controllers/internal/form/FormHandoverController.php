@@ -17,14 +17,15 @@ class FormHandoverController extends Controller
 
         return view('internal.content.form.formHandover.formHandoverDashboard', [
             'title' => 'Form Penyerahan',
-            'pageTitle' => 'Daftar Formulir Penyerahan',
-            'pageSubTitle' => 'Daftar Formulir Penyerahan',
+            'pageTitle' => 'Daftar Formulir Pengajuan Penyerahan Hewan',
+            'pageSubTitle' => 'Daftar Formulir Pengajuan Penyerahan Hewan',
             'handoverForm' => $handoverForm
 
         ]);
     }
 
-    public function toggleIsSeen($id){
+    public function toggleIsSeen($id)
+    {
 
         $notification = handoverForm::findOrFail($id);
         $notification->is_seen = !$notification->is_seen;
@@ -57,9 +58,9 @@ class FormHandoverController extends Controller
         $nonEditableStatuses = [$statusRJT, $statusSUC, $statusCAN, $statusOTH];
 
         return view('internal.content.form.formHandover.detail', [
-            'title' => 'Detail Formulir Penyerahan',
-            'pageTitle' => 'Detail Formulir Penyerahan',
-            'pageSubTitle' => 'Formulir Penyerahan - ' . $userName,
+            'title' => 'Detail Formulir Pengajuan Penyerahan Hewan',
+            'pageTitle' => 'Detail Formulir Pengajuan Penyerahan Hewan',
+            'pageSubTitle' => 'Detail Formulir Pengajuan Penyerahan Hewan - ' . $userName,
             'detail' => $handoverForm,
             'nonEditableStatuses' => $nonEditableStatuses,
 
@@ -84,9 +85,9 @@ class FormHandoverController extends Controller
         $nonEditableStatuses = [$statusRJT, $statusSUC, $statusCAN, $statusOTH];
 
         return view('internal.content.form.formHandover.edit', [
-            'title' => 'Perubahan Formulir Penyerahan',
-            'pageTitle' => 'Perubahan Formulir Penyerahan',
-            'pageSubTitle' => 'Perubahan Formulir Penyerahan - ' . $userName,
+            'title' => 'Edit Formulir Pengajuan Penyerahan Hewan',
+            'pageTitle' => 'Edit Formulir Pengajuan Penyerahan Hewan',
+            'pageSubTitle' => 'Edit Formulir Pengajuan Penyerahan Hewan - ' . $userName,
             'detail' => $handoverForm,
             'handoverFormStatus' => $status,
             'nonEditableStatuses' => $nonEditableStatuses,
@@ -178,10 +179,10 @@ class FormHandoverController extends Controller
 
         // dd($update);
         if ($update) {
-            $message = 'Form Penyerahan Berhasil di Update';
+            $message = 'Formulir Pengajuan Penyerahan Hewan Berhasil di';
 
             if ($successCreate == 'true') {
-                $message = 'Form Penyerahan Berhasil di Update, Data Hewan Berhasil dibuat';
+                $message = 'Formulir Pengajuan Penyerahan Hewan Berhasil Diperbaharui, Data Hewan Berhasil dibuat';
             }
             return back()->with('success', $message);
         }

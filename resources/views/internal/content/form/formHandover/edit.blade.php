@@ -37,10 +37,10 @@
 
 <div class="card mb-5 mb-xxl-8">
     <div class="card-body py-9">
-        <h1 class="text-center">Edit Formulir Penyerahan</h1>
+        <h1 class="text-center">Edit Formulir Pengajuan Penyerahan Hewan</h1>
         <div class="row my-3">
             <div class="col">
-                <label for="">Nama Pengguna</label>
+                <label for="">Nama Pengaju</label>
                 <input type="text" name="userName" id="userName" value="{{$detail->users->name}}" class="form-control" disabled>
             </div>
         </div>
@@ -56,13 +56,13 @@
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Alamat Pengguna</label>
+                <label for="">Alamat</label>
                 <input type="text" name="address" id="address" value="{{$detail->users->address}}" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Pekerjaan Pengguna</label>
+                <label for="">Pekerjaan</label>
                 <input type="text" name="job" id="job" value="{{$detail->users->job}}" class="form-control" disabled>
             </div>
         </div>
@@ -94,15 +94,11 @@
                         $unit = '';
         
                         switch ($question->handover_questions_id) {
-                            case 3:
-                                $unit = ' Tahun';
-                                $inputValue = $question->pivot->answer ?? '';
-                                break;
-                            case 8:
+                            case 7:
                                 $unit = ' Kg';
                                 $inputValue = $question->pivot->answer ?? '';
                                 break;
-                            case 10:
+                            case 9:
                                 $inputValue = ($question->pivot->answer == 1) ? 'Sudah' : 'Belum';
                                 break;
                             default:
@@ -122,8 +118,16 @@
             </div>
             @endforeach
             <hr>
+            <div class="col my-3">
+                <label for="" class="mb-2">Tanggal Formulir Dibuat</label>
+                <input type="text" name="tanggalLaporanDibuat" id="tanggalLaporanDibuat" value="{{$detail->created_at}}" class="form-control" disabled>
+            </div>
+            <div class="col my-3">
+                <label for="" class="mb-2">Tanggal Formulir Terakhir Diperbaharui</label>
+                <input type="text" name="tanggalLaporanDiperbaharui" id="tanggalLaporanDiperbaharui" value="{{$detail->updated_at}}" class="form-control" disabled>
+            </div>
             <div class="col">
-                <label for="" class="my-3">Status Formulir Penyerahan</label>
+                <label for="" class="my-3">Status Formulir</label>
                 <select class="form-control custom-dropdown" id="statusID" name="statusID" required>
                     @foreach($handoverFormStatus as $s)
                         <option value="{{ $s->status_id }}" {{ $s->status_id == $detail->status_id ? 'selected' : '' }}>

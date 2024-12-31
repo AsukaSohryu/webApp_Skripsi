@@ -18,8 +18,8 @@ class FormReportController extends Controller
 
         return view('internal.content.form.formReport.formReportDashboard', [
             'title' => 'Formulir Report',
-            'pageTitle' => 'Daftar Formulir Penemuan Hewan Liar',
-            'pageSubTitle' => 'Daftar Formulir Penemuan Hewan Liar',
+            'pageTitle' => 'Daftar Formulir Laporan Penemuan Hewan Peliharaan Liar',
+            'pageSubTitle' => 'Daftar Formulir Laporan Penemuan Hewan Peliharaan Liar',
             'reportForm' => $reportForm
         ]);
     }
@@ -34,6 +34,7 @@ class FormReportController extends Controller
         $detail->save();
 
         // dd($detail);
+        $userName = $detail->users->name;
 
         $status = status::where('config', 'Form_Report_Status')->get();
         $statusRSC = $status->where('key', 'RSC')->first()->status_id ?? null;
@@ -42,15 +43,16 @@ class FormReportController extends Controller
         $nonEditableStatuses = [$statusRSC, $statusNFD, $statusOTH];
 
         return view('internal.content.form.formReport.detail', [
-            'title' => 'Detail Laporan Penemuan',
-            'pageTitle' => 'Detail Laporan Penemuan Hewan Liar',
-            'pageSubTitle' => 'Detail Formulir ID: ' . $report_form_id,
+            'title' => 'Detail Formulir Laporan Penemuan Hewan Peliharaan Liar',
+            'pageTitle' => 'Detail Formulir Laporan Penemuan Hewan Peliharaan Liar',
+            'pageSubTitle' => 'Detail Formulir Laporan Penemuan Hewan Peliharaan Liar - ' . $userName,
             'detail' => $detail,
             'nonEditableStatuses' => $nonEditableStatuses,
         ]);
     }
 
-    public function toggleIsSeen($id){
+    public function toggleIsSeen($id)
+    {
 
         $notification = reportForm::findOrFail($id);
         $notification->is_seen = !$notification->is_seen;
@@ -69,8 +71,10 @@ class FormReportController extends Controller
         if (in_array($detail->status_id, [3, 4, 5])) {
             return redirect()
                 ->route('formReport.detail', $report_form_id)
-                ->with('error', 'Status laporan sudah selesai, tidak bisa diupdate');
+                ->with('error', 'Status laporan sudah selesai, tidak bisa diperbaharui');
         } // Penjagan buat gabisa nembak url langsung ke edit
+
+        $userName = $detail->users->name;
 
         $status = status::where('config', 'Form_Report_Status')->get();
         $statusRSC = $status->where('key', 'RSC')->first()->status_id ?? null;
@@ -79,9 +83,9 @@ class FormReportController extends Controller
         $nonEditableStatuses = [$statusRSC, $statusNFD, $statusOTH];
 
         return view('internal.content.form.formReport.edit', [
-            'title' => 'Edit Laporan Penemuan',
-            'pageTitle' => 'Edit Laporan Penemuan Hewan Liar',
-            'pageSubTitle' => 'Edit Formulir ID: ' . $report_form_id,
+            'title' => 'Edit Formulir Laporan Penemuan Hewan Peliharaan Liar',
+            'pageTitle' => 'Edit Formulir Laporan Penemuan Hewan Peliharaan Liar',
+            'pageSubTitle' => 'Edit Formulir Laporan Penemuan Hewan Peliharaan Liar - ' . $userName,
             'detail' => $detail,
             'reportFormStatus' => $status,
             'nonEditableStatuses' => $nonEditableStatuses
@@ -114,7 +118,7 @@ class FormReportController extends Controller
         }
         // dd($update);
         if ($update) {
-            return back()->with('success', 'Form Laporan Penemuan Hewan Berhasil di Update');
+            return back()->with('success', 'Formulir Laporan Penemuan Hewan Peliharaan Liar Berhasil Diperbaharui');
         }
     }
 }

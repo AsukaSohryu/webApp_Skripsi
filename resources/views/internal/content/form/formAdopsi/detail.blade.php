@@ -6,7 +6,7 @@
         <h1 class="text-center">Detail Pengajuan Pengadopsian Hewan</h1>
         <div class="row my-3">
             <div class="col">
-                <label for="">Nama Pengguna</label>
+                <label for="">Nama Pengaju</label>
                 <input type="text" name="userName" id="userName" value="{{$detail->users->name}}" class="form-control" disabled>
             </div>
         </div>
@@ -22,13 +22,13 @@
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Alamat Pengguna</label>
+                <label for="">Alamat</label>
                 <input type="text" name="address" id="address" value="{{$detail->users->address}}" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Pekerjaan Pengguna</label>
+                <label for="">Pekerjaan</label>
                 <input type="text" name="job" id="job" value="{{$detail->users->job}}" class="form-control" disabled>
             </div>
         </div>
@@ -69,10 +69,18 @@
             </div>
         @endforeach
         <hr>
+        <div class="col my-3">
+            <label for="" class="mb-2">Tanggal Formulir Dibuat</label>
+            <input type="text" name="tanggalLaporanDibuat" id="tanggalLaporanDibuat" value="{{$detail->created_at}}" class="form-control" disabled>
+        </div>
+        <div class="col my-3">
+            <label for="" class="mb-2">Tanggal Formulir Terakhir Diperbaharui</label>
+            <input type="text" name="tanggalLaporanDiperbaharui" id="tanggalLaporanDiperbaharui" value="{{$detail->updated_at}}" class="form-control" disabled>
+        </div>
         {{-- Updateable Field --}}
         <div class="row my-3">
             <div class="col">
-                <label for="">Status Laporan</label>
+                <label for="">Status Formulir</label>
                 <input type="text" name="statusID" id="statusID" value="{{$detail->status->status}}" class="form-control" disabled>
             </div>
         </div>
@@ -95,7 +103,7 @@
         @else
         <div class=" my-3 d-flex justify-content-end">
             <form action="{{ route('formAdopsi.edit', $detail->adoption_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengubah Data Formulir Adopsi Ini?');">
-                <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Data Formulir Adopsi</button>
+                <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Data Formulir</button>
             </form>
         </div>
         @endif

@@ -40,7 +40,7 @@
     <div class="card-body py-9">
         <div class="d-flex my-3 justify-content-between align-items-center mb-10 mt-5">
             <div class="flex-grow-1">
-                <h1 class="text-center">Form Penemuan Hewan Liar</h1>
+                <h1 class="text-center">Formulir Laporan Penemuan Hewan Peliharaan Liar</h1>
             </div>
         </div>
         <div class="row my-3 d-flex flex-row flex-wrap justify-content-center g-2" style="gap: 8px;">
@@ -68,7 +68,7 @@
             </div>
         </div>
         <div class="col my-3">
-            <label for="" class="mb-2">Nama Pelapor</label>
+            <label for="" class="mb-2">Nama Pengaju</label>
             <input type="text" name="namaPelapor" id="namaPelapor" value="{{$detail->users->name}}" class="form-control" disabled>
         </div>
         <div class="row my-3">
@@ -99,13 +99,18 @@
             <label for="" class="mb-2">Deskripsi</label>
             <textarea name="deskripsi" id="deskripsi" class="form-control" rows="4" disabled>{{$detail->description}}</textarea>
         </div>
+        <hr>
         <div class="col my-3">
-            <label for="" class="mb-2">Tanggal Laporan Dibuat</label>
+            <label for="" class="mb-2">Tanggal Formulir Dibuat</label>
             <input type="text" name="tanggalLaporanDibuat" id="tanggalLaporanDibuat" value="{{$detail->created_at}}" class="form-control" disabled>
         </div>
         <div class="col my-3">
+            <label for="" class="mb-2">Tanggal Formulir Terakhir Diperbaharui</label>
+            <input type="text" name="tanggalLaporanDiperbaharui" id="tanggalLaporanDiperbaharui" value="{{$detail->updated_at}}" class="form-control" disabled>
+        </div>
+        <div class="col my-3">
             <div class="col">
-                <label for="">Status Laporan</label>
+                <label for="">Status Formulir</label>
                 <input type="text" name="statusLaporan" id="statusLaporan" value="{{$detail->status->status}}" class="form-control" disabled>
             </div>
         </div>
@@ -116,7 +121,7 @@
         @if(!in_array($detail->status_id, $nonEditableStatuses))
             <div class="my-10 d-flex justify-content-end">
                 <form action="{{ route('formReport.edit', $detail->report_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
-                    <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Data Formulir Pelaporan</button>
+                    <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Data Formulir</button>
                 </form>
             </div>
         @else

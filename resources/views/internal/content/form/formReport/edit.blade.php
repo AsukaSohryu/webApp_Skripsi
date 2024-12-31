@@ -40,7 +40,7 @@
     <div class="card-body py-9">
         <div class="d-flex my-3 justify-content-between align-items-center mb-10 mt-5">
             <div class="flex-grow-1">
-                <h1 class="text-center">Form Penemuan Hewan Liar</h1>
+                <h1 class="text-center">Formulir Laporan Penemuan Hewan Peliharaan Liar</h1>
             </div>
         </div>
         <form action="{{ route('formReport.edit.post') }}" method="post" enctype="multipart/form-data">
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="col my-3">
-                <label for="" class="mb-2">Nama Pelapor</label>
+                <label for="" class="mb-2">Nama Pengaju</label>
                 <input type="text" name="namaPelapor" id="namaPelapor" value="{{$detail->users->name}}" class="form-control" disabled>
             </div>
             <div class="row my-3">
@@ -102,12 +102,17 @@
                 <label for="" class="mb-2">Deskripsi</label>
                 <textarea name="deskripsi" id="deskripsi" class="form-control" rows="4" disabled>{{$detail->description}}</textarea>
             </div>
+            <hr>
             <div class="col my-3">
-                <label for="" class="mb-2">Tanggal Laporan Dibuat</label>
+                <label for="" class="mb-2">Tanggal Formulir Dibuat</label>
                 <input type="text" name="tanggalLaporanDibuat" id="tanggalLaporanDibuat" value="{{$detail->created_at}}" class="form-control" disabled>
             </div>
             <div class="col my-3">
-                <label for="" class="mb-2">Status Laporan</label>
+                <label for="" class="mb-2">Tanggal Formulir Terakhir Diperbaharui</label>
+                <input type="text" name="tanggalLaporanDiperbaharui" id="tanggalLaporanDiperbaharui" value="{{$detail->updated_at}}" class="form-control" disabled>
+            </div>
+            <div class="col my-3">
+                <label for="" class="mb-2">Status Formulir</label>
                 <select class="form-control custom-dropdown" id="statusLaporan" name="statusLaporan" required>
                     @foreach($reportFormStatus as $s)
                         <option value="{{ $s->status_id }}" {{ $s->status_id == $detail->status_id ? 'selected' : '' }}>

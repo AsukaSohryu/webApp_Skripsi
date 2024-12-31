@@ -17,14 +17,15 @@ class FormAdopsiController extends Controller
         $adoptionForm = adoptionForm::with(['users', 'status', 'animal'])->get();
 
         return view('internal.content.form.formAdopsi.formAdopsiDashboard', [
-            'title' => 'Formulir Adopsi',
-            'pageTitle' => 'Daftar Formulir Adopsi',
-            'pageSubTitle' => 'Daftar Formulir Adopsi',
+            'title' => 'Daftar Formulir Pengajuan Pengadopsian Hewan',
+            'pageTitle' => 'Daftar Formulir Pengajuan Pengadopsian Hewan',
+            'pageSubTitle' => 'Daftar Formulir Pengajuan Pengadopsian Hewan',
             'adoptionForm' => $adoptionForm
         ]);
     }
 
-    public function toggleIsSeen($id){
+    public function toggleIsSeen($id)
+    {
 
         $notification = adoptionForm::findOrFail($id);
         $notification->is_seen = !$notification->is_seen;
@@ -58,9 +59,9 @@ class FormAdopsiController extends Controller
         $nonEditableStatuses = [$statusRJT, $statusSUC, $statusCAN, $statusOTH];
 
         return view('internal.content.form.formAdopsi.detail', [
-            'title' => 'Detail Formulir Adopsi',
-            'pageTitle' => 'Detail Formulir Adopsi',
-            'pageSubTitle' => 'Detail Formulir Adopsi - ' . $userName,
+            'title' => 'Detail Formulir Pengajuan Pengadopsian Hewan',
+            'pageTitle' => 'Detail Formulir Pengajuan Pengadopsian Hewan',
+            'pageSubTitle' => 'Detail Formulir Pengajuan Pengadopsian Hewan - ' . $userName,
             'detail' => $adoptionForm,
             'nonEditableStatuses' => $nonEditableStatuses,
         ]);
@@ -83,9 +84,9 @@ class FormAdopsiController extends Controller
         $nonEditableStatuses = [$statusRJT, $statusSUC, $statusCAN, $statusOTH];
 
         return view('internal.content.form.formAdopsi.edit', [
-            'title' => 'Perubahan Formulir Adopsi',
-            'pageTitle' => 'Perubahan Formulir Adopsi',
-            'pageSubTitle' => 'Perubahan Formulir Adopsi - ' . $userName,
+            'title' => 'Edit Formulir Pengajuan Pengadopsian Hewan',
+            'pageTitle' => 'Edit Formulir Pengajuan Pengadopsian Hewan',
+            'pageSubTitle' => 'Edit Formulir Pengajuan Pengadopsian Hewan - ' . $userName,
             'detail' => $adoptionForm,
             'adoptionFormStatus' => $status,
             'nonEditableStatuses' => $nonEditableStatuses,
@@ -129,7 +130,7 @@ class FormAdopsiController extends Controller
 
         // dd($update);
         if ($update) {
-            return back()->with('success', 'Form Adopsi Berhasil di Update');
+            return back()->with('success', 'Formulir Pengajuan Pengadopsian Hewan Berhasil diperbaharui');
         }
     }
 }
