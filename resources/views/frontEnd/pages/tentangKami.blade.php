@@ -36,7 +36,7 @@
     </div>
 </section>
 
-<section id="section-2-tentang" style="padding-bottom: 0;">
+<section id="section-2-tentang" style="padding-bottom: 0; padding-top: 10px;">
     <div class="container g-3 p-4 align-items-center" style="background-color: #EFF8FF; border-radius: 8px;">
         <h3>Perjalanan Kisah <span style="color: #FF5E14">Kami</span></h3>
         <p class="text-center">{!! $shelterInformation->history !!}</p>
@@ -44,16 +44,16 @@
         <p class="text-center">{!! $shelterInformation->about_shelter !!}</p>
         <div class="col p-3" style="background-color: white; border-radius: 8px;">
             <h3 class="text-center">Visi</h3>
-            <p class="text-center">{!! $shelterInformation->vision !!}</p>
+            <div class="text-center">{!! $shelterInformation->vision !!}</div>
         </div>
         <div class="col p-3" style="background-color: white; border-radius: 8px;">
             <h3 class="text-center">Misi</h3>
-            <p class="text-center">{!! $shelterInformation->mission !!}</p>
+            <div>{!! $shelterInformation->mission !!}</div>
         </div>
     </div>
 </section>
 
-<section id="section-3-tentang">
+<section id="section-3-tentang" style="padding-bottom: 0; padding-top: 10px;">
     <div class="container g-3 p-4" style="background-color: #EFF8FF; border-radius: 8px;">
         <div class="row d-flex" style="gap: 16px;">
             <div class="col d-flex flex-column justify-content-center" style="background-color: white; border-radius: 8px;">
@@ -64,6 +64,20 @@
                 <h3>Sosial Media</h3>
             </div>
         </div>
+    </div>
+</section>
+
+<section id="section-4-tentang" style="padding-bottom: 0; padding-top: 10px;">
+    <div class="container g-3 p-4" style="background-color: #EFF8FF; border-radius: 8px;">
+        <h3 class="text-center">Informasi Tambahan</h3>
+        <div>{!! $shelterInformation->additional_information !!}</div>
+    </div>
+</section>
+
+<section id="section-5-tentang" style="padding-bottom: 0; padding-top: 10px;">
+    <div class="container g-3 p-4" style="background-color: #EFF8FF; border-radius: 8px;">
+        <h3 class="text-center">Informasi Tambahan</h3>
+        <div>{!! $shelterInformation->donation_information !!}</div>
     </div>
 </section>
 

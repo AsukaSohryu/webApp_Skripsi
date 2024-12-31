@@ -327,9 +327,17 @@
 
             <!--begin::Menu item-->
             <div class="menu-item px-5">
+                <a href="{{ route('home') }}" class="menu-link px-5 d-flex justify-content-between">
+                    <span class="menu-title position-relative">Halaman Rescuer</span>
+                </a>
+            </div>
+            <!--end::Menu item-->
+
+            <!--begin::Menu item-->
+            <div class="menu-item px-5">
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
-                    <a class="nav-link text-body font-weight-bold px-0 d-flex justify-content-">
+                    <a class="nav-link text-body font-weight-bold px-0 d-flex">
                         <button type="submit" class="btn btn-danger d-sm-inline d-none" style="border: none; border-radius: 8px;padding: 8px; width: 100%;">Log Out</button>
                     </a>
                 </form>

@@ -73,4 +73,21 @@ class PertanyaanPenyerahanController extends Controller
                 ->with('error', 'Gagal memperbarui pertanyaan penyerahan: ' . $e->getMessage());
         }
     }
+
+    public function deleteQuestion($handover_questions_id)
+    {
+        $question = handoverQuestions::findOrFail($handover_questions_id);
+
+        // dd($question->adoptionForm()->count());
+
+        // Check if the question has any related answers
+        if ($question->handoverForm()->count() == 0) {
+            // If there are no related answers, delete the question
+            $question->delete();
+            return redirect()->route('pertanyaanPengadopsian.index')->with('success', 'Pertanyaan Berhasil Dihapus');
+        } else {
+            // dd('tes');
+            return redirect()->route('pertanyaanPengadopsian.index')->with('error', 'Pertanyaan Digunakan di Formulir Penyerahan');
+        }
+    }
 }

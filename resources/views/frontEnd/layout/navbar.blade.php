@@ -34,14 +34,17 @@
                 </a>
                 <ul>
                   <li><a href="{{ route('detail-profil') }}"><span style="font-size:16px;">Detail Profil</span></a></li>
+                  @if(auth()->check() && auth()->user()->role == 'Admin')
+                      <li><a href="{{ route('dashboard') }}"><span style="font-size:16px;">Dashboard Admin</span></a></li>
+                  @endif
                   <li>
                     <form action="{{ route('logout') }}" method="post" id="logoutForm">
                       @csrf
                       <a onclick="document.getElementById('logoutForm').submit();">
                         <span style="font-size:16px;">Logout</span>
                       </a>
-                  </form>
-                </li>
+                    </form>
+                  </li>
                 </ul>
               </li>
               @else

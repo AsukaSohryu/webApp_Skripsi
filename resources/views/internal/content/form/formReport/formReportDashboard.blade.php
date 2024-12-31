@@ -47,9 +47,14 @@
                     @endphp
                     <button class="btn {{ $btnClass }}">{{ $r->status_name }}</button>  
                 </td>
-                <td>
+                <td class="d-flex justify-content-center d-row border-0" style="gap: 5px;">
                     <form action="{{route('formReport.detail', $r->report_form_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
                         <button class="btn btn-secondary border border-dark"><i class="fa-regular fa-pen-to-square"></i></button>
+                    </form>
+                    <form action="{{ route('formReport.toggle.is_seen', $r->report_form_id)}}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button class="btn btn-primary border border-dark"><i class="fa-solid fa-eye-slash"></i></button>
                     </form>
                 </td> 
             </tr>

@@ -24,6 +24,14 @@ class FormHandoverController extends Controller
         ]);
     }
 
+    public function toggleIsSeen($id){
+
+        $notification = handoverForm::findOrFail($id);
+        $notification->is_seen = !$notification->is_seen;
+        $notification->save();
+        return back()->with('success', 'Notification status updated!');
+    }
+
     public function detail($handover_form_id)
     {
         $handoverForm = handoverForm::with(['users', 'status', 'handoverQuestions' => function ($query) {

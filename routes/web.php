@@ -109,6 +109,7 @@ Route::prefix('admin')->middleware('role:Admin')->group(function () {
         Route::get('/detail-report/{report_id}', [FormReportController::class, 'detail'])->name('formReport.detail');
         Route::get('/edit-data-report/{report_id}', [FormReportController::class, 'edit'])->name('formReport.edit');
         Route::post('/edit-data-report-post', [FormReportController::class, 'editPost'])->name('formReport.edit.post');
+        Route::patch('/report-is-seen/{id}/toggle', [FormReportController::class, 'toggleIsSeen'])->name('formReport.toggle.is_seen');
     });
 
     Route::prefix('form-adopsi')->group(function () {
@@ -116,6 +117,7 @@ Route::prefix('admin')->middleware('role:Admin')->group(function () {
         Route::get('/detail-form-adopsi/{adoption_form_id}', [FormAdopsiController::class, 'detail'])->name('formAdopsi.detail');
         Route::get('/edit-form-adopsi/{adoption_form_id}', [FormAdopsiController::class, 'edit'])->name('formAdopsi.edit');
         Route::post('/edit-form-adopsi-post', [FormAdopsiController::class, 'editPost'])->name('formAdopsi.edit.post');
+        Route::patch('/adopsi-is-seen/{id}/toggle', [FormAdopsiController::class, 'toggleIsSeen'])->name('formAdopsi.toggle.is_seen');
     });
 
     Route::prefix('form-handover')->group(function () {
@@ -124,6 +126,7 @@ Route::prefix('admin')->middleware('role:Admin')->group(function () {
         Route::get('/edit-form-handover/{handover_form_id}', [FormHandoverController::class, 'edit'])->name('formHandover.edit');
         Route::post('/edit-form-handover-post', [FormHandoverController::class, 'editPost'])->name('formHandover.edit.post');
         Route::post('/test-upload', [FormHandoverController::class, 'testUploadGambar'])->name('formHandover.uploadGambar');
+        Route::patch('/handover-is-seen/{id}/toggle', [FormHandoverController::class, 'toggleIsSeen'])->name('formHandover.toggle.is_seen');
     });
 
     // REGION KONFIGURASI
@@ -137,12 +140,14 @@ Route::prefix('admin')->middleware('role:Admin')->group(function () {
         Route::get('/daftar', [PertanyaanPengadopsianController::class, 'index'])->name('pertanyaanPengadopsian.index');
         Route::get('/edit-adoption-question', [PertanyaanPengadopsianController::class, 'edit'])->name('pertanyaanPengadopsian.edit');
         Route::post('/edit-adoption-question-post', [PertanyaanPengadopsianController::class, 'editPost'])->name('pertanyaanPengadopsian.edit.post');
+        Route::delete('/delete-adoption-question/{id}', [PertanyaanPengadopsianController::class, 'deleteQuestion'])->name('pertanyaanPengadopsian.delete');
     });
 
     Route::prefix('data-pertanyaan-penyerahan')->group(function () {
         Route::get('/daftar', [PertanyaanPenyerahanController::class, 'index'])->name('pertanyaanPenyerahan.index');
         Route::get('/edit-handover-question', [PertanyaanPenyerahanController::class, 'edit'])->name('pertanyaanPenyerahan.edit');
         Route::post('/edit-handover-question-post', [PertanyaanPenyerahanController::class, 'editPost'])->name('pertanyaanPenyerahan.edit.post');
+        Route::delete('/delete-handover-question/{id}', [PertanyaanPenyerahanController::class, 'deleteQuestion'])->name('pertanyaanPenyerahan.delete');
     });
 });
 
