@@ -73,7 +73,8 @@
                                 name="activeStatus[{{ $h->handover_questions_id }}]"
                                 data-id="{{ $h->handover_questions_id }}"
                                 {{ $h->is_active == 1 ? 'checked' : '' }}
-                                {{ ($h->handover_questions_id >= 1 && $h->handover_questions_id <= 10) ? 'disabled' : '' }}>
+                                {{-- {{ ($h->handover_questions_id >= 1 && $h->handover_questions_id <= 10) ? 'disabled' : '' }} --}}
+                                >
                             <label for="check-{{ $h->handover_questions_id }}" class="button"></label>
                             <label class="py-3 mb-0" id="isActive-{{ $h->handover_questions_id }}">
                                 <b>{{ $h->is_active == 1 ? 'Aktif' : 'Tidak Aktif' }}</b>
