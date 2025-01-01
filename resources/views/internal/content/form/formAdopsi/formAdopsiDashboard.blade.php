@@ -46,7 +46,7 @@
                     <button class="btn {{ $btnClass }}">{{ $r->status_name }}</button>    
                 </td>
                 <td class="d-flex justify-content-center d-row border-0" style="gap: 5px;">
-                    <form action="{{route('formAdopsi.detail', $r->adoption_form_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengupdate Laporan Ini?');">
+                    <form action="{{route('formAdopsi.detail', $r->adoption_form_id)}}" method="get">
                         <button class="btn btn-secondary border border-dark"><i class="fa-regular fa-pen-to-square"></i></button>
                     </form>
                     <form action="{{ route('formAdopsi.toggle.is_seen', $r->adoption_form_id)}}" method="POST">

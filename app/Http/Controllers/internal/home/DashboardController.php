@@ -14,12 +14,16 @@ class DashboardController extends Controller
     public function index() {
         $unreadReports = ReportForm::where('is_seen', 0)->get();
         $unreadAdoptions = AdoptionForm::where('is_seen', 0)->get();
-        $unreadHandovers = HandoverForm::where('is_seen', 0)->get();
+        // $unreadHandovers = HandoverForm::where('is_seen', 0)->get();
+        $unreadHandovers = HandoverForm::where('is_seen', 0)->with(['users', 'status', 'handoverQuestions' => function ($query) {
+            $query->withPivot('answer');
+        }])->get();
+
 
         return view('internal.content.dashboard', [
-            'title' => 'Dashboard',
-            'pageTitle' => 'Dashboard',
-            'pageSubTitle' => 'Dashboard',
+            'title' => 'Dasbor',
+            'pageTitle' => 'Beranda',
+            'pageSubTitle' => 'Dasbor',
             'unreadReports' => $unreadReports,
             'unreadAdoptions' => $unreadAdoptions,
             'unreadHandovers' => $unreadHandovers

@@ -8,7 +8,7 @@
             <div class="menu-item">
                 <!--begin:Menu content-->
                 <div class="menu-content">
-                    <span class="menu-section fs-5 fw-bolder ps-1 py-1">Home</span>
+                    <span class="menu-section fs-5 fw-bolder ps-1 py-1">Beranda</span>
                 </div>
                 <!--end:Menu content-->
             </div>
@@ -16,11 +16,11 @@
             <!--begin:Menu item-->
             <div class="menu-item">
                 <!--begin:Menu link-->
-                <a class="menu-link {{$title == 'Dashboard' ? 'active' : ''}}" href="">
+                <a class="menu-link {{$title == 'Dasbor' ? 'active' : ''}}" href="">
                     <span class="menu-bullet">
                         <span class="bullet bullet-dot"></span>
                     </span>
-                    <span class="menu-title">Dashboard</span>
+                    <span class="menu-title">Dasbor</span>
                 </a>
                 <!--end:Menu link-->
             </div>
@@ -35,7 +35,7 @@
             <div class="menu-item">
                 <!--begin:Menu content-->
                 <div class="menu-content">
-                    <span class="menu-section fs-5 fw-bolder ps-1 py-1">Form</span>
+                    <span class="menu-section fs-5 fw-bolder ps-1 py-1">Formulir</span>
                 </div>
                 <!--end:Menu content-->
             </div>
@@ -58,7 +58,7 @@
                     <span class="menu-bullet">
                         <span class="bullet bullet-dot"></span>
                     </span>
-                    <span class="menu-title">Formulir Penyerahan</span>
+                    <span class="menu-title">Pengajuan Penyerahan</span>
                 </a>
                 <!--end:Menu link-->
             </div>
@@ -69,7 +69,7 @@
                     <span class="menu-bullet">
                         <span class="bullet bullet-dot"></span>
                     </span>
-                    <span class="menu-title">Formulir Pengadopsian</span>
+                    <span class="menu-title">Pengajuan Pengadopsian</span>
                 </a>
                 <!--end:Menu link-->
             </div>

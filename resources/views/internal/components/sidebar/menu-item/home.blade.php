@@ -4,7 +4,7 @@
         <span class="menu-bullet">
             <span class="bullet bullet-dot"></span>
         </span>
-        <span class="menu-title">Dashboard</span>
+        <span class="menu-title">Dasbor</span>
     </a>
 </div>
 

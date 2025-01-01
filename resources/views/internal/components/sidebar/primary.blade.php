@@ -14,7 +14,7 @@
         <!--begin::Menu-->
         <div id="kt_aside_menu" class="menu menu-column menu-title-gray-600 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-semibold fs-6" data-kt-menu="true">
             <!--begin:Menu item-->
-            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {{ $pageTitle == 'Dashboard' ? 'here' : '' }} py-2">
+            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item {{ $pageTitle == 'Dasbor' ? 'here' : '' }} py-2">
                 <!--begin:Menu link-->
                 <span class="menu-link menu-center">
                     <span class="menu-icon me-0">
@@ -28,7 +28,7 @@
                     <div class="menu-item">
                         <!--begin:Menu content-->
                         <div class="menu-content">
-                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Home</span>
+                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Beranda</span>
                         </div>
                         <!--end:Menu content-->
                     </div>
@@ -89,7 +89,7 @@
                     <div class="menu-item">
                         <!--begin:Menu content-->
                         <div class="menu-content">
-                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Forms</span>
+                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Formulir</span>
                         </div>
                         <!--end:Menu content-->
                     </div>
