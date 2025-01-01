@@ -35,7 +35,7 @@
         </div>
     </div>
     <div class="container border border-black my-2" style="border-radius: 16px">
-        <form action="{{ route('layanan-pengajuan.create.Post') }}" method="post" class="m-4" enctype="multipart/form-data">  
+        <form action="{{ route('layanan-pengajuan.create.Post') }}" method="post" class="m-4" enctype="multipart/form-data" id="formPenyerahan">  
             @csrf
             {{-- Profile User --}}
             <div class="row my-1">
@@ -110,11 +110,23 @@
                 </div>
             </div>
             <div class="gap-3 my-10 d-flex justify-content-end">
-                <button class="btn btn-primary" type="submit" style="border: 0;">Kirim Pengajuan</button>
+                <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Kirim Pengajuan</button>
             </div>
         </form>
     </div>
 </section>
+
+@if(session('success'))
+    <script>
+        Swal.fire({
+            title: 'Berhasil',
+            text: '{{ session('success') }}',
+            icon: 'success',
+            confirmButtonText: 'Oke',
+        });
+    </script>
+@endif
+
 @endsection
 
 @section('js')
@@ -159,6 +171,7 @@
         tanggalLahirInput.addEventListener('change', calculateAge); // Calculate age on date change
     });
 </script>
+
 <script>
     document.getElementById('tanggalLahir').addEventListener('input', function(e) {
         const selectedDate = new Date(this.value);
@@ -169,16 +182,26 @@
             this.value = '';
         }
     });
-
-<script>
-    @if(session('success'))
-        Swal.fire({
-            title: 'Berhasil',
-            text: '{{ session('success') }}',
-            icon: 'success',
-            confirmButtonText: 'Oke',
-        });
-    @endif
 </script>
 
+<script>
+    document.getElementById('submitForm').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
+
+        // Show SweetAlert2 confirmation popup
+        Swal.fire({
+                title: 'Apakah Anda Yakin?',
+                text: "Jawaban Anda Tidak Dapat Diubah Kembali",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Saya Yakin',
+                cancelButtonText: 'Tidak, Saya Ingin Mengubahnya',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If "Yes, submit it!" is clicked, submit the form
+                    document.getElementById('formPenyerahan').submit();
+                }
+            });
+    });
+</script>
 @endsection

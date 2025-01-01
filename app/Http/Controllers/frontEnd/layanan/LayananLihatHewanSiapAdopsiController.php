@@ -89,10 +89,14 @@ class LayananLihatHewanSiapAdopsiController extends Controller
 
         $statusAnimalId = $statusAnimal->status_id;
 
-        animal::where('animal_id', $animal_id)->update([
+        $update = animal::where('animal_id', $animal_id)->update([
             'status_id' => $statusAnimalId,
         ]);
 
-        return redirect()->route('layanan-lihat')->with('success', 'Pengajuan berhasil dibuat!');
+        if($update){
+            return redirect()->route('layanan-lihat')->with('success', 'Pengajuan berhasil dibuat!');
+        } else {
+            return redirect()->route('layanan-lihat')->with('error', 'Pengajuan gagal dibuat!');
+        } 
     }
 }

@@ -28,7 +28,7 @@
         {!! $shelterInformation->report_information !!}
     </div>
     <div class="container border border-black my-3" style="border-radius: 16px">
-        <form action="{{ route('layanan-laporan-post') }}" method="POST" class="m-4" enctype="multipart/form-data">
+        <form action="{{ route('layanan-laporan-post') }}" method="POST" class="m-4" enctype="multipart/form-data" id="formLaporan">
             @csrf
             {{-- Profile User --}}
             <div class="row my-1">
@@ -98,24 +98,45 @@
             </div>
             <div class="row my-3">
                 <div class="gap-3 mt-4 d-flex justify-content-center">
-                    <button class="btn btn-primary" style="border: 0;" title="Edit">Kirim Laporan</button>
+                    <button class="btn btn-primary" style="border: 0;" title="Kirim Laporan" id="submitForm">Kirim Laporan</button>
                 </div>
             </div>
             
         </form>
     </div>
 </section>
-@endsection
 
-@section('js')
-<script>
-    @if(session('success'))
+@if(session('success'))
+    <script>
         Swal.fire({
             title: 'Berhasil',
             text: '{{ session('success') }}',
             icon: 'success',
             confirmButtonText: 'Oke'
         });
-    @endif
+    </script>
+@endif
+@endsection
+
+@section('js')
+<script>
+    document.getElementById('submitForm').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
+
+        // Show SweetAlert2 confirmation popup
+        Swal.fire({
+                title: 'Apakah Anda Yakin?',
+                text: "Jawaban Anda Tidak Dapat Diubah Kembali",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Saya Yakin',
+                cancelButtonText: 'Tidak, Saya Ingin Mengubahnya',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If "Yes, submit it!" is clicked, submit the form
+                    document.getElementById('formLaporan').submit();
+                }
+            });
+    });
 </script>
 @endsection

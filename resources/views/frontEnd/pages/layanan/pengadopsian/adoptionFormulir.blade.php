@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="container border border-black my-2" style="border-radius: 16px">
-        <form action="{{ route('layanan-adopsi.create.post', $animal->animal_id) }}" method="post" class="m-4" enctype="multipart/form-data">  
+        <form action="{{ route('layanan-adopsi.create.post', $animal->animal_id) }}" method="post" class="m-4" enctype="multipart/form-data" id="formAdopsi">  
             @csrf
             {{-- Profile User --}}
             <div class="row my-1">
@@ -71,23 +71,32 @@
                 </div>
             </div>
             <div class="gap-3 my-10 d-flex justify-content-end">
-                <button class="btn btn-primary" type="submit" style="border: 0;">Kirim Pengajuan</button>
+                <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Kirim Pengajuan</button>
             </div>
         </form>
     </div>
 </section>
-
 @endsection
 
 @section('js')
 <script>
-    @if(session('success'))
+    document.getElementById('submitForm').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
+
+        // Show SweetAlert2 confirmation popup
         Swal.fire({
-            title: 'Berhasil',
-            text: '{{ session('success') }}',
-            icon: 'success',
-            confirmButtonText: 'Oke'
-        });
-    @endif
+                title: 'Apakah Anda Yakin?',
+                text: "Jawaban Anda Tidak Dapat Diubah Kembali",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Saya Yakin',
+                cancelButtonText: 'Tidak, Saya Ingin Mengubahnya',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If "Yes, submit it!" is clicked, submit the form
+                    document.getElementById('formAdopsi').submit();
+                }
+            });
+    });
 </script>
 @endsection

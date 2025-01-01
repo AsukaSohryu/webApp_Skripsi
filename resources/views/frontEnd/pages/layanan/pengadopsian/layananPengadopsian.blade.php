@@ -76,8 +76,27 @@
         </div>
     </div>
 </section>
-@endsection
 
+@if(session('success'))
+    <script>
+        Swal.fire({
+            title: 'Berhasil',
+            text: '{{ session('success') }}', // Display the success message
+            icon: 'success',
+            confirmButtonText: 'Oke'
+        });
+    </script>
+@elseif(session('error'))
+    <script>
+        Swal.fire({
+            title: 'Gagal',
+            text: '{{ session('error') }}', // Display the error message
+            icon: 'error',
+            confirmButtonText: 'Oke'
+        });
+    </script>
+@endif
+@endsection
 
 @section('js')
 
