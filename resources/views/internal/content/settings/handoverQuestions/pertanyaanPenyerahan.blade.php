@@ -12,9 +12,8 @@
     <table class="table table-striped table-bordered" id="questionTable">
         <thead class="thead">
             <tr class="fw-bold text-center border-2 border-bottom border-dark">
-                <th scope="col" class="text-start ps-3" style="width: 70%">Pertanyaan</th>
+                <th scope="col" class="text-start ps-3" style="width: 85%">Pertanyaan</th>
                 <th scope="col" class="text-start ps-3" style="width: 15%">Status Pertanyaan</th>
-                <th scope="col" class="text-start ps-3" style="width: 15%"></th>
             </tr>
         </thead>
         <tbody>
@@ -27,13 +26,6 @@
                     @elseif($h->is_active == 0)
                         <span class="btn btn-secondary" style="min-width: 120px">Tidak Aktif</span>
                     @endif
-                </td>
-                <td class="text-center py-5" style="width: 15%">
-                    <form action="{{ route('pertanyaanPenyerahan.delete', $h->handover_questions_id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete Question</button>
-                    </form>
                 </td>
             </tr>
             @endforeach

@@ -140,7 +140,7 @@ Route::prefix('admin')->middleware('role:Admin')->group(function () {
         Route::get('/daftar', [PertanyaanPengadopsianController::class, 'index'])->name('pertanyaanPengadopsian.index');
         Route::get('/edit-adoption-question', [PertanyaanPengadopsianController::class, 'edit'])->name('pertanyaanPengadopsian.edit');
         Route::post('/edit-adoption-question-post', [PertanyaanPengadopsianController::class, 'editPost'])->name('pertanyaanPengadopsian.edit.post');
-        Route::delete('/delete-adoption-question/{id}', [PertanyaanPengadopsianController::class, 'deleteQuestion'])->name('pertanyaanPengadopsian.delete');
+        // Route::delete('/delete-adoption-question/{id}', [PertanyaanPengadopsianController::class, 'deleteQuestion'])->name('pertanyaanPengadopsian.delete');
     });
 
     Route::prefix('data-pertanyaan-penyerahan')->group(function () {
