@@ -130,7 +130,7 @@ class FormAdopsiController extends Controller
 
         // dd($update);
         if ($update) {
-            return back()->with('success', 'Formulir Pengajuan Pengadopsian Hewan Berhasil diperbaharui');
+            return redirect()->route('formAdopsi.detail', $request->adoptionFormID)->with('success', 'Formulir Pengajuan Pengadopsian Hewan Berhasil diperbaharui');
         }
     }
 }

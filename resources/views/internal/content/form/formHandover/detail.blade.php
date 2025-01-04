@@ -110,11 +110,53 @@
         @else
             <div class=" my-3 d-flex justify-content-end">
                 <form action="{{ route('formHandover.edit', $detail->handover_form_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengubah Data Formulir Penyerahan Ini?');">
-                    <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Data Formulir</button>
+                    <button class="btn btn-primary" style="border: 0;" title="Edit" id="editForm">Ubah Data Formulir</button>
                 </form>
             </div>
         @endif
 
     </div>
 </div>
+
+<script>
+    document.getElementById('editForm').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
+
+        // Show SweetAlert2 confirmation popup
+        Swal.fire({
+            title: 'Apakah Anda Mengubah Data Formulir?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Lanjutkan',
+            cancelButtonText: 'Tidak, Kembali',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If "Yes, submit it!" is clicked, submit the form
+                window.location.href = '{{ route('formHandover.edit', $detail->handover_form_id) }}';
+            }
+        });
+    });
+</script>
+
+@if(session('success'))
+<script>
+    Swal.fire({
+        title: 'Berhasil',
+        text: '{{ session('success') }}',
+        icon: 'success',
+        confirmButtonText: 'Oke',
+    });
+</script>
+@endif
+
+@if(session('error'))
+<script>
+    Swal.fire({
+        title: 'Gagal',
+        text: '{{ session('error') }}',
+        icon: 'error',
+        confirmButtonText: 'Oke'
+    });
+</script>
+@endif
 @endsection

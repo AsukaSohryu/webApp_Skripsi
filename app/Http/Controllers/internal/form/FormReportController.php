@@ -117,8 +117,9 @@ class FormReportController extends Controller
                 ]);
         }
         // dd($update);
-        if ($update) {
-            return back()->with('success', 'Formulir Laporan Penemuan Hewan Peliharaan Liar Berhasil Diperbaharui');
+        if ($update == 1) {
+            // dd('tes');
+            return redirect()->route('formReport.detail', $request->report_form_id)->with('success', 'Formulir Laporan Penemuan Hewan Peliharaan Liar Berhasil Diperbaharui');
         }
     }
 }

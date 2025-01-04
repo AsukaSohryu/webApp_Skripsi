@@ -184,7 +184,7 @@ class FormHandoverController extends Controller
             if ($successCreate == 'true') {
                 $message = 'Formulir Pengajuan Penyerahan Hewan Berhasil Diperbaharui, Data Hewan Berhasil dibuat';
             }
-            return back()->with('success', $message);
+            return redirect()->route('formHandover.detail', $request->handoverFormID)->with('success', $message);
         }
     }
 

@@ -31,6 +31,26 @@
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         @stack('css')
 
+		<style>
+			.swal2-icon.swal2-success {
+				border-color: var(--kt-primary) !important;
+				color: var(--kt-primary) !important;
+			}
+			
+			.swal2-icon.swal2-success .swal2-success-ring {
+			border-color: rgba(var(--kt-primary-rgb), .3) !important;
+			}
+
+			.swal2-icon.swal2-success [class^=swal2-success-line] {
+			background-color: rgba(var(--kt-primary-rgb)) !important;
+			}
+
+			.swal2-icon.swal2-question {
+				border-color: var(--kt-success) !important;
+				color: var(--kt-success) !important;
+			}
+		</style>
+
     </head>
 	<!--end::Head-->
 	<!--begin::Body-->

@@ -67,7 +67,7 @@
             </div>
         </div>
         <hr>
-        <form action="{{ route('formHandover.edit.post') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('formHandover.edit.post') }}" method="post" enctype="multipart/form-data" id="formHandover">
             @csrf
             <div class="row my-3">
                 <div class="col">
@@ -152,7 +152,7 @@
                         style="border: 0;">
                          Batalkan
                     </a>
-                    <button class="btn btn-primary" type="submit" style="border: 0;">Simpan Perubahan</button>
+                    <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Simpan Perubahan</button>
                 </div>
             @else
                 <div class="my-10 d-flex justify-content-end">
@@ -163,52 +163,47 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-body">
-            <h2>{{ session('success') }}</h2>
-        </div>
-        <div class="modal-footer">
-            <a href="{{ route('formHandover.detail', $detail->handover_form_id) }}" type="button" class="btn btn-secondary" data-dismiss="modal">kembali</a>
-        </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-body">
-            {{ session('error') }}
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-        </div>
-    </div>
-</div>
-
-@if(session('success'))
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Show the modal
-        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-        successModal.show();
+    document.getElementById('submitForm').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
+
+        var statusID = parseInt(document.getElementById('statusID').value);
+        var nonEditableStatuses = @json($nonEditableStatuses);
+
+        if(nonEditableStatuses.includes(statusID)) {
+
+            // Show SweetAlert2 confirmation popup
+            Swal.fire({
+                title: 'Apakah Anda Yakin?',
+                text: "Jawaban Anda Tidak Dapat Diubah Kembali",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Saya Yakin',
+                cancelButtonText: 'Tidak, Kembali',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If "Yes, submit it!" is clicked, submit the form
+                    document.getElementById('formHandover').submit();
+                }
+            });
+        } else {
+
+            // Show SweetAlert2 confirmation popup
+            Swal.fire({
+                title: 'Apakah Anda Yakin?',
+                text: "Status dapat dilanjutkan ke tahap berikutnya",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Saya Yakin',
+                cancelButtonText: 'Tidak, Kembali',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If "Yes, submit it!" is clicked, submit the form
+                    document.getElementById('formHandover').submit();
+                }
+            });
+        }
+        
     });
 </script>
-@endif
-
-@if(session('error'))
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Show the modal
-        const successModal = new bootstrap.Modal(document.getElementById('errorModal'));
-        successModal.show();
-    });
-</script>
-@endif
-
 @endsection
