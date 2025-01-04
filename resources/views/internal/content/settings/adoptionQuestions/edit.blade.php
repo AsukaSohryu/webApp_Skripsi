@@ -55,7 +55,7 @@
 
 @section('content')
 <div class="container">
-    <form action="{{ route('pertanyaanPengadopsian.edit.post') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('pertanyaanPengadopsian.edit.post') }}" method="post" enctype="multipart/form-data" id="questionForm">
         @csrf
         <div class="row mb-4">
             <div class="col-md-10">
@@ -68,7 +68,7 @@
             <thead class="thead">
                 <tr class="fw-bold text-center border-2 border-bottom border-dark">
                     <th scope="col" class="text-center ps-3" style="width: 5%">
-                        <input type="checkbox" id="selectAllCheckbox" onclick="toggleSelectAll()">
+                        {{-- <input type="checkbox" id="selectAllCheckbox" onclick="toggleSelectAll()"> --}}
                     </th>
                     <th scope="col" class="text-start ps-3" style="width: 80%">Pertanyaan</th>
                     <th scope="col" class="text-start ps-3" style="width: 15%">Status Pertanyaan</th>
@@ -78,13 +78,32 @@
                 @foreach ($adoptionQuestions as $a)
                 <tr class="fw-bold text-center border-2 border-bottom border-dark">
                     <td class="text-center py-5 ps-3" style="width: 5%;">
+                        @if($a->adoption_question_id >= 1 && $a->adoption_question_id <= 9)
+                        <input type="checkbox" class="deleteCheckbox" name="deleteQuestions[]" value="{{ $a->adoption_question_id }}" 
+                            data-used="{{ $a->used_in_form }}" 
+                            onclick="toggleDeleteButton()" disabled>
+                        @else
                         <input type="checkbox" class="deleteCheckbox" name="deleteQuestions[]" value="{{ $a->adoption_question_id }}" 
                             data-used="{{ $a->used_in_form }}" 
                             onclick="toggleDeleteButton()">
+                        @endif
                     </td>
                     <td class="text-start px-3 py-5" style="width: 80%">{{ $a->questions }}</td>
                     <td style="width: 15%">
                         <div class="d-flex align-items-center justify-content-start gap-3 py-3">
+                            @if($a->adoption_question_id >= 1 && $a->adoption_question_id <= 9)
+                            <input type="hidden" name="activeStatus[{{ $a->adoption_question_id }}]" value="off" disabled>
+                            <input type="checkbox" 
+                                class="toggle-checkbox-status"
+                                id="check-{{ $a->adoption_question_id }}" 
+                                name="activeStatus[{{ $a->adoption_question_id }}]"
+                                data-id="{{ $a->adoption_question_id }}"
+                                {{ $a->is_active == 1 ? 'checked' : '' }}>
+                            <label for="check-{{ $a->adoption_question_id }}" class="button"></label>
+                            <label class="py-3 mb-0" id="isActive-{{ $a->adoption_question_id }}">
+                                <b>{{ $a->is_active == 1 ? 'Aktif' : 'Tidak Aktif' }}</b>
+                            </label>
+                            @else
                             <input type="hidden" name="activeStatus[{{ $a->adoption_question_id }}]" value="off">
                             <input type="checkbox" 
                                 class="toggle-checkbox-status"
@@ -96,6 +115,7 @@
                             <label class="py-3 mb-0" id="isActive-{{ $a->adoption_question_id }}">
                                 <b>{{ $a->is_active == 1 ? 'Aktif' : 'Tidak Aktif' }}</b>
                             </label>
+                            @endif
                         </div>
                     </td>
                 </tr>
@@ -108,16 +128,19 @@
                 <i class="fas fa-plus me-2"></i>Tambah Pertanyaan
             </button>
         </div>
-        <div class="d-flex justify-content-end gap-2 mt-3">
-            <a href="{{ route('pertanyaanPengadopsian.index') }}" class="btn btn-secondary">
-                Batalkan Perubahan
-            </a>
-            <button type="submit" id="saveButton" class="btn btn-primary">
-                <i class="fas fa-edit me-2"></i>Simpan Perubahan
-            </button>
-            <button type="submit" id="deleteButton" class="btn btn-danger" style="display: none;">
-                <i class="fas fa-trash me-2"></i>Hapus Pertanyaan
-            </button>
+        <div class="d-flex justify-content-between gap-2 mt-3">
+            <p style="color: red;">*Centang pertanyaan yang ingin dihapus lalu simpan perubahan (Pertanyaan yang telah digunakan pada formulir tidak dapat dihapus)</p>
+            <div class="d-flex gap-2">
+                <a href="{{ route('pertanyaanPengadopsian.index') }}" class="btn btn-secondary">
+                    Batalkan
+                </a>
+                <button type="submit" id="saveButton" class="btn btn-primary">
+                    Simpan Perubahan
+                </button>
+                {{-- <button type="submit" id="deleteButton" class="btn btn-danger" style="display: none;">
+                    Hapus Pertanyaan
+                </button> --}}
+            </div>
         </div>
     </form>
 
@@ -133,7 +156,6 @@
 </div>
 
 <script>
-
     //check pertanyaan dipake ga di form
     $(document).ready(function () {
         $('.deleteCheckbox').each(function () {
@@ -171,40 +193,40 @@
     }
 
     // Toggle "Simpan Perubahan" and "Hapus Pertanyaan" buttons based on checked checkboxes
-    function toggleDeleteButton() {
-        var checkboxes = document.querySelectorAll('.deleteCheckbox');
-        var saveButton = document.getElementById('saveButton');
-        var deleteButton = document.getElementById('deleteButton');
-        var addQuestionButton = document.getElementById('addQuestionButton');
+    // function toggleDeleteButton() {
+    //     var checkboxes = document.querySelectorAll('.deleteCheckbox');
+    //     var saveButton = document.getElementById('saveButton');
+    //     var deleteButton = document.getElementById('deleteButton');
+    //     var addQuestionButton = document.getElementById('addQuestionButton');
         
-        // Check if any checkbox is checked
-        var anyChecked = Array.from(checkboxes).some(function (checkbox) {
-            return checkbox.checked;
-        });
+    //     // Check if any checkbox is checked
+    //     var anyChecked = Array.from(checkboxes).some(function (checkbox) {
+    //         return checkbox.checked;
+    //     });
 
-        // Show "Hapus Pertanyaan" button and disable "Tambah Pertanyaan" if any checkbox is checked
-        deleteButton.style.display = anyChecked ? 'inline-block' : 'none';
-        addQuestionButton.disabled = anyChecked;
+    //     // Show "Hapus Pertanyaan" button and disable "Tambah Pertanyaan" if any checkbox is checked
+    //     deleteButton.style.display = anyChecked ? 'inline-block' : 'none';
+    //     addQuestionButton.disabled = anyChecked;
 
-        // If no checkbox is checked, show the "Simpan Perubahan" button
-        saveButton.disabled = anyChecked;
-    }
+    //     // If no checkbox is checked, show the "Simpan Perubahan" button
+    //     saveButton.disabled = anyChecked;
+    // }
 
     // Select or deselect all checkboxes
-    function toggleSelectAll() {
-        var selectAllCheckbox = document.getElementById('selectAllCheckbox');
-        var checkboxes = document.querySelectorAll('.deleteCheckbox');
+    // function toggleSelectAll() {
+    //     var selectAllCheckbox = document.getElementById('selectAllCheckbox');
+    //     var checkboxes = document.querySelectorAll('.deleteCheckbox');
 
-        // Loop through all checkboxes
-        checkboxes.forEach(function (checkbox) {
-            // Only change the checked state if the checkbox is not disabled
-            if (!checkbox.disabled) {
-                checkbox.checked = selectAllCheckbox.checked;
-            }
-        });
+    //     // Loop through all checkboxes
+    //     checkboxes.forEach(function (checkbox) {
+    //         // Only change the checked state if the checkbox is not disabled
+    //         if (!checkbox.disabled) {
+    //             checkbox.checked = selectAllCheckbox.checked;
+    //         }
+    //     });
 
-        toggleDeleteButton(); // Re-enable/disable buttons based on checked state
-    }
+    //     toggleDeleteButton(); // Re-enable/disable buttons based on checked state
+    // }
 
 
     // Remove the row when delete button is clicked
@@ -252,4 +274,44 @@
         });
     }
 </script>
+
+<script>
+    document.getElementById('saveButton').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
+
+        // Show SweetAlert2 confirmation popup
+        Swal.fire({
+            title: 'Perubahan Anda Tidak Dapat Dikembalikan',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Lanjutkan',
+            cancelButtonText: 'Tidak, Kembali',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If "Yes, submit it!" is clicked, submit the form
+                document.getElementById('questionForm').submit();
+            }
+        });
+    });
+</script>
+
+{{-- <script>
+    document.getElementById('deleteButton').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
+
+        // Show SweetAlert2 confirmation popup
+        Swal.fire({
+            title: 'Apakah Anda Ingin Menghapus Pertanyaan Ini?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Lanjutkan',
+            cancelButtonText: 'Tidak, Kembali',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If "Yes, submit it!" is clicked, submit the form
+                document.getElementById('questionForm').submit();
+            }
+        });
+    });
+</script> --}}
 @endsection

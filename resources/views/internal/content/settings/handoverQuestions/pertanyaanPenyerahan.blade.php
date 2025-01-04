@@ -32,7 +32,7 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-end py-8">
-        <a href="{{ route('pertanyaanPenyerahan.edit') }}" class="btn btn-primary">
+        <a href="{{ route('pertanyaanPenyerahan.edit') }}" class="btn btn-primary" id="editQuestion">
             <i class="fas fa-edit me-2"></i>Ubah Pertanyaan
         </a>
     </div>
@@ -75,5 +75,25 @@ function searchQuestions() {
             confirmButtonText: 'Oke'
         });
     @endif
+</script>
+
+<script>
+    document.getElementById('editQuestion').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
+
+        // Show SweetAlert2 confirmation popup
+        Swal.fire({
+            title: 'Apakah Anda Ingin Mengubah Daftar Pertanyaan Ini?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Lanjutkan',
+            cancelButtonText: 'Tidak, Kembali',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If "Yes, submit it!" is clicked, submit the form
+                window.location.href = '{{ route('pertanyaanPenyerahan.edit') }}';
+            }
+        });
+    });
 </script>
 @endsection

@@ -86,7 +86,7 @@ class InformasiShelterController extends Controller
         $update = shelterInformation::where('shelter_id', 1)->update($updateData);
 
         if ($update) {
-            return back()->with('success', 'Data Informasi Shelter Berhasil di Update');
+            return redirect()->route('informasiShelter.index')->with('success', 'Data Informasi Shelter Berhasil di Update');
         }
     }
 }

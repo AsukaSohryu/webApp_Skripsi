@@ -233,8 +233,8 @@
             </div>
         </div>
         <div class=" my-3 d-flex justify-content-end">
-            <form action="{{ route('informasiShelter.edit', 1) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengubah Informasi Shelter?');">
-                <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Informasi Shelter</button>
+            <form action="{{ route('informasiShelter.edit', 1) }}" method="get">
+                <button class="btn btn-primary" style="border: 0;" title="Edit" id="editInformasi">Ubah Informasi Shelter</button>
             </form>
         </div>
     </div>
@@ -291,4 +291,35 @@
     });
     $('#summernote10').summernote('disable');
 </script>
+
+<script>
+    document.getElementById('editInformasi').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
+
+        // Show SweetAlert2 confirmation popup
+        Swal.fire({
+            title: 'Apakah Anda Ingin Mengubah Data Shelter Ini?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Lanjutkan',
+            cancelButtonText: 'Tidak, Kembali',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If "Yes, submit it!" is clicked, submit the form
+                window.location.href = '{{ route('informasiShelter.edit') }}';
+            }
+        });
+    });
+</script>
+
+@if(session('success'))
+<script>
+    Swal.fire({
+        title: 'Berhasil',
+        text: '{{ session('success') }}',
+        icon: 'success',
+        confirmButtonText: 'Oke',
+    });
+</script>
+@endif
 @endsection 

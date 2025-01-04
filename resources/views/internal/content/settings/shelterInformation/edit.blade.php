@@ -42,7 +42,7 @@
 <div class="card mb-5 mb-xxl-8">
     <div class="card-body py-9">
         <h1 class="text-center">Data Informasi Shelter</h1>
-        <form action="{{ route('informasiShelter.edit.post') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('informasiShelter.edit.post') }}" method="post" enctype="multipart/form-data" id="formShelter">
             @csrf
             <div class="row my-3">
                 <div class="col my-3 d-flex flex-column justify-content-center">
@@ -244,38 +244,13 @@
                     </div>
                 </div>
             </div>
-            <div class=" my-3 d-flex justify-content-end">
-                <button class="btn btn-primary" type="submit" style="border: 0;">Simpan Perubahan Data Shelter</button>
+            <div class=" my-3 d-flex justify-content-end gap-2">
+                <a href="{{ route('informasiShelter.index') }}" class="btn btn-secondary">
+                    Batalkan
+                </a>
+                <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Simpan Perubahan Data Shelter</button>
             </div>            
         </form>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-body">
-            <h2>{{ session('success') }}</h2>
-        </div>
-        <div class="modal-footer">
-            <a href="{{ route('informasiShelter.index', $shelterInformation->shelter_id) }}" type="button" class="btn btn-secondary" data-dismiss="modal">kembali</a>
-        </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-body">
-            {{ session('error') }}
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-        </div>
     </div>
 </div>
 
@@ -325,24 +300,25 @@
     });
 </script>
 
-@if(session('success'))
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Show the modal
-        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-        successModal.show();
-    });
-</script>
-@endif
+    document.getElementById('submitForm').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
 
-@if(session('error'))
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Show the modal
-        const successModal = new bootstrap.Modal(document.getElementById('errorModal'));
-        successModal.show();
+        // Show SweetAlert2 confirmation popup
+        Swal.fire({
+            title: 'Apakah Anda Yakin?',
+            text: "Data Shelter Dapat Diubah Kembali",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Saya Yakin',
+            cancelButtonText: 'Tidak, Kembali',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If "Yes, submit it!" is clicked, submit the form
+                document.getElementById('formShelter').submit();
+            }
+        });
     });
 </script>
-@endif
 
 @endsection
