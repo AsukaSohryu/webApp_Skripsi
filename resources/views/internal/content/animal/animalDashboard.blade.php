@@ -43,7 +43,7 @@
                     <button class="btn {{ $btnClass }}">{{ $a->status_name }}</button>
                 </td>
                 <td>
-                    <form action="{{route('dataHewan.detail', $a->animal_id)}}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengedit Hewan Ini?');">
+                    <form action="{{route('dataHewan.detail', $a->animal_id)}}" method="get">
                         <button class="btn btn-secondary border border-dark"><i class="fa-regular fa-pen-to-square"></i></button>
                     </form>
                 </td> 

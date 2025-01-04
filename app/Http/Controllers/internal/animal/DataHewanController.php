@@ -111,7 +111,7 @@ class DataHewanController extends Controller
 
         // dd($update);
         if ($update) {
-            return back()->with('success', 'Data Hewan Berhasil di Update');
+            return redirect()->route('dataHewan.detail', $request->idHewan)->with('success', 'Data Hewan Berhasil di Update');
         }
     }
 
@@ -157,7 +157,7 @@ class DataHewanController extends Controller
 
         // dd($update);
         if ($create) {
-            return back()->with('success', 'Data Hewan Berhasil Dibuat');
+            return redirect()->route('dataHewan.create')->with('success', 'Data Hewan Berhasil Dibuat');
         }
     }
 
