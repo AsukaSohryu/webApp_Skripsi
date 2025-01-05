@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-<!--
-Author: Keenthemes
-Product Name: Metronic - Bootstrap 5 HTML, VueJS, React, Angular. Laravel, Asp.Net Core, Ruby on Rails, Spring Boot, Blazor, Django, Express Node.js & Flask Admin Dashboard Theme
-Purchase: https://1.envato.market/EA4JP
-Website: http://www.keenthemes.com
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
--->
 <html lang="en">
 	<!--begin::Head-->
 	<head><base href="../../../"/>
@@ -76,9 +65,17 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<div class="fv-row mb-8">
 										<input type="text" placeholder="Email" id="email" name="email" autocomplete="off" class="form-control bg-transparent" />
+										<br>
+										@error('email')
+											<div class="alert alert-danger">{{ $message }}</div>
+										@enderror
 									</div>
 									<div class="fv-row mb-8">
 										<input type="text" placeholder="Nama" id="name" name="name" autocomplete="off" class="form-control bg-transparent" />
+										<br>
+										@error('name')
+											<div class="alert alert-danger">{{ $message }}</div>
+										@enderror
 									</div>
 									<div class="fv-row mb-8" data-kt-password-meter="true">
 										<!--begin::Wrapper-->
@@ -90,6 +87,10 @@ License: For each use you must have a valid license purchased only from above li
 													<i class="bi bi-eye-slash fs-2"></i>
 													<i class="bi bi-eye fs-2 d-none"></i>
 												</span>
+												<br>
+												@error('password')
+													<div class="alert alert-danger">{{ $message }}</div>
+												@enderror
 											</div>
 											<!--end::Input wrapper-->
 											<!--begin::Meter-->
@@ -134,21 +135,44 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<div class="fv-row mb-8">
 										<input type="file" placeholder="Foto" id="foto" name="foto" class="form-control bg-transparent" />
+										<br>
+										@error('foto')
+											<div class="alert alert-danger">{{ $message }}</div>
+										@enderror
 									</div>
 									<div class="fv-row mb-8">
 										<input type="text" placeholder="Alamat" id="alamat" name="alamat" class="form-control bg-transparent" />
+										<br>
+										@error('alamat')
+											<div class="alert alert-danger">{{ $message }}</div>
+										@enderror
 									</div>
 									<div class="fv-row mb-8">
 										<input type="text" placeholder="Pekerjaan" id="pekerjaan" name="pekerjaan" class="form-control bg-transparent" />
+										<br>
+										@error('pekerjaan')
+											<div class="alert alert-danger">{{ $message }}</div>
+										@enderror
 									</div>
 									<div class="fv-row mb-8">
 										<input type="date" placeholder="Tanggal Lahir" id="BOD" name="BOD" class="form-control bg-transparent" />
+										<br>
+										@error('BOD')
+											<div class="alert alert-danger">{{ $message }}</div>
+										@enderror
 									</div>
 									<div class="fv-row mb-8">
 										<input type="text" placeholder="Nomor WhatsApp" id="whatsapp" name="whatsapp" class="form-control bg-transparent" />
+										@error('whatsapp')
+											<div class="alert alert-danger">{{ $message }}</div>
+										@enderror
 									</div>
 									<div class="fv-row mb-8">
 										<input type="text" placeholder="Nomor Telepon" id="notelp" name="notelp" class="form-control bg-transparent" />
+										<br>
+										@error('notelp')
+											<div class="alert alert-danger">{{ $message }}</div>
+										@enderror
 									</div>
 									<div class="d-grid mb-10">
 										<button type="submit" class="btn btn-primary">Daftar</button>
