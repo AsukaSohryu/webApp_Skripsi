@@ -12,15 +12,15 @@
             </li>
             <li class="dropdown"><a href="#"><span style="font-size:16px;">Layanan Kami</span><i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="{{ route('layanan-hewan-diselamatkan') }}"><span style="font-size:16px;">Lihat daftar hewan yang diselamatkan</span> </a></li>
-                <li><a href="{{ route('layanan-laporan') }}"><span style="font-size:16px;">Laporkan Penemuan Hewan Liar</span> </a></li>
+                <li><a href="{{ route('layanan-hewan-diselamatkan') }}"><span style="font-size:16px;">Lihat Daftar Hewan yang Diselamatkan</span> </a></li>
+                <li><a href="{{ route('layanan-laporan') }}"><span style="font-size:16px;">Laporkan Penemuan Hewan Peliharaan Liar</span> </a></li>
                 <li><a href="{{ route('layanan-pengajuan') }}"><span style="font-size:16px;">Ajukan Penyerahan Hewan</span> </a></li>
-                <li><a href="{{ route('layanan-lihat') }}"><span style="font-size:16px;">Ajukan Pengadopsian hewan / Lihat Daftar Hewan</span></a></li>
+                <li><a href="{{ route('layanan-lihat') }}"><span style="font-size:16px;">Ajukan Pengadopsian Hewan/Lihat Daftar Hewan</span></a></li>
               </ul>
             </li>
             <li class="dropdown"><a href="#"><span style="font-size:16px;">Laporan dan Pengajuan</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="{{ route('status-laporan') }}"><span style="font-size:16px;">Status Laporan Penemuan Hewan Hilang</span></a></li>
+                <li><a href="{{ route('status-laporan') }}"><span style="font-size:16px;">Status Laporan Penemuan Hewan Peliharaan Liar</span></a></li>
                 <li><a href="{{ route('status-penyerahan') }}"><span style="font-size:16px;">Status Pengajuan Penyerahan Hewan</span></a></li>
                 <li><a href="{{ route('status-adopsi') }}"><span style="font-size:16px;">Status Pengajuan Pengadopsian Hewan</span></a></li>
               </ul>
@@ -35,7 +35,7 @@
                 <ul>
                   <li><a href="{{ route('detail-profil') }}"><span style="font-size:16px;">Detail Profil</span></a></li>
                   @if(auth()->check() && auth()->user()->role == 'Admin')
-                      <li><a href="{{ route('dashboard') }}"><span style="font-size:16px;">Dashboard Admin</span></a></li>
+                      <li><a href="{{ route('dashboard') }}"><span style="font-size:16px;">Dashbor Admin</span></a></li>
                   @endif
                   <li>
                     <form action="{{ route('logout') }}" method="post" id="logoutForm">

@@ -26,7 +26,7 @@
     <br />
 </section>
 
-<section id="hero" style='height: 72vh; background-image: url("./assets/images/tentangKami/1148760.jpg"); background-position: center;'>
+<section id="hero" style="height: 72vh; background-image: url('{{ asset('assets/images/layananKami/Stray_pets_1.jpg') }}'); background-position: center;">
 </section>
 
 <section id="breadcrumbs" class="section-bg-5">

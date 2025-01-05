@@ -9,9 +9,10 @@
 <section id="hero" style="position: relative; height: 100vh;">
 
     {{-- @foreach ($banner as $b) --}}
-    <img src="{{ asset('assets/images/home/hero/kumaBear.jpg') }}" alt="" class="image  home-image">
+    {{-- <img src="{{ asset('assets/images/home/hero/kumaBear.jpg') }}" alt="" class="image  home-image">
     <img src="{{ asset('assets/images/home/hero/iguana.jpg') }}" alt="" class="image  home-image">
-    <img src="{{ asset('assets/images/home/hero/elephant.jpg') }}" alt="" class="image  home-image">
+    <img src="{{ asset('assets/images/home/hero/elephant.jpg') }}" alt="" class="image  home-image"> --}}
+    <img src="{{ asset('assets/images/home/hero/Cats_Dogs_3.jpg') }}" alt="" class="image  home-image">
     {{-- @endforeach --}}
     
     <div class="home-carousel">
