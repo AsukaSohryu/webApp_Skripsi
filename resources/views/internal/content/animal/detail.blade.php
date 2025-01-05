@@ -65,6 +65,12 @@
         </div>
         <div class="row my-3">
             <div class="col">
+                <label for="">Detail Status Hewan</label>
+                <textarea type="text" name="detailStatusHewan" id="detailStatusHewan" class="form-control" disabled>{{ $detail->detail_status }}</textarea>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col">
                 <label for="">Usia Hewan</label>
                <input type="text" name="usiaHewan" id="usiaHewan" value="" class="form-control" disabled>
             </div>
@@ -75,8 +81,12 @@
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Detail Status Hewan</label>
-                <textarea type="text" name="detailStatusHewan" id="detailStatusHewan" class="form-control" disabled>{{ $detail->detail_status }}</textarea>
+                <label for="">Jenis Kelamin</label>
+                <input type="text" name="jenisKelamin" id="jenisKelamin" value="{{ $detail->sex }}" class="form-control" disabled>
+            </div>
+            <div class="col">
+                <label for="">Ras Hewan</label>
+                <input type="text" name="rasHewan" id="rasHewan" value="{{ $detail->race }} Kg" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">

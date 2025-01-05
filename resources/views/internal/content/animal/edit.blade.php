@@ -68,17 +68,20 @@
                 <div class="col">
                     <label for="" class="my-3">ID Hewan</label>
                     <input type="text" value="{{$detail->animal_id}}" class="form-control" disabled>
-                    <input type="hidden" name="idHewan" id="idHewan" value="{{$detail->animal_id}}" class="form-control">
+                    <input type="hidden" name="idHewan" id="idHewan" value="{{$detail->animal_id}}" class="form-control" required>
                 </div>
                 <div class="col">
                     <label for="" class="my-3">Nama Hewan</label>
-                    <input type="text" name="namaHewan" id="namaHewan" value="{{$detail->animal_name}}" class="form-control">
+                    <input type="text" name="namaHewan" id="namaHewan" value="{{$detail->animal_name}}" class="form-control" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Jenis Hewan</label>
-                    <input type="text" name="jenisHewan" id="jenisHewan" value="{{$detail->animal_type}}" class="form-control">
+                    <select name="jenisHewan" id="jenisHewan" class="form-select" required>
+                        <option value="Anjing" {{ $detail->animal_type == 'Anjing' ? 'selected' : '' }}>Anjing</option>
+                        <option value="Kucing" {{ $detail->animal_type == 'Kucing' ? 'selected' : '' }}>Kucing</option>
+                    </select>
                 </div>
                 <div class="col">
                     <label for="" class="my-3">Status Hewan</label>
@@ -94,7 +97,7 @@
             <div class="row my-3">
                 <div class="col">
                     <label for="">Detail Status Hewan</label>
-                    <textarea type="text" name="detailStatusHewan" id="detailStatusHewan" class="form-control">{{ $detail->detail_status }}</textarea>
+                    <textarea type="text" name="detailStatusHewan" id="detailStatusHewan" class="form-control" required>{{ $detail->detail_status }}</textarea>
                 </div>
             </div>
             <div class="row my-3">
@@ -104,23 +107,36 @@
                 </div>
                 <div class="col">
                     <label for="" class="my-3">Tanggal Lahir</label>
-                    <input type="date" name="tanggalLahir" id="tanggalLahir" value="{{ $detail->birth_date }}" class="form-control">
+                    <input type="date" name="tanggalLahir" id="tanggalLahir" value="{{ $detail->birth_date }}" class="form-control" required>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    <label for="" class="my-3">Jenis Kelamin</label>
+                    <select name="jenisKelamin" id="jenisKelamin" class="form-select" required>
+                        <option value="Jantan" {{ $detail->sex == 'Jantan' ? 'selected' : '' }}>Jantan</option>
+                        <option value="Betina" {{ $detail->sex == 'Betina' ? 'selected' : '' }}>Betina</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="" class="my-3">Ras Hewan</label>
+                    <input type="text" name="rasHewan" id="rasHewan" value="{{ $detail->race }}" class="form-control" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Warna Hewan</label>
-                    <input type="text" name="warnaHewan" id="warnaHewan" value="{{ $detail->color }}" class="form-control">
+                    <input type="text" name="warnaHewan" id="warnaHewan" value="{{ $detail->color }}" class="form-control" required>
                 </div>
                 <div class="col">
                     <label for="" class="my-3">Berat Hewan (Kg)</label>
-                    <input type="number" name="beratHewan" id="beratHewan" value="{{ $detail->weight }}" class="form-control" step="0.01" min="0">
+                    <input type="number" name="beratHewan" id="beratHewan" value="{{ $detail->weight }}" class="form-control" step="0.01" min="0" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Informasi Vaksin Hewan</label>
-                    <input type="text" name="informasiVaksin" id="informasiVaksin" value="{{ $detail->vaccine }}" class="form-control">
+                    <input type="text" name="informasiVaksin" id="informasiVaksin" value="{{ $detail->vaccine }}" class="form-control" required>
                 </div>
             </div>
             <div class="row my-3">
@@ -138,25 +154,25 @@
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Asal Hewan</label>
-                    <input type="text" name="asalHewan" id="asalHewan" value="{{ $detail->source }}" class="form-control">
+                    <input type="text" name="asalHewan" id="asalHewan" value="{{ $detail->source }}" class="form-control" required>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Karakteristik Hewan</label>
-                    <textarea type="text" name="karakteristikHewan" id="karakteristikHewan" class="form-control">{{ $detail->characteristics }}</textarea>
+                    <textarea type="text" name="karakteristikHewan" id="karakteristikHewan" class="form-control" required>{{ $detail->characteristics }}</textarea>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Deskripsi Hewan</label>
-                    <textarea type="text" name="deskripsiHewan" id="deskripsiHewan" class="form-control">{{ $detail->description }}</textarea>
+                    <textarea type="text" name="deskripsiHewan" id="deskripsiHewan" class="form-control" required>{{ $detail->description }}</textarea>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Catatan Medis Hewan</label>
-                    <textarea type="text" name="catatanMedisHewan" id="catatanMedisHewan" class="form-control">{{ $detail->medical_note }}</textarea>
+                    <textarea type="text" name="catatanMedisHewan" id="catatanMedisHewan" class="form-control" required>{{ $detail->medical_note }}</textarea>
                 </div>
             </div>
             <div class="row my-3">
