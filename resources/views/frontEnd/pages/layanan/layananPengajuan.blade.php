@@ -23,6 +23,17 @@
     </div>
 </section>
 
+@if($shelterInformation->is_accepting_handover == 0)
+<section>
+    <div class="container">
+        <h1 class="text-center">Pengajuan Penyerahan Hewan</h1>
+        <hr />
+        <div class="alert alert-info text-center">
+            Shelter Sedang Tidak Melayani Pengajuan Penyerahan Hewan
+        </div>
+    </div>
+</section>
+@else
 <section id="section-1-layanan-penyerahan">
     <div class="container">
         <div class="row my-2">
@@ -127,6 +138,7 @@
     </script>
 @endif
 
+@endif
 @endsection
 
 @section('js')

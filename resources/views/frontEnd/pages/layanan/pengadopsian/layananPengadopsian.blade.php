@@ -20,6 +20,18 @@
         <p class="type-2">Pengajuan Pengadopsian Hewan</p>
     </div>
 </section>
+
+@if($shelterInformation->is_accepting_adoption == 0)
+<section id="section-1-layanan-pengadopsian">
+    <div class="container">
+        <h1 class="text-center">Pengajuan Pengadopsian Hewan</h1>
+        <hr />
+        <div class="alert alert-info text-center">
+            Shelter Sedang Tidak Melayani Pengajuan Pengadopsian Hewan
+        </div>
+    </div>
+</section>
+@else
 <section id="section-1-layanan-pengadopsian">
     <div class="container">
         <div class="row">
@@ -76,6 +88,7 @@
         </div>
     </div>
 </section>
+@endif
 
 @if(session('success'))
     <script>

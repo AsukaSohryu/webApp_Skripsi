@@ -20,10 +20,12 @@ class LayananLihatHewanSiapAdopsiController extends Controller
             ->whereIn('status_id', [16, 17, 18])
             ->paginate(9);
         //  dd($animals);
+        $shelterInformation = shelterInformation::where('shelter_id', 1)->first();
 
         return view('frontend.pages.layanan.pengadopsian.layananPengadopsian', [
             'pagetitle' => 'Hewan Diselamatkan',
-            'animals' => $animals
+            'animals' => $animals,
+            'shelterInformation' => $shelterInformation
         ]);
     }
 
