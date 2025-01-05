@@ -59,7 +59,11 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-outline-secondary" type="submit" style="width: 100%;">Simpan Perubahan</button>
+            <div class="d-flex gap-2 justify-content-end">
+                <a href="{{ route('detail-profil') }}" class="btn btn-outline-danger">Batalkan</a>
+                <button class="btn btn-outline-secondary" type="submit">Simpan Perubahan</button>
+            </div>
+            
         </form>
     </div>
 </section>

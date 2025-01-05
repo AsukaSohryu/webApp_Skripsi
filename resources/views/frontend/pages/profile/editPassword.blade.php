@@ -41,7 +41,10 @@
                 <label for="confirm_new_password" class="form-label my-3">Konfirmasi Password Baru</label>
                 <input type="password" id="confirm_new_password" name="new_password_confirmation" class="form-control" required />
             </div>
-            <button class="btn btn-outline-secondary" type="submit" style="width: 100%;">Simpan Perubahan</button>
+            <div class="d-flex gap-2 justify-content-end">
+                <a href="{{ route('detail-profil') }}" class="btn btn-outline-danger">Batalkan</a>
+                <button class="btn btn-outline-secondary" type="submit">Simpan Perubahan</button>
+            </div>
         </form>
     </div>
 </section>

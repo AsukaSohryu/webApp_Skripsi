@@ -55,7 +55,7 @@
     @endphp
     <div class="card-body py-9">
         <h1 class="text-center">Edit Data Hewan</h1>
-        <form action="{{ route('dataHewan.edit.post') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('dataHewan.edit.post') }}" method="post" enctype="multipart/form-data" id="formAnimal">
             @csrf
             <div class="row my-3">
                 <div class="col my-3 d-flex flex-column justify-content-center">
@@ -213,37 +213,9 @@
                     style="border: 0;">
                      Batalkan
                 </a>
-                <button class="btn btn-primary" type="submit" style="border: 0;">Simpan Perubahan</button>
+                <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Simpan Perubahan</button>
             </div>
         </form>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-body">
-            <h2>{{ session('success') }}</h2>
-        </div>
-        <div class="modal-footer">
-            <a href="{{ route('dataHewan.detail', $detail->animal_id ) }}" type="button" class="btn btn-secondary" data-dismiss="modal">kembali</a>
-        </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-body">
-            {{ session('error') }}
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-        </div>
     </div>
 </div>
 
@@ -269,26 +241,6 @@
         });
     });
 </script>
-
-@if(session('success'))
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Show the modal
-        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-        successModal.show();
-    });
-</script>
-@endif
-
-@if(session('error'))
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Show the modal
-        const successModal = new bootstrap.Modal(document.getElementById('errorModal'));
-        successModal.show();
-    });
-</script>
-@endif
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -334,6 +286,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     tanggalLahirInput.addEventListener('change', calculateAge);
 });
+</script>
+
+<script>
+    document.getElementById('submitForm').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
+
+        // Show SweetAlert2 confirmation popup
+        Swal.fire({
+            title: 'Apakah Anda Yakin?',
+            text: "Data Hewan Dapat Diubah Kembali",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Saya Yakin',
+            cancelButtonText: 'Tidak, Kembali',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If "Yes, submit it!" is clicked, submit the form
+                document.getElementById('formAnimal').submit();
+            }
+        });
+    });
 </script>
 
 @endsection

@@ -168,8 +168,8 @@
             </div>
         </div>
         <div class=" my-3 d-flex justify-content-end">
-            <form action="{{ route('dataHewan.edit', $detail->animal_id) }}" method="get" onsubmit="return confirm('Apakah Anda Ingin Mengubah Data Hewan Ini?');">
-                <button class="btn btn-primary" style="border: 0;" title="Edit">Ubah Data Hewan</button>
+            <form action="{{ route('dataHewan.edit', $detail->animal_id) }}" method="get">
+                <button class="btn btn-primary" style="border: 0;" title="Edit" id="editAnimal">Ubah Data Hewan</button>
             </form>
         </div>
     </div>
@@ -219,4 +219,35 @@ document.addEventListener('DOMContentLoaded', function() {
     tanggalLahirInput.addEventListener('change', calculateAge);
 });
 </script>
+
+<script>
+    document.getElementById('editAnimal').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
+
+        // Show SweetAlert2 confirmation popup
+        Swal.fire({
+            title: 'Apakah Anda Ingin Mengubah Data Hewan Ini?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Lanjutkan',
+            cancelButtonText: 'Tidak, Kembali',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If "Yes, submit it!" is clicked, submit the form
+                window.location.href = '{{ route('dataHewan.edit', $detail->animal_id) }}';
+            }
+        });
+    });
+</script>
+
+@if(session('success'))
+<script>
+    Swal.fire({
+        title: 'Berhasil',
+        text: '{{ session('success') }}',
+        icon: 'success',
+        confirmButtonText: 'Oke',
+    });
+</script>
+@endif
 @endsection
