@@ -32,13 +32,13 @@
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Status</p>
-        <p class="type-2">Status Laporan Penemuan Hewan Liar</p>
+        <p class="type-2">Status Formulir Laporan Penemuan Hewan Peliharaan Liar</p>
     </div>
 </section>
 
 <section id="section-1-status-penemuan">
     <div class="container">
-        <h4 class="text-center">Status Laporan Penemuan Hewan Liar</h4>
+        <h4 class="text-center">Status Formulir Laporan Penemuan Hewan Peliharaan Liar</h4>
         <hr>
     </div>
     <div class="container">
@@ -90,16 +90,16 @@
                                     @endif
                                 </div>
                             </div>
-                            <p class="card-text">Lokasi: {{ $item->location }}</p>
                             <p class="card-text">Jenis Hewan: {{ $item->animal_type }}</p>
+                            <p class="card-text">Lokasi: {{ $item->location }}</p>
                             <p class="card-text">Deskripsi: {{ $item->description }}</p>
                             
                             <div class="border border-black p-3 me-3 my-3">
-                                <p class="mb-2 fw-bold">Catatan Admin: </p>
+                                <p class="mb-2 fw-bold">Respon Admin: </p>
                                 <p class="mb-0">{{ $item->admin_feedback ?? 'Belum ada catatan' }}</p>
                             </div>
                             <div class="d-flex justify-content-end gap-2 me-3 mb-3">
-                                <a href="{{ route('status-laporan.detail', $item->report_form_id) }}" class="btn btn-primary">Detail Formulir Report</a>
+                                <a href="{{ route('status-laporan.detail', $item->report_form_id) }}" class="btn btn-primary">Detail Formulir</a>
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
 
         @if($reports->isEmpty())
             <div class="alert alert-info text-center">
-                Belum ada laporan yang dibuat
+                Belum ada laporan penemuan hewan peliharaan liar yang dibuat
             </div>
         @endif
     </div>

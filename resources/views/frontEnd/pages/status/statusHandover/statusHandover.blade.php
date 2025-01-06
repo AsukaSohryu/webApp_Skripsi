@@ -37,13 +37,13 @@
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Status</p>
-        <p class="type-2">Status Laporan Pengajuan Penyerahan Hewan</p>
+        <p class="type-2">Status Formulir Pengajuan Penyerahan Hewan</p>
     </div>
 </section>
 
 <section id="section-1-status-penemuan">
     <div class="container">
-        <h4 class="text-center">Status Laporan Pengajuan Penyerahan Hewan</h4>
+        <h4 class="text-center">Status Formulir Pengajuan Penyerahan Hewan</h4>
         <hr>
     </div>
     <div class="container">
@@ -100,7 +100,7 @@
                                 <p class="mb-0">{{ $item->admin_feedback ?? 'Belum ada catatan' }}</p>
                             </div>
                             <div class="d-flex justify-content-end gap-2 me-3 mb-3">
-                                <a href="{{ route('status-penyerahan.detail', $item->handover_form_id) }}" class="btn btn-primary">Detail Formulir Handover</a>
+                                <a href="{{ route('status-penyerahan.detail', $item->handover_form_id) }}" class="btn btn-primary">Detail Formulir</a>
                             </div>
                         </div>
                     </div>

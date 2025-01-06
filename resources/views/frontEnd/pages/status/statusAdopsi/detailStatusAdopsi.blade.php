@@ -30,7 +30,7 @@
         <div class="row my-3">
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Nama Pengguna</label>
+                    <label for="">Nama Pengaju</label>
                     <input type="text" name="userName" id="userName" value="{{$adoptions->users->name}}" class="form-control" disabled>
                 </div>
             </div>
@@ -46,13 +46,13 @@
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Alamat Pengguna</label>
+                    <label for="">Alamat</label>
                     <input type="text" name="address" id="address" value="{{$adoptions->users->address}}" class="form-control" disabled>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Pekerjaan Pengguna</label>
+                    <label for="">Pekerjaan</label>
                     <input type="text" name="job" id="job" value="{{$adoptions->users->job}}" class="form-control" disabled>
                 </div>
             </div>
@@ -103,7 +103,7 @@
             {{-- Updateable Field --}}
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Status Laporan</label>
+                    <label for="">Status Formulir</label>
                     <input type="text" name="statusAdopsi" id="statusAdopsi" value="{{$adoptions->status->status}}" class="form-control" disabled>
                 </div>
             </div>

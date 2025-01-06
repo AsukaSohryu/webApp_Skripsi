@@ -17,20 +17,20 @@
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Status</p>
-        <p class="type-2">Status Laporan Penemuan Hewan Hilang</p>
+        <p class="type-2">Status Formulir Laporan Penemuan Hewan Peliharaan Liar</p>
     </div>
 </section>
 
 <section id="section-1-status-penemuan">
     <div class="container">
-        <h4 class="text-center">Status Laporan Penemuan Hewan Hilang</h4>
+        <h4 class="text-center">Status Formulir Laporan Penemuan Hewan Peliharaan Liar</h4>
         <hr class="my-0">
     </div>
     <div class="container justify-content-center">
         <div class="row my-3">
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Nama Pengguna</label>
+                    <label for="">Nama Pengaju</label>
                     <input type="text" name="userName" id="userName" value="{{$reports->users->name}}" class="form-control" disabled>
                 </div>
             </div>
@@ -46,13 +46,13 @@
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Alamat Pengguna</label>
+                    <label for="">Alamat</label>
                     <input type="text" name="address" id="address" value="{{$reports->users->address}}" class="form-control" disabled>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Pekerjaan Pengguna</label>
+                    <label for="">Pekerjaan</label>
                     <input type="text" name="job" id="job" value="{{$reports->users->job}}" class="form-control" disabled>
                 </div>
             </div>
@@ -121,7 +121,7 @@
             {{-- Updateable Field --}}
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Status Laporan</label>
+                    <label for="">Status Formulir</label>
                     <input type="text" name="statusReport" id="statusReport" value="{{$reports->status->status}}" class="form-control" disabled>
                 </div>
             </div>

@@ -17,20 +17,20 @@
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Status</p>
-        <p class="type-2">Status Laporan Pengajuan Penyerahan Hewan</p>
+        <p class="type-2">Status Formulir Pengajuan Penyerahan Hewan</p>
     </div>
 </section>
 
 <section id="section-1-status-penemuan">
     <div class="container">
-        <h4 class="text-center">Status Laporan Pengajuan Penyerahan Hewan</h4>
+        <h4 class="text-center">Status Formulir Pengajuan Penyerahan Hewan</h4>
         <hr>
     </div>
     <div class="container justify-content-center">
         <div class="row my-3">
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Nama Pengguna</label>
+                    <label for="">Nama Pengaju</label>
                     <input type="text" name="userName" id="userName" value="{{$handovers->users->name}}" class="form-control" disabled>
                 </div>
             </div>
@@ -46,13 +46,13 @@
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Alamat Pengguna</label>
+                    <label for="">Alamat</label>
                     <input type="text" name="address" id="address" value="{{$handovers->users->address}}" class="form-control" disabled>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Pekerjaan Pengguna</label>
+                    <label for="">Pekerjaan</label>
                     <input type="text" name="job" id="job" value="{{$handovers->users->job}}" class="form-control" disabled>
                 </div>
             </div>
@@ -91,7 +91,7 @@
             {{-- Updateable Field --}}
             <div class="row my-3">
                 <div class="col">
-                    <label for="">Status Laporan</label>
+                    <label for="">Status Formulir</label>
                     <input type="text" name="statusAdopsi" id="statusAdopsi" value="{{$handovers->status->status}}" class="form-control" disabled>
                 </div>
             </div>
