@@ -40,7 +40,7 @@
             {{-- Profile User --}}
             <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-2">Nama Pemilik</label>
+                    <label for="" class="my-2">Nama Pengaju</label>
                     <input type="text" name="namaPemilik" id="namaPemilik" class="form-control" value="{{$user->name}}" disabled>
                 </div>
             </div>
@@ -56,7 +56,7 @@
             </div>
             <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-2">Alamat Pemilik</label>
+                    <label for="" class="my-2">Alamat</label>
                     <input type="text" name="alamatPemilik" id="alamatPemilik" class="form-control" value="{{$user->address}}" disabled>
                 </div>
             </div>

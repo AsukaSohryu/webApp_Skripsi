@@ -50,7 +50,7 @@
             {{-- Profile User --}}
             <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-2">Nama Pelapor</label>
+                    <label for="" class="my-2">Nama Pengaju</label>
                     <input type="text" name="namaPemilik" id="namaPemilik" class="form-control" value="{{$user->name}}" disabled>
                 </div>
             </div>
@@ -94,21 +94,21 @@
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <label for="" class="my-3">Upload Foto Hewan</label>
+                    <label for="" class="my-3">Unggah Foto Hewan</label>
                     <input type="file" name="fotoHewan" id="fotoHewan" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml" required>
                     <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <label for="" class="my-3">Upload Foto Lokasi Penemuan</label>
+                    <label for="" class="my-3">Unggah Foto Lokasi Penemuan</label>
                     <input type="file" name="fotoLokasi" id="fotoLokasi" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml" required>
                     <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col">
-                    <label for="" class="my-3">Upload Foto Pendukung</label>
+                    <label for="" class="my-3">Unggah Foto Pendukung</label>
                     <input type="file" name="fotoBebas" id="fotoBebas" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml">
                     <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
                 </div>
