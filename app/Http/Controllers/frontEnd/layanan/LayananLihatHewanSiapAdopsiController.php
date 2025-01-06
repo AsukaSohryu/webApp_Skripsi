@@ -17,7 +17,6 @@ class LayananLihatHewanSiapAdopsiController extends Controller
     public function index()
     {
         $animals = animal::where('is_active', 1)
-            ->whereIn('status_id', [16, 17, 18])
             ->paginate(9);
         //  dd($animals);
         $shelterInformation = shelterInformation::where('shelter_id', 1)->first();
@@ -95,10 +94,10 @@ class LayananLihatHewanSiapAdopsiController extends Controller
             'status_id' => $statusAnimalId,
         ]);
 
-        if($update){
+        if ($update) {
             return redirect()->route('layanan-lihat')->with('success', 'Pengajuan berhasil dibuat!');
         } else {
             return redirect()->route('layanan-lihat')->with('error', 'Pengajuan gagal dibuat!');
-        } 
+        }
     }
 }
