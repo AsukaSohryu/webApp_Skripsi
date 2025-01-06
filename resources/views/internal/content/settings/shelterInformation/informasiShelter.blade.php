@@ -166,7 +166,7 @@
         <h1 class="text-center">Informasi Halaman Formulir</h1>
         <div class="row my-3">
             <div class="col">
-                <label for="">Informasi Formulir Laporan Penemuan Hewan Liar</label>
+                <label for="">Informasi Formulir Laporan Penemuan Hewan Peliharaan Liar</label>
                 <textarea name="reportInfo" id="summernote1" class="form-control">{{$shelterInformation->report_information}}</textarea>
             </div>
         </div>
@@ -178,7 +178,7 @@
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Informasi Formulir Laporan Penemuan Hewan Liar</label>
+                <label for="">Informasi Formulir Pengajuan Pengadopsian Hewan</label>
                 <textarea name="adoptionInfo" id="summernote3" class="form-control">{{$shelterInformation->adoption_information}}</textarea>
             </div>
         </div>
@@ -187,7 +187,7 @@
         <div class="row my-3 p-3">
             <div class="d-flex flex-row justify-content-between p-3" style="background-color: #CADFF2; border-radius: .475rem;">
                 <div class="col d-flex align-items-center">
-                    <label for=""><b>Status Penerimaan Laporan Penemuan Hewan Liar</b></label>
+                    <label for=""><b>Status Penerimaan Laporan Penemuan Hewan Peliharaan Liar</b></label>
                 </div>
                 <div class="col d-flex align-items-center justify-content-end">
                     <input type="checkbox" id="check" {{ $shelterInformation->is_accepting_report == 1 ? 'checked' : '' }} disabled>

@@ -34,6 +34,10 @@
 @else
 <section id="section-1-layanan-pengadopsian">
     <div class="container">
+        <h1 class="text-center">Daftar Hewan Pada Shelter</h1>
+        <hr />
+    </div>
+    <div class="container">
         <div class="row">
             @foreach($animals as $animal)
                 <div class="col-md-4 mb-4">
@@ -41,8 +45,8 @@
                         <img src="{{ asset('storage/animal/' . $animal->photo) }}" class="card-img-top" alt="{{ $animal->animal_name }}" style="object-fit: cover; height: 200px;">
                         <div class="card-body m-0 p-0">
                             <div class="justify-content-center bg-light p-3">
-                                <h6 class="card-title">Nama Hewan: {{ $animal->animal_name }}</h6>
-                                <h6 class="card-title">Usia Hewan:
+                                <h6 class="card-text small">Nama Hewan: {{ $animal->animal_name }}</h6>
+                                <h6 class="card-text small">Usia Hewan:
                                     @php
                                         $birthDate = new DateTime($animal->birth_date);
                                         $today = new DateTime();
@@ -82,8 +86,9 @@
                                     @endphp
                                     {{ $limitedDescription }}{{ count($words) > 15 ? '...' : '' }}
                                 </h6>
+                                <h6 class="card-text small">Status Hewan: {{ $animal->status_name }}</h6>
                             </div>
-                            <a href="{{ route('layanan-adopsi.detail', $animal->animal_id ) }}" class="btn d-flex justify-content-center btn-secondary btn-block rounded-0">Adopsi</a>
+                            <a href="{{ route('layanan-adopsi.detail', $animal->animal_id ) }}" class="btn d-flex justify-content-center btn-secondary btn-block rounded-0">Detail Hewan</a>
                         </div>
                     </div>
                 </div>

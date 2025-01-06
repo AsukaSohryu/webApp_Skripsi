@@ -37,8 +37,9 @@
 <section id="section-1-layanan-penyerahan">
     <div class="container">
         <div class="row my-2">
+            <h1 class="text-center">Formulir Pengajuan Penyerahan Hewan</h1>
+            <hr />
             <div class="col">
-                <h5>Formulir Pengajuan Penyerahan Hewan</h5>
                 <div class="mt-3">
                     {!! $shelterInformation->handover_information !!}
                 </div>

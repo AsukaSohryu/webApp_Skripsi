@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 
 class StatusAdopsiController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         $userId = auth()->id();
         $adoption = AdoptionForm::where('user_id', $userId)
@@ -24,7 +25,8 @@ class StatusAdopsiController extends Controller
         ]);
     }
 
-    public function detail($adoption_form_id){
+    public function detail($adoption_form_id)
+    {
         // $adoption = AdoptionForm::where('adoption_form_id', $adoption_form_id)->first();
         $adoptionForm = adoptionForm::with(['users', 'status', 'animal', 'adoptionQuestions' => function ($query) {
             $query->withPivot('answer');

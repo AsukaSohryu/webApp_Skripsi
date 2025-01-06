@@ -132,31 +132,26 @@
                 <input type="text" name="tanggalDataTerakhirDiperbaharui" id="tanggalDataTerakhirDiperbaharui" value="{{ $animal->updated_at }}" class="form-control text-muted" readonly>
             </div>
         </div>
-    </div>
-    @if($animal->status_id == $statusAVL)
-    <div class="container">
-        <div class="row my-4">
-            <div class="col-12 d-flex justify-content-center">
-                <a href="{{ route('layanan-adopsi.create', $animal->animal_id ) }}" 
-                   class="btn btn-primary px-5 py-2">
-                    Isi Formulir Adopsi
-                </a>
+        @if($animal->status_id == $statusAVL)
+            <div class="row">
+                <div class="gap-3 my-10 d-flex justify-content-end">
+                    <a href="{{ route('layanan-adopsi.create', $animal->animal_id ) }}" 
+                       class="btn btn-primary px-5 py-2">
+                        Ajukan Pengadopsian
+                    </a>
+                </div>
             </div>
-        </div>
-    </div>
-    @else
-    <div class="container">
-        <div class="row my-4">
-            <div class="col-12 d-flex justify-content-center">
-                <a href="{{ route('layanan-adopsi.create', $animal->animal_id ) }}" 
-                   class="btn btn-primary px-5 py-2 disabled">
-                    Tidak Bisa Mengajukan Adopsi
-                </a>
+        @else
+            <div class="row">
+                <div class="gap-3 my-10 d-flex justify-content-end">
+                    <a href="{{ route('layanan-adopsi.create', $animal->animal_id ) }}" 
+                       class="btn btn-primary px-5 py-2 disabled">
+                        Tidak Bisa Mengajukan Adopsi
+                    </a>
+                </div>
             </div>
-        </div>
+        @endif
     </div>
-    @endif
-
 
 </section>
 <script>

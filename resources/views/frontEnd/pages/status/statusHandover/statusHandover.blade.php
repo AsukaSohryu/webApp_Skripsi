@@ -97,7 +97,7 @@
                             
                             <div class="border border-black p-3 me-3 my-3">
                                 <p class="mb-2 fw-bold">Catatan Admin: </p>
-                                <p class="mb-0">{{ $item->admin_feedback ?? 'Belum ada catatan' }}</p>
+                                <p class="mb-0">{{ $item->admin_feedback ?? 'Belum ada tanggapan' }}</p>
                             </div>
                             <div class="d-flex justify-content-end gap-2 me-3 mb-3">
                                 <a href="{{ route('status-penyerahan.detail', $item->handover_form_id) }}" class="btn btn-primary">Detail Formulir</a>

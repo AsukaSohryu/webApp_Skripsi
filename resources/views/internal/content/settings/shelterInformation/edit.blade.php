@@ -196,7 +196,7 @@
             <div class="row my-3 p-3">
                 <div class="d-flex flex-row justify-content-between p-3" style="background-color: #CADFF2; border-radius: .475rem;">
                     <div class="col d-flex align-items-center">
-                        <label for="reportToggle"><b>Status Penerimaan Laporan Penemuan Hewan Liar</b></label>
+                        <label for="reportToggle"><b>Status Penerimaan Laporan Penemuan Hewan Peliharaan Liar</b></label>
                     </div>
                     <div class="col d-flex align-items-center justify-content-end">
                         <input type="hidden" name="is_accepting_report" value="0"> <!-- Hidden input for unchecked state -->

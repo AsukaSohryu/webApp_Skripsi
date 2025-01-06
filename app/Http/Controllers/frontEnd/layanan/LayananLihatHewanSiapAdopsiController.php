@@ -17,6 +17,7 @@ class LayananLihatHewanSiapAdopsiController extends Controller
     public function index()
     {
         $animals = animal::where('is_active', 1)
+            ->with('status')
             ->paginate(9);
         //  dd($animals);
         $shelterInformation = shelterInformation::where('shelter_id', 1)->first();

@@ -25,9 +25,12 @@
 <section id="section-1-layanan-adopsi">
     <div class="container">
         <div class="row my-2">
+            <h1 class="text-center">Formulir Pengajuan Pengadopsian Hewan</h1>
+            <hr />
             <div class="col">
-                <label for="">Formulir Pengajuan Penyerahan Hewan</label>
-                <p class="form-control" style="border: none; background: none; margin-top: 10px;">{{$shelterInformation->adoption_information}}</p>
+                <div class="mt-3">
+                    {!! $shelterInformation->adoption_information !!}
+                </div>
             </div>
         </div>
     </div>

@@ -34,9 +34,15 @@
 @else
 <section id="section-1-laporan-penemuan">
     <div class="container">
-        <h1 class="text-center">Laporan Penemuan Hewan Peliharaan Liar</h1>
-        <hr />
-        {!! $shelterInformation->report_information !!}
+        <div class="row my-2">
+            <h1 class="text-center">Laporan Penemuan Hewan Peliharaan Liar</h1>
+            <hr />
+            <div class="col">
+                <div class="mt-3">
+                    {!! $shelterInformation->report_information !!}
+                </div>
+            </div>
+        </div>
     </div>
     <div class="container border border-black my-3" style="border-radius: 16px">
         <form action="{{ route('layanan-laporan-post') }}" method="POST" class="m-4" enctype="multipart/form-data" id="formLaporan">
@@ -107,12 +113,9 @@
                     <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
                 </div>
             </div>
-            <div class="row my-3">
-                <div class="gap-3 mt-4 d-flex justify-content-center">
-                    <button class="btn btn-primary" style="border: 0;" title="Kirim Laporan" id="submitForm">Kirim Laporan</button>
-                </div>
+            <div class="gap-3 my-10 d-flex justify-content-end">
+                <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Kirim Laporan</button>
             </div>
-            
         </form>
     </div>
 </section>
