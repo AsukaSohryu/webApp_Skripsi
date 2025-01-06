@@ -32,13 +32,13 @@
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Status</p>
-        <p class="type-2">Status Formulir Laporan Penemuan Hewan Peliharaan Liar</p>
+        <p class="type-2">Status Laporan Penemuan Hewan Peliharaan Liar</p>
     </div>
 </section>
 
 <section id="section-1-status-penemuan">
     <div class="container">
-        <h4 class="text-center">Status Formulir Laporan Penemuan Hewan Peliharaan Liar</h4>
+        <h4 class="text-center">Status Laporan Penemuan Hewan Peliharaan Liar</h4>
         <hr>
     </div>
     <div class="container">
