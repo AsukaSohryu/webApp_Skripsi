@@ -23,12 +23,12 @@
     <div class="container">
         <h2>Ubah Profil</h2>
         <hr />
-        <form action="{{ route('edit-profil.post') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('edit-profil.post') }}" method="POST" enctype="multipart/form-data" id="formDetailProfile">
             <input type="hidden" name="id" value="{{ $user->user_id }}">
             @csrf
             <div class="row my-3">
-                <div class="col-4">
-                    <img src="" alt="">
+                <div class="col-4 d-flex align-items-center flex-column">
+                    <img src="{{ asset('storage/profile/' . $user->photo) }}" alt="" style="width: 250px; height: 250px; object-fit: cover; border-radius: 50%;">
                     <input type="file" class="form-control my-3" name="photo">
                     <p>Current File: {{ $user->photo }}</p>
                 </div>
@@ -60,8 +60,9 @@
                 </div>
             </div>
             <div class="d-flex gap-2 justify-content-end">
-                <a href="{{ route('detail-profil') }}" class="btn btn-outline-danger">Batalkan</a>
-                <button class="btn btn-outline-secondary" type="submit">Simpan Perubahan</button>
+                <a href="{{ route('detail-profil') }}" class="btn btn-danger">Batalkan</a>
+                <button class="btn btn-succcess border-0" type="submit" id="submitForm" style="background-color: #50CD89; color: white
+                ;">Simpan Perubahan</button>
             </div>
             
         </form>
@@ -70,5 +71,55 @@
 @endsection
 
 @section('js')
+<script>
+    document.getElementById('submitForm').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
 
+        // Show SweetAlert2 confirmation popup
+        Swal.fire({
+                title: 'Apakah Anda Yakin?',
+                text: "Jawaban Anda Tidak Dapat Diubah Kembali",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Saya Yakin',
+                cancelButtonText: 'Tidak, Kembali',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If "Yes, submit it!" is clicked, submit the form
+                    document.getElementById('formDetailProfile').submit();
+                }
+            });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Function to check if all form fields are filled
+        function checkEmptyFields() {
+            let isEmpty = false;
+
+            // Loop through all input fields to check if any is empty
+            $('input[type="text"], input[type="email"]').each(function() {
+                if ($(this).val().trim() === '') {
+                    isEmpty = true;  // If any field is empty
+                }
+            });
+
+            // If there is any empty field, disable the submit button
+            if (isEmpty) {
+                $('#submitForm').attr('disabled', true);
+            } else {
+                $('#submitForm').attr('disabled', false); // Enable the button if all fields are filled
+            }
+        }
+
+        // Check if fields are filled whenever any input changes
+        $('input[type="text"], input[type="email"]').on('keyup', function() {
+            checkEmptyFields();
+        });
+
+        // Initial check for the page load to set the correct state of the button
+        checkEmptyFields();  // This will enable the button if all fields have values when the page loads
+    });
+</script>
 @endsection

@@ -208,13 +208,42 @@
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Ya, Saya Yakin',
-                cancelButtonText: 'Tidak, Saya Ingin Mengubahnya',
+                cancelButtonText: 'Tidak, Kembali',
             }).then((result) => {
                 if (result.isConfirmed) {
                     // If "Yes, submit it!" is clicked, submit the form
                     document.getElementById('formPenyerahan').submit();
                 }
             });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Function to check if any textarea is empty
+        function checkEmptyFields() {
+            let isEmpty = false;
+            $('textarea').each(function() {
+                if ($(this).val().trim() === '') {
+                    isEmpty = true;  // If any textarea is empty, disable the submit button
+                }
+            });
+
+            // If there's an empty field, disable the submit button
+            if (isEmpty) {
+                $('#submitForm').attr('disabled', true);
+            } else {
+                $('#submitForm').attr('disabled', false); // Enable submit button if all fields are filled
+            }
+        }
+
+        // Check empty fields on keyup in any textarea
+        $('textarea').on('keyup', function() {
+            checkEmptyFields();
+        });
+
+        // Run the check initially in case fields are already filled
+        checkEmptyFields();
     });
 </script>
 @endsection

@@ -12,7 +12,8 @@ class StatusReportController extends Controller
     public function index(){
         
         $userId = auth()->id();
-        $report = reportForm::where('user_id', $userId)
+        $report = reportForm::with('status')
+            ->where('user_id', $userId)
             ->orderBy('created_at', 'desc')
             ->get();
 

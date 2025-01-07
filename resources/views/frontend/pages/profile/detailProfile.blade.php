@@ -22,45 +22,71 @@
     <div class="container" style="gap: 8px;">
         <h2>Profil Pengguna</h2>
         <hr />
-        @if (session('error'))
-            <div class="alert alert-danger">{{ session('error') }}</div>
-        @endif
-        @if (session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
         <div class="row my-3">
-            <div class="col-5 d-flex justify-content-center">
+            <div class="col-4">
                 <img src="{{ asset('storage/profile/' . $user->photo) }}" alt="" style="width: 250px; height: 250px; object-fit: cover; border-radius: 50%;">
             </div>
-            <div class="col-7 d-flex align-items-center">
-                <div class="row">
-                    <div class="col">
-                        <p>Nama: {{ $user->name }}</p>
-                        <p>Email: {{ $user->email }}</p>
-                        <p>Alamat: {{ $user->address }}</p>
-                    </div>
-                    <div class="col">
-                        <p>Nomor Telepon: {{ $user->phone_number }}</p>
-                        <p>Nomor Telepon: {{ $user->whatsapp_number }}</p>
-                        <p>Pekerjaan: {{ $user->job }}</p>
-                    </div>
+            <div class="col-8">
+                <div class="row my-3">
+                    <label for="">Nama Lengkap</label>
+                    <input type="text" class="form-control" value="{{ $user->name }}" name="name" disabled>
+                </div>
+                <div class="row my-3">
+                    <label for="">Email</label>
+                    <input type="email" class="form-control" value="{{ $user->email }}" name="email" disabled>
+                </div>
+                <div class="row my-3">
+                    <label for="">Alamat</label>
+                    <input type="text" class="form-control" value="{{ $user->address }}" name="address" disabled>
+                </div>
+                <div class="row my-3">
+                    <label for="">Nomor Whatsapp</label>
+                    <input type="text" class="form-control" value="{{ $user->whatsapp_number }}" name="whatsapp_number" disabled>
+                </div>
+                <div class="row my-3">
+                    <label for="">Nomor Telepon</label>
+                    <input type="text" class="form-control" value="{{ $user->phone_number }}" name="phone_number" disabled>
+                </div>
+                <div class="row my-3">
+                    <label for="">Pekerjaan</label>
+                    <input type="text" class="form-control" value="{{ $user->job }}" name="job" disabled>
                 </div>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
                 <a href="{{ route('edit-profil') }}" style="color: black">
-                    <button class="btn btn-outline-secondary" style="width: 100%;"><span>Ubah Profil</span></button>
+                    <button class="btn btn-success border-0" style="width: 100%; background-color: #50CD89;"><span>Ubah Profil</span></button>
                 </a>
             </div>
             <div class="col">
                 <a href="{{ route('edit-password') }}" style="color: black">
-                    <button class="btn btn-outline-secondary" style="width: 100%;"><span>Ubah Password</span></button>
+                    <button class="btn btn-outline-secondary" style="width: 100%;"><span>Ubah kata Sandi</span></button>
                 </a>
             </div>
         </div>
     </div>
 </section>
+@if (session('error'))
+    <script>
+        Swal.fire({
+            title: 'Gagal',
+            text: '{{ session('error') }}',
+            icon: 'error',
+            confirmButtonText: 'Oke'
+        });
+    </script>
+@endif
+@if (session('success'))
+    <script>
+        Swal.fire({
+            title: 'Berhasil',
+            text: '{{ session('success') }}',
+            icon: 'success',
+            confirmButtonText: 'Oke'
+        });
+    </script>
+@endif
 @endsection
 
 @section('js')

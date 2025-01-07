@@ -38,37 +38,37 @@
         <form action="{{ route('layanan-adopsi.create.post', $animal->animal_id) }}" method="post" class="m-4" enctype="multipart/form-data" id="formAdopsi">  
             @csrf
             {{-- Profile User --}}
-            <div class="row my-1">
+            <div class="row my-3">
                 <div class="col">
-                    <label for="" class="my-2">Nama Pengaju</label>
+                    <label for="" class="my-3">Nama Pengaju</label>
                     <input type="text" name="namaPemilik" id="namaPemilik" class="form-control" value="{{$user->name}}" disabled>
                 </div>
             </div>
-            <div class="row my-1">
+            <div class="row my-3">
                 <div class="col">
-                    <label for="" class="my-2">Nomor Telepon</label>
+                    <label for="" class="my-3">Nomor Telepon</label>
                     <input type="text" name="noTelp" id="noTelp" class="form-control" value="{{$user->phone_number}}" disabled>
                 </div>
                 <div class="col">
-                    <label for="" class="my-2">Nomor Whatsapp</label>
+                    <label for="" class="my-3">Nomor Whatsapp</label>
                     <input type="text" name="noWhatsapp" id="noWhatsapp" class="form-control" value="{{$user->whatsapp_number}}" disabled>
                 </div>
             </div>
-            <div class="row my-1">
+            <div class="row my-3">
                 <div class="col">
-                    <label for="" class="my-2">Alamat</label>
+                    <label for="" class="my-3">Alamat</label>
                     <input type="text" name="alamatPemilik" id="alamatPemilik" class="form-control" value="{{$user->address}}" disabled>
                 </div>
             </div>
             <hr>
             
             <!-- Displaying the handover questions -->
-            <div class="row my-2">  
+            <div class="row my-3">  
                 <div class="col">
                     @foreach($adoptionQuestions as $question)
                     <div class="col">
-                        <label>{{ $question->questions }}</label>
-                        <textarea class="form-control my-2" name="answers[{{ $question->adoption_question_id }}]" rows="3" placeholder="Masukan Jawaban Anda" required></textarea>
+                        <label class="my-3">{{ $question->questions }}</label>
+                        <textarea class="form-control" name="answers[{{ $question->adoption_question_id }}]" rows="3" placeholder="Masukan Jawaban Anda" required></textarea>
                     </div>
                     @endforeach
                 </div>
@@ -93,13 +93,42 @@
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Ya, Saya Yakin',
-                cancelButtonText: 'Tidak, Saya Ingin Mengubahnya',
+                cancelButtonText: 'Tidak, Kembali',
             }).then((result) => {
                 if (result.isConfirmed) {
                     // If "Yes, submit it!" is clicked, submit the form
                     document.getElementById('formAdopsi').submit();
                 }
             });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Function to check if any textarea is empty
+        function checkEmptyFields() {
+            let isEmpty = false;
+            $('textarea').each(function() {
+                if ($(this).val().trim() === '') {
+                    isEmpty = true;  // If any textarea is empty, disable the submit button
+                }
+            });
+
+            // If there's an empty field, disable the submit button
+            if (isEmpty) {
+                $('#submitForm').attr('disabled', true);
+            } else {
+                $('#submitForm').attr('disabled', false); // Enable submit button if all fields are filled
+            }
+        }
+
+        // Check empty fields on keyup in any textarea
+        $('textarea').on('keyup', function() {
+            checkEmptyFields();
+        });
+
+        // Run the check initially in case fields are already filled
+        checkEmptyFields();
     });
 </script>
 @endsection

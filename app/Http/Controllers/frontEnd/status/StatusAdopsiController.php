@@ -13,15 +13,16 @@ class StatusAdopsiController extends Controller
     {
 
         $userId = auth()->id();
-        $adoption = AdoptionForm::where('user_id', $userId)
+        $adoptions = AdoptionForm::with('status') // Eager load the status relationship
+            ->where('user_id', $userId)
             ->orderBy('created_at', 'desc')
             ->get();
+        // dd($adoption);
 
         return view('frontend.pages.status.statusAdopsi.statusAdopsi', [
             'pagetitle' => 'Status Pengajuan Pengadopsian Hewan',
-            'adoptions' => $adoption,
-            'user' => $userId
-
+            'adoptions' => $adoptions,
+            'user' => $userId,
         ]);
     }
 
@@ -39,7 +40,6 @@ class StatusAdopsiController extends Controller
         }
 
         $userName = $adoptionForm->users->name;
-
 
         // Get the status IDs for RJT, SUC, CAN
         $status = status::where('config', 'Form_Adoption_Status')->get();

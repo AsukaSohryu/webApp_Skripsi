@@ -17,6 +17,8 @@ class HewanDiselamatkanController extends Controller
             ->whereIn('key', ['RES', 'ONC'])
             ->pluck('status_id')
             ->toArray();
+
+        // dd($statusIds);
         
         $animals = animal::where('is_active', 1)
             ->where('created_at', '>=', $oneWeekAgo)
@@ -24,6 +26,8 @@ class HewanDiselamatkanController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
             // ->paginate(9);
+
+        // dd($animals);
 
         return view('frontend.pages.layanan.hewanDiselamatkan', [
             'pagetitle' => 'Hewan Diselamatkan',

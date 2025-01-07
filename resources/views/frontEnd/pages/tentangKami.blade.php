@@ -60,8 +60,14 @@
                 <h3>Jam Operasional</h3>
                 <p>{!! $shelterInformation->operational_hour !!}</p>
             </div>
-            <div class="col d-flex flex-column justify-content-center" style="background-color: white; border-radius: 8px;">
+            <div class="col d-flex flex-column justify-content-start" style="background-color: white; border-radius: 8px;">
                 <h3>Sosial Media</h3>
+                <div class="d-flex flex-column" style="gap: 8px;">
+                    <p class="m-0">{{ $shelterInformation->instagram }}</p>
+                    <p class="m-0">{{ $shelterInformation->facebook }}</p>
+                    <p class="m-0">{{ $shelterInformation->twitter }}</p>
+                    <p class="m-0">{{ $shelterInformation->youtube }}</p>
+                </div>
             </div>
         </div>
     </div>

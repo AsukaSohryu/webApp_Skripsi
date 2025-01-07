@@ -101,5 +101,26 @@
 				});
 			</script>
 		@enderror
+
+		@if (session('error'))
+			<script>
+				Swal.fire({
+					title: 'Gagal',
+					text: '{{ session('error') }}',
+					icon: 'error',
+					confirmButtonText: 'Oke'
+				});
+			</script>
+		@endif
+		@if (session('success'))
+			<script>
+				Swal.fire({
+					title: 'Berhasil',
+					text: '{{ session('success') }}',
+					icon: 'success',
+					confirmButtonText: 'Oke'
+				});
+			</script>
+		@endif
 	</body>
 </html>

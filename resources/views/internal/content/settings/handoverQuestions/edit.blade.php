@@ -116,31 +116,21 @@
                     <td class="text-start px-3 py-5" style="width: 80%">{{ $h->questions }}</td>
                     <td style="width: 15%">
                         <div class="d-flex align-items-center justify-content-start gap-3 py-3">
-                            @if($h->handover_questions_id >= 1 && $h->handover_questions_id <= 9)
                             <input type="hidden" name="activeStatus[{{ $h->handover_questions_id }}]" value="off">
+
+                            <!-- Checkbox with conditionally disabled behavior -->
                             <input type="checkbox" 
                                 class="toggle-checkbox-status"
                                 id="check-{{ $h->handover_questions_id }}" 
                                 name="activeStatus[{{ $h->handover_questions_id }}]"
                                 data-id="{{ $h->handover_questions_id }}"
-                                {{ $h->is_active == 1 ? 'checked' : '' }} disabled>
+                                {{ $h->is_active == 1 ? 'checked' : '' }}
+                                {{ ($h->handover_questions_id >= 1 && $h->handover_questions_id <= 9) ? 'disabled' : '' }}>
+
                             <label for="check-{{ $h->handover_questions_id }}" class="button"></label>
                             <label class="py-3 mb-0" id="isActive-{{ $h->handover_questions_id }}">
                                 <b>{{ $h->is_active == 1 ? 'Aktif' : 'Tidak Aktif' }}</b>
                             </label>
-                            @else
-                            <input type="hidden" name="activeStatus[{{ $h->handover_questions_id }}]" value="off">
-                            <input type="checkbox" 
-                                class="toggle-checkbox-status"
-                                id="check-{{ $h->handover_questions_id }}" 
-                                name="activeStatus[{{ $h->handover_questions_id }}]"
-                                data-id="{{ $h->handover_questions_id }}"
-                                {{ $h->is_active == 1 ? 'checked' : '' }}>
-                            <label for="check-{{ $h->handover_questions_id }}" class="button"></label>
-                            <label class="py-3 mb-0" id="isActive-{{ $h->handover_questions_id }}">
-                                <b>{{ $h->is_active == 1 ? 'Aktif' : 'Tidak Aktif' }}</b>
-                            </label>
-                            @endif
                         </div>
                     </td>
                 </tr>
@@ -163,7 +153,7 @@
                     Batalkan
                 </a>
                 <button type="submit" class="btn btn-primary" id="saveButton">
-                    <i class="fas fa-edit me-2"></i>Simpan Perubahan
+                    Simpan Perubahan
                 </button>
             </div>
             {{-- <button type="submit" id="deleteButton" class="btn btn-danger" style="display: none;" id="deleteButton">
@@ -264,7 +254,7 @@
 
 {{-- <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const checkboxes = document.querySelectorAll('.toggle-checkbox');
+        const checkboxes = document.querySelectorAll('.toggle-checkbox-status');
 
         checkboxes.forEach(checkbox => {
             const dataId = checkbox.getAttribute('data-id');
@@ -280,6 +270,30 @@
         });
     });
 </script> --}}
+
+<script>
+    document.querySelectorAll('.toggle-checkbox-status').forEach(checkbox => {
+        // Disable interaction for checkboxes with IDs 1-9 via JavaScript as well
+        if (checkbox.id.startsWith('check-') && parseInt(checkbox.id.split('-')[1]) <= 9) {
+            checkbox.disabled = true; // Ensure checkboxes 1-9 are not interactable
+        }
+
+        checkbox.addEventListener('change', function() {
+            // Only apply the change if the checkbox is not disabled
+            if (!this.disabled) {
+                let questionId = this.getAttribute('data-id');
+                let statusLabel = document.getElementById('isActive-' + questionId);
+
+                // Toggle the 'Aktif' or 'Tidak Aktif' label based on checkbox state
+                if (this.checked) {
+                    statusLabel.innerHTML = "<b>Aktif</b>";
+                } else {
+                    statusLabel.innerHTML = "<b>Tidak Aktif</b>";
+                }
+            }
+        });
+    });
+</script>
 
 <script>
     function addNewQuestion() {

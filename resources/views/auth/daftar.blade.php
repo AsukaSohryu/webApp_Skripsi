@@ -63,33 +63,51 @@
 										<h1 class="text-dark fw-bolder mb-3">Daftar</h1>
 										<div class="text-gray-500 fw-semibold fs-6">Buat Akun untuk Shelter Us</div>
 									</div>
-									<div class="fv-row mb-8">
+									<div class="fv-row mb-3">
+										<label for="" class="mb-3">Email</label>
 										<input type="text" placeholder="Email" id="email" name="email" autocomplete="off" class="form-control bg-transparent" />
-										<br>
 										@error('email')
-											<div class="alert alert-danger">{{ $message }}</div>
+											<script>
+												Swal.fire({
+													title: 'Gagal',
+													text: '{{ $message }}',
+													icon: 'error',
+													confirmButtonText: 'Oke'
+												});
+											</script>
 										@enderror
 									</div>
-									<div class="fv-row mb-8">
+									<div class="fv-row mb-3">
+										<label for="" class="mb-3">Nama</label>
 										<input type="text" placeholder="Nama" id="name" name="name" autocomplete="off" class="form-control bg-transparent" />
-										<br>
 										@error('name')
-											<div class="alert alert-danger">{{ $message }}</div>
+											Swal.fire({
+													title: 'Gagal',
+													text: '{{ $message }}',
+													icon: 'error',
+													confirmButtonText: 'Oke'
+												});
 										@enderror
 									</div>
-									<div class="fv-row mb-8" data-kt-password-meter="true">
+									<div class="fv-row mb-3" data-kt-password-meter="true">
 										<!--begin::Wrapper-->
 										<div class="mb-1">
 											<!--begin::Input wrapper-->
 											<div class="position-relative mb-3">
-												<input class="form-control bg-transparent" type="password" placeholder="Password" name="password" id="password" autocomplete="off" />
-												<span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+												<label for="" class="mb-3">Kata Sandi</label>
+												<input class="form-control bg-transparent" type="password" placeholder="Kata Sandi" name="password" id="password" autocomplete="off" />
+												<span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility" style="top: 70% !important;">
 													<i class="bi bi-eye-slash fs-2"></i>
 													<i class="bi bi-eye fs-2 d-none"></i>
 												</span>
-												<br>
+	
 												@error('password')
-													<div class="alert alert-danger">{{ $message }}</div>
+													Swal.fire({
+													title: 'Gagal',
+													text: '{{ $message }}',
+													icon: 'error',
+													confirmButtonText: 'Oke'
+												});
 												@enderror
 											</div>
 											<!--end::Input wrapper-->
@@ -107,16 +125,18 @@
 										<div class="text-muted">Gunakan 8 karakter atau lebih dengan campuran huruf, angka, dan simbol.</div>
 										<!--end::Hint-->
 									</div>
-									<div class="fv-row mb-8">
-										<input placeholder="Konfirmasi Password" id="confirm_password" name="confirm-password" type="password" id="confirm_password" autocomplete="off" class="form-control bg-transparent" />
+									<div class="fv-row mb-3">
+										<label for="" class="mb-3">Konfirmasi Kata Sandi</label>
+										<input placeholder="Konfirmasi Kata Sandi" id="confirm_password" name="confirm-password" type="password" id="confirm_password" autocomplete="off" class="form-control bg-transparent" />
 									</div>
 									<div class="d-grid mb-10">
-										<button type="button" class="btn btn-primary" onclick="goToStep2()">Next</button>
+										<button type="button" class="btn btn-primary" onclick="goToStep2()" id="nextButton">Selanjutnya</button>
+										<br>
+										<div class="text-gray-500 text-center fw-semibold fs-6">Sudah Memiliki Akun?
+										<a href="{{ route('masuk') }}" class="link-primary">Masuk</a></div>
 									</div>
 								</form>
 							</div>
-							<div class="text-gray-500 text-center fw-semibold fs-6">Sudah Memiliki Akun?
-							<a href="{{ route('masuk') }}" class="link-primary">Masuk</a></div>
 
 							<!-- Step 2: Password Setup -->
 							<div id="step2" style="display: none;">
@@ -129,49 +149,80 @@
 									<input type="hidden" id="hidden_password" name="password" />
 									<input type="hidden" id="hidden_confirm_password" name="password_confirmation" />
 
-									<div class="text-center mb-11">
+									<div class="text-center mb-8">
 										<h1 class="text-dark fw-bolder mb-3">Data Pribadi</h1>
 										<div class="text-gray-500 fw-semibold fs-6">Kelengkapan Data Pribadi</div>
 									</div>
-									<div class="fv-row mb-8">
+									<div class="fv-row mb-3">
+										<label for="" class="mb-3">Foto</label>
 										<input type="file" placeholder="Foto" id="foto" name="foto" class="form-control bg-transparent" />
-										<br>
 										@error('foto')
-											<div class="alert alert-danger">{{ $message }}</div>
+											Swal.fire({
+													title: 'Gagal',
+													text: '{{ $message }}',
+													icon: 'error',
+													confirmButtonText: 'Oke'
+												});
 										@enderror
 									</div>
-									<div class="fv-row mb-8">
+									<div class="fv-row mb-3">
+										<label for="" class="mb-3">Alamat</label>
 										<input type="text" placeholder="Alamat" id="alamat" name="alamat" class="form-control bg-transparent" />
-										<br>
 										@error('alamat')
-											<div class="alert alert-danger">{{ $message }}</div>
+											Swal.fire({
+													title: 'Gagal',
+													text: '{{ $message }}',
+													icon: 'error',
+													confirmButtonText: 'Oke'
+												});
 										@enderror
 									</div>
-									<div class="fv-row mb-8">
+									<div class="fv-row mb-3">
+										<label for="" class="mb-3">Pekerjaan</label>
 										<input type="text" placeholder="Pekerjaan" id="pekerjaan" name="pekerjaan" class="form-control bg-transparent" />
-										<br>
 										@error('pekerjaan')
-											<div class="alert alert-danger">{{ $message }}</div>
+											Swal.fire({
+													title: 'Gagal',
+													text: '{{ $message }}',
+													icon: 'error',
+													confirmButtonText: 'Oke'
+												});
 										@enderror
 									</div>
-									<div class="fv-row mb-8">
+									<div class="fv-row mb-3">
+										<label for="" class="mb-3">Tanggal Lahir</label>
 										<input type="date" placeholder="Tanggal Lahir" id="BOD" name="BOD" class="form-control bg-transparent" />
-										<br>
 										@error('BOD')
-											<div class="alert alert-danger">{{ $message }}</div>
+											Swal.fire({
+													title: 'Gagal',
+													text: '{{ $message }}',
+													icon: 'error',
+													confirmButtonText: 'Oke'
+												});
 										@enderror
 									</div>
-									<div class="fv-row mb-8">
+									<div class="fv-row mb-3">
+										<label for="" class="mb-3">Nomor WhatsApp</label>
 										<input type="text" placeholder="Nomor WhatsApp" id="whatsapp" name="whatsapp" class="form-control bg-transparent" />
 										@error('whatsapp')
-											<div class="alert alert-danger">{{ $message }}</div>
+											Swal.fire({
+													title: 'Gagal',
+													text: '{{ $message }}',
+													icon: 'error',
+													confirmButtonText: 'Oke'
+												});
 										@enderror
 									</div>
-									<div class="fv-row mb-8">
+									<div class="fv-row mb-3">
+										<label for="" class="mb-3">Nomor Telepon</label>
 										<input type="text" placeholder="Nomor Telepon" id="notelp" name="notelp" class="form-control bg-transparent" />
-										<br>
 										@error('notelp')
-											<div class="alert alert-danger">{{ $message }}</div>
+											Swal.fire({
+													title: 'Gagal',
+													text: '{{ $message }}',
+													icon: 'error',
+													confirmButtonText: 'Oke'
+												});
 										@enderror
 									</div>
 									<div class="d-grid mb-10">
@@ -197,19 +248,48 @@
 
 				// Basic validation
 				if (!email || !name) {
-					alert('Mohon isi semua field pada langkah ini.');
+					// alert('Mohon isi semua field pada langkah ini.');
+					Swal.fire({
+						title: 'Gagal',
+						text: 'Mohon isi semua field pada langkah ini.',
+						icon: 'error',
+						confirmButtonText: 'Oke'
+					});
+					return;
+				}
+
+				const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+				if (!emailPattern.test(email)) {
+					Swal.fire({
+						title: 'Gagal',
+						text: 'Mohon masukkan email yang valid.',
+						icon: 'error',
+						confirmButtonText: 'Oke'
+					});
 					return;
 				}
 
 				// Password validation
 				if (password.length < 8) {
 					event.preventDefault();
-					alert('Password harus memiliki setidaknya 8 karakter.');
+					Swal.fire({
+						title: 'Gagal',
+						text: 'Password harus memiliki setidaknya 8 karakter.',
+						icon: 'error',
+						confirmButtonText: 'Oke'
+					});
+					// alert('Password harus memiliki setidaknya 8 karakter.');
 					return;
 				}
 				if (password !== confirmPassword) {
 					event.preventDefault();
-					alert('Password dan konfirmasi password tidak sama.');
+					Swal.fire({
+						title: 'Gagal',
+						text: 'Password dan konfirmasi password tidak sama.',
+						icon: 'error',
+						confirmButtonText: 'Oke'
+					});
+					// alert('Password dan konfirmasi password tidak sama.');
 					return;
 				}
 
@@ -230,8 +310,61 @@
 				const BOD = document.getElementById('BOD').value;
 				const whatsapp = document.getElementById('whatsapp').value;
 				const notelp = document.getElementById('notelp').value;
+
+				// Basic validation
+				if (!foto || !alamat || !pekerjaan || !BOD || !whatsapp || !notelp) {
+					// alert('Mohon isi semua field pada langkah ini.');
+					Swal.fire({
+						title: 'Gagal',
+						text: 'Mohon isi semua field pada langkah ini.',
+						icon: 'error',
+						confirmButtonText: 'Oke'
+					});
+					event.preventDefault();
+					return;
+				}
+
+				// Validate if BOD is before today
+				const today = new Date();  // Get current date
+				console.log(today);
+				const birthDate = new Date(BOD);
+				console.log(birthDate);  // Convert BOD to Date object
+
+				// Compare BOD with current date
+				if (birthDate >= today) {
+					Swal.fire({
+						title: 'Gagal',
+						text: 'Tanggal lahir tidak bisa lebih dari hari ini.',
+						icon: 'error',
+						confirmButtonText: 'Oke'
+					});
+					event.preventDefault();  // Prevent form submission if BOD is invalid
+					return;
+				}
 			});
 		</script>
+
+		@if (session('error'))
+			<script>
+				Swal.fire({
+					title: 'Gagal',
+					text: '{{ session('error') }}',
+					icon: 'error',
+					confirmButtonText: 'Oke'
+				});
+			</script>
+		@endif
+		@if (session('success'))
+			<script>
+				Swal.fire({
+					title: 'Berhasil',
+					text: '{{ session('success') }}',
+					icon: 'success',
+					confirmButtonText: 'Oke'
+				});
+			</script>
+		@endif
+
 		<!--end::Root-->
 		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>

@@ -63,31 +63,23 @@
                                 <h5 class="card-title d-flex align-items-center mb-0">
                                     {{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}
                                 </h5>
-                                <div class="alert 
-                                @if($item->status_id == 1)
-                                    alert-warning
-                                @elseif($item->status_id == 2)
-                                    alert-warning
-                                @elseif($item->status_id == 3)
-                                    alert-success
-                                @elseif($item->status_id == 4)
-                                    alert-danger
-                                @else
-                                    alert-danger
-                                @endif
-                                py-2 px-1 mb-0">
-                                    Status: 
-                                    @if($item->status_id == 1)
-                                        Penyelematkan Diajukan
-                                    @elseif($item->status_id == 2)
-                                        Dalam Proses Penyelematan
-                                    @elseif($item->status_id == 3)
-                                        Hewan Sukses Diselamatkan
-                                    @elseif($item->status_id == 4)
-                                        Hewan Tidak Ditemukan
-                                    @else
-                                        Lainnya
-                                    @endif
+                                @php
+                                    $btnClass = '';
+
+                                    if ($item->status->key == 'REQ') {
+                                        $btnClass = 'alert-warning';
+                                    } elseif ($item->status->key == 'ONP') {
+                                        $btnClass = 'alert-warning';
+                                    } elseif ($item->status->key == 'RSC') {
+                                        $btnClass = 'alert-success';
+                                    } elseif ($item->status->key == 'NFD') {
+                                        $btnClass = 'alert-danger';
+                                    } elseif ($item->status->key == 'OTH') {
+                                        $btnClass = 'alert-danger';
+                                    }
+                                @endphp
+                                <div class="alert {{$btnClass}} py-2 px-1 mb-0">
+                                    Status: {{$item->status->status}}
                                 </div>
                             </div>
                             <p class="card-text">Jenis Hewan: {{ $item->animal_type }}</p>

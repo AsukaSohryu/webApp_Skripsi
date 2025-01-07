@@ -109,7 +109,7 @@
             <div class="row my-3">
                 <div class="col">
                     <label for="" class="my-3">Unggah Foto Pendukung</label>
-                    <input type="file" name="fotoBebas" id="fotoBebas" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml">
+                    <input type="file" name="fotoBebas" id="fotoBebas" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml" required>
                     <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
                 </div>
             </div>
@@ -145,13 +145,56 @@
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Ya, Saya Yakin',
-                cancelButtonText: 'Tidak, Saya Ingin Mengubahnya',
+                cancelButtonText: 'Tidak, Kembali',
             }).then((result) => {
                 if (result.isConfirmed) {
                     // If "Yes, submit it!" is clicked, submit the form
                     document.getElementById('formLaporan').submit();
                 }
             });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Function to check if any textarea or file input field is empty
+        function checkEmptyFields() {
+            let isEmpty = false;
+
+            // Check for empty textareas
+            $('textarea').each(function() {
+                if ($(this).val().trim() === '') {
+                    isEmpty = true;  // If any textarea is empty
+                }
+            });
+
+            // Check for empty required file inputs
+            $('input[type="file"][required]').each(function() {
+                if ($(this).val() === '') {
+                    isEmpty = true;  // If any required file input is empty
+                }
+            });
+
+            // If there's an empty field, disable the submit button
+            if (isEmpty) {
+                $('#submitForm').attr('disabled', true);
+            } else {
+                $('#submitForm').attr('disabled', false); // Enable submit button if all fields are filled
+            }
+        }
+
+        // Check empty fields on keyup in any textarea
+        $('textarea').on('keyup', function() {
+            checkEmptyFields();
+        });
+
+        // Check empty fields on change in any file input
+        $('input[type="file"]').on('change', function() {
+            checkEmptyFields();
+        });
+
+        // Run the check initially in case fields are already filled
+        checkEmptyFields();
     });
 </script>
 @endsection

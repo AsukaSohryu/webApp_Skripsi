@@ -11,13 +11,14 @@ class StatusHandoverController extends Controller
 {
     public function index(){
         $userId = auth()->id();
-        $handover = HandoverForm::where('user_id', $userId)
+        $handover = HandoverForm::with('status')
+            ->where('user_id', $userId)
             ->with(['handoverQuestions' => function($query) {
                 $query->withPivot('answer');
             }])
             ->orderBy('created_at', 'desc')
             ->get();
-            
+
         return view('frontend.pages.status.statusHandover.statusHandover', [
             'pagetitle' => 'Status Pengajuan Penyerahan Hewan',
             'handovers' => $handover,
