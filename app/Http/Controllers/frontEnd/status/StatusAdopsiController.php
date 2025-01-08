@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\frontend\status;
+namespace App\Http\Controllers\frontEnd\status;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdoptionForm;

@@ -2,14 +2,14 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\frontEnd\HomeController;
-use App\Http\Controllers\frontend\layanan\HewanDiselamatkanController;
-use App\Http\Controllers\frontend\layanan\LayananLaporanHewanHilangController;
-use App\Http\Controllers\frontend\layanan\LayananLihatHewanSiapAdopsiController;
-use App\Http\Controllers\frontend\layanan\LayananPengajuanPenyerahanHewanController;
+use App\Http\Controllers\frontEnd\layanan\HewanDiselamatkanController;
+use App\Http\Controllers\frontEnd\layanan\LayananLaporanHewanHilangController;
+use App\Http\Controllers\frontEnd\layanan\LayananLihatHewanSiapAdopsiController;
+use App\Http\Controllers\frontEnd\layanan\LayananPengajuanPenyerahanHewanController;
 use App\Http\Controllers\frontEnd\profile\ProfileController;
-use App\Http\Controllers\frontend\status\StatusReportController;
-use App\Http\Controllers\frontend\status\StatusAdopsiController;
-use App\Http\Controllers\frontend\status\StatusHandoverController;
+use App\Http\Controllers\frontEnd\status\StatusReportController;
+use App\Http\Controllers\frontEnd\status\StatusAdopsiController;
+use App\Http\Controllers\frontEnd\status\StatusHandoverController;
 use App\Http\Controllers\frontEnd\TentangKamiController;
 use App\Http\Controllers\internal\animal\DataHewanController;
 use App\Http\Controllers\internal\form\FormAdopsiController;

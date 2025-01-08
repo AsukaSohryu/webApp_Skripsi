@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\frontend\layanan;
+namespace App\Http\Controllers\frontEnd\layanan;
 
 use App\Http\Controllers\Controller;
 use App\Models\animal;
