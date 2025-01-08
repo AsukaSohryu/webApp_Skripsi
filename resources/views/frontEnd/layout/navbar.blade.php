@@ -78,7 +78,7 @@
 <header id="mobile-header" class="">
     <!-- <div class="container justify-content-evenly"> -->
     <div class="container">
-      <a href="{{ url('/') }}" class="logo me-auto"><img src="{{url('/')}}/assets/img/main_logo.png" alt="" class="img-fluid"></a>
+      <a href="" class="logo me-auto"></a>
       <button class="hamburger">
         <div class="bar"></div>
       </button>
@@ -96,32 +96,74 @@
           </h2>
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-              <a href="{{ url('tentang-kami') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Tentang Kami</li></a>
-              <a href="{{ url('visi-misi') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Visi Misi</li></a>
-              <a href="{{ url('mengapa-IDL-express') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Mengapa IDL Express</li></a>
-              <a href="{{ url('sektor-industri') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Sektor Industri</li></a>
-              <a href="{{ url('karir') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Karier</li></a>
+              <a href="{{ route('tentang-kami') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Tentang Kami</li></a>
             </div>
           </div>
         </div>
         <div class="accordion-item" style="background-color: transparent;">
           <h2 class="accordion-header" id="flush-headingTwo">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" style="background-color: transparent; font-size: 20px; color: #5E6666; font-weight: 700;">
-              Layanan
+              Layanan Kami
             </button>
           </h2>
           <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-              <a href="{{ url('layanan-pengiriman-khusus') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Pengiriman Khusus</li></a>
-              <a href="{{ url('layanan-pengiriman-unggulan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Pengiriman Unggulan</li></a>
-              <a href="{{ url('layanan-pengiriman-kargo') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Pengiriman Kargo</li></a>
+              <a href="{{ url('layanan-pengiriman-khusus') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Lihat Daftar Hewan Yang Diselamatkan</li></a>
+              <a href="{{ url('layanan-pengiriman-unggulan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Laporkan Penemuan Hewan Peliharaan Liar</li></a>
+              <a href="{{ url('layanan-pengiriman-kargo') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Ajukan Penyerahan Hewan</li></a>
+              <a href="{{ url('layanan-pengiriman-kargo') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Ajukan Pengadopsian Hewan/Lihat Daftar Hewan</li></a>
             </div>
           </div>
         </div>
-        <a href="{{ url('blog') }}" style="font-size: 20px; padding: 16px 20px 16px 20px;"><h2 style="color: #5E6666">Blog</h2></a>
-        <div style="padding: 16px 0px 16px 0px;">
-          <button onclick="window.location.href='{{ url('hubungi-kami') }}';" type="button" class="contact-btn-nav" style="width: 100%;"><b>Hubungi Kami</b></button>
+        <div class="accordion-item" style="background-color: transparent;">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree" style="background-color: transparent; font-size: 20px; color: #5E6666; font-weight: 700;">
+              Laporan dan Pengajuan
+            </button>
+          </h2>
+          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <a href="{{ url('layanan-pengiriman-khusus') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Status Laporan Penemuan Hewan Liar</li></a>
+              <a href="{{ url('layanan-pengiriman-unggulan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Status Pengajuan Penyerahan Hewan</li></a>
+              <a href="{{ url('layanan-pengiriman-kargo') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Status Pengajuan Pengadopsian Hewan</li></a>
+            </div>
+          </div>
         </div>
+        @if(auth()->check())
+        <div class="accordion-item" style="background-color: transparent;">
+          <h2 class="accordion-header" id="flush-headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour" style="background-color: transparent; font-size: 20px; color: #5E6666; font-weight: 700;">
+              Hai, {{ auth()->user()->name }}!
+            </button>
+          </h2>
+          <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <a href="{{ route('detail-profil') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Detail Profil</li></a>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 16px 0px 16px 0px;">
+          <form action="{{ route('logout') }}" method="post" id="logoutForm">
+            @csrf
+            <button onclick="document.getElementById('logoutForm').submit();" type="button" class="btn btn-danger" style="width: 100%;">Logout
+            </button>
+          </form>
+        </div>
+        @else
+        <div class="accordion-item" style="background-color: transparent;">
+          <h2 class="accordion-header" id="flush-headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour" style="background-color: transparent; font-size: 20px; color: #5E6666; font-weight: 700;">
+              Hai, Rescuer!
+            </button>
+          </h2>
+          <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <a href="{{ route('masuk') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Masuk</li></a>
+              <a href="{{ route('daftar') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Daftar</li></a>
+            </div>
+          </div>
+        </div>
+        @endif
       </div>
     </div>
   </nav>

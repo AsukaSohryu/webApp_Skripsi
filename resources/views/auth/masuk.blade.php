@@ -13,7 +13,7 @@
 		<link href="{{asset('/')}}assets/internal/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 	</head>
-	<body id="kt_body" class="app-blank app-blank bgi-size-cover bgi-position-center bgi-no-repeat">
+	<body id="kt_body" class="app-blank app-blank bgi-size-cover bgi-position-center">
 		<script>var defaultThemeMode = "light"; var themeMode;</script>
 
 		<div class="d-flex flex-column flex-root" id="kt_app_root">
