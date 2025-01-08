@@ -1,7 +1,7 @@
 @extends('frontend.layout.layout')
 
 @section('link')
-
+<link rel="stylesheet" href="{{url('/')}}/assets/css/frontend/tentangKami/tentangKami.css">
 @endsection
 
 @section('content')
@@ -21,12 +21,12 @@
 </section>
 
 <section id="section-1-tentang" style="padding-bottom: 0;">
-    <div class="container p-4" style="background-color: #EFF8FF; border-radius: 8px;">
-        <div class="row">
-            <div class="col-lg-6 col-12">
-                <img src="{{ asset('storage/shelterInformation/' . $shelterInformation->founder_photo) }}" class="about-image ms-lg-auto bg-light shadow-lg img-fluid" alt="Founder Photo" style="max-width: 200px;">
+    <div class="container p-4 d-flex" style="background-color: #EFF8FF; border-radius: 8px;">
+        <div class="row d-flex" id="row-1-tentang">
+            <div class="col-lg-6 col-12 d-flex justify-content-center">
+                <img src="{{ asset('storage/informasiShelter/' . $shelterInformation->founder_photo) }}" alt="Founder Photo" style="width: 400px; height: 400px; object-fit: cover; border-radius: 8px;">
             </div>
-            <div class="col-lg-6 col-12">
+            <div class="col-lg-6 col-12 d-flex align-items-center">
                 <div class="custom-text-box">
                     <h2 class="mb-2">Profil Pendiri</h2>
                     <p class="mb-0">{!! $shelterInformation->founder_description!!}</p>

@@ -89,6 +89,18 @@
     <div class="container">
       <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item" style="background-color: transparent;">
+          <h2 class="accordion-header" id="flush-headingFive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive" style="background-color: transparent; font-size: 20px; color: #5E6666; font-weight: 700;">
+              Halaman Utama
+            </button>
+          </h2>
+          <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <a href="{{ route('home') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Halaman Utama</li></a>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" style="background-color: transparent;">
           <h2 class="accordion-header" id="flush-headingOne">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style="background-color: transparent; font-size: 20px; color: #5E6666; font-weight: 700;">
               Tentang
@@ -108,10 +120,10 @@
           </h2>
           <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-              <a href="{{ url('layanan-pengiriman-khusus') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Lihat Daftar Hewan Yang Diselamatkan</li></a>
-              <a href="{{ url('layanan-pengiriman-unggulan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Laporkan Penemuan Hewan Peliharaan Liar</li></a>
-              <a href="{{ url('layanan-pengiriman-kargo') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Ajukan Penyerahan Hewan</li></a>
-              <a href="{{ url('layanan-pengiriman-kargo') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Ajukan Pengadopsian Hewan/Lihat Daftar Hewan</li></a>
+              <a href="{{ route('layanan-hewan-diselamatkan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Lihat Daftar Hewan Yang Diselamatkan</li></a>
+              <a href="{{ route('layanan-laporan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Laporkan Penemuan Hewan Peliharaan Liar</li></a>
+              <a href="{{ route('layanan-pengajuan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Ajukan Penyerahan Hewan</li></a>
+              <a href="{{ route('layanan-lihat') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Ajukan Pengadopsian Hewan/Lihat Daftar Hewan</li></a>
             </div>
           </div>
         </div>
@@ -123,9 +135,9 @@
           </h2>
           <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-              <a href="{{ url('layanan-pengiriman-khusus') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Status Laporan Penemuan Hewan Liar</li></a>
-              <a href="{{ url('layanan-pengiriman-unggulan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Status Pengajuan Penyerahan Hewan</li></a>
-              <a href="{{ url('layanan-pengiriman-kargo') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Status Pengajuan Pengadopsian Hewan</li></a>
+              <a href="{{ route('status-laporan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Status Laporan Penemuan Hewan Liar</li></a>
+              <a href="{{ route('status-penyerahan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Status Pengajuan Penyerahan Hewan</li></a>
+              <a href="{{ route('status-adopsi') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Status Pengajuan Pengadopsian Hewan</li></a>
             </div>
           </div>
         </div>
