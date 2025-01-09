@@ -117,6 +117,7 @@ class FormAdopsiController extends Controller
             if ($request->statusID == $statusRJT || $request->statusID == $statusCAN) {
                 $update = animal::where('animal_id', $request->animalID)->update([
                     'status_id' => $statusAVL,
+                    'detail_status' => 'Hewan Siap Di Adopsi',
                 ]);
             }
 

@@ -6,41 +6,51 @@ use App\Models\animal;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Status;
 
 class AnimalSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
+        $status = status::where('config', 'Animal_Status')->get();
+        $statusRES = $status->where('key', 'RES')->first()->status_id ?? null;
+        $statusONC = $status->where('key', 'ONC')->first()->status_id ?? null;
+        $statusAVL = $status->where('key', 'AVL')->first()->status_id ?? null;
+        $statusNAL = $status->where('key', 'NAL')->first()->status_id ?? null;
+        $statusRSV = $status->where('key', 'RSV')->first()->status_id ?? null;
+        $statusADP = $status->where('key', 'ADP')->first()->status_id ?? null;
+        $statusRTO = $status->where('key', 'RTO')->first()->status_id ?? null;
+        $statusDAS = $status->where('key', 'DAS')->first()->status_id ?? null;
+        $statusOTH = $status->where('key', 'OTH')->first()->status_id ?? null;
+
         DB::table('animal')->insert([
             [
-                'status_id' => 16,
-                'detail_status' => 'Hewan baru saja diselamatkan',
+                'status_id' => $statusAVL,
+                'detail_status' => 'Hewan Siap Di Adopsi',
                 'animal_name' => 'Kocheng',
                 'animal_type' => 'Kucing',
-                'birth_date' => '2024-10-01',
+                'birth_date' => '2022-10-01',
                 'sex' => 'Betina',
                 'race' => 'Kucing Kampung',
-                'color' => 'putih',
+                'color' => 'Putih dengan corak coklat kehitaman',
                 'weight' => 2,
                 'vaccine' => ' FVRCP, rabies, dan FeLV',
                 'is_sterile' => 1,
                 'is_active' => 1,
-                'source' => 'Diserahkan orang dalam box',
+                'source' => 'Ditemukan dalam box dekat shelter',
                 'characteristics' => 'Kocheng sangat manja dan suka dielus-elus',
-                'description' => 'Kocheng merupakan kucing yang lucu dan memiliki kemampuan tinggi. Sangat cocok untuk dijual ke orang yang ingin mencari kucing yang tinggi.',
+                'description' => 'Kocheng merupakan kucing yang lucu dan sangat aktif untuk bermain.',
                 'medical_note' => 'Kucing ini tidak memiliki riwayat penyakit',
                 'photo' => '',
-                'created_at' => '2024-12-01 00:00:00'
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
-                'status_id' => 17,
-                'detail_status' => 'Hewan dalam proses perawatan intensif karena luka bakar',
+                'status_id' => $statusAVL,
+                'detail_status' => 'Hewan Siap Di Adopsi',
                 'animal_name' => 'Blackie',
                 'animal_type' => 'Kucing',
-                'birth_date' => '2023-09-15',
+                'birth_date' => '2021-09-15',
                 'sex' => 'Betina',
                 'race' => 'Kucing Kampung',
                 'color' => 'Hitam',
@@ -48,16 +58,17 @@ class AnimalSeeder extends Seeder
                 'vaccine' => 'FVRCP, rabies',
                 'is_sterile' => 1,
                 'is_active' => 1,
-                'source' => 'Ditemukan di jalan',
+                'source' => 'Diserahkan Pemilik Lama',
                 'characteristics' => 'Blackie sangat ramah dan suka bermain dengan anak-anak',
-                'description' => 'Blackie adalah kucing yang ceria dan penuh energi. Dia sangat cocok untuk keluarga yang aktif.',
-                'medical_note' => 'Blackie telah divaksin dan tidak memiliki riwayat penyakit',
+                'description' => 'Blackie adalah kucing yang manja. Dia sangat cocok untuk keluarga yang suka bersantai dengan kucing.',
+                'medical_note' => 'Blackie tidak memiliki riwayat penyakit',
                 'photo' => '',
-                'created_at' => '2024-12-01 00:00:00'
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
-                'status_id' => 20,
-                'detail_status' => 'Hewan sudah siap untuk diadopsi',
+                'status_id' => $statusAVL,
+                'detail_status' => 'Hewan Siap Di Adopsi',
                 'animal_name' => 'Milky',
                 'animal_type' => 'Kucing',
                 'birth_date' => '2021-05-20',
@@ -73,18 +84,19 @@ class AnimalSeeder extends Seeder
                 'description' => 'Milky adalah kucing yang sangat penuh energi. Dia sangat cocok untuk keluarga yang aktif.',
                 'medical_note' => 'Milky dalam kondisi sehat dan telah menjalani pemeriksaan rutin',
                 'photo' => '',
-                'created_at' => '2024-12-01 00:00:00'
+                'created_at' => now(),
+                'updated_at' => now()
             ],
             [
-                'status_id' => 19,
-                'detail_status' => 'Hewan tidak tersedia untuk diadopsi, hanya dititipkan oleh pemilik sementara',
+                'status_id' => $statusRSV,
+                'detail_status' => 'Hewan sedang dalam proses adopsi',
                 'animal_name' => 'MaoMao',
                 'animal_type' => 'Kucing',
-                'birth_date' => '2016-03-10',
+                'birth_date' => '2020-03-10',
                 'sex' => 'Betina',
                 'race' => 'Kucing Kampung',
                 'color' => 'Hitam kecoklatan dan putih',
-                'weight' => 8,
+                'weight' => 4,
                 'vaccine' => 'FVRCP, rabies',
                 'is_sterile' => 1,
                 'is_active' => 1,
@@ -93,7 +105,155 @@ class AnimalSeeder extends Seeder
                 'description' => 'MaoMao adalah kucing yang anggun dan penuh kasih. Dia sangat cocok untuk pemilik yang mencari kucing yang santai.',
                 'medical_note' => 'MaoMao tidak memiliki riwayat penyakit dan telah divaksin lengkap',
                 'photo' => '',
-                'created_at' => '2024-12-01 00:00:00'
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'status_id' => $statusONC,
+                'detail_status' => 'Hewan sedang dalam proses perawatan intensif akibat penyiraman air panas',
+                'animal_name' => 'Oyen',
+                'animal_type' => 'Kucing',
+                'birth_date' => now(),
+                'sex' => 'Betina',
+                'race' => 'Kucing Kampung',
+                'color' => 'Hitam kecoklatan dan putih',
+                'weight' => 4,
+                'vaccine' => 'Belum di vaksin',
+                'is_sterile' => 1,
+                'is_active' => 1,
+                'source' => 'Diserahkan pemilik yang lama',
+                'characteristics' => 'Belum memiliki informasi, sedang dalam perawatan intensif',
+                'description' => 'Belum memiliki informasi, sedang dalam perawatan intensif',
+                'medical_note' => 'Belum memiliki informasi, sedang dalam perawatan intensif',
+                'photo' => '',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'status_id' => $statusRES,
+                'detail_status' => 'Hewan baru saja diselamatkan',
+                'animal_name' => 'Mocha',
+                'animal_type' => 'Anjing',
+                'birth_date' => now(),
+                'sex' => 'Jantan',
+                'race' => 'Belum ada data',
+                'color' => 'Coklat',
+                'weight' => 5,
+                'vaccine' => 'Belum di vaksin',
+                'is_sterile' => 1,
+                'is_active' => 1,
+                'source' => 'Ditemukan ditinggalkan dekat tempat sampah',
+                'characteristics' => 'Belum memiliki informasi',
+                'description' => 'Belum memiliki informasi.',
+                'medical_note' => 'Belum memiliki informasi',
+                'photo' => '',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'status_id' => $statusRES,
+                'detail_status' => 'Hewan baru saja diselamatkan',
+                'animal_name' => 'Max',
+                'animal_type' => 'Anjing',
+                'birth_date' => now(),
+                'sex' => 'Jantan',
+                'race' => 'Belum ada data',
+                'color' => 'Coklat',
+                'weight' => 12,
+                'vaccine' => 'Belum di vaksin',
+                'is_sterile' => 1,
+                'is_active' => 1,
+                'source' => 'Diselamatkan dari daerah rumah pejagalan',
+                'characteristics' => 'Belum memiliki informasi',
+                'description' => 'Belum memiliki informasi.',
+                'medical_note' => 'Belum memiliki informasi',
+                'photo' => '',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'status_id' => $statusNAL,
+                'detail_status' => 'Sifat hewan masih tidak stabil karena diserahkan pemilik lama',
+                'animal_name' => 'Buddy',
+                'animal_type' => 'Anjing',
+                'birth_date' => now(),
+                'sex' => 'Jantan',
+                'race' => 'Belum ada data',
+                'color' => 'Emas',
+                'weight' => 6,
+                'vaccine' => 'DHPP, Rabies, Bordetella',
+                'is_sterile' => 1,
+                'is_active' => 1,
+                'source' => 'Ditemukan terlantar di jalan',
+                'characteristics' => 'Sangat ramah dan suka bermain',
+                'description' => 'Buddy adalah anjing yang sangat ramah dan suka bermain.',
+                'medical_note' => 'Tidak ada riwayat penyakit',
+                'photo' => '',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'status_id' => $statusADP,
+                'detail_status' => 'Telah diadopsi',
+                'animal_name' => 'Jack',
+                'animal_type' => 'Anjing',
+                'birth_date' => now(),
+                'sex' => 'Jantan',
+                'race' => 'Belum ada data',
+                'color' => 'Hitam',
+                'weight' => 8,
+                'vaccine' => 'DHPP, Rabies, Bordetella',
+                'is_sterile' => 1,
+                'is_active' => 1,
+                'source' => 'Diserahkan oleh pemilik lama',
+                'characteristics' => 'Sangat ramah dan suka bermain',
+                'description' => 'Jack adalah anjing yang suka sekali bermain lempar tangkap.',
+                'medical_note' => 'Memiliki riwayat penyakit patah tulang',
+                'photo' => '',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'status_id' => $statusDAS,
+                'detail_status' => 'Hewan Telah Meninggal',
+                'animal_name' => 'Foxie',
+                'animal_type' => 'Anjing',
+                'birth_date' => now(),
+                'sex' => 'Jantan',
+                'race' => 'Belum ada data',
+                'color' => 'Hitam',
+                'weight' => 4,
+                'vaccine' => 'DHPP, Rabies, Bordetella',
+                'is_sterile' => 1,
+                'is_active' => 1,
+                'source' => 'Diserahkan oleh pemilik lama',
+                'characteristics' => 'Sangat ramah namun pendiam',
+                'description' => 'Foxie adalah anjing yang pendiam namun terkadang sedikit manja',
+                'medical_note' => 'Memiliki beberapa bekas luka sebelum ditemukan',
+                'photo' => '',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'status_id' => $statusRSV,
+                'detail_status' => 'Dalam Proses Adopsi',
+                'animal_name' => 'Pete',
+                'animal_type' => 'Anjing',
+                'birth_date' => '2020-05-20',
+                'sex' => 'Jantan',
+                'race' => 'Belum ada data',
+                'color' => 'Hitam',
+                'weight' => 9,
+                'vaccine' => 'DHPP, Rabies, Bordetella',
+                'is_sterile' => 1,
+                'is_active' => 1,
+                'source' => 'Diserahkan oleh pemilik lama',
+                'characteristics' => 'Sangat Aktif',
+                'description' => 'Pete adalah anjing yang sangat aktif dan sangat manja',
+                'medical_note' => 'Pete Tidak Memiliki Riwayat Penyakit',
+                'photo' => '',
+                'created_at' => now(),
+                'updated_at' => now()
             ],
         ]);
     }

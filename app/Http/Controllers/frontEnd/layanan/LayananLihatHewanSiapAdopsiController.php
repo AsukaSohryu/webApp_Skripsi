@@ -93,6 +93,7 @@ class LayananLihatHewanSiapAdopsiController extends Controller
 
         $update = animal::where('animal_id', $animal_id)->update([
             'status_id' => $statusAnimalId,
+            'detail_status' => 'Dalam proses adopsi'
         ]);
 
         if ($update) {
