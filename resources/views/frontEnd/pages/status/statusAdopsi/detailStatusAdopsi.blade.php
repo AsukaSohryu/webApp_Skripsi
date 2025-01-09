@@ -22,42 +22,42 @@
 </section>
 
 <section id="section-1-status-penemuan">
-    <div class="container">
+    <div class="container my-3">
         <h4 class="text-center">Status Laporan Pengajuan Pengadopsian Hewan</h4>
         <hr>
     </div>
-    <div class="container justify-content-center">
-        <div class="row my-3">
-            <div class="row my-3">
+    <div class="container justify-content-center border border-black my-2 " style="border-radius: 16px; gap: 0;">
+        <div class="row mx-4 mt-4">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="">Nama Pengaju</label>
+                    <label for="" class="my-2">Nama Pengaju</label>
                     <input type="text" name="userName" id="userName" value="{{$adoptions->users->name}}" class="form-control" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="">No Telepon</label>
+                    <label for="" class="my-2">No Telepon</label>
                     <input type="text" name="phoneNumber" id="phoneNumber" value="{{$adoptions->users->phone_number}}" class="form-control" disabled>
                 </div>
                 <div class="col">
-                    <label for="">No Whatsapp</label>
+                    <label for="" class="my-2">No Whatsapp</label>
                     <input type="text" name="whatsappNumber" id="whatsappNumber" value="{{$adoptions->users->whatsapp_number}}" class="form-control" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="">Alamat</label>
+                    <label for="" class="my-2">Alamat</label>
                     <input type="text" name="address" id="address" value="{{$adoptions->users->address}}" class="form-control" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="">Pekerjaan</label>
+                    <label for="" class="my-2">Pekerjaan</label>
                     <input type="text" name="job" id="job" value="{{$adoptions->users->job}}" class="form-control" disabled>
                 </div>
             </div>
             {{-- Area Detail Hewan --}}
-            <div class="row my-3">
+            <div class="row mx-4">
                 <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-0 p-0">
                     <img src="{{ asset('storage/animal/' . $adoptions->animal->photo) }}" 
                         class="img-fluid rounded-start w-100 m-0" 
@@ -65,24 +65,24 @@
                         style="object-fit: cover; max-width: 300px;">
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="">Nama Hewan</label>
+                    <label for="" class="my-2">Nama Hewan</label>
                     <input type="text" name="animalName" id="animalName" value="{{$adoptions->animal->animal_name}}" class="form-control" disabled>
                 </div>
                 <div class="col">
-                    <label for="">Umur</label>
+                    <label for="" class="my-2">Umur</label>
                     <input type="text" name="animalAge" id="animalAge" value="" class="form-control" disabled>
                 </div>
             </div>
         </div>
-        <hr>
-        <div class="row my-3">
+        <hr style="margin-left: 2.3rem; margin-right: 3.7rem;">
+        <div class="row mx-4">
             @foreach ($adoptions->adoptionQuestions as $question)
-                <div class="row my-3">
+                <div class="row my-1">
                     <div class="col">
                         <!-- Label for the question -->
-                        <label for="question-{{ $question->id }}" class="form-label">
+                        <label for="question-{{ $question->id }}" class="form-label my-2">
                             {{ $question->questions }}
                         </label>
 
@@ -98,18 +98,32 @@
                 </div>
             @endforeach
         </div>
-        <hr>
-        <div class="row">
-            {{-- Updateable Field --}}
-            <div class="row my-3">
+        <hr style="margin-left: 2.3rem; margin-right: 3.7rem;">
+        <div class="row mx-4">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="">Status Formulir</label>
+                    <label for="" class="my-2">Tanggal Formulir Dibuat</label>
+                    <input type="text" name="tanggalFormulirDibuat" id="tanggalFormulirDibuat" value="{{$adoptions->created_at}}" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="row my-1">
+                <div class="col">
+                    <label for="" class="my-2">Tanggal Formulir Terakhir Diperbaharui</label>
+                    <input type="text" name="tanggalFormulirDiperbaharui" id="tanggalFormulirDiperbaharui" value="{{$adoptions->updated_at}}" class="form-control" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="row mx-4 mb-4">
+            {{-- Updateable Field --}}
+            <div class="row my-1">
+                <div class="col">
+                    <label for="" class="my-2">Status Formulir</label>
                     <input type="text" name="statusAdopsi" id="statusAdopsi" value="{{$adoptions->status->status}}" class="form-control" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="adminFeedback">Respon Admin</label>
+                    <label for="adminFeedback" class="my-2">Respon Admin</label>
                     <textarea 
                         name="adminFeedback" 
                         id="adminFeedback" 

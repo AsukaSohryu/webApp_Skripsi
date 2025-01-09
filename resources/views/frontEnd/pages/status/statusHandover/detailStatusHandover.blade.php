@@ -22,44 +22,44 @@
 </section>
 
 <section id="section-1-status-penemuan">
-    <div class="container">
+    <div class="container my-3">
         <h4 class="text-center">Status Formulir Pengajuan Penyerahan Hewan</h4>
         <hr>
     </div>
-    <div class="container justify-content-center">
-        <div class="row my-3">
-            <div class="row my-3">
+    <div class="container justify-content-center my-2 border border-black" style="border-radius: 16px; gap: 0;">
+        <div class="row mx-4 mt-4">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="">Nama Pengaju</label>
+                    <label for="" class="my-2">Nama Pengaju</label>
                     <input type="text" name="userName" id="userName" value="{{$handovers->users->name}}" class="form-control" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="">No Telepon</label>
+                    <label for="" class="my-2">No Telepon</label>
                     <input type="text" name="phoneNumber" id="phoneNumber" value="{{$handovers->users->phone_number}}" class="form-control" disabled>
                 </div>
                 <div class="col">
-                    <label for="">No Whatsapp</label>
+                    <label for="" class="my-2">No Whatsapp</label>
                     <input type="text" name="whatsappNumber" id="whatsappNumber" value="{{$handovers->users->whatsapp_number}}" class="form-control" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="">Alamat</label>
+                    <label for="" class="my-2">Alamat</label>
                     <input type="text" name="address" id="address" value="{{$handovers->users->address}}" class="form-control" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="">Pekerjaan</label>
+                    <label for="" class="my-2">Pekerjaan</label>
                     <input type="text" name="job" id="job" value="{{$handovers->users->job}}" class="form-control" disabled>
                 </div>
             </div>
             {{-- Area Detail Hewan --}}
         </div>
-        <hr class="my-0">
-        <div class="row">
+        <hr style="margin-left: 2.3rem; margin-right: 3.7rem;">
+        <div class="row mx-4">
             <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 mt-4 p-0">
                 <img src="{{ asset('storage/formHandover/' . $handovers->photo) }}" 
                     class="img-fluid rounded-start w-100 m-0" 
@@ -67,10 +67,10 @@
                     style="object-fit: cover; max-width: 300px;">
             </div>
             @foreach ($handovers->handoverQuestions as $question)
-                <div class="row my-3">
+                <div class="row my-1">
                     <div class="col">
                         <!-- Label for the question -->
-                        <label for="question-{{ $question->id }}" class="form-label">
+                        <label for="question-{{ $question->id }}" class="form-label my-2">
                             {{ $question->questions }}
                         </label>
 
@@ -86,18 +86,32 @@
                 </div>
             @endforeach
         </div>
-        <hr class="my-0">
-        <div class="row">
-            {{-- Updateable Field --}}
-            <div class="row my-3">
+        <hr style="margin-left: 2.3rem; margin-right: 3.7rem;">
+        <div class="row mx-4">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="">Status Formulir</label>
+                    <label for="" class="my-2">Tanggal Formulir Dibuat</label>
+                    <input type="text" name="tanggalLaporanDibuat" id="tanggalLaporanDibuat" value="{{$handovers->created_at}}" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="row my-1">
+                <div class="col">
+                    <label for="" class="my-2">Tanggal Formulir Terakhir Diperbaharui</label>
+                    <input type="text" name="tanggalLaporanDiperbaharuit" id="tanggalLaporanDiperbaharui" value="{{$handovers->updated_at}}" class="form-control" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="row mx-4">
+            {{-- Updateable Field --}}
+            <div class="row my-1">
+                <div class="col">
+                    <label for="" class="my-2">Status Formulir</label>
                     <input type="text" name="statusAdopsi" id="statusAdopsi" value="{{$handovers->status->status}}" class="form-control" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="adminFeedback">Respon Admin</label>
+                    <label for="adminFeedback" class="my-2">Respon Admin</label>
                     <textarea 
                         name="adminFeedback" 
                         id="adminFeedback" 

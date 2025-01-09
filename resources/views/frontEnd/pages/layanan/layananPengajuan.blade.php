@@ -81,48 +81,50 @@
             </div>
             
             <!-- Displaying the handover questions -->
-            <div class="row my-2">
+            <div class="row my-1">
                 <div class="col">
                     @foreach($handoverQuestions as $question)
                     <div class="col">
-                        <label>{{ $question->questions }}</label>
+                        <label class="my-2">{{ $question->questions }}</label>
                         @switch($question->handover_questions_id)
                             @case(2)
-                                <select class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
+                                <select class="form-control" name="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
                                     <option value="" selected disabled>Pilih Jenis Hewan</option>
                                     <option value="Anjing">Anjing</option>
                                     <option value="Kucing">Kucing</option>
                                 </select>
                                 @break
                             @case(3)
-                                <input type="date" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" id="tanggalLahir" max="{{ date('Y-m-d') }}"  placeholder="Masukan Jawaban Anda" required> <!-- Added ID for tanggal lahir -->
+                                <input type="date" class="form-control" name="answers[{{ $question->handover_questions_id }}]" id="tanggalLahir" max="{{ date('Y-m-d') }}"  placeholder="Masukan Jawaban Anda" required> <!-- Added ID for tanggal lahir -->
                                 @break
                             @case(4)
-                                <select class="form-control my-2" name ="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
+                                <select class="form-control" name ="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
                                     <option value="" selected disabled>Pilih Jenis Kelamin Hewan</option>
                                     <option value="Jantan">Jantan</option>
                                     <option value="Betina">Betina</option>
                                 </select>
                                 @break
                             @case(7)
-                                <input type="number" class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" step="0.01" min="0" placeholder="Masukan Jawaban Anda" required>
+                                <input type="number" class="form-control" name="answers[{{ $question->handover_questions_id }}]" step="0.01" min="0" placeholder="Masukan Jawaban Anda" required>
                                 @break
                             @case(9)
-                                <select class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
+                                <select class="form-control" name="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
                                     <option value="" selected disabled>Pilih Sudah/Belum</option>
                                     <option value="1">Sudah</option>
                                     <option value="0">Belum</option>
                                 </select>
                                 @break
                             @default
-                                <textarea class="form-control my-2" name="answers[{{ $question->handover_questions_id }}]" rows="3" placeholder="Masukan Jawaban Anda" required></textarea>
+                                <textarea class="form-control" name="answers[{{ $question->handover_questions_id }}]" rows="3" placeholder="Masukan Jawaban Anda" required></textarea>
                         @endswitch
                     </div>
                     @endforeach
                 </div>
             </div>
-            <div class="gap-3 my-10 d-flex justify-content-end">
-                <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Kirim Pengajuan</button>
+            <div class="row my-3">
+                <div class="gap-3 my-10 d-flex justify-content-end">
+                    <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Kirim Pengajuan</button>
+                </div>
             </div>
         </form>
     </div>

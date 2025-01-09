@@ -38,43 +38,48 @@
         <form action="{{ route('layanan-adopsi.create.post', $animal->animal_id) }}" method="post" class="m-4" enctype="multipart/form-data" id="formAdopsi">  
             @csrf
             {{-- Profile User --}}
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">Nama Pengaju</label>
+                    <label for="" class="my-2">Nama Pengaju</label>
                     <input type="text" name="namaPemilik" id="namaPemilik" class="form-control" value="{{$user->name}}" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">Nomor Telepon</label>
+                    <label for="" class="my-2">Nomor Telepon</label>
                     <input type="text" name="noTelp" id="noTelp" class="form-control" value="{{$user->phone_number}}" disabled>
                 </div>
                 <div class="col">
-                    <label for="" class="my-3">Nomor Whatsapp</label>
+                    <label for="" class="my-2">Nomor Whatsapp</label>
                     <input type="text" name="noWhatsapp" id="noWhatsapp" class="form-control" value="{{$user->whatsapp_number}}" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">Alamat</label>
+                    <label for="" class="my-2">Alamat</label>
                     <input type="text" name="alamatPemilik" id="alamatPemilik" class="form-control" value="{{$user->address}}" disabled>
                 </div>
             </div>
             <hr>
             
             <!-- Displaying the handover questions -->
-            <div class="row my-3">  
+            <div class="row my-1">  
                 <div class="col">
                     @foreach($adoptionQuestions as $question)
                     <div class="col">
-                        <label class="my-3">{{ $question->questions }}</label>
+                        <label class="my-2">{{ $question->questions }}</label>
                         <textarea class="form-control" name="answers[{{ $question->adoption_question_id }}]" rows="3" placeholder="Masukan Jawaban Anda" required></textarea>
                     </div>
                     @endforeach
                 </div>
             </div>
-            <div class="gap-3 my-10 d-flex justify-content-end">
-                <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Kirim Pengajuan</button>
+            <div class="row my-3">
+                <div class="gap-3 my-10 d-flex justify-content-end">
+                    <a href="{{ route('layanan-lihat') }}" class="btn btn-secondary">
+                        Kembali
+                    </a>
+                    <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Kirim Pengajuan</button>
+                </div>
             </div>
         </form>
     </div>

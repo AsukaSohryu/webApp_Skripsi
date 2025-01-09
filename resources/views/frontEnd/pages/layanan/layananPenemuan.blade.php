@@ -1,7 +1,9 @@
 @extends('frontend.layout.layout')
 
 @section('link')
-
+<!-- Include SweetAlert CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 
 @section('content')
@@ -44,7 +46,7 @@
             </div>
         </div>
     </div>
-    <div class="container border border-black my-3" style="border-radius: 16px">
+    <div class="container border border-black my-2" style="border-radius: 16px">
         <form action="{{ route('layanan-laporan-post') }}" method="POST" class="m-4" enctype="multipart/form-data" id="formLaporan">
             @csrf
             {{-- Profile User --}}
@@ -64,9 +66,10 @@
                     <input type="text" name="noWhatsapp" id="noWhatsapp" class="form-control" value="{{$user->whatsapp_number}}" disabled>
                 </div>
             </div>
-            <div class="row my-3">
+            <hr>
+            <div class="row my-2">
                 <div class="col">
-                    <label for="" class="my-3">Jenis Hewan</label>
+                    <label for="" class="my-2">Jenis Hewan</label>
                     <select name="jenisHewan" id="jenisHewan" class="form-select" required>
                         <option value="" selected disabled>Pilih Jenis Hewan</option>
                         <option value="Anjing">Anjing</option>
@@ -74,41 +77,41 @@
                     </select>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">Lokasi (Deskripsi, Patokan)</label>
+                    <label for="" class="my-2">Lokasi (Deskripsi, Patokan)</label>
                     <input type="text" name="lokasi" id="lokasi" value="" placeholder="Lokasi (Deskripsi, Patokan)" class="form-control" required>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">Lokasi Google Maps</label>
+                    <label for="" class="my-2">Lokasi Google Maps</label>
                     <input type="text" name="lokasiMaps" id="lokasiMaps" value="" placeholder="Lokasi Google Maps" class="form-control" required>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">Deskripsi</label>
-                    <textarea name="deskripsi" id="deskripsi" class="form-control" rows="4" placeholder="Deskripsi hewan, kondisi hewan, tempat/lokasi, dan penjelasan yang dapat membantu, Hari/Tanggal dan waktu ditemukan" required></textarea>
+                    <label for="" class="my-2">Deskripsi</label>
+                    <textarea name="deskripsi" id="deskripsi" class="form-control" rows="3" placeholder="Deskripsi hewan, kondisi hewan, tempat/lokasi, dan penjelasan yang dapat membantu, Hari/Tanggal dan waktu ditemukan" required></textarea>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">Unggah Foto Hewan</label>
+                    <label for="" class="my-2">Unggah Foto Hewan</label>
                     <input type="file" name="fotoHewan" id="fotoHewan" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml" required>
                     <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">Unggah Foto Lokasi Penemuan</label>
+                    <label for="" class="my-2">Unggah Foto Lokasi Penemuan</label>
                     <input type="file" name="fotoLokasi" id="fotoLokasi" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml" required>
                     <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
                 </div>
             </div>
-            <div class="row my-3">
+            <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-3">Unggah Foto Pendukung</label>
+                    <label for="" class="my-2">Unggah Foto Pendukung</label>
                     <input type="file" name="fotoBebas" id="fotoBebas" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml" required>
                     <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
                 </div>
