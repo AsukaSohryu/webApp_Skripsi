@@ -19,14 +19,14 @@
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Layanan Kami</p>
-        <p class="type-2">Pengajuan Penyerahan Hewan</p>
+        <p class="type-2">Ajukan Penyerahan Hewan</p>
     </div>
 </section>
 
 @if($shelterInformation->is_accepting_handover == 0)
 <section>
     <div class="container">
-        <h1 class="text-center">Pengajuan Penyerahan Hewan</h1>
+        <h1 class="text-center">Ajukan Penyerahan Hewan</h1>
         <hr />
         <div class="alert alert-info text-center">
             Shelter Sedang Tidak Melayani Pengajuan Penyerahan Hewan
@@ -37,7 +37,7 @@
 <section id="section-1-layanan-penyerahan">
     <div class="container">
         <div class="row my-2">
-            <h1 class="text-center">Formulir Pengajuan Penyerahan Hewan</h1>
+            <h1 class="text-center">Ajukan Penyerahan Hewan</h1>
             <hr />
             <div class="col">
                 <div class="mt-3">

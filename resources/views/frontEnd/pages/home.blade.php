@@ -59,7 +59,7 @@
                     <div class="card border-0" style="width: 18rem;">
                         <img src="{{ asset('assets/images/home/1-desktop/Home_RescuedAnimal.png') }}" class="card-img-top p-4" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Lihat Hewan Yang Baru Diselamatkan</h5>
+                            <h5 class="card-title text-center">Lihat Daftar Hewan yang Diselamatkan</h5>
                         </div>
                     </div>
                 </a>
@@ -69,17 +69,7 @@
                     <div class="card border-0" style="width: 18rem;">
                         <img src="{{ asset('assets/images/home/1-desktop/Home_Report.png') }}" class="card-img-top p-4" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Laporan Penemuan Hewan Liar</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-12 col-sm-12 d-flex justify-content-center">
-                <a href="{{ route('layanan-pengajuan') }}" class="text-decoration-none" style="color: inherit;">
-                    <div class="card border-0" style="width: 18rem;">
-                        <img src="{{ asset('assets/images/home/1-desktop/Home_Adoption.png') }}" class="card-img-top p-4" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Ajukan Pengadopsian Hewan</h5>
+                            <h5 class="card-title text-center">Laporkan Penemuan Hewan Peliharaan Liar</h5>
                         </div>
                     </div>
                 </a>
@@ -94,6 +84,16 @@
                     </div>
                 </a>
             </div>
+            <div class="col-lg-3 col-md-12 col-sm-12 d-flex justify-content-center">
+                <a href="{{ route('layanan-pengajuan') }}" class="text-decoration-none" style="color: inherit;">
+                    <div class="card border-0" style="width: 18rem;">
+                        <img src="{{ asset('assets/images/home/1-desktop/Home_Adoption.png') }}" class="card-img-top p-4" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Ajukan Pengadopsian Hewan</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
     <div class="container" id="container-1-home-semi-desktop">
@@ -104,7 +104,7 @@
                     <div class="card border-0" style="width: 18rem;">
                         <img src="{{ asset('assets/images/home/1-desktop/Home_RescuedAnimal.png') }}" class="card-img-top p-4" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Lihat Hewan Yang Baru Diselamatkan</h5>
+                            <h5 class="card-title text-center">Lihat Daftar Hewan yang Diselamatkan</h5>
                         </div>
                     </div>
                 </a>
@@ -114,7 +114,7 @@
                     <div class="card border-0" style="width: 18rem;">
                         <img src="{{ asset('assets/images/home/1-desktop/Home_Report.png') }}" class="card-img-top p-4" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Laporan Penemuan Hewan Liar</h5>
+                            <h5 class="card-title text-center">Laporkan Penemuan Hewan Peliharaan Liar</h5>
                         </div>
                     </div>
                 </a>

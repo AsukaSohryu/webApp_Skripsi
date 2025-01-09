@@ -82,7 +82,7 @@
 
 <section id="section-5-tentang" style="padding-bottom: 0; padding-top: 10px;">
     <div class="container g-3 p-4" style="background-color: #EFF8FF; border-radius: 8px;">
-        <h3 class="text-center">Informasi Tambahan</h3>
+        <h3 class="text-center">Informasi Donasi</h3>
         <div>{!! $shelterInformation->donation_information !!}</div>
     </div>
 </section>

@@ -5,7 +5,7 @@
         <ul>
             <a href="{{ route('home') }}" class="logo"><img src="{{url('/')}}/assets/img/main_logo.png" alt="" class="img-fluid"></a>
             <li>
-              <a href="{{ route('home') }}"><span style="font-size:16px;">Home</span></a>
+              <a href="{{ route('home') }}"><span style="font-size:16px;">Beranda</span></a>
             </li>
             <li>
               <a href="{{ route('tentang-kami') }}"><span style="font-size:16px;">Tentang Kami</span></a>
@@ -41,7 +41,7 @@
                     <form action="{{ route('logout') }}" method="post" id="logoutForm">
                       @csrf
                       <a onclick="document.getElementById('logoutForm').submit();">
-                        <span style="font-size:16px;">Logout</span>
+                        <span style="font-size:16px;">Keluar Akun</span>
                       </a>
                     </form>
                   </li>

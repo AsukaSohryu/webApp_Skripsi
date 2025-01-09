@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 
 class HewanDiselamatkanController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $oneWeekAgo = Carbon::now()->subWeek();
 
         $statusIds = status::where('config', 'Animal_Status')
@@ -19,18 +20,18 @@ class HewanDiselamatkanController extends Controller
             ->toArray();
 
         // dd($statusIds);
-        
+
         $animals = animal::where('is_active', 1)
             ->where('created_at', '>=', $oneWeekAgo)
             ->whereIn('status_id', $statusIds)
             ->orderBy('created_at', 'desc')
             ->get();
-            // ->paginate(9);
+        // ->paginate(9);
 
         // dd($animals);
 
         return view('frontend.pages.layanan.hewanDiselamatkan', [
-            'pagetitle' => 'Hewan Diselamatkan',
+            'pagetitle' => 'Daftar Hewan yang Diselamatkan',
             'animals' => $animals
         ]);
     }

@@ -19,17 +19,17 @@
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Layanan Kami</p>
-        <p class="type-2">Laporan Penemuan Hewan Peliharaan Liar</p>
+        <p class="type-2">Laporkan Penemuan Hewan Peliharaan Liar</p>
     </div> 
 </section>
 
 @if($shelterInformation->is_accepting_report == 0)
 <section id="section-1-laporan-penemuan">
     <div class="container">
-        <h1 class="text-center">Laporan Penemuan Hewan Peliharaan Liar</h1>
+        <h1 class="text-center">Laporkan Penemuan Hewan Peliharaan Liar</h1>
         <hr />
         <div class="alert alert-info text-center">
-            Shelter Sedang Tidak Melayani Laporan Penemuan Hewan Peliharaan Liar
+            Shelter Sedang Tidak Melayani Laporkan Penemuan Hewan Peliharaan Liar
         </div>
     </div>
 </section>
@@ -37,7 +37,7 @@
 <section id="section-1-laporan-penemuan">
     <div class="container">
         <div class="row my-2">
-            <h1 class="text-center">Laporan Penemuan Hewan Peliharaan Liar</h1>
+            <h1 class="text-center">Laporkan Penemuan Hewan Peliharaan Liar</h1>
             <hr />
             <div class="col">
                 <div class="mt-3">
