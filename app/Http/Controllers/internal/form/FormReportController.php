@@ -104,9 +104,10 @@ class FormReportController extends Controller
                 ]);
         } else {
             $file_web = $request->file('fotoResponAdmin');
-            $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
+            // $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
+            $file_web_name = $file_web->getClientOriginalName();
 
-            $path_web = $file_web->storeAs('formReport', $file_web_name, 'public');
+            $path_web = $file_web->move('uploadedImages/laporanPenemuan/responAdmin', $file_web_name);
 
             $update = ReportForm::where('report_form_id', $request->report_form_id)
                 ->update([

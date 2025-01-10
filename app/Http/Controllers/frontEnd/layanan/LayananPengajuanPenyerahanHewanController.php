@@ -32,9 +32,11 @@ class LayananPengajuanPenyerahanHewanController extends Controller
         // dd($request->all());
 
         $file_web = $request->file('fotoHewanHandover');
-        $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
+        // $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
+        $file_web_name = $file_web->getClientOriginalName();
 
-        $path_web = $file_web->storeAs('formHandover', $file_web_name, 'public');
+        // $path_web = $file_web->storeAs('formHandover', $file_web_name, 'public');
+        $path_web = $file_web->move('uploadedImages/layananPenyerahan/fotoHewan', $file_web_name);
 
         $status = status::where('config', 'Form_Handover_Status')
             ->where('key', 'REQ')

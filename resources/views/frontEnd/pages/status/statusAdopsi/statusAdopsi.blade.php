@@ -52,7 +52,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col align-items-left mx-auto">
                         <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-4">
-                            <img src="{{ asset('storage/animal/' . $item->animal->photo) }}" 
+                            <img src="{{ asset('uploadedImages/dataHewan/' . $item->animal->photo) }}" 
                                 class="img-fluid rounded-start w-100 m-0" 
                                 alt="Foto Hewan"
                                 style="object-fit: cover; max-width: 300px;">

@@ -48,9 +48,9 @@
                     <div class="col align-items-left">
                         <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-4">
                             <img src="@if($item->admin_feedback_photo) 
-                                        {{ asset('storage/formReport/' . $item->admin_feedback_photo) }}
+                                        {{ asset('uploadedImages/laporanPenemuan/responAdmin/' . $item->admin_feedback_photo) }}
                                     @else
-                                        {{ asset('storage/formReport/' . $item->animal_photo) }}
+                                        {{ asset('uploadedImages/laporanPenemuan/dataHewan/' . $item->animal_photo) }}
                                     @endif"
                                 class="img-fluid rounded-start w-100 m-0" 
                                 alt="Foto Hewan"

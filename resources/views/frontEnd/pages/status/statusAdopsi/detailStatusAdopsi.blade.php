@@ -59,7 +59,7 @@
             {{-- Area Detail Hewan --}}
             <div class="row mx-4">
                 <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-0 p-0">
-                    <img src="{{ asset('storage/animal/' . $adoptions->animal->photo) }}" 
+                    <img src="{{ asset('uploadedImages/dataHewan/' . $adoptions->animal->photo) }}" 
                         class="img-fluid rounded-start w-100 m-0" 
                         alt="Foto Hewan"
                         style="object-fit: cover; max-width: 300px;">

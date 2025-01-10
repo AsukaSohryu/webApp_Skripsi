@@ -19,8 +19,10 @@ class AuthController extends Controller
         // Handle foto
         if ($request->hasFile('foto')) {
             $fotoUser = $request->file('foto');
-            $fotoUserName = uniqid() . '.' . $fotoUser->getClientOriginalExtension();
-            $fotoUser->storeAs('user-photos', $fotoUserName, 'public');
+            $fotoUserName = $fotoUser->getClientOriginalName();
+            $fotoUser->move('uploadedImages/userProfile', $fotoUserName);
+
+            
         } else {
             // Handle case where no file is uploaded
             return back()->withErrors(['foto' => 'Foto tidak boleh kosong.']);

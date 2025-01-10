@@ -61,7 +61,7 @@
         <hr style="margin-left: 2.3rem; margin-right: 3.7rem;">
         <div class="row mx-4">
             <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 mt-4 p-0">
-                <img src="{{ asset('storage/formHandover/' . $handovers->photo) }}" 
+                <img src="{{ asset('uploadedImages/layananPenyerahan/fotoHewan/' . $handovers->photo) }}" 
                     class="img-fluid rounded-start w-100 m-0" 
                     alt="Foto Hewan"
                     style="object-fit: cover; max-width: 300px;">

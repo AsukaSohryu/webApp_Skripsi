@@ -35,7 +35,7 @@
         <hr>
         <div class="row my-3">
             <div class="col my-3 d-flex justify-content-center">
-                <img src="{{ asset('storage/formHandover/' . $detail->photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
+                <img src="{{ asset('uploadedImages/layananPenyerahan/fotoHewan/' . $detail->photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
             </div>
         </div>
         @foreach ($detail->handoverQuestions as $question)

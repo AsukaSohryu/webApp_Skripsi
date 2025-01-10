@@ -188,21 +188,21 @@ class FormHandoverController extends Controller
         }
     }
 
-    public function testUploadGambar(Request $request)
-    {
+    // public function testUploadGambar(Request $request)
+    // {
 
-        $file_web = $request->file('gambar');
-        $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
+    //     $file_web = $request->file('gambar');
+    //     $file_web_name = $file_web->getClientOriginalExtension();
 
-        $path_web = $file_web->storeAs('formHandover', $file_web_name, 'public');
+    //     $path_file = $file_web->move('uploadedImages/laporanPenyerahan/responAdmin', $file_web_name);
 
-        $edit = handoverForm::where('handover_form_id', 1)->update([
+    //     $edit = handoverForm::where('handover_form_id', 1)->update([
 
-            'photo' => $file_web_name,
-        ]);
+    //         'photo' => $file_web_name,
+    //     ]);
 
-        if ($edit) {
-            return redirect('/dashboard')->with('Insert Sukses');
-        }
-    }
+    //     if ($edit) {
+    //         return redirect('/dashboard')->with('Insert Sukses');
+    //     }
+    // }
 }

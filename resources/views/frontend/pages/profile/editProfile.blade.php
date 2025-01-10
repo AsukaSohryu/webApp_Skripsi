@@ -28,7 +28,7 @@
             @csrf
             <div class="row my-3">
                 <div class="col-4 d-flex align-items-center flex-column">
-                    <img src="{{ asset('storage/profile/' . $user->photo) }}" alt="" style="width: 250px; height: 250px; object-fit: cover; border-radius: 50%;">
+                    <img src="{{ asset('uploadedImages/userProfile/' . $user->photo) }}" alt="" style="width: 250px; height: 250px; object-fit: cover; border-radius: 50%;">
                     <input type="file" class="form-control my-3" name="photo">
                     <p>Current File: {{ $user->photo }}</p>
                 </div>

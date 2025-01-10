@@ -29,7 +29,7 @@
         <form action="" method="" class="m-4" enctype="" id="">  
             <div class="row my-1">
                 <div class="col my-2 d-flex justify-content-center">
-                    <img src="{{ asset('storage/animal/' . $animal->photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
+                    <img src="{{ asset('uploadedImages/dataHewan/' . $animal->photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
                 </div>
             </div>
             <div class="row my-1">

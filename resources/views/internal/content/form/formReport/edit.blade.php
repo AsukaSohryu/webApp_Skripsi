@@ -49,20 +49,20 @@
             <div class="row my-3 d-flex flex-row flex-wrap justify-content-center g-2" style="gap: 8px;">
                 <div class="col-3 d-flex justify-content-center">
                     <img src="@if($detail->admin_feedback_photo) 
-                                {{ asset('storage/formReport/' . $detail->admin_feedback_photo) }}
+                                {{ asset('uploadedImages/laporanPenemuan/responAdmin/' . $detail->admin_feedback_photo) }}
                             @else
-                                {{ asset('storage/formReport/' . $detail->animal_photo) }}
+                                {{ asset('uploadedImages/laporanPenemuan/fotoHewan/' . $detail->animal_photo) }}
                             @endif"
                         alt="Foto Hewan" 
                         class="border border-2 report-image img-fluid" 
                         style="height: 200px; object-fit: cover;">
                 </div>
                 <div class="col-3 d-flex justify-content-center">
-                    <img src="{{ asset('storage/formReport/' . $detail->location_photo) }}" alt="Foto Lokasi" class="border border-2 report-image img-fluid" style="height: 200px; object-fit: cover;">
+                    <img src="{{ asset('uploadedImages/laporanPenemuan/fotoLokasi/' . $detail->location_photo) }}" alt="Foto Lokasi" class="border border-2 report-image img-fluid" style="height: 200px; object-fit: cover;">
                 </div>
                 <div class="col-3 d-flex justify-content-center">
                     @if($detail->additional_photo)
-                        <img src="{{ asset('storage/formReport/' . $detail->additional_photo) }}" alt="Foto Tambahan" class="border border-2 report-image img-fluid" style="height: 200px; object-fit: cover;">
+                        <img src="{{ asset('uploadedImages/laporanPenemuan/fotoTambahan/' . $detail->additional_photo) }}" alt="Foto Tambahan" class="border border-2 report-image img-fluid" style="height: 200px; object-fit: cover;">
                     @else
                         <div class="border border-2 d-flex align-items-center justify-content-center image-placeholder" style="height: 200px;">
                             <span style="color: #6c757d">Foto Tambahan</span>

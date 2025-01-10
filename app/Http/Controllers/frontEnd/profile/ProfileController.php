@@ -52,9 +52,8 @@ class ProfileController extends Controller
             ]);
 
             $profile_pic = $request->file('photo');
-            $profile_pic_name = uniqid() . '.' . $profile_pic->getClientOriginalExtension();
-            $path = $profile_pic->storeAs('profile', $profile_pic_name, 'public');
-
+            $profile_pic_name = $profile_pic->getClientOriginalName();
+            $path = $profile_pic->move('uploadedImages/userProfile', $profile_pic_name);
 
             $update = User::where('user_id', $request->id)->update([
                 'name' => $request->name,

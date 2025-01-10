@@ -43,8 +43,8 @@
         <div class="row">
             @foreach($animals as $animal)
                 <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="{{ asset('storage/animal/' . $animal->photo) }}" class="card-img-top" alt="{{ $animal->animal_name }}" style="object-fit: cover; height: 200px;">
+                    <div class="card" style="width: 100%;">
+                        <img src="{{ asset('uploadedImages/dataHewan/' . $animal->photo) }}" class="card-img-top" alt="{{ $animal->animal_name }}" style="object-fit: cover; height: 200px;">
                         <div class="card-body m-0 p-0">
                             <div class="justify-content-center bg-light p-3">
                                 <h6 class="card-text small">Nama Hewan: {{ $animal->animal_name }}</h6>
