@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\frontEnd\status;
 
 use App\Http\Controllers\Controller;
-use App\Models\AdoptionForm;
+use App\Models\adoptionForm;
 use App\Models\status;
 use Illuminate\Http\Request;
 
@@ -13,7 +13,7 @@ class StatusAdopsiController extends Controller
     {
 
         $userId = auth()->id();
-        $adoptions = AdoptionForm::with('status') // Eager load the status relationship
+        $adoptions = adoptionForm::with('status') // Eager load the status relationship
             ->where('user_id', $userId)
             ->orderBy('created_at', 'desc')
             ->get();

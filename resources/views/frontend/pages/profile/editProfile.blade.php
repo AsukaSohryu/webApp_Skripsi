@@ -21,7 +21,7 @@
 
 <section id="detail-profile-desktop-1">
     <div class="container">
-        <h2>Ubah Profil</h2>
+        <h2 class="text-center">Ubah Profil</h2>
         <hr />
         <form action="{{ route('edit-profil.post') }}" method="POST" enctype="multipart/form-data" id="formDetailProfile">
             <input type="hidden" name="id" value="{{ $user->user_id }}">
@@ -60,9 +60,8 @@
                 </div>
             </div>
             <div class="d-flex gap-2 justify-content-end">
-                <a href="{{ route('detail-profil') }}" class="btn btn-danger">Batalkan</a>
-                <button class="btn btn-succcess border-0" type="submit" id="submitForm" style="background-color: #50CD89; color: white
-                ;">Simpan Perubahan</button>
+                <a href="{{ route('detail-profil') }}" class="btn btn-secondary">Batalkan</a>
+                <button class="btn btn-success border-0" type="submit" id="submitForm">Simpan Perubahan</button>
             </div>
             
         </form>

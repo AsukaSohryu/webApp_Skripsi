@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+
+
 <section id="nav-rep" class="p-0 mb-2 pb-1">
     <br /> 
     <br />
@@ -95,7 +97,7 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-center">
-            {{ $animals->links() }} <!-- Pagination links -->
+            {!! $animals->links() !!} <!-- Pagination links from Laravel -->
         </div>
     </div>
 </section>

@@ -120,7 +120,7 @@
                 </div>
             </div>
             <div class="row my-3">
-                <div class="col">
+                <div class="col d-flex justify-content-end">
                     <a href="{{ route('status-penyerahan') }}" class="btn btn-secondary">
                         Kembali
                     </a>

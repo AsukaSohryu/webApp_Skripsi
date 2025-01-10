@@ -15,13 +15,13 @@
     <div class="container">
         <p class="type-2">Profil</p>
         <p class="type-2">{{ $user->name }}</p>
-        <p class="type-2">Ubah Password</p>
+        <p class="type-2">Ubah Kata Sandi</p>
     </div>
 </section>
 
 <section id="detail-profile-desktop-1">
     <div class="container">
-        <h2>Ubah Password</h2>
+        <h2 class="text-center">Ubah Kata Sandi</h2>
         <hr />
         <form action="{{ route('edit-password.post') }}" method="POST" enctype="multipart/form-data" id="changePasswordForm" class="d-flex flex-column" style="gap: 16px;">
             <input type="hidden" name="id" value="{{ $user->user_id }}">
@@ -39,8 +39,8 @@
                 <input type="password" id="confirm_new_password" name="new_password_confirmation" class="form-control" required />
             </div>
             <div class="d-flex gap-2 justify-content-end">
-                <a href="{{ route('detail-profil') }}" class="btn btn-danger">Batalkan</a>
-                <button class="btn btn-success border-0" type="submit" id="submitForm" style="color: white; background-color: #50CD89;">Simpan Perubahan</button>
+                <a href="{{ route('detail-profil') }}" class="btn btn-secondary border border-0">Batalkan</a>
+                <button class="btn btn-success border-0" type="submit" id="submitForm">Simpan Perubahan</button>
             </div>
         </form>
     </div>

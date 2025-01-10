@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\frontEnd\status;
 
 use App\Http\Controllers\Controller;
-use App\Models\HandoverForm;
+use App\Models\handoverForm;
 use App\Models\status;
 use Illuminate\Http\Request;
 
@@ -11,7 +11,7 @@ class StatusHandoverController extends Controller
 {
     public function index(){
         $userId = auth()->id();
-        $handover = HandoverForm::with('status')
+        $handover = handoverForm::with('status')
             ->where('user_id', $userId)
             ->with(['handoverQuestions' => function($query) {
                 $query->withPivot('answer');

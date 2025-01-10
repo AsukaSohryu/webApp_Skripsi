@@ -20,7 +20,7 @@
 
 <section id="detail-profile-desktop-1">
     <div class="container" style="gap: 8px;">
-        <h2>Profil Pengguna</h2>
+        <h2 class="text-center">Profil Pengguna</h2>
         <hr />
         <div class="row my-3">
             <div class="col-4">
@@ -56,11 +56,11 @@
         <div class="row my-3">
             <div class="col">
                 <a href="{{ route('edit-profil') }}" style="color: black">
-                    <button class="btn btn-success border-0" style="width: 100%; background-color: #50CD89;"><span>Ubah Profil</span></button>
+                    <button class="btn btn-success border-0" style="width: 100%;"><span>Ubah Profil</span></button>
                 </a>
             </div>
             <div class="col">
-                <a href="{{ route('edit-password') }}" style="color: black">
+                <a href="{{ route('edit-password') }}" style="color: black" aria-disabled="true">
                     <button class="btn btn-outline-secondary" style="width: 100%;"><span>Ubah kata Sandi</span></button>
                 </a>
             </div>

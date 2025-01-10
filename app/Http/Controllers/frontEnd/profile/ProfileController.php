@@ -15,7 +15,7 @@ class ProfileController extends Controller
         $user = Auth::user();
         // dd($user);
 
-        return view('frontEnd.pages.profile.detailProfile', [
+        return view('frontend.pages.profile.detailProfile', [
             'user' => $user
         ]);
     }
@@ -24,7 +24,7 @@ class ProfileController extends Controller
 
         $user = Auth::user();
 
-        return view('frontEnd.pages.profile.editProfile',[
+        return view('frontend.pages.profile.editProfile',[
             'user' => $user
         ]);
     }
@@ -74,7 +74,7 @@ class ProfileController extends Controller
 
         $user = Auth::user();
 
-        return view('frontEnd.pages.profile.editPassword',[
+        return view('frontend.pages.profile.editPassword',[
             'user' => $user
         ]);
     }
