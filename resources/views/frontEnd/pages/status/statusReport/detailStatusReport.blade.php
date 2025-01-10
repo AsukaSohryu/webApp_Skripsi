@@ -16,15 +16,18 @@
 
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
-        <p class="type-2">Status</p>
-        <p class="type-2">Status Formulir Laporan Penemuan Hewan Peliharaan Liar</p>
+        <p class="type-2">Riwayat Laporan Dan Pengajuan</p>
+        <p class="type-2">Riwayat Laporan Penemuan Hewan Peliharaan Liar</p>
+        <p class="type-2">Formulir Laporan Penemuan Hewan Peliharaan Liar</p>
     </div>
 </section>
 
 <section id="section-1-status-penemuan">
     <div class="container my-3">
-        <h4 class="text-center">Status Formulir Laporan Penemuan Hewan Peliharaan Liar</h4>
-        <hr />
+        <div class="row my-2 d-flex" style="gap: 8px;">
+            <h3 class="text-center">Formulir Laporan Penemuan Hewan Peliharaan Liar</h3>
+            <hr />
+        </div>
     </div>
     <div class="container justify-content-center border border-black my-2" style="border-radius: 16px; gap: 0;">
         <div class="row mx-4 mt-4">

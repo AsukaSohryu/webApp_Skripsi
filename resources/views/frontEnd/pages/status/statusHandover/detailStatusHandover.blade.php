@@ -16,15 +16,18 @@
 
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
-        <p class="type-2">Status</p>
-        <p class="type-2">Status Formulir Pengajuan Penyerahan Hewan</p>
+        <p class="type-2">Riwayat Laporan Dan Pengajuan</p>
+        <p class="type-2">Riwayat Pengajuan Penyerahan Hewan Peliharaan</p>
+        <p class="type-2">Formulir Pengajuan Penyerahan Hewan Peliharaan</p>
     </div>
 </section>
 
 <section id="section-1-status-penemuan">
     <div class="container my-3">
-        <h4 class="text-center">Status Formulir Pengajuan Penyerahan Hewan</h4>
-        <hr>
+        <div class="row my-2 d-flex" style="gap: 8px;">
+            <h3 class="text-center">Formulir Pengajuan Penyerahan Hewan Peliharaan</h3>
+            <hr>
+        </div>
     </div>
     <div class="container justify-content-center my-2 border border-black" style="border-radius: 16px; gap: 0;">
         <div class="row mx-4 mt-4">
@@ -64,7 +67,7 @@
                 <img src="{{ asset('uploadedImages/layananPenyerahan/fotoHewan/' . $handovers->photo) }}" 
                     class="img-fluid rounded-start w-100 m-0" 
                     alt="Foto Hewan"
-                    style="object-fit: cover; max-width: 300px;">
+                    style="object-fit: cover; max-width: 300px; max-height: 300px; border-radius: 8px;">
             </div>
             @foreach ($handovers->handoverQuestions as $question)
                 <div class="row my-1">

@@ -52,10 +52,10 @@
                 <div class="col-lg-3 col-sm-6 col-12 footer-links">
                     <h4>Layanan Kami</h4>
                     <ul>
-                        <li><a href="{{ route('layanan-laporan') }}">Laporkan Penemuan</a></li>
-                        <li><a href="{{ route('layanan-pengajuan') }}">Ajukan Penyerahan</a></li>
-                        <li><a href="{{ route('layanan-lihat') }}">Ajukan Adopsi</a></li>
-                        <li><a href="{{ route('layanan-hewan-diselamatkan') }}">Daftar Hewan Diselamatkan</a></li>
+                        <li><a href="{{ route('layanan-laporan') }}">Lihat Hewan Yang Diselamatkan</a></li>
+                        <li><a href="{{ route('layanan-pengajuan') }}">Laporkan Penemuan Hewan Peliharaan Liar</a></li>
+                        <li><a href="{{ route('layanan-lihat') }}">Ajukan Penyerahan Hewan</a></li>
+                        <li><a href="{{ route('layanan-hewan-diselamatkan') }}">Lihat Hewan Yang Siap Diadopsi</a></li>
                     </ul>
                 </div>
 
@@ -117,10 +117,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 footer-links">
                     <h4>Layanan Kami</h4>
                     <ul>
-                        <li><a href="{{ route('layanan-laporan') }}">Laporkan Penemuan</a></li>
-                        <li><a href="{{ route('layanan-pengajuan') }}">Ajukan Penyerahan</a></li>
-                        <li><a href="{{ route('layanan-lihat') }}">Ajukan Adopsi</a></li>
-                        <li><a href="{{ route('layanan-hewan-diselamatkan') }}">Daftar Hewan Diselamatkan</a></li>
+                        <li><a href="{{ route('layanan-laporan') }}">Lihat Hewan Yang Diselamatkan</a></li>
+                        <li><a href="{{ route('layanan-pengajuan') }}">Laporkan Penemuan Hewan Peliharaan Liar</a></li>
+                        <li><a href="{{ route('layanan-lihat') }}">Ajukan Penyerahan Hewan</a></li>
+                        <li><a href="{{ route('layanan-hewan-diselamatkan') }}">Lihat Hewan Yang Siap Diadopsi</a></li>
                     </ul>
                 </div>
 

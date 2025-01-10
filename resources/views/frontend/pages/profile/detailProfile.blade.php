@@ -20,7 +20,7 @@
 
 <section id="detail-profile-desktop-1">
     <div class="container" style="gap: 8px;">
-        <h2 class="text-center">Profil Pengguna</h2>
+        <h2 class="text-center">Detail Profil</h2>
         <hr />
         <div class="row my-3">
             <div class="col-4 d-flex justify-content-center">

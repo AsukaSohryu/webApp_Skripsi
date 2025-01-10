@@ -22,14 +22,16 @@
 </section>
 <section id="section-1-detail-hewan">
     <div class="container my-3">
-        <h3 class="text-center">Detail Hewan: {{$animal->animal_name}}</h3>
-        <hr>
+        <div class="row my-2 d-flex" style="gap: 8px;">
+            <h3 class="text-center">Detail Hewan: {{$animal->animal_name}}</h3>
+            <hr>
+        </div>
     </div>
     <div class="container border border-black my-2" style="border-radius: 16px">
         <form action="" method="" class="m-4" enctype="" id="">  
             <div class="row my-1">
                 <div class="col my-2 d-flex justify-content-center">
-                    <img src="{{ asset('uploadedImages/dataHewan/' . $animal->photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
+                    <img src="{{ asset('uploadedImages/dataHewan/' . $animal->photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px; object-fit: cover;">
                 </div>
             </div>
             <div class="row my-1">

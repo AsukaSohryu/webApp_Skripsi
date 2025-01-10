@@ -36,26 +36,28 @@
 
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
-        <p class="type-2">Status</p>
-        <p class="type-2">Status Formulir Pengajuan Pengadopsian Hewan</p>
+        <p class="type-2">Riwayat Laporan Dan Pengajuan</p>
+        <p class="type-2">Riwayat Pengajuan Penyerahan Hewan Peliharaan</p>
     </div>
 </section>
 
 <section id="section-1-status-penemuan">
     <div class="container">
-        <h4 class="text-center">Status Formulir Pengajuan Pengadopsian Hewan</h4>
-        <hr>
+        <div class="row my-2 d-flex" style="gap: 8px;">
+            <h3 class="text-center">Riwayat Pengajuan Penyerahan Hewan Peliharaan</h3>
+            <hr>
+        </div>
     </div>
     <div class="container">
         @foreach($adoptions as $item)
-            <div class="card mb-3">
+            <div class="card mb-3" style="border-radius: 8px;">
                 <div class="row align-items-center justify-content-between">
-                    <div class="col align-items-left mx-auto">
-                        <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-4">
+                    <div class="col align-items-left p-0">
+                        <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 mp-0">
                             <img src="{{ asset('uploadedImages/dataHewan/' . $item->animal->photo) }}" 
                                 class="img-fluid rounded-start w-100 m-0" 
                                 alt="Foto Hewan"
-                                style="object-fit: cover; max-width: 300px;">
+                                style="object-fit: cover; max-width: 280px; max-height: 270px; border-radius: 8px;">
                         </div>
                     </div>
                     <div class="col-md-9 h-100">

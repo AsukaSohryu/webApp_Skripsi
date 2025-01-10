@@ -59,7 +59,7 @@
                     <div class="card border-0" style="width: 18rem;">
                         <img src="{{ asset('assets/images/home/1-desktop/Home_RescuedAnimal.png') }}" class="card-img-top p-4" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Lihat Daftar Hewan yang Diselamatkan</h5>
+                            <h5 class="card-title text-center">Lihat Hewan Yang Diselamatkan</h5>
                         </div>
                     </div>
                 </a>
@@ -89,7 +89,7 @@
                     <div class="card border-0" style="width: 18rem;">
                         <img src="{{ asset('assets/images/home/1-desktop/Home_Adoption.png') }}" class="card-img-top p-4" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Ajukan Pengadopsian Hewan</h5>
+                            <h5 class="card-title text-center">Lihat Hewan Yang Siap Diadopsi</h5>
                         </div>
                     </div>
                 </a>
@@ -104,7 +104,7 @@
                     <div class="card border-0" style="width: 18rem;">
                         <img src="{{ asset('assets/images/home/1-desktop/Home_RescuedAnimal.png') }}" class="card-img-top p-4" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Lihat Daftar Hewan yang Diselamatkan</h5>
+                            <h5 class="card-title text-center">Lihat Hewan yang Diselamatkan</h5>
                         </div>
                     </div>
                 </a>
@@ -126,7 +126,7 @@
                     <div class="card border-0" style="width: 18rem;">
                         <img src="{{ asset('assets/images/home/1-desktop/Home_Adoption.png') }}" class="card-img-top p-4" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Ajukan Pengadopsian Hewan</h5>
+                            <h5 class="card-title text-center">Ajukan Penyerahan Hewan</h5>
                         </div>
                     </div>
                 </a>
@@ -136,7 +136,7 @@
                     <div class="card border-0" style="width: 18rem;">
                         <img src="{{ asset('assets/images/home/1-desktop/Home_Handover.png') }}" class="card-img-top p-4" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Ajukan Penyerahan Hewan</h5>
+                            <h5 class="card-title text-center">Lihat Hewan Yang Siap Diadopsi</h5>
                         </div>
                     </div>
                 </a>
