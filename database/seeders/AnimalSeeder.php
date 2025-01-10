@@ -6,7 +6,7 @@ use App\Models\animal;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Status;
+use App\Models\status;
 
 class AnimalSeeder extends Seeder
 {
