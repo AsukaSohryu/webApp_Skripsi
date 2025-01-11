@@ -87,9 +87,11 @@ class DataHewanController extends Controller
         } else {
 
             $file_web = $request->file('fotoHewan');
-            $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
+            // $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
+            $file_web_name = $file_web->getClientOriginalName();
 
-            $path_web = $file_web->storeAs('animal', $file_web_name, 'public');
+            // $path_web = $file_web->storeAs('animal', $file_web_name, 'public');
+            $path_web = $file_web->move('uploadedImages/dataHewan', $file_web_name);
 
             $update = animal::where('animal_id', $request->idHewan)->update([
 
@@ -134,9 +136,10 @@ class DataHewanController extends Controller
     {
 
         $file_web = $request->file('fotoHewan');
-        $file_web_name = uniqid() . '.' . $file_web->getClientOriginalExtension();
+        $file_web_name = $file_web->getClientOriginalName();
 
-        $path_web = $file_web->storeAs('animal', $file_web_name, 'public');
+        // $path_web = $file_web->storeAs('animal', $file_web_name, 'public');
+        $path_web = $file_web->move('uploadedImages/dataHewan', $file_web_name);
 
         $create = animal::create([
             'photo' => $file_web_name,

@@ -24,7 +24,7 @@
     <div class="container p-4 d-flex" style="background-color: #EFF8FF; border-radius: 8px;">
         <div class="row d-flex" id="row-1-tentang">
             <div class="col-lg-6 col-12 d-flex justify-content-center">
-                <img src="{{ asset('storage/informasiShelter/' . $shelterInformation->founder_photo) }}" alt="Founder Photo" style="width: 400px; height: 400px; object-fit: cover; border-radius: 8px;">
+                <img src="{{ asset('uploadedImages/informasiShelter/' . $shelterInformation->founder_photo) }}" alt="Founder Photo" style="width: 400px; height: 400px; object-fit: cover; border-radius: 8px;">
             </div>
             <div class="col-lg-6 col-12 d-flex align-items-center">
                 <div class="custom-text-box">
@@ -33,6 +33,12 @@
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<section id="gambar-shelter">
+    <div class="container">
+        <img class="border border-black" src="{{ asset('uploadedImages/informasiShelter/' . $shelterInformation->shelter_photo) }}" alt="Shelter Photo" style="border-radius: 8px;">
     </div>
 </section>
 

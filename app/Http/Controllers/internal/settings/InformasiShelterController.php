@@ -64,22 +64,22 @@ class InformasiShelterController extends Controller
 
         if ($request->hasFile('shelterLogo')) {
             $file_web_shelter_logo = $request->file('shelterLogo');
-            $file_web_name_shelter_logo = uniqid() . '.' . $file_web_shelter_logo->getClientOriginalExtension();
-            $file_web_shelter_logo->storeAs('informasiShelter', $file_web_name_shelter_logo, 'public');
+            $file_web_name_shelter_logo = $file_web_shelter_logo->getClientOriginalName();
+            $file_web_shelter_logo->move('uploadedImages/informasiShelter', $file_web_name_shelter_logo);
             $updateData['shelter_logo'] = $file_web_name_shelter_logo;
         }
 
         if ($request->hasFile('shelterPhoto')) {
             $file_web_shelter_photo = $request->file('shelterPhoto');
-            $file_web_name_shelter_photo = uniqid() . '.' . $file_web_shelter_photo->getClientOriginalExtension();
-            $file_web_shelter_photo->storeAs('informasiShelter', $file_web_name_shelter_photo, 'public');
+            $file_web_name_shelter_photo = $file_web_shelter_photo->getClientOriginalName();
+            $file_web_shelter_photo->move('uploadedImages/informasiShelter', $file_web_name_shelter_photo);
             $updateData['shelter_photo'] = $file_web_name_shelter_photo;
         }
 
         if ($request->hasFile('founderPhoto')) {
             $file_web_founder_photo = $request->file('founderPhoto');
-            $file_web_name_founder_photo = uniqid() . '.' . $file_web_founder_photo->getClientOriginalExtension();
-            $file_web_founder_photo->storeAs('informasiShelter', $file_web_name_founder_photo, 'public');
+            $file_web_name_founder_photo = $file_web_founder_photo->getClientOriginalName();
+            $file_web_founder_photo->move('uploadedImages/informasiShelter', $file_web_name_founder_photo);
             $updateData['founder_photo'] = $file_web_name_founder_photo;
         }
 

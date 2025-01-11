@@ -11,21 +11,22 @@
     <br />
 </section>
 
-<section id="hero" style='height: 72vh; background-image: url("./assets/images/tentangKami/owl.jpg"); background-position: center;'>
-</section>
+{{-- <section id="hero" style='height: 72vh; background-image: url("./assets/images/tentangKami/owl.jpg"); background-position: center;'>
+</section> --}}
 
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Layanan Kami</p>
         <p class="type-2">Pengajuan Pengadopsian Hewan</p>
+        <p class="type-2">Detail Hewan Siap Adopsi</p>
+        <p class="type-2">Ajukan Pengadopsian Hewan</p>
     </div>
-    
 </section>
 
 <section id="section-1-layanan-adopsi">
     <div class="container">
-        <div class="row my-2">
-            <h1 class="text-center">Formulir Pengajuan Pengadopsian Hewan</h1>
+        <div class="row my-2 d-flex" style="gap: 8px;">
+            <h1 class="text-center">Ajukan Pengadopsian Hewan</h1>
             <hr />
             <div class="col">
                 <div class="mt-3">

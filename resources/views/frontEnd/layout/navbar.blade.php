@@ -3,7 +3,7 @@
     <div class="container d-flex justify-content-center align-items-center">
       <nav id="navbar" class="navbar d-flex">
         <ul>
-            <a href="{{ route('home') }}" class="logo"><img src="{{url('/')}}/assets/img/main_logo.png" alt="" class="img-fluid"></a>
+            <a href="{{ route('home') }}" class="logo"><img src="" alt="" class="img-fluid"></a>
             <li>
               <a href="{{ route('home') }}"><span style="font-size:16px;">Beranda</span></a>
             </li>
@@ -12,17 +12,17 @@
             </li>
             <li class="dropdown"><a href="#"><span style="font-size:16px;">Layanan Kami</span><i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="{{ route('layanan-hewan-diselamatkan') }}"><span style="font-size:16px;">Lihat Daftar Hewan yang Diselamatkan</span> </a></li>
+                <li><a href="{{ route('layanan-hewan-diselamatkan') }}"><span style="font-size:16px;">Lihat Hewan Yang Diselamatkan</span> </a></li>
                 <li><a href="{{ route('layanan-laporan') }}"><span style="font-size:16px;">Laporkan Penemuan Hewan Peliharaan Liar</span> </a></li>
                 <li><a href="{{ route('layanan-pengajuan') }}"><span style="font-size:16px;">Ajukan Penyerahan Hewan</span> </a></li>
-                <li><a href="{{ route('layanan-lihat') }}"><span style="font-size:16px;">Ajukan Pengadopsian Hewan/Lihat Daftar Hewan</span></a></li>
+                <li><a href="{{ route('layanan-lihat') }}"><span style="font-size:16px;">Lihat Hewan Siap Adopsi</span></a></li>
               </ul>
             </li>
-            <li class="dropdown"><a href="#"><span style="font-size:16px;">Laporan dan Pengajuan</span> <i class="bi bi-chevron-down"></i></a>
+            <li class="dropdown"><a href="#"><span style="font-size:16px;">Riwayat Laporan dan Pengajuan</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="{{ route('status-laporan') }}"><span style="font-size:16px;">Status Laporan Penemuan Hewan Peliharaan Liar</span></a></li>
-                <li><a href="{{ route('status-penyerahan') }}"><span style="font-size:16px;">Status Pengajuan Penyerahan Hewan</span></a></li>
-                <li><a href="{{ route('status-adopsi') }}"><span style="font-size:16px;">Status Pengajuan Pengadopsian Hewan</span></a></li>
+                <li><a href="{{ route('status-laporan') }}"><span style="font-size:16px;">Riwayat Laporan Penemuan Hewan Peliharaan Liar</span></a></li>
+                <li><a href="{{ route('status-penyerahan') }}"><span style="font-size:16px;">Riwayat Pengajuan Penyerahan Hewan Peliharaan</span></a></li>
+                <li><a href="{{ route('status-adopsi') }}"><span style="font-size:16px;">Riwayat Pengajuan Pengadopsian Hewan Peliharaan</span></a></li>
               </ul>
             </li>
             <li>
@@ -30,12 +30,12 @@
               <li class="dropdown">
                 <a href="#" class="d-flex flex-row">
                   <span style="font-size:16px;">Hai, {{ auth()->user()->name }}!</span>
-                  <img src="{{ asset('storage/profile/' . auth()->user()->photo) }}" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ffffff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);">
+                  <img src="{{ asset('uploadedImages/userProfile/' . auth()->user()->photo) }}" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ffffff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);">
                 </a>
                 <ul>
                   <li><a href="{{ route('detail-profil') }}"><span style="font-size:16px;">Detail Profil</span></a></li>
                   @if(auth()->check() && auth()->user()->role == 'Admin')
-                      <li><a href="{{ route('dashboard') }}"><span style="font-size:16px;">Dashbor Admin</span></a></li>
+                      <li><a href="{{ route('dashboard') }}"><span style="font-size:16px;">Dasbor Admin</span></a></li>
                   @endif
                   <li>
                     <form action="{{ route('logout') }}" method="post" id="logoutForm">
@@ -91,12 +91,12 @@
         <div class="accordion-item" style="background-color: transparent;">
           <h2 class="accordion-header" id="flush-headingFive">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive" style="background-color: transparent; font-size: 20px; color: #5E6666; font-weight: 700;">
-              Halaman Utama
+              Beranda
             </button>
           </h2>
           <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-              <a href="{{ route('home') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Halaman Utama</li></a>
+              <a href="{{ route('home') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Beranda</li></a>
             </div>
           </div>
         </div>
@@ -120,10 +120,10 @@
           </h2>
           <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-              <a href="{{ route('layanan-hewan-diselamatkan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Lihat Daftar Hewan Yang Diselamatkan</li></a>
+              <a href="{{ route('layanan-hewan-diselamatkan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Lihat Hewan Yang Diselamatkan</li></a>
               <a href="{{ route('layanan-laporan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Laporkan Penemuan Hewan Peliharaan Liar</li></a>
-              <a href="{{ route('layanan-pengajuan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Ajukan Penyerahan Hewan</li></a>
-              <a href="{{ route('layanan-lihat') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Ajukan Pengadopsian Hewan/Lihat Daftar Hewan</li></a>
+              <a href="{{ route('layanan-pengajuan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Ajukan Penyerahan Hewan Peliharaan</li></a>
+              <a href="{{ route('layanan-lihat') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Lihat Hewan Siap Adopsi</li></a>
             </div>
           </div>
         </div>
@@ -135,9 +135,9 @@
           </h2>
           <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-              <a href="{{ route('status-laporan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Status Laporan Penemuan Hewan Liar</li></a>
-              <a href="{{ route('status-penyerahan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Status Pengajuan Penyerahan Hewan</li></a>
-              <a href="{{ route('status-adopsi') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Status Pengajuan Pengadopsian Hewan</li></a>
+              <a href="{{ route('status-laporan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Riwayat Laporan Penemuan Hewan Peliharaan Liar</li></a>
+              <a href="{{ route('status-penyerahan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Riwayat Pengajuan Penyerahan Hewan Peliharaan</li></a>
+              <a href="{{ route('status-adopsi') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Riwayat Pengajuan Pengadopsian Hewan Peliharaan</li></a>
             </div>
           </div>
         </div>
@@ -157,7 +157,7 @@
         <div style="padding: 16px 0px 16px 0px;">
           <form action="{{ route('logout') }}" method="post" id="logoutForm">
             @csrf
-            <button onclick="document.getElementById('logoutForm').submit();" type="button" class="btn btn-danger" style="width: 100%;">Logout
+            <button onclick="document.getElementById('logoutForm').submit();" type="button" class="btn btn-danger" style="width: 100%;">Keluar Akun
             </button>
           </form>
         </div>

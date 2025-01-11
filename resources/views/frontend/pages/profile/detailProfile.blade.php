@@ -20,11 +20,11 @@
 
 <section id="detail-profile-desktop-1">
     <div class="container" style="gap: 8px;">
-        <h2 class="text-center">Profil Pengguna</h2>
+        <h2 class="text-center">Detail Profil</h2>
         <hr />
         <div class="row my-3">
-            <div class="col-4">
-                <img src="{{ asset('storage/profile/' . $user->photo) }}" alt="" style="width: 250px; height: 250px; object-fit: cover; border-radius: 50%;">
+            <div class="col-4 d-flex justify-content-center">
+                <img src="{{ asset('uploadedImages/userProfile/' . $user->photo) }}" alt="" style="width: 250px; height: 250px; object-fit: cover; border-radius: 50%;">
             </div>
             <div class="col-8">
                 <div class="row my-3">

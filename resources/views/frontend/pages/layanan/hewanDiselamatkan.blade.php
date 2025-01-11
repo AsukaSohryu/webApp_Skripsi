@@ -29,25 +29,27 @@
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Layanan Kami</p>
-        <p class="type-2">Daftar Hewan Yang yang Diselamatkan</p>
+        <p class="type-2">Hewan Yang Telah Diselamatkan</p>
     </div>
 </section>
 
 <section id="section-1-hewan-diselamatkan">
-    <div class="container">
-        <h1 class="text-center">Daftar Hewan yang Diselamatkan</h1>
-        <hr />
+    <div class="container" style="gap: 0;">
+        <div class="row my-2 d-flex" style="gap: 8px;">
+            <h1 class="text-center">Hewan Yang Telah Diselamatkan</h1>
+            <hr />
+        </div>
     </div>
     <div class="container">
         @foreach($animals as $animal)
-            <div class="card mb-3">
+            <div class="card mb-3" style="border-radius: 8px;">
                 <div class="row align-items-center justify-content-between">
                     <div class="col align-items-left p-0">
                         <div class="d-flex justify-content-center justify-content-md-center align-items-center h-100 m-0 p-0">
-                            <img src="{{ asset('storage/animal/' . $animal->photo) }}" 
+                            <img src="{{ asset('uploadedImages/dataHewan/'. $animal->photo) }}" 
                                 class="img-fluid rounded-start w-100 m-0" 
                                 alt="Foto Hewan"
-                                style="object-fit: cover; max-width: 300px;">
+                                style="object-fit: cover; max-width: 280px; max-height: 270px; border-radius: 8px;">
                         </div>
                     </div>
                     <div class="col-md-9 h-100">

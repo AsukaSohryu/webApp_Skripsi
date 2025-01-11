@@ -40,7 +40,7 @@
         <h1 class="text-center">Detail Data Hewan</h1>
         <div class="row my-3">
             <div class="col my-3 d-flex justify-content-center">
-                <img src="{{ asset('storage/animal/' . $detail->photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
+                <img src="{{ asset('uploadedImages/dataHewan/' . $detail->photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px; object-fit: cover;">
             </div>
         </div>
         <div class="row my-3">

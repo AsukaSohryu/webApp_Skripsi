@@ -13,8 +13,8 @@
     <br />
 </section>
 
-<section id="hero" style="height: 72vh; background-image: url('{{ asset('assets/images/layananKami/Dog_Human_1.jpg') }}'); background-position: center;">
-</section>
+{{-- <section id="hero" style="height: 72vh; background-image: url('{{ asset('assets/images/layananKami/Dog_Human_1.jpg') }}'); background-position: center;">
+</section> --}}
 
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
@@ -26,21 +26,23 @@
 @if($shelterInformation->is_accepting_handover == 0)
 <section>
     <div class="container">
-        <h1 class="text-center">Ajukan Penyerahan Hewan</h1>
-        <hr />
-        <div class="alert alert-info text-center">
+        <div class="row my-2 d-flex" style="gap: 8px;">
+            <h1 class="text-center">Ajukan Penyerahan Hewan</h1>
+            <hr />
+            <div class="alert alert-info text-center">
             Shelter Sedang Tidak Melayani Pengajuan Penyerahan Hewan
+        </div>
         </div>
     </div>
 </section>
 @else
 <section id="section-1-layanan-penyerahan">
     <div class="container">
-        <div class="row my-2">
+        <div class="row my-2 d-flex" style="gap: 8px;">
             <h1 class="text-center">Ajukan Penyerahan Hewan</h1>
             <hr />
             <div class="col">
-                <div class="mt-3">
+                <div class="mt-2">
                     {!! $shelterInformation->handover_information !!}
                 </div>
             </div>
