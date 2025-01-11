@@ -21,8 +21,10 @@
 
 <section id="detail-profile-desktop-1">
     <div class="container">
-        <h2 class="text-center">Ubah Kata Sandi</h2>
-        <hr />
+        <div class="row my-2 d-flex" style="gap: 8px;">
+            <h1 class="text-center">Ubah Kata Sandi</h1>
+            <hr />
+        </div>
         <form action="{{ route('edit-password.post') }}" method="POST" enctype="multipart/form-data" id="changePasswordForm" class="d-flex flex-column" style="gap: 16px;">
             <input type="hidden" name="id" value="{{ $user->user_id }}">
             @csrf

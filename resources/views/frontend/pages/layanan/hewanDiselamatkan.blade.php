@@ -29,14 +29,14 @@
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Layanan Kami</p>
-        <p class="type-2">Hewan Yang Telah Diselamatkan</p>
+        <p class="type-2">Hewan yang Telah Diselamatkan</p>
     </div>
 </section>
 
 <section id="section-1-hewan-diselamatkan">
     <div class="container" style="gap: 0;">
         <div class="row my-2 d-flex" style="gap: 8px;">
-            <h1 class="text-center">Hewan Yang Telah Diselamatkan</h1>
+            <h1 class="text-center">Hewan yang Telah Diselamatkan</h1>
             <hr />
         </div>
     </div>

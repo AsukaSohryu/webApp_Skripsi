@@ -11,7 +11,7 @@
     <br />
 </section>
 
-<section id="hero" style="height: 72vh; background-image: url('{{ asset('assets/images/tentangKami/Cats_Dogs_1.jpg') }}'); background-position: center;">
+<section id="hero" style="height: 76vh; background-image: url('{{ asset('assets/images/tentangKami/dog_n_cat.jpg') }}');">
 </section>
 
 <section id="breadcrumbs" class="section-bg-5">

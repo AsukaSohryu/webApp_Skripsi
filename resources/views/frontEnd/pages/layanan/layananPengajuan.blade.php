@@ -60,6 +60,28 @@
             </div>
             <div class="row my-1">
                 <div class="col">
+                    <label for="" class="my-2">Email</label>
+                    <input type="text" name="emailPemilik" id="emailPemilik" class="form-control" value="{{$user->email}}" disabled>
+                </div>
+            </div>
+            <div class="row my-1">
+                <div class="col">
+                    <label for="" class="my-2">Alamat</label>
+                    <input type="text" name="alamatPemilik" id="alamatPemilik" class="form-control" value="{{$user->address}}" disabled>
+                </div>
+            </div>
+            <div class="row my-1">
+                <div class="col">
+                    <label for="" class="my-2">Usia</label>
+                    <input type="text" name="usia" id="usia" class="form-control" value="" disabled>
+                </div>
+                <div class="col">
+                    <label for="" class="my-2">Tanggal Lahir</label>
+                    <input type="text" name="bod" id="bod" class="form-control" value="{{ $user->birth_date }}" disabled>
+                </div>
+            </div>
+            <div class="row my-1">
+                <div class="col">
                     <label for="" class="my-2">Nomor Telepon</label>
                     <input type="text" name="noTelp" id="noTelp" class="form-control" value="{{$user->phone_number}}" disabled>
                 </div>
@@ -70,8 +92,8 @@
             </div>
             <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-2">Alamat</label>
-                    <input type="text" name="alamatPemilik" id="alamatPemilik" class="form-control" value="{{$user->address}}" disabled>
+                    <label for="" class="my-2">Pekerjaan</label>
+                    <input type="text" name="pekerjaanPemilik" id="pekerjaanPemilik" class="form-control" value="{{$user->job}}" disabled>
                 </div>
             </div>
             <hr>
@@ -81,7 +103,6 @@
                     <input type="file" class="form-control" name="fotoHewanHandover" required>
                 </div>
             </div>
-            
             <!-- Displaying the handover questions -->
             <div class="row my-1">
                 <div class="col">
@@ -249,5 +270,45 @@
         // Run the check initially in case fields are already filled
         checkEmptyFields();
     });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tanggalLahirInput = document.getElementById('bod');
+    const usiaUser = document.getElementById('usia');
+
+    function calculateAge() {
+        const birthDate = new Date(tanggalLahirInput.value);
+        const today = new Date();
+        
+        let ageInMonths = (today.getFullYear() - birthDate.getFullYear()) * 12;
+        ageInMonths += today.getMonth() - birthDate.getMonth();
+        
+        if (today.getDate() < birthDate.getDate()) {
+            ageInMonths--;
+        }
+
+        let years = Math.floor(ageInMonths / 12);
+        let months = ageInMonths % 12;
+
+        if (ageInMonths < 0) {
+            years = 0;
+            months = 0;
+        }
+
+        let ageString = '';
+        if (years > 0) {
+            ageString += `${years} Tahun `;
+        }
+
+        usiaUser.value = ageString;
+    }
+
+    if (tanggalLahirInput.value) {
+        calculateAge();
+    }
+
+    tanggalLahirInput.addEventListener('change', calculateAge);
+});
 </script>
 @endsection

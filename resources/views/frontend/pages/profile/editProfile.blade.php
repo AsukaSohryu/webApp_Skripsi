@@ -21,8 +21,10 @@
 
 <section id="detail-profile-desktop-1">
     <div class="container">
-        <h2 class="text-center">Ubah Profil</h2>
-        <hr />
+        <div class="row my-2 d-flex" style="gap: 8px;">
+            <h1 class="text-center">Ubah Profil</h1>
+            <hr />
+        </div>
         <form action="{{ route('edit-profil.post') }}" method="POST" enctype="multipart/form-data" id="formDetailProfile">
             <input type="hidden" name="id" value="{{ $user->user_id }}">
             @csrf
@@ -44,6 +46,10 @@
                     <div class="row my-3">
                         <label for="">Alamat</label>
                         <input type="text" class="form-control" value="{{ $user->address }}" name="address">
+                    </div>
+                    <div class="row my-3">
+                        <label for="">Tanggal Lahir</label>
+                        <input type="date" class="form-control" value="{{ $user->birth_date }}" name="bod">
                     </div>
                     <div class="row my-3">
                         <label for="">Nomor Whatsapp</label>

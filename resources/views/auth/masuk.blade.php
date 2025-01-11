@@ -53,7 +53,7 @@
 								</div>
 
 								<div class="fv-row mb-3">
-									<input type="password" placeholder="Password" name="password" autocomplete="off" class="form-control bg-transparent" />
+									<input type="password" placeholder="Kata Sandi" name="password" autocomplete="off" class="form-control bg-transparent" />
 								</div>
 
 								<div class="d-grid mb-10">

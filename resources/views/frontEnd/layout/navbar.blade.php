@@ -12,10 +12,10 @@
             </li>
             <li class="dropdown"><a href="#"><span style="font-size:16px;">Layanan Kami</span><i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="{{ route('layanan-hewan-diselamatkan') }}"><span style="font-size:16px;">Lihat Hewan Yang Diselamatkan</span> </a></li>
+                <li><a href="{{ route('layanan-hewan-diselamatkan') }}"><span style="font-size:16px;">Lihat Hewan yang Diselamatkan</span> </a></li>
                 <li><a href="{{ route('layanan-laporan') }}"><span style="font-size:16px;">Laporkan Penemuan Hewan Peliharaan Liar</span> </a></li>
-                <li><a href="{{ route('layanan-pengajuan') }}"><span style="font-size:16px;">Ajukan Penyerahan Hewan</span> </a></li>
-                <li><a href="{{ route('layanan-lihat') }}"><span style="font-size:16px;">Lihat Hewan Siap Adopsi</span></a></li>
+                <li><a href="{{ route('layanan-pengajuan') }}"><span style="font-size:16px;">Ajukan Penyerahan Hewan Peliharaan</span></a></li>
+                <li><a href="{{ route('layanan-lihat') }}"><span style="font-size:16px;">Lihat Hewan yang Siap Diadopsi</span></a></li>
               </ul>
             </li>
             <li class="dropdown"><a href="#"><span style="font-size:16px;">Riwayat Laporan dan Pengajuan</span> <i class="bi bi-chevron-down"></i></a>
@@ -120,10 +120,10 @@
           </h2>
           <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-              <a href="{{ route('layanan-hewan-diselamatkan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Lihat Hewan Yang Diselamatkan</li></a>
+              <a href="{{ route('layanan-hewan-diselamatkan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Lihat Hewan yang Diselamatkan</li></a>
               <a href="{{ route('layanan-laporan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Laporkan Penemuan Hewan Peliharaan Liar</li></a>
               <a href="{{ route('layanan-pengajuan') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Ajukan Penyerahan Hewan Peliharaan</li></a>
-              <a href="{{ route('layanan-lihat') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Lihat Hewan Siap Adopsi</li></a>
+              <a href="{{ route('layanan-lihat') }}" style="color: #5E6666; font-size: 20px; font-weight: 700;"><li>Lihat Hewan yang Siap Adopsi</li></a>
             </div>
           </div>
         </div>
