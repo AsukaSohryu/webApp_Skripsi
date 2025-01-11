@@ -11,7 +11,7 @@
     <br />
 </section>
 
-<section id="hero" style='height: 72vh; background-image: url("./assets/images/tentangKami/1148760.jpg"); background-position: center;'>
+<section id="hero" style="height: 76vh; background-image: url('{{ asset('assets/images/layananKami/woman_dog.jpg') }}'); background-position: center;">
 </section>
 
 <section id="breadcrumbs" class="section-bg-5">
@@ -25,7 +25,7 @@
 <section id="section-1-status-penemuan">
     <div class="container my-3">
         <div class="row my-2 d-flex" style="gap: 8px;">
-            <h3 class="text-center">Formulir Laporan Penemuan Hewan Peliharaan Liar</h3>
+            <h1 class="text-center">Formulir Laporan Penemuan Hewan Peliharaan Liar</h1>
             <hr />
         </div>
     </div>

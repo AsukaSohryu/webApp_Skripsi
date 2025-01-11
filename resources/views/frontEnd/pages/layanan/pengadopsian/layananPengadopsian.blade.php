@@ -13,33 +13,33 @@
     <br />
 </section>
 
-<section id="hero" style="height: 72vh; background-image: url('{{ asset('assets/images/layananKami/Cats_Dogs_2.jpg') }}'); background-position: center;">
+<section id="hero" style="height: 76vh; background-image: url('{{ asset('assets/images/layananKami/adoption_dog.jpg') }}'); background-position: center;">
 </section>
 
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Layanan Kami</p>
-        <p class="type-2">Daftar Hewan Pada Shelter</p>
+        <p class="type-2">Lihat Hewan yang Siap Diadopsi</p>
     </div>
 </section>
 
 @if($shelterInformation->is_accepting_adoption == 0)
 <section id="section-1-layanan-pengadopsian">
     <div class="container">
-        <d class="row my-2 d-flex" style="gap: 8px;">
-            <h1 class="text-center">Daftar Hewan Pada Shelter</h1>
+        <div class="row my-2 d-flex" style="gap: 8px;">
+            <h1 class="text-center">Lihat Hewan yang Siap Diadopsi</h1>
             <hr />
             <div class="alert alert-info text-center">
                 Shelter Sedang Tidak Melayani Pengajuan Pengadopsian Hewan
             </div>
-        </d
+        </div>
     </div>
 </section>
 @else
 <section id="section-1-layanan-pengadopsian">
     <div class="container">
         <div class="row my-2 d-flex" style="gap: 8px;">
-            <h1 class="text-center">Daftar Hewan Pada Shelter</h1>
+            <h1 class="text-center">Lihat Hewan yang Siap Diadopsi</h1>
             <hr />
         </div>
     </div>

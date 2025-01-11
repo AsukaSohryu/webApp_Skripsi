@@ -45,69 +45,69 @@
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">ID Hewan</label>
+                <label for="" class="my-3">ID Hewan</label>
                 <input type="text" name="idHewan" id="idHewan" value="{{$detail->animal_id}}" class="form-control" disabled>
             </div>
             <div class="col">
-                <label for="">Nama Hewan</label>
+                <label for="" class="my-3">Nama Hewan</label>
                 <input type="text" name="namaHewan" id="namaHewan" value="{{$detail->animal_name}}" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Jenis Hewan</label>
+                <label for="" class="my-3">Jenis Hewan</label>
                 <input type="text" name="jenisHewan" id="jenisHewan" value="{{$detail->animal_type}}" class="form-control" disabled>
             </div>
             <div class="col">
-                <label for="">Status Hewan</label>
+                <label for="" class="my-3">Status Hewan</label>
                 <input type="text" name="statusHewan" id="statusHewan" value="{{ $animalStatus }}" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Detail Status Hewan</label>
+                <label for="" class="my-3">Detail Status Hewan</label>
                 <textarea type="text" name="detailStatusHewan" id="detailStatusHewan" class="form-control" disabled>{{ $detail->detail_status }}</textarea>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Usia Hewan</label>
+                <label for="" class="my-3">Usia Hewan</label>
                <input type="text" name="usiaHewan" id="usiaHewan" value="" class="form-control" disabled>
             </div>
             <div class="col">
-                <label for="">Tanggal Lahir</label>
+                <label for="" class="my-3">Tanggal Lahir</label>
                 <input type="date" name="tanggalLahir" id="tanggalLahir" value="{{ $detail->birth_date }}" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Jenis Kelamin</label>
+                <label for="" class="my-3">Jenis Kelamin</label>
                 <input type="text" name="jenisKelamin" id="jenisKelamin" value="{{ $detail->sex }}" class="form-control" disabled>
             </div>
             <div class="col">
-                <label for="">Ras Hewan</label>
+                <label for="" class="my-3">Ras Hewan</label>
                 <input type="text" name="rasHewan" id="rasHewan" value="{{ $detail->race }} Kg" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Warna Hewan</label>
+                <label for="" class="my-3">Warna Hewan</label>
                 <input type="text" name="warnaHewan" id="warnaHewan" value="{{ $detail->color }}" class="form-control" disabled>
             </div>
             <div class="col">
-                <label for="">Berat Hewan</label>
+                <label for="" class="my-3">Berat Hewan</label>
                 <input type="text" name="beratHewan" id="beratHewan" value="{{ $detail->weight }} Kg" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Informasi Vaksin Hewan</label>
+                <label for="" class="my-3">Informasi Vaksin Hewan</label>
                 <input type="text" name="informasiVaksin" id="informasiVaksin" value="{{ $detail->vaccine }}" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Hewan Sudah Disteril</label>
+                <label for="" class="my-3">Hewan Sudah Disteril</label>
                 @if($detail->is_sterile == 1)
                 <input type="text" name="sterilHewan" id="sterilHewan" value="Sudah" class="form-control" disabled>
                 @else
@@ -117,52 +117,52 @@
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Asal Hewan</label>
+                <label for="" class="my-3">Asal Hewan</label>
                 <input type="text" name="asalHewan" id="asalHewan" value="{{ $detail->source }}" class="form-control" disabled>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Karakteristik Hewan</label>
+                <label for="" class="my-3">Karakteristik Hewan</label>
                 <textarea type="text" name="karakteristikHewan" id="karakteristikHewan" class="form-control" disabled>{{ $detail->characteristics }}</textarea>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Deskripsi Hewan</label>
+                <label for="" class="my-3">Deskripsi Hewan</label>
                 <textarea type="text" name="deskripsiHewan" id="deskripsiHewan" class="form-control" disabled>{{ $detail->description }}</textarea>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Catatan Medis Hewan</label>
+                <label for="" class="my-3">Catatan Medis Hewan</label>
                 <textarea type="text" name="catatanMedisHewan" id="catatanMedisHewan" class="form-control" disabled>{{ $detail->medical_note }}</textarea>
             </div>
         </div>
         <div class="row my-3">
             <div class="col">
-                <label for="">Tanggal Hewan Masuk Shelter</label>
+                <label for="" class="my-3">Tanggal Hewan Masuk Shelter</label>
                 <input type="text" name="tanggalMasuk" id="tanggalMasuk" value="{{ $detail->created_at }}" class="form-control" disabled>
             </div>
         </div> 
         <div class="row my-3">
             <div class="col">
-                <label for="">Tanggal Data Terakhir Diperbaharui</label>
+                <label for="" class="my-3">Tanggal Data Terakhir Diperbaharui</label>
                 <input type="text" name="tanggalMasuk" id="tanggalMasuk" value="{{ $detail->updated_at }}" class="form-control" disabled>
             </div>
         </div> 
         <div class="row my-3 p-3">
             <div class="d-flex flex-row justify-content-between p-3" style="background-color: #CADFF2; border-radius: .475rem;">
                 <div class="col d-flex align-items-center">
-                    <label for=""><b>Pengaturan data hewan aktif atau tidak</b></label>
+                    <label for="" class="my-3"><b>Pengaturan data hewan aktif atau tidak</b></label>
                 </div>
                 <div class="col d-flex align-items-center justify-content-end">
                     <input type="checkbox" id="check" {{ $detail->is_active == 1 ? 'checked' : '' }} disabled>
                     <label for="check" class="button"></label>
                     @if($detail->is_active == 1)
-                        <label for="" class="ps-3"><b>Aktif</b></label>
+                        <label for="" class="my-3 ps-3"><b>Aktif</b></label>
                     @else
-                        <label for="" class="ps-3"><b>Tidak Aktif</b></label>
+                        <label for="" class="my-3 ps-3"><b>Tidak Aktif</b></label>
                     @endif
                 </div>
             </div>

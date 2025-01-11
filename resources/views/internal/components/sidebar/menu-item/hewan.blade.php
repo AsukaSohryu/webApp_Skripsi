@@ -4,7 +4,7 @@
             <span class="menu-bullet">
                 <span class="bullet bullet-dot"></span>
             </span>
-            <span class="menu-title">Konfigurasi Data Hewan</span>
+            <span class="menu-title">Daftar Data Hewan</span>
         </a>
     </div>
 </div>

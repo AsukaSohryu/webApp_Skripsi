@@ -6,7 +6,7 @@
             <div class="row mx-auto">
                 <div class="col-lg-5 col-md-12 footer-contact">
                     <div class="dflex flex-direction-row">
-                        {{-- <img class="icon-logo" src="./assets/img/main_logo.png" alt=""> --}}
+                        <img src="{{ asset('assets/images/main_logo.jpeg') }}" alt="" style="width: 80px;">
                     </div>
                     
                     <div class="detail">
@@ -52,10 +52,10 @@
                 <div class="col-lg-3 col-sm-6 col-12 footer-links">
                     <h4>Layanan Kami</h4>
                     <ul>
-                        <li><a href="{{ route('layanan-laporan') }}">Lihat Hewan Yang Diselamatkan</a></li>
+                        <li><a href="{{ route('layanan-laporan') }}">Lihat Hewan yang Diselamatkan</a></li>
                         <li><a href="{{ route('layanan-pengajuan') }}">Laporkan Penemuan Hewan Peliharaan Liar</a></li>
                         <li><a href="{{ route('layanan-lihat') }}">Ajukan Penyerahan Hewan</a></li>
-                        <li><a href="{{ route('layanan-hewan-diselamatkan') }}">Lihat Hewan Yang Siap Diadopsi</a></li>
+                        <li><a href="{{ route('layanan-hewan-diselamatkan') }}">Lihat Hewan yang Siap Diadopsi</a></li>
                     </ul>
                 </div>
 
@@ -101,7 +101,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-12 footer-contact">
                     <div class="dflex flex-direction-row">
-                        {{-- <img class="icon-logo" src="./assets/img/main_logo.png" alt=""> --}}
+                        <img src="{{ asset('assets/images/main_logo.jpeg') }}" alt="" style="width: 80px;">
                     </div>
 
                 <div class="col-lg-3 col-sm-6 col-12 footer-links">
@@ -117,10 +117,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 footer-links">
                     <h4>Layanan Kami</h4>
                     <ul>
-                        <li><a href="{{ route('layanan-laporan') }}">Lihat Hewan Yang Diselamatkan</a></li>
+                        <li><a href="{{ route('layanan-laporan') }}">Lihat Hewan yang Diselamatkan</a></li>
                         <li><a href="{{ route('layanan-pengajuan') }}">Laporkan Penemuan Hewan Peliharaan Liar</a></li>
                         <li><a href="{{ route('layanan-lihat') }}">Ajukan Penyerahan Hewan</a></li>
-                        <li><a href="{{ route('layanan-hewan-diselamatkan') }}">Lihat Hewan Yang Siap Diadopsi</a></li>
+                        <li><a href="{{ route('layanan-hewan-diselamatkan') }}">Lihat Hewan yang Siap Diadopsi</a></li>
                     </ul>
                 </div>
 

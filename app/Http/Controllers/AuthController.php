@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -43,6 +45,7 @@ class AuthController extends Controller
         // If validation fails, it will automatically return back with the errors.
         
         try {
+            $otp = Str::random(6);
             // Create user
             User::create([
                 'email' => $request->email,
@@ -54,10 +57,11 @@ class AuthController extends Controller
                 'whatsapp_number' => $request->whatsapp,
                 'phone_number' => $request->notelp,
                 'photo' => $fotoUserName,
+                'otp' => $otp
             ]);
 
             // If creation is successful, redirect to the login page with success message.
-            return redirect()->route('masuk')->with('success', 'Akun berhasil dibuat.');
+            return redirect()->route('masuk')->with('success', 'Akun berhasil dibuat. OTP anda adalah '.$otp);
 
         } catch (\Exception $e) {
             // Handle any errors during user creation (e.g., database issues)
@@ -124,4 +128,96 @@ class AuthController extends Controller
 
         return redirect('/');
     }
+
+    public function forgotPass(){
+
+        return view('auth.reset-password');
+    }
+
+    public function checkEmail(Request $request)
+    {
+        // Validate email input
+        $credentials = $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        // Check if the email exists in the database
+        $user = User::where('email', $request->email)->first();
+
+        // If the user is not found, return with an error
+        if (!$user) {
+            return back()->withErrors([
+                'email' => 'Email Tidak Terdaftar!',
+            ]);
+        }
+
+        // If the user exists, redirect to the OTP verification page
+        return redirect()->route('cek-otp', ['email' => $request->email]);
+    }
+
+    public function checkOtp($email){
+
+        return view('auth.reset-password-otp',
+            ['email' => $email]
+        );
+    }
+
+    public function postOtp(Request $request){
+
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'otp' => 'required'
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user->otp == $request->otp) {
+            // OTP verified, show success message using SweetAlert
+            return redirect()->route('change-pass', ['email' => $request->email])
+                            ->with('status', 'OTP Terverifikasi, Lanjutkan Pengubahan Kata Sandi');
+        }
+
+        // OTP is invalid or expired
+        return back()->withErrors(['otp' => 'OTP yang Anda Masukan Salah!']);
+    }
+
+    public function changePass($email){
+
+        return view('auth.reset-password-final',
+            ['email' => $email]
+        );
+    }
+
+    public function postPass(Request $request){
+
+        // Validate the input fields
+        $request->validate([
+            'password' => 'required|string|min:8',
+            'passwordConf' => 'required|string|min:8|same:password', // Ensure password confirmation matches
+        ]);
+
+        // dd('tes');
+        $otp = Str::random(6);
+        // Get the user by email (assuming email is passed with the request)
+        $user = User::where('email', $request->email)->first();
+
+        // If the user is not found, return an error message
+        if (!$user) {
+            return back()->withErrors(['email' => 'Email tidak terdaftar']);
+        }
+
+        // Update the user's password
+        $update = $user->update([
+            'password' => Hash::make($request->password), // Hash the new password
+            'otp' => $otp,
+        ]);
+
+        // Check if the update was successful
+        if ($update) {
+            return back()->with('success', 'Kata Sandi Anda Berhasil Diubah! Berikut OTP Baru Anda: '.$otp);
+        } else {
+            return back()->withErrors(['error' => 'Terjadi kesalahan, gagal memperbarui kata sandi.']);
+        }
+    }
+
 }

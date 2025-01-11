@@ -37,7 +37,7 @@ class DataHewanController extends Controller
         $animalStatus = $status->status;
         return view('internal.content.animal.detail', [
             'title' => 'Detail Data Hewan ',
-            'pageTitle' => 'Detail Data Hewan - ' . $name,
+            'pageTitle' => 'Detail Data Hewan',
             'pageSubTitle' => 'Detail Data Hewan - ' . $name,
             'detail' => $detail,
             'animalStatus' => $animalStatus
@@ -52,9 +52,9 @@ class DataHewanController extends Controller
         $name = $detail->animal_name;
 
         return view('internal.content.animal.edit', [
-            'title' => 'Perubahan Data Hewan ',
-            'pageTitle' => 'Perubahan Data Hewan - ' . $name,
-            'pageSubTitle' => 'Perubahan Data Hewan - ' . $name,
+            'title' => 'Ubah Data Hewan ',
+            'pageTitle' => 'Ubah Data Hewan',
+            'pageSubTitle' => 'Ubah Data Hewan - ' . $name,
             'detail' => $detail,
             'status' => $status,
         ]);

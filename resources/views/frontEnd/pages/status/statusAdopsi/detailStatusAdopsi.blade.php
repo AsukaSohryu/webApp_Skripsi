@@ -11,21 +11,21 @@
     <br />
 </section>
 
-<section id="hero" style='height: 72vh; background-image: url("./assets/images/tentangKami/1148760.jpg"); background-position: center;'>
+<section id="hero" style="height: 76vh; background-image: url('{{ asset('assets/images/layananKami/dog_view.jpg') }}'); background-position: center;">
 </section>
 
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Riwayat Laporan Dan Pengajuan</p>
-        <p class="type-2">Riwayat Pengajuan Penyerahan Hewan Peliharaan</p>
-        <p class="type-2">Formulir Pengajuan Penyerahan Hewan Peliharaan</p>
+        <p class="type-2">Riwayat Pengajuan Pengadopsian Hewan Peliharaan</p>
+        <p class="type-2">Formulir Pengajuan Pengadopsian Hewan Peliharaan</p>
     </div>
 </section>
 
 <section id="section-1-status-penemuan">
     <div class="container my-3">
         <div class="row my-2 d-flex" style="gap: 8px;">
-            <h3 class="text-center">Formulir Pengajuan Penyerahan Hewan Peliharaan</h3>
+            <h1 class="text-center">Formulir Pengajuan Pengadopsian Hewan Peliharaan</h1>
             <hr>
         </div>
     </div>

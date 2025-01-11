@@ -48,7 +48,7 @@
 
 <div class="card mb-5 mb-xxl-8">
     <div class="card-body py-9">
-        <h1 class="text-center">Tambah Data Hewan</h1>
+        <h1 class="text-center">Isi Data Hewan</h1>
         <form action="{{ route('dataHewan.create.post') }}" method="post" enctype="multipart/form-data" id="createAnimal">
             @csrf
             <div class="row my-3">

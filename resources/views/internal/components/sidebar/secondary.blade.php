@@ -35,7 +35,7 @@
             <div class="menu-item">
                 <!--begin:Menu content-->
                 <div class="menu-content">
-                    <span class="menu-section fs-5 fw-bolder ps-1 py-1">Formulir</span>
+                    <span class="menu-section fs-5 fw-bolder ps-1 py-1">Laporan dan Pengajuan</span>
                 </div>
                 <!--end:Menu content-->
             </div>
@@ -95,7 +95,7 @@
                     <span class="menu-bullet">
                         <span class="bullet bullet-dot"></span>
                     </span>
-                    <span class="menu-title">Konfigurasi Data Hewan</span>
+                    <span class="menu-title">Daftar Data Hewan</span>
                 </a>
                 <!--end:Menu link-->
             </div>

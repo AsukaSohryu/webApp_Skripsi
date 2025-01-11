@@ -54,7 +54,7 @@
         ];
     @endphp
     <div class="card-body py-9">
-        <h1 class="text-center">Edit Data Hewan</h1>
+        <h1 class="text-center">Ubah Data Hewan</h1>
         <form action="{{ route('dataHewan.edit.post') }}" method="post" enctype="multipart/form-data" id="formAnimal">
             @csrf
             <div class="row my-3">

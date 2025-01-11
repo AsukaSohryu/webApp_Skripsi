@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontEnd\status;
 
 use App\Http\Controllers\Controller;
 use App\Models\adoptionForm;
+use App\Models\animal;
 use App\Models\status;
 use Illuminate\Http\Request;
 
@@ -47,6 +48,20 @@ class StatusAdopsiController extends Controller
         return view('frontend.pages.status.statusAdopsi.detailStatusAdopsi', [
             'pagetitle' => 'Status Pengajuan Pengadopsian Hewan',
             'adoptions' => $adoptionForm
+        ]);
+    }
+
+    public function detailHewan($animal_id){
+
+        $animal = animal::findOrFail($animal_id);
+        $statusAVL = Status::where('config', 'Animal_Status')
+            ->where('key', 'AVL')
+            ->first();
+
+        return view('frontend.pages.status.statusAdopsi.detailHewanRiwayat', [
+            'pagetitle' => 'Detail Hewan',
+            'animal' => $animal,
+            'statusAVL' => $statusAVL->status_id
         ]);
     }
 }

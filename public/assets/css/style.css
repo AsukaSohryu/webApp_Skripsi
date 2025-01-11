@@ -277,7 +277,7 @@
     }
 
     #mobile-header .logo img, #desktop-header .logo img{
-    max-height: 40px;
+    max-height: 60px;
     }
 
     header .container{
@@ -645,12 +645,6 @@
             display: none;
         }
     }
-
-
-
-
-
-
 
     /*--------------------------------------------------------------
     # Footer

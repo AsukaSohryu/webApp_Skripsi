@@ -31,20 +31,20 @@
     <br />
 </section>
 
-<section id="hero" style="height: 72vh; background-image: url('{{ asset('assets/images/layananKami/Cats_Dogs_2.jpg') }}'); background-position: center;">
+<section id="hero" style="height: 76vh; background-image: url('{{ asset('assets/images/layananKami/smiley_dog.jpg') }}'); background-position: center;">
 </section>
 
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Riwayat Laporan Dan Pengajuan</p>
-        <p class="type-2">Riwayat Pengajuan Penyerahan Hewan Peliharaan</p>
+        <p class="type-2">Riwayat Pengajuan Pengadopsian Hewan Peliharaan</p>
     </div>
 </section>
 
 <section id="section-1-status-penemuan">
     <div class="container">
         <div class="row my-2 d-flex" style="gap: 8px;">
-            <h3 class="text-center">Riwayat Pengajuan Penyerahan Hewan Peliharaan</h3>
+            <h1 class="text-center">Riwayat Pengajuan Pengadopsian Hewan Peliharaan</h1>
             <hr>
         </div>
     </div>
@@ -93,7 +93,7 @@
                                 <p class="mb-0">{{ $item->admin_feedback ?? 'Belum ada tanggapan' }}</p>
                             </div>
                             <div class="d-flex justify-content-end gap-2 me-3 mb-3">
-                                <a href="{{ route('layanan-adopsi.detail', $item->animal->animal_id ) }}" class="btn btn-success">Detail Hewan</a>
+                                <a href="{{ route('status-adopsi.detailHewan', $item->animal->animal_id ) }}" class="btn btn-success">Detail Hewan</a>
                                 <a href="{{ route('status-adopsi.detail', $item->adoption_form_id) }}" class="btn btn-primary">Detail Formulir</a>
                             </div>
                         </div>

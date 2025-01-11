@@ -39,7 +39,7 @@
             @endforeach
         </tbody>
     </table>
-    <div class="d-flex justify-content-end py-8">
+    <div class="d-flex justify-content-end py-8 px-10">
         <a href="{{ route('pertanyaanPengadopsian.edit') }}" class="btn btn-primary" id="editQuestion">
             Ubah Pertanyaan
         </a>

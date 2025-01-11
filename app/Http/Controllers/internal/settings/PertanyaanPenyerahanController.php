@@ -15,9 +15,9 @@ class PertanyaanPenyerahanController extends Controller
         $handoverQuestions = handoverQuestions::all();
 
         return view('internal.content.settings.handoverQuestions.pertanyaanPenyerahan', [
-            'title' => 'Pertanyaan Penyerahan',
-            'pageTitle' => 'Konfigurasi Pertanyaan Penyerahan',
-            'pageSubTitle' => 'Daftar Pertanyaan Formulir Penyerahan Hewan',
+            'title' => 'Daftar Pertanyaan Penyerahan',
+            'pageTitle' => 'Daftar Pertanyaan Penyerahan',
+            'pageSubTitle' => 'Daftar Pertanyaan Formulir Penyerahan Hewan Peliharaan',
             'handoverQuestions' => $handoverQuestions,
         ]);
     }
@@ -31,9 +31,9 @@ class PertanyaanPenyerahanController extends Controller
         });
 
         return view('internal.content.settings.handoverQuestions.edit', [
-            'title' => 'Edit Pertanyaan Penyerahan',
-            'pageTitle' => 'Konfigurasi Pertanyaan Penyerahan',
-            'pageSubTitle' => 'Perubahan Daftar Pertanyaan Formulir Penyerahan Hewan',
+            'title' => 'Ubah Pertanyaan Penyerahan',
+            'pageTitle' => 'Ubah Pertanyaan Penyerahan',
+            'pageSubTitle' => 'Ubah Pertanyaan Formulir Penyerahan Hewan Peliharaan',
             'handoverQuestions' => $handoverQuestions,
         ]);
     }

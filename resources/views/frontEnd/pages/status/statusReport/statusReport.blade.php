@@ -26,7 +26,7 @@
     <br />
 </section>
 
-<section id="hero" style="height: 72vh; background-image: url('{{ asset('assets/images/layananKami/Stray_pets_1.jpg') }}'); background-position: center;">
+<section id="hero" style="height: 76vh; background-image: url('{{ asset('assets/images/layananKami/Stray_pets_1.jpg') }}'); background-position: center;">
 </section>
 
 <section id="breadcrumbs" class="section-bg-5">
@@ -39,7 +39,7 @@
 <section id="section-1-status-penemuan">
     <div class="container">
         <div class="row my-2 d-flex" style="gap: 8px;">
-            <h3 class="text-center">Riwayat Laporan Penemuan Hewan Peliharaan Liar</h3>
+            <h1 class="text-center">Riwayat Laporan Penemuan Hewan Peliharaan Liar</h1>
             <hr>
         </div>
     </div>
@@ -52,7 +52,7 @@
                             <img src="@if($item->admin_feedback_photo) 
                                         {{ asset('uploadedImages/laporanPenemuan/responAdmin/' . $item->admin_feedback_photo) }}
                                     @else
-                                        {{ asset('uploadedImages/laporanPenemuan/dataHewan/' . $item->animal_photo) }}
+                                        {{ asset('uploadedImages/laporanPenemuan/fotoHewan/' . $item->animal_photo) }}
                                     @endif"
                                 class="img-fluid rounded-start w-100 m-0" 
                                 alt="Foto Hewan"

@@ -108,7 +108,9 @@
                 <input type="text" name="donationInformation" id="donationInformation" value="{{$shelterInformation->donation_information}}" class="form-control" disabled>
             </div>
         </div>
+        <hr>
         {{-- Informasi Halaman Tentang Kami --}}
+        <h1 class="text-center my-5">Informasi Halaman Tentang Kami</h1>
         <div class="row my-3">
             <div class="col my-3 d-flex justify-content-center">
                 <img src="{{ asset('uploadedImages/informasiShelter/' . $shelterInformation->shelter_photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px;">
@@ -132,7 +134,6 @@
                 <textarea name="mission" id="summernote7" class="form-control">{{$shelterInformation->mission}}</textarea>
             </div>
         </div>
-        <h1 class="text-center">Informasi Halaman Tentang Kami</h1>
         <div class="row my-3">
             <div class="col my-3 d-flex justify-content-center">
                 <img src="{{ asset('uploadedImages/informasiShelter/' . $shelterInformation->founder_photo) }}" alt="" style="width: 200px; height: 200px; border-radius: 15px; object-fit: cover;">
@@ -162,8 +163,9 @@
                 <textarea name="addInfo" id="summernote10" class="form-control">{{$shelterInformation->additional_information}}</textarea>
             </div>
         </div>
+        <hr>
         {{-- Pengaturan Informasi Formulir --}}
-        <h1 class="text-center">Informasi Halaman Formulir</h1>
+        <h1 class="text-center my-5">Informasi Halaman Formulir-Formulir</h1>
         <div class="row my-3">
             <div class="col">
                 <label for="">Informasi Formulir Laporan Penemuan Hewan Peliharaan Liar</label>
@@ -182,8 +184,9 @@
                 <textarea name="adoptionInfo" id="summernote3" class="form-control">{{$shelterInformation->adoption_information}}</textarea>
             </div>
         </div>
-
+        <hr>
         {{-- Pengaturan Penerimaan Formulir --}}
+        <h1 class="text-center my-5">Status Penerimaan Formulir Shelter</h1>
         <div class="row my-3 p-3">
             <div class="d-flex flex-row justify-content-between p-3" style="background-color: #CADFF2; border-radius: .475rem;">
                 <div class="col d-flex align-items-center">
