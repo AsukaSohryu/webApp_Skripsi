@@ -57,6 +57,10 @@
                     <label for="">Pekerjaan</label>
                     <input type="text" class="form-control" value="{{ $user->job }}" name="job" disabled>
                 </div>
+                <div class="row my-3">
+                    <label for="">OTP</label>
+                    <input type="text" class="form-control" value="{{ $user->otp }}" name="otp" disabled>
+                </div>
             </div>
         </div>
         <div class="row my-3">

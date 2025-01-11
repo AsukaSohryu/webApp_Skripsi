@@ -15,9 +15,9 @@ class PertanyaanPengadopsianController extends Controller
         $adoptionQuestions = adoptionQuestions::all();
 
         return view('internal.content.settings.adoptionQuestions.pertanyaanAdopsi', [
-            'title' => 'Pertanyaan Pengadopsian',
-            'pageTitle' => 'Konfigurasi Pertanyaan Pengadopsian',
-            'pageSubTitle' => 'Daftar Pertanyaan Formulir Pengadopsian Hewan',
+            'title' => 'Daftar Pertanyaan Pengadopsian',
+            'pageTitle' => 'Daftar Pertanyaan Pengadopsian',
+            'pageSubTitle' => 'Daftar Pertanyaan Formulir Pengadopsian Hewan Peliharaan',
             'adoptionQuestions' => $adoptionQuestions,
         ]);
     }
@@ -32,9 +32,9 @@ class PertanyaanPengadopsianController extends Controller
         });
 
         return view('internal.content.settings.adoptionQuestions.edit', [
-            'title' => 'Edit Pertanyaan Pengadopsian',
-            'pageTitle' => 'Konfigurasi Pertanyaan Pengadopsian',
-            'pageSubTitle' => 'Perubahan Daftar Pertanyaan Formulir Pengadopsian Hewan',
+            'title' => 'Ubah Pertanyaan Pengadopsian',
+            'pageTitle' => 'Ubah Pertanyaan Pengadopsian',
+            'pageSubTitle' => 'Ubah Pertanyaan Formulir Pengadopsian Hewan Peliharaan',
             'adoptionQuestions' => $adoptionQuestions,
         ]);
     }

@@ -17,9 +17,9 @@ class FormAdopsiController extends Controller
         $adoptionForm = adoptionForm::with(['users', 'status', 'animal'])->get();
 
         return view('internal.content.form.formAdopsi.formAdopsiDashboard', [
-            'title' => 'Daftar Formulir Pengajuan Pengadopsian Hewan',
-            'pageTitle' => 'Daftar Formulir Pengajuan Pengadopsian Hewan',
-            'pageSubTitle' => 'Daftar Formulir Pengajuan Pengadopsian Hewan',
+            'title' => 'Daftar Pengajuan Pengadopsian Hewan Peliharaan',
+            'pageTitle' => 'Daftar Pengajuan Pengadopsian Hewan Peliharaan',
+            'pageSubTitle' => 'Daftar Pengajuan Pengadopsian Hewan Peliharaan',
             'adoptionForm' => $adoptionForm
         ]);
     }
@@ -59,9 +59,9 @@ class FormAdopsiController extends Controller
         $nonEditableStatuses = [$statusRJT, $statusSUC, $statusCAN, $statusOTH];
 
         return view('internal.content.form.formAdopsi.detail', [
-            'title' => 'Detail Formulir Pengajuan Pengadopsian Hewan',
-            'pageTitle' => 'Detail Formulir Pengajuan Pengadopsian Hewan',
-            'pageSubTitle' => 'Detail Formulir Pengajuan Pengadopsian Hewan - ' . $userName,
+            'title' => 'Detail Pengajuan Pengadopsian Hewan Peliharaan',
+            'pageTitle' => 'Detail Pengajuan Pengadopsian Hewan Peliharaan',
+            'pageSubTitle' => 'Detail Pengajuan Pengadopsian Hewan Peliharaan - ' . $userName,
             'detail' => $adoptionForm,
             'nonEditableStatuses' => $nonEditableStatuses,
         ]);
@@ -84,9 +84,9 @@ class FormAdopsiController extends Controller
         $nonEditableStatuses = [$statusRJT, $statusSUC, $statusCAN, $statusOTH];
 
         return view('internal.content.form.formAdopsi.edit', [
-            'title' => 'Edit Formulir Pengajuan Pengadopsian Hewan',
-            'pageTitle' => 'Edit Formulir Pengajuan Pengadopsian Hewan',
-            'pageSubTitle' => 'Edit Formulir Pengajuan Pengadopsian Hewan - ' . $userName,
+            'title' => 'Ubah Pengajuan Pengadopsian Hewan Peliharaan',
+            'pageTitle' => 'Ubah Pengajuan Pengadopsian Hewan Peliharaan',
+            'pageSubTitle' => 'Ubah Pengajuan Pengadopsian Hewan Peliharaan - ' . $userName,
             'detail' => $adoptionForm,
             'adoptionFormStatus' => $status,
             'nonEditableStatuses' => $nonEditableStatuses,

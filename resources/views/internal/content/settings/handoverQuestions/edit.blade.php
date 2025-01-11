@@ -124,9 +124,9 @@
                                 id="check-{{ $h->handover_questions_id }}" 
                                 name="activeStatus[{{ $h->handover_questions_id }}]"
                                 data-id="{{ $h->handover_questions_id }}"
-                                {{ $h->is_active == 1 ? 'checked' : '' }}
-                                {{ ($h->handover_questions_id >= 1 && $h->handover_questions_id <= 9) ? 'disabled' : '' }}>
+                                {{ $h->is_active == 1 ? 'checked' : '' }}>
 
+                                {{-- {{ ($h->handover_questions_id >= 1 && $h->handover_questions_id <= 9) ? 'disabled' : '' }} --}}
                             <label for="check-{{ $h->handover_questions_id }}" class="button"></label>
                             <label class="py-3 mb-0" id="isActive-{{ $h->handover_questions_id }}">
                                 <b>{{ $h->is_active == 1 ? 'Aktif' : 'Tidak Aktif' }}</b>
@@ -147,9 +147,9 @@
             <p style="color: red;">*Centang pertanyaan yang ingin dihapus lalu simpan perubahan (Pertanyaan yang telah digunakan pada formulir tidak dapat dihapus)</p>
         </div> --}}
         <div class="d-flex justify-content-between gap-2 mt-3">
-            <p style="color: red;">*Centang pertanyaan yang ingin dihapus lalu simpan perubahan (Pertanyaan yang telah digunakan pada formulir tidak dapat dihapus)</p>
+            <p style="color: red;">*Centang pertanyaan yang ingin dihapus lalu simpan perubahan<br>(Pertanyaan yang telah digunakan pada formulir tidak dapat dihapus)</p>
             <div class="d-flex gap-2">
-                <a href="{{ route('pertanyaanPenyerahan.index') }}" class="btn btn-secondary">
+                <a href="{{ route('pertanyaanPenyerahan.index') }}" class="btn btn-secondary d-flex align-items-center">
                     Batalkan
                 </a>
                 <button type="submit" class="btn btn-primary" id="saveButton">
@@ -271,7 +271,7 @@
     });
 </script> --}}
 
-<script>
+{{-- <script>
     document.querySelectorAll('.toggle-checkbox-status').forEach(checkbox => {
         // Disable interaction for checkboxes with IDs 1-9 via JavaScript as well
         if (checkbox.id.startsWith('check-') && parseInt(checkbox.id.split('-')[1]) <= 9) {
@@ -293,7 +293,7 @@
             }
         });
     });
-</script>
+</script> --}}
 
 <script>
     function addNewQuestion() {

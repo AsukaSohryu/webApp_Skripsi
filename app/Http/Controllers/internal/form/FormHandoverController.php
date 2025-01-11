@@ -17,8 +17,8 @@ class FormHandoverController extends Controller
 
         return view('internal.content.form.formHandover.formHandoverDashboard', [
             'title' => 'Form Penyerahan',
-            'pageTitle' => 'Daftar Formulir Pengajuan Penyerahan Hewan',
-            'pageSubTitle' => 'Daftar Formulir Pengajuan Penyerahan Hewan',
+            'pageTitle' => 'Daftar Pengajuan Penyerahan Hewan Peliharaan',
+            'pageSubTitle' => 'Daftar Pengajuan Penyerahan Hewan Peliharaan',
             'handoverForm' => $handoverForm
 
         ]);
@@ -58,9 +58,9 @@ class FormHandoverController extends Controller
         $nonEditableStatuses = [$statusRJT, $statusSUC, $statusCAN, $statusOTH];
 
         return view('internal.content.form.formHandover.detail', [
-            'title' => 'Detail Formulir Pengajuan Penyerahan Hewan',
-            'pageTitle' => 'Detail Formulir Pengajuan Penyerahan Hewan',
-            'pageSubTitle' => 'Detail Formulir Pengajuan Penyerahan Hewan - ' . $userName,
+            'title' => 'Detail Pengajuan Penyerahan Hewan Peliharaan',
+            'pageTitle' => 'Detail Pengajuan Penyerahan Hewan Peliharaan',
+            'pageSubTitle' => 'Detail Pengajuan Penyerahan Hewan Peliharaan - ' . $userName,
             'detail' => $handoverForm,
             'nonEditableStatuses' => $nonEditableStatuses,
 
@@ -85,9 +85,9 @@ class FormHandoverController extends Controller
         $nonEditableStatuses = [$statusRJT, $statusSUC, $statusCAN, $statusOTH];
 
         return view('internal.content.form.formHandover.edit', [
-            'title' => 'Edit Formulir Pengajuan Penyerahan Hewan',
-            'pageTitle' => 'Edit Formulir Pengajuan Penyerahan Hewan',
-            'pageSubTitle' => 'Edit Formulir Pengajuan Penyerahan Hewan - ' . $userName,
+            'title' => 'Ubah Pengajuan Penyerahan Hewan Peliharaan',
+            'pageTitle' => 'Ubah Pengajuan Penyerahan Hewan Peliharaan',
+            'pageSubTitle' => 'Ubah Pengajuan Penyerahan Hewan Peliharaan - ' . $userName,
             'detail' => $handoverForm,
             'handoverFormStatus' => $status,
             'nonEditableStatuses' => $nonEditableStatuses,

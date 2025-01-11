@@ -3,7 +3,7 @@
     <div class="container d-flex justify-content-center align-items-center">
       <nav id="navbar" class="navbar d-flex">
         <ul>
-            <a href="{{ route('home') }}" class="logo"><img src="" alt="" class="img-fluid"></a>
+            <a href="{{ route('home') }}" class="logo"><img src="{{ asset('assets/images/main_logo.jpeg') }}" alt="" class="img-fluid" width="100%"></a>
             <li>
               <a href="{{ route('home') }}"><span style="font-size:16px;">Beranda</span></a>
             </li>
@@ -78,7 +78,7 @@
 <header id="mobile-header" class="">
     <!-- <div class="container justify-content-evenly"> -->
     <div class="container">
-      <a href="" class="logo me-auto"></a>
+      <a href="" class="logo me-auto"><img src="{{ asset('assets/images/main_logo.jpeg') }}" alt="" class="img-fluid"></a>
       <button class="hamburger">
         <div class="bar"></div>
       </button>

@@ -89,7 +89,7 @@
                     <div class="menu-item">
                         <!--begin:Menu content-->
                         <div class="menu-content">
-                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Formulir</span>
+                            <span class="menu-section fs-5 fw-bolder ps-1 py-1">Laporan dan Pengajuan</span>
                         </div>
                         <!--end:Menu content-->
                     </div>
@@ -197,7 +197,7 @@
     <div class="d-flex flex-column flex-center pb-4 pb-lg-8" id="kt_app_sidebar_footer">
         <!--begin::User menu-->
         <div class="cursor-pointer symbol symbol-40px symbol-circle" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-attach="parent" data-kt-menu-placement="right-end">
-            <img src="{{asset('/')}}assets/internal/media/avatars/300-2.jpg" alt="user" />
+            <img src="{{ asset('uploadedImages/userProfile/' . auth()->user()->photo) }}" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ffffff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);">
         </div>
         <!--begin::User account menu-->
         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
@@ -206,7 +206,7 @@
                 <div class="menu-content d-flex align-items-center px-3">
                     <!--begin::Avatar-->
                     <div class="symbol symbol-50px me-5">
-                        <img alt="Logo" src="assets/internal/media/avatars/300-2.jpg" />
+                        <img src="{{ asset('uploadedImages/userProfile/' . auth()->user()->photo) }}" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ffffff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);">
                     </div>
                     <!--end::Avatar-->
 

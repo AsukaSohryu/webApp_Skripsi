@@ -14,8 +14,8 @@ class InformasiShelterController extends Controller
 
         return view('internal.content.settings.shelterInformation.informasiShelter', [
             'title' => 'Informasi Shelter',
-            'pageTitle' => 'Konfigurasi Informasi Shelter',
-            'pageSubTitle' => 'Detail Informasi Shelter',
+            'pageTitle' => 'Informasi Shelter',
+            'pageSubTitle' => 'Informasi Shelter',
             'shelterInformation' => $shelterInformation
         ]);
     }
@@ -25,9 +25,9 @@ class InformasiShelterController extends Controller
         $detail = shelterInformation::where('shelter_id', 1)->first();
 
         return view('internal.content.settings.shelterInformation.edit', [
-            'title' => 'Informasi Shelter',
-            'pageTitle' => 'Konfigurasi Informasi Shelter',
-            'pageSubTitle' => 'Perubahan Informasi Shelter',
+            'title' => 'Ubah Informasi Shelter',
+            'pageTitle' => 'Ubah Informasi Shelter',
+            'pageSubTitle' => 'Ubah Informasi Shelter',
             'shelterInformation' => $detail
         ]);
     }

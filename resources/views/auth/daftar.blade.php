@@ -18,7 +18,9 @@
 	<!--begin::Body-->
 	<body id="kt_body" class="app-blank app-blank bgi-size-cover bgi-position-center">
 		<!--begin::Theme mode setup on page load-->
-		<script>var defaultThemeMode = "light"; var themeMode; if ( document.documentElement ) { if ( document.documentElement.hasAttribute("data-theme-mode")) { themeMode = document.documentElement.getAttribute("data-theme-mode"); } else { if ( localStorage.getItem("data-theme") !== null ) { themeMode = localStorage.getItem("data-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-theme", themeMode); }</script>
+		<script>
+		var defaultThemeMode = "light"; var themeMode; if ( document.documentElement ) { if ( document.documentElement.hasAttribute("data-theme-mode")) { themeMode = document.documentElement.getAttribute("data-theme-mode"); } else { if ( localStorage.getItem("data-theme") !== null ) { themeMode = localStorage.getItem("data-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-theme", themeMode); }
+		</script>
 		<!--end::Theme mode setup on page load-->
 		<!--begin::Root-->
 		<div class="d-flex flex-column flex-root" id="kt_app_root">
@@ -36,14 +38,10 @@
 						<img class="theme-dark-show mx-auto mw-100 w-150px w-lg-300px mb-10 mb-lg-20" src="assets/media/auth/internal/agency-dark.png" alt="" />
 						<!--end::Image-->
 						<!--begin::Title-->
-						<h1 class="text-gray-800 fs-2qx fw-bold text-center mb-7">Daftarkan Dirimu Dulu Yuk!</h1>
+						<h1 class="text-gray-800 fs-2qx fw-bold text-center mb-7">Selamatkan, Lindungi, dan Rawat</h1>
 						<!--end::Title-->
 						<!--begin::Text-->
-						{{-- <div class="text-gray-600 fs-base text-center fw-semibold">In this kind of post,
-						<a href="#" class="opacity-75-hover text-primary me-1">the blogger</a>introduces a person they’ve interviewed
-						<br />and provides some background information about
-						<a href="#" class="opacity-75-hover text-primary me-1">the interviewee</a>and their
-						<br />work following this is a transcript of the interview.</div> --}}
+						<div class="text-gray-600 fs-base text-center fw-semibold">Pada website ini, anda dapat menyelamatkan hewan peliharaan liar dengan berbagai macam cara. Ayo lindungi dan sayangi anjing dan kucing disekitar kita!</div>
 						<!--end::Text-->
 					</div>
 					<!--end::Content-->

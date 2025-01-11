@@ -27,7 +27,10 @@
 					<div class="d-flex flex-column flex-center pb-0 pb-lg-10 p-10 w-100">
 						<img class="theme-light-show mx-auto mw-100 w-150px w-lg-300px mb-10 mb-lg-20" src="{{asset('/')}}assets/internal/media/auth/agency.png" alt="" />
 						<img class="theme-dark-show mx-auto mw-100 w-150px w-lg-300px mb-10 mb-lg-20" src="{{asset('/')}}assets/media/internal/auth/agency-dark.png" alt="" />
-						<h1 class="text-gray-800 fs-2qx fw-bold text-center mb-7">Selamat Datang Kembali</h1>
+						<h1 class="text-gray-800 fs-2qx fw-bold text-center mb-7">Selamatkan, Lindungi, dan Rawat</h1>
+						<!--end::Title-->
+						<!--begin::Text-->
+						<div class="text-gray-600 fs-base text-center fw-semibold">Pada website ini, anda dapat menyelamatkan hewan peliharaan liar dengan berbagai macam cara. Ayo lindungi dan sayangi anjing dan kucing disekitar kita!</div>
 					</div>
 				</div>
 
@@ -54,6 +57,11 @@
 
 								<div class="fv-row mb-3">
 									<input type="password" placeholder="Kata Sandi" name="password" autocomplete="off" class="form-control bg-transparent" />
+								</div>
+
+								<div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
+									<div></div>
+									<a href="{{ route('cek-email') }}" class="link-primary">Lupa Kata Sandi?</a>
 								</div>
 
 								<div class="d-grid mb-10">

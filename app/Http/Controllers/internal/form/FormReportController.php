@@ -18,8 +18,8 @@ class FormReportController extends Controller
 
         return view('internal.content.form.formReport.formReportDashboard', [
             'title' => 'Formulir Report',
-            'pageTitle' => 'Daftar Formulir Laporan Penemuan Hewan Peliharaan Liar',
-            'pageSubTitle' => 'Daftar Formulir Laporan Penemuan Hewan Peliharaan Liar',
+            'pageTitle' => 'Daftar Laporan Penemuan Hewan Peliharaan Liar',
+            'pageSubTitle' => 'Daftar Laporan Penemuan Hewan Peliharaan Liar',
             'reportForm' => $reportForm
         ]);
     }
@@ -43,9 +43,9 @@ class FormReportController extends Controller
         $nonEditableStatuses = [$statusRSC, $statusNFD, $statusOTH];
 
         return view('internal.content.form.formReport.detail', [
-            'title' => 'Detail Formulir Laporan Penemuan Hewan Peliharaan Liar',
-            'pageTitle' => 'Detail Formulir Laporan Penemuan Hewan Peliharaan Liar',
-            'pageSubTitle' => 'Detail Formulir Laporan Penemuan Hewan Peliharaan Liar - ' . $userName,
+            'title' => 'Detail Laporan Penemuan Hewan Peliharaan Liar',
+            'pageTitle' => 'Detail Laporan Penemuan Hewan Peliharaan Liar',
+            'pageSubTitle' => 'Detail Laporan Penemuan Hewan Peliharaan Liar - ' . $userName,
             'detail' => $detail,
             'nonEditableStatuses' => $nonEditableStatuses,
         ]);
@@ -83,9 +83,9 @@ class FormReportController extends Controller
         $nonEditableStatuses = [$statusRSC, $statusNFD, $statusOTH];
 
         return view('internal.content.form.formReport.edit', [
-            'title' => 'Edit Formulir Laporan Penemuan Hewan Peliharaan Liar',
-            'pageTitle' => 'Edit Formulir Laporan Penemuan Hewan Peliharaan Liar',
-            'pageSubTitle' => 'Edit Formulir Laporan Penemuan Hewan Peliharaan Liar - ' . $userName,
+            'title' => 'Ubah Laporan Penemuan Hewan Peliharaan Liar',
+            'pageTitle' => 'Ubah Laporan Penemuan Hewan Peliharaan Liar',
+            'pageSubTitle' => 'Ubah Laporan Penemuan Hewan Peliharaan Liar - ' . $userName,
             'detail' => $detail,
             'reportFormStatus' => $status,
             'nonEditableStatuses' => $nonEditableStatuses

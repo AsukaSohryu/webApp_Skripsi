@@ -41,6 +41,16 @@ Route::post('/masuk-post', [AuthController::class, 'masukPost'])->name('masuk.po
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::prefix('lupa-kata-sandi')->group(function () {
+
+    Route::get('/cek-email', [AuthController::class, 'forgotPass'])->name('cek-email');
+    Route::post('/cek-email-post', [AuthController::class, 'checkEmail'])->name('cek-email.post');
+    Route::get('/{email}/cek-otp', [AuthController::class, 'checkOtp'])->name('cek-otp');
+    Route::post('/cek-otp-post', [AuthController::class, 'postOtp'])->name('cek-otp.post');
+    Route::get('/{email}/ubah-kata-sandi' ,[AuthController::class, 'changePass'])->name('change-pass');
+    Route::post('/ubah-kata-sandi-post' ,[AuthController::class, 'postPass'])->name('change-pass.post');
+});
+
 //Rescuer Pages Routing
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -73,11 +83,12 @@ Route::prefix('riwayat-laporan-dan-pengajuan')->middleware('auth.popup')->group(
     Route::get('/riwayat-laporan-penemuan-hewan-peliharaan-liar', [StatusReportController::class, 'index'])->name('status-laporan');
     Route::get('/laporan-penemuan-hewan-hilang/detail/{report_id}', [StatusReportController::class, 'detail'])->name('status-laporan.detail');
     
-    Route::get('/riwayat-pengajuan-penyerahan-hewan-peliharaan', [StatusAdopsiController::class, 'index'])->name('status-adopsi');
-    Route::get('/pengajuan-pengadopsian-hewan/detail/{adoption_form_id}', [StatusAdopsiController::class, 'detail'])->name('status-adopsi.detail');
-
-    Route::get('/riwayat-pengajuan-pengadopsian-hewan-peliharaan', [StatusHandoverController::class, 'index'])->name('status-penyerahan');
-    Route::get('/pengajuan-penyerahan-hewan/detail/{handover_form_id}', [StatusHandoverController::class, 'detail'])->name('status-penyerahan.detail');
+    Route::get('/riwayat-pengajuan-penyerahan-hewan-peliharaan', [StatusHandoverController::class, 'index'])->name('status-penyerahan');
+    Route::get('/riwayat-pengajuan-penyerahan-hewan/detail/{handover_form_id}', [StatusHandoverController::class, 'detail'])->name('status-penyerahan.detail');
+    
+    Route::get('/riwayat-pengajuan-pengadopsian-hewan-peliharaan', [StatusAdopsiController::class, 'index'])->name('status-adopsi');
+    Route::get('/riwayat-pengajuan-pengadopsian-hewan/detail/{adoption_form_id}', [StatusAdopsiController::class, 'detail'])->name('status-adopsi.detail');
+    Route::get('/riwayat-pengajuan-pengadopsian-hewan/detail-hewan-pengajuan-pengadopsian-hewan/{animal_id}', [StatusAdopsiController::class, 'detailHewan'])->name('status-adopsi.detailHewan');
 });
 
 //profil

@@ -71,6 +71,24 @@
             <label for="" class="mb-2">Nama Pengaju</label>
             <input type="text" name="namaPelapor" id="namaPelapor" value="{{$detail->users->name}}" class="form-control" disabled>
         </div>
+        <div class="col my-3">
+            <label for="" class="mb-2">Email</label>
+            <input type="text" name="emailPelapor" id="emailPelapor" value="{{$detail->users->email}}" class="form-control" disabled>
+        </div>
+        <div class="col my-3">
+            <label for="" class="mb-2">Alamat</label>
+            <input type="text" name="alamatPelapor" id="alamatPelapor" value="{{$detail->users->address}}" class="form-control" disabled>
+        </div>
+        <div class="row my-3">
+            <div class="col">
+                <label for="" class="mb-2">Usia</label>
+                <input type="text" name="usiaPelapor" id="usiaPelapor" value="" class="form-control" disabled>
+            </div>
+            <div class="col">
+                <label for="" class="mb-2">Tanggal Lahir</label>
+                <input type="text" name="bod" id="bod" value="{{$detail->users->birth_date}}" class="form-control" disabled>
+            </div>
+        </div>
         <div class="row my-3">
             <div class="col">
                 <label for="" class="mb-2">No Telepon</label>
@@ -79,6 +97,12 @@
             <div class="col">
                 <label for="" class="mb-2">No Whatsapp</label>
                 <input type="text" name="noWhatsapp" id="noWhatsapp" value="{{$detail->users->whatsapp_number}}" class="form-control" disabled>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col">
+                <label for="">Pekerjaan</label>
+                <input type="text" name="pekerjaanPelapor" id="pekerjaanPelapor" value="{{$detail->users->job}}" class="form-control" disabled>
             </div>
         </div>
         <div class="col my-3">
@@ -174,4 +198,43 @@
 </script>
 @endif
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tanggalLahirInput = document.getElementById('bod');
+    const usiaUser = document.getElementById('usiaPelapor');
+
+    function calculateAge() {
+        const birthDate = new Date(tanggalLahirInput.value);
+        const today = new Date();
+        
+        let ageInMonths = (today.getFullYear() - birthDate.getFullYear()) * 12;
+        ageInMonths += today.getMonth() - birthDate.getMonth();
+        
+        if (today.getDate() < birthDate.getDate()) {
+            ageInMonths--;
+        }
+
+        let years = Math.floor(ageInMonths / 12);
+        let months = ageInMonths % 12;
+
+        if (ageInMonths < 0) {
+            years = 0;
+            months = 0;
+        }
+
+        let ageString = '';
+        if (years > 0) {
+            ageString += `${years} Tahun `;
+        }
+
+        usiaUser.value = ageString;
+    }
+
+    if (tanggalLahirInput.value) {
+        calculateAge();
+    }
+
+    tanggalLahirInput.addEventListener('change', calculateAge);
+});
+</script>
 @endsection

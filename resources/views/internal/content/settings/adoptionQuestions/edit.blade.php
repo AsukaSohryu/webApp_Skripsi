@@ -98,7 +98,7 @@
                                 id="check-{{ $a->adoption_question_id }}" 
                                 name="activeStatus[{{ $a->adoption_question_id }}]"
                                 data-id="{{ $a->adoption_question_id }}"
-                                {{ $a->is_active == 1 ? 'checked' : '' }}>
+                                {{ $a->is_active == 1 ? 'checked' : '' }} disabled>
                             <label for="check-{{ $a->adoption_question_id }}" class="button"></label>
                             <label class="py-3 mb-0" id="isActive-{{ $a->adoption_question_id }}">
                                 <b>{{ $a->is_active == 1 ? 'Aktif' : 'Tidak Aktif' }}</b>
@@ -129,9 +129,9 @@
             </button>
         </div>
         <div class="d-flex justify-content-between gap-2 mt-3">
-            <p style="color: red;">*Centang pertanyaan yang ingin dihapus lalu simpan perubahan (Pertanyaan yang telah digunakan pada formulir tidak dapat dihapus)</p>
+            <p style="color: red;">*Centang pertanyaan yang ingin dihapus lalu simpan perubahan<br>(Pertanyaan yang telah digunakan pada formulir tidak dapat dihapus)</p>
             <div class="d-flex gap-2">
-                <a href="{{ route('pertanyaanPengadopsian.index') }}" class="btn btn-secondary">
+                <a href="{{ route('pertanyaanPengadopsian.index') }}" class="btn btn-secondary d-flex align-items-center">
                     Batalkan
                 </a>
                 <button type="submit" id="saveButton" class="btn btn-primary">
