@@ -35,6 +35,9 @@ use Illuminate\Support\Facades\Route;
 // Auth Routing
 Route::get('/daftar', [AuthController::class, 'daftar'])->name('daftar');
 Route::post('/daftar-post', [AuthController::class, 'daftarPost'])->name('daftar.post');
+Route::get('/check-email', [AuthController::class, 'checkEmailDaftar'])->name('checkEmail');
+Route::post('/check-file', [AuthController::class, 'checkFotoDaftar'])->name('checkFoto');
+
 
 Route::get('/masuk', [AuthController::class, 'masuk'])->name('masuk');
 Route::post('/masuk-post', [AuthController::class, 'masukPost'])->name('masuk.post');
@@ -66,6 +69,7 @@ Route::prefix('layanan-kami')->group(function () {
         Route::get('/laporkan-penemuan-hewan-peliharaan-liar', [LayananLaporanHewanHilangController::class, 'index'])->name('layanan-laporan');
         Route::post('/laporan-hewan-hilang', [LayananLaporanHewanHilangController::class, 'indexPost'])->name('layanan-laporan-post');
 
+
         Route::get('/ajukan-penyerahan-hewan-peliharaan', [LayananPengajuanPenyerahanHewanController::class, 'index'])->name('layanan-pengajuan');
         Route::post('/pengajuan-penyerahan-hewan-create', [LayananPengajuanPenyerahanHewanController::class, 'createPost'])->name('layanan-pengajuan.create.Post');
 
@@ -76,6 +80,7 @@ Route::prefix('layanan-kami')->group(function () {
         Route::post('/pengajuan-pengadopsian-hewan/adoption-formulir-create/{animal_id}', [LayananLihatHewanSiapAdopsiController::class, 'createPost'])->name('layanan-adopsi.create.post');
     });
 });
+
 
 //status
 Route::prefix('riwayat-laporan-dan-pengajuan')->middleware('auth.popup')->group(function () {

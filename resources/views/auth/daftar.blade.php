@@ -62,51 +62,25 @@
 										<div class="text-gray-500 fw-semibold fs-6">Buat Akun untuk Shelter Us</div>
 									</div>
 									<div class="fv-row mb-3">
-										<label for="" class="mb-3">Email</label>
+										<label for="" class="mb-3">Email<sup class="text-danger">*<sup></label>
 										<input type="text" placeholder="Email" id="email" name="email" autocomplete="off" class="form-control bg-transparent" />
-										@error('email')
-											<script>
-												Swal.fire({
-													title: 'Gagal',
-													text: '{{ $message }}',
-													icon: 'error',
-													confirmButtonText: 'Oke'
-												});
-											</script>
-										@enderror
+										<span class="mt-2 text-danger" id="email-error"></span>
 									</div>
 									<div class="fv-row mb-3">
-										<label for="" class="mb-3">Nama</label>
+										<label for="" class="mb-3">Nama<sup class="text-danger">*<sup></label>
 										<input type="text" placeholder="Nama" id="name" name="name" autocomplete="off" class="form-control bg-transparent" />
-										@error('name')
-											Swal.fire({
-													title: 'Gagal',
-													text: '{{ $message }}',
-													icon: 'error',
-													confirmButtonText: 'Oke'
-												});
-										@enderror
 									</div>
 									<div class="fv-row mb-3" data-kt-password-meter="true">
 										<!--begin::Wrapper-->
 										<div class="mb-1">
 											<!--begin::Input wrapper-->
 											<div class="position-relative mb-3">
-												<label for="" class="mb-3">Kata Sandi</label>
+												<label for="" class="mb-3">Kata Sandi<sup class="text-danger">*<sup></label>
 												<input class="form-control bg-transparent" type="password" placeholder="Kata Sandi" name="password" id="password" autocomplete="off" />
 												<span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility" style="top: 70% !important;">
 													<i class="bi bi-eye-slash fs-2"></i>
 													<i class="bi bi-eye fs-2 d-none"></i>
 												</span>
-	
-												@error('password')
-													Swal.fire({
-													title: 'Gagal',
-													text: '{{ $message }}',
-													icon: 'error',
-													confirmButtonText: 'Oke'
-												});
-												@enderror
 											</div>
 											<!--end::Input wrapper-->
 											<!--begin::Meter-->
@@ -124,11 +98,12 @@
 										<!--end::Hint-->
 									</div>
 									<div class="fv-row mb-3">
-										<label for="" class="mb-3">Konfirmasi Kata Sandi</label>
+										<label for="" class="mb-3">Konfirmasi Kata Sandi<sup class="text-danger">*<sup></label>
 										<input placeholder="Konfirmasi Kata Sandi" id="confirm_password" name="confirm-password" type="password" id="confirm_password" autocomplete="off" class="form-control bg-transparent" />
 									</div>
 									<div class="d-grid mb-10">
 										<button type="button" class="btn btn-primary" onclick="goToStep2()" id="nextButton">Selanjutnya</button>
+										<label for="" class="text-danger mt-2">Mohon isi semua kolom dengan <sup class="text-danger">*<sup></label>
 										<br>
 										<div class="text-gray-500 text-center fw-semibold fs-6">Sudah Memiliki Akun?
 										<a href="{{ route('masuk') }}" class="link-primary">Masuk</a></div>
@@ -152,79 +127,33 @@
 										<div class="text-gray-500 fw-semibold fs-6">Kelengkapan Data Pribadi</div>
 									</div>
 									<div class="fv-row mb-3">
-										<label for="" class="mb-3">Foto</label>
-										<input type="file" placeholder="Foto" id="foto" name="foto" class="form-control bg-transparent" />
-										@error('foto')
-											Swal.fire({
-													title: 'Gagal',
-													text: '{{ $message }}',
-													icon: 'error',
-													confirmButtonText: 'Oke'
-												});
-										@enderror
+										<label for="" class="mb-3">Foto<sup class="text-danger">*<sup></label>
+										<input type="file" placeholder="Foto" id="foto" name="foto" class="form-control bg-transparent" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml"/>
+										<span class="mt-2 text-danger" id="foto-error"></span>
 									</div>
 									<div class="fv-row mb-3">
-										<label for="" class="mb-3">Alamat</label>
+										<label for="" class="mb-3">Alamat<sup class="text-danger">*<sup></label>
 										<input type="text" placeholder="Alamat" id="alamat" name="alamat" class="form-control bg-transparent" />
-										@error('alamat')
-											Swal.fire({
-													title: 'Gagal',
-													text: '{{ $message }}',
-													icon: 'error',
-													confirmButtonText: 'Oke'
-												});
-										@enderror
 									</div>
 									<div class="fv-row mb-3">
-										<label for="" class="mb-3">Pekerjaan</label>
+										<label for="" class="mb-3">Pekerjaan<sup class="text-danger">*<sup></label>
 										<input type="text" placeholder="Pekerjaan" id="pekerjaan" name="pekerjaan" class="form-control bg-transparent" />
-										@error('pekerjaan')
-											Swal.fire({
-													title: 'Gagal',
-													text: '{{ $message }}',
-													icon: 'error',
-													confirmButtonText: 'Oke'
-												});
-										@enderror
 									</div>
 									<div class="fv-row mb-3">
-										<label for="" class="mb-3">Tanggal Lahir</label>
+										<label for="" class="mb-3">Tanggal Lahir<sup class="text-danger">*<sup></label>
 										<input type="date" placeholder="Tanggal Lahir" id="BOD" name="BOD" class="form-control bg-transparent" />
-										@error('BOD')
-											Swal.fire({
-													title: 'Gagal',
-													text: '{{ $message }}',
-													icon: 'error',
-													confirmButtonText: 'Oke'
-												});
-										@enderror
 									</div>
 									<div class="fv-row mb-3">
-										<label for="" class="mb-3">Nomor WhatsApp</label>
+										<label for="" class="mb-3">Nomor WhatsApp<sup class="text-danger">*<sup></label>
 										<input type="text" placeholder="Nomor WhatsApp" id="whatsapp" name="whatsapp" class="form-control bg-transparent" />
-										@error('whatsapp')
-											Swal.fire({
-													title: 'Gagal',
-													text: '{{ $message }}',
-													icon: 'error',
-													confirmButtonText: 'Oke'
-												});
-										@enderror
 									</div>
 									<div class="fv-row mb-3">
-										<label for="" class="mb-3">Nomor Telepon</label>
+										<label for="" class="mb-3">Nomor Telepon<sup class="text-danger">*<sup></label>
 										<input type="text" placeholder="Nomor Telepon" id="notelp" name="notelp" class="form-control bg-transparent" />
-										@error('notelp')
-											Swal.fire({
-													title: 'Gagal',
-													text: '{{ $message }}',
-													icon: 'error',
-													confirmButtonText: 'Oke'
-												});
-										@enderror
 									</div>
 									<div class="d-grid mb-10">
-										<button type="submit" class="btn btn-primary">Daftar</button>
+										<button type="submit" class="btn btn-primary" id="daftar">Daftar</button>
+										<label for="" class="text-danger mt-2">Mohon isi semua kolom dengan <sup class="text-danger">*<sup></label>
 									</div>
 								</form>
 							</div>
@@ -268,22 +197,37 @@
 				}
 
 				// Password validation
+				strongPasswordPattern =  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
 				if (password.length < 8) {
 					event.preventDefault();
 					Swal.fire({
 						title: 'Gagal',
-						text: 'Password harus memiliki setidaknya 8 karakter.',
+						text: 'Kata sandi harus memiliki setidaknya 8 karakter.',
 						icon: 'error',
 						confirmButtonText: 'Oke'
 					});
 					// alert('Password harus memiliki setidaknya 8 karakter.');
 					return;
 				}
+
+				if(!strongPasswordPattern.test(password)){
+
+					event.preventDefault();
+					Swal.fire({
+						title: 'Gagal',
+						text: 'Kata sandi harus memiliki kombinasi angka, huruf, dan simbol!',
+						icon: 'error',
+						confirmButtonText: 'Oke'
+					});
+					return;
+				}
+
 				if (password !== confirmPassword) {
 					event.preventDefault();
 					Swal.fire({
 						title: 'Gagal',
-						text: 'Password dan konfirmasi password tidak sama.',
+						text: 'Kata sandi dan konfirmasi kata sandi tidak sama.',
 						icon: 'error',
 						confirmButtonText: 'Oke'
 					});
@@ -324,6 +268,9 @@
 
 				// Validate if BOD is before today
 				const today = new Date();  // Get current date
+				today.setHours(0);
+				today.setMinutes(0);
+				today.setSeconds(0);
 				console.log(today);
 				const birthDate = new Date(BOD);
 				console.log(birthDate);  // Convert BOD to Date object
@@ -374,6 +321,92 @@
 		<script src="{{asset('/')}}assets/internal/js/custom/authentication/sign-up/general.js"></script>
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->
+		<script>
+			// Event listener to check email uniqueness as the user types
+			$('#email').on('blur', function() {
+				const email = $(this).val();
+				
+				// Check if the email is not empty
+				if(email) {
+					checkEmailUniqueness(email);
+				}
+			});
+
+			// Function to check email uniqueness using AJAX
+			function checkEmailUniqueness(email) {
+				$.ajax({
+					url: 'http://127.0.0.1:8000/check-email', // The URL to check email uniqueness
+					method: 'GET',
+					data: { email: email }, // Sending email as query parameter
+					success: function(response) {
+						if(response.isUnique) {
+							$('#email-error').text(''); // Clear any previous error messages
+							$('#nextButton').prop('disabled', false);
+						} else {
+							$('#email-error').text('Email sudah terdaftar. Silahkan gunakan email lain atau masuk pada akun anda.');
+							$('#nextButton').prop('disabled', true);
+						}
+					},
+					error: function() {
+						$('#email-error').text('Error.');
+						$('#nextButton').prop('disabled', true);
+					}
+				});
+			}
+		</script>
+		<script>
+			// When the user selects a file
+			$('#foto').on('change', function() {
+				// Get the selected file
+				const file = this.files[0];
+				
+				// Check if a file is selected
+				if (file) {
+					const fileType = file.type; // MIME type (e.g., image/jpeg, image/png)
+					const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'];
+					
+					// Check if the file is a valid image
+					if (validImageTypes.includes(fileType)) {
+						$('#foto-error').text(''); // Clear any previous error messages
+						$('#daftar').prop('disabled', false); // Enable the submit button
+						
+						// Optionally: You can also send the file to the server via AJAX for server-side validation
+						// checkFileWithAjax(file);
+					} else {
+						// Show error message if the file is not an image
+						$('#foto-error').text('Mohon unggah file gambar yang valid (JPG, PNG, GIF, SVG).');
+						$('#daftar').prop('disabled', true); // Disable the submit button
+					}
+				}
+			});
+
+			// Optional: Use AJAX to check the file type or size on the server
+			function checkFileWithAjax(file) {
+				const formData = new FormData();
+				formData.append('file', file);
+
+				$.ajax({
+					url: 'http://127.0.0.1:8000/check-file', // Your server-side URL for validation
+					type: 'POST',
+					data: formData,
+					contentType: false,
+					processData: false,
+					success: function(response) {
+						if (response.valid) {
+							$('#foto-error').text(''); // Clear any previous error messages
+							$('#daftar').prop('disabled', false); // Enable the submit button
+						} else {
+							$('#foto-error').text('File tidak valid. Silahkan unggah file gambar.');
+							$('#daftar').prop('disabled', true); // Disable the submit button
+						}
+					},
+					error: function() {
+						$('#file-error').text('Terjadi kesalahan saat memeriksa file.');
+						$('#daftar').prop('disabled', true); // Disable the submit button
+					}
+				});
+			}
+		</script>
 	</body>
 	<!--end::Body-->
 </html>

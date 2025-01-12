@@ -90,18 +90,21 @@
                 <div class="col">
                     @foreach($adoptionQuestions as $question)
                     <div class="col">
-                        <label class="my-2">{{ $question->questions }}</label>
+                        <label class="my-2">{{ $question->questions }}<sup class="text-danger">*<sup></label>
                         <textarea class="form-control" name="answers[{{ $question->adoption_question_id }}]" rows="3" placeholder="Masukan Jawaban Anda" required></textarea>
                     </div>
                     @endforeach
                 </div>
             </div>
             <div class="row my-3">
-                <div class="gap-3 my-10 d-flex justify-content-end">
-                    <a href="{{ route('layanan-lihat') }}" class="btn btn-secondary">
-                        Kembali
-                    </a>
-                    <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Kirim Pengajuan</button>
+                <div class="gap-3 my-10 d-flex justify-content-between">
+                    <label for="" class="text-danger mt-2">Mohon isi semua kolom dengan <sup class="text-danger">*<sup></label>
+                    <div>
+                        <a href="{{ route('layanan-lihat') }}" class="btn btn-secondary">
+                            Kembali
+                        </a>
+                        <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Kirim Pengajuan</button>
+                    </div>
                 </div>
             </div>
         </form>

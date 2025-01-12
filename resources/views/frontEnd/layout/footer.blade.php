@@ -62,10 +62,10 @@
                 <div class="col-lg-2 col-sm-6 col-12 footer-links">
                     <h4>Lainnya</h4>
                     <ul>
-                        <li><a href="">Youtube - Shelter Us</a></li>
-                        <li><a href="">Instagram - Shelter Us</a></li>
-                        <li><a href="">Twitter - Shelter Us</a></li>
-                        <li><a href="">Facebook - Shelter Us</a></li>
+                        <li><a href="https://www.youtube.com/">Youtube - Shelter Us</a></li>
+                        <li><a href="https://www.instagram.com">Instagram - Shelter Us</a></li>
+                        <li><a href="https://x.com">Twitter - Shelter Us</a></li>
+                        <li><a href="https://www.facebook.com">Facebook - Shelter Us</a></li>
                     </ul>
                     <br/>
                 </div>
@@ -154,7 +154,7 @@
                         </div>
                         <div class="content">
                             <h4><b>Nomor Telepon</b></h4>
-                            <p>+62 21-123-456-78</p>
+                            <p>+62 87889360769</p>
                         </div>
                     </div>
 
@@ -164,21 +164,21 @@
                         </div>
                         <div class="content">
                             <h4><b>Nomor Whatsapp</b></h4>
-                            <p>+62 81234567891</p>
+                            <p>+62 87889360769</p>
                         </div>
                     </div>
 
                     <div class="detail" style="gap: 11px;">
-                        <a href="" target="_blank">
+                        <a href="https://www.instagram.com" target="_blank">
                             <i class="fa fa-instagram fa-2x" aria-hidden="true" style="color: #434343F5"></i>
                         </a>
-                        <a href="" target="_blank">
+                        <a href="https://www.facebook.com" target="_blank">
                             <i class="fa fa-facebook-square fa-2x" aria-hidden="true" style="color: #434343F5"></i>
                         </a>
-                        <a href="" target="_blank">
+                        <a href="https://x.com" target="_blank">
                             <i class="fa-brands fa-square-twitter fa-2x" aria-hidden="true" style="color: #434343F5"></i>
                         </a>
-                        <a href="" target="_blank">
+                        <a href="https://www.youtube.com" target="_blank">
                             <i class="fa fa-youtube-play fa-2x" aria-hidden="true" style="color: #434343F5"></i>
                         </a>
                     </div>

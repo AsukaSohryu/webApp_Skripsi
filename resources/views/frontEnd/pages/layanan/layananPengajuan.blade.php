@@ -19,7 +19,7 @@
 <section id="breadcrumbs" class="section-bg-5">
     <div class="container">
         <p class="type-2">Layanan Kami</p>
-        <p class="type-2">Ajukan Penyerahan Hewan</p>
+        <p class="type-2">Ajukan Penyerahan Hewan Peliharaan</p>
     </div>
 </section>
 
@@ -27,10 +27,10 @@
 <section>
     <div class="container">
         <div class="row my-2 d-flex" style="gap: 8px;">
-            <h1 class="text-center">Ajukan Penyerahan Hewan</h1>
+            <h1 class="text-center">Ajukan Penyerahan Hewan Peliharaan</h1>
             <hr />
             <div class="alert alert-info text-center">
-            Shelter Sedang Tidak Melayani Pengajuan Penyerahan Hewan
+            Shelter Sedang Tidak Melayani Pengajuan Penyerahan Hewan Peliharaan
         </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
 <section id="section-1-layanan-penyerahan">
     <div class="container">
         <div class="row my-2 d-flex" style="gap: 8px;">
-            <h1 class="text-center">Ajukan Penyerahan Hewan</h1>
+            <h1 class="text-center">Ajukan Penyerahan Hewan Peliharaan</h1>
             <hr />
             <div class="col">
                 <div class="mt-2">
@@ -99,8 +99,10 @@
             <hr>
             <div class="row my-1">
                 <div class="col my-2 d-flex flex-column justify-content-center">
-                    <label for="" class="my-2">Unggah Foto Hewan Anda</label>
-                    <input type="file" class="form-control" name="fotoHewanHandover" required>
+                    <label for="" class="my-2">Unggah Foto Hewan Anda<sup class="text-danger">*<sup></label>
+                    <input type="file" class="form-control" name="fotoHewanHandover" id="fotoHewan" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml" required>
+                    <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
+                    <small class="mt-2 text-danger" id="foto1-error"></small>
                 </div>
             </div>
             <!-- Displaying the handover questions -->
@@ -108,7 +110,7 @@
                 <div class="col">
                     @foreach($handoverQuestions as $question)
                     <div class="col">
-                        <label class="my-2">{{ $question->questions }}</label>
+                        <label class="my-2">{{ $question->questions }}<sup class="text-danger">*<sup></label>
                         @switch($question->handover_questions_id)
                             @case(2)
                                 <select class="form-control" name="answers[{{ $question->handover_questions_id }}]" placeholder="Masukan Jawaban Anda" required>
@@ -145,8 +147,9 @@
                 </div>
             </div>
             <div class="row my-3">
-                <div class="gap-3 my-10 d-flex justify-content-end">
-                    <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Kirim Pengajuan</button>
+                <div class="gap-3 my-10 d-flex justify-content-between">
+                    <label for="" class="text-danger mt-2">Mohon isi semua kolom dengan <sup class="text-danger">*<sup></label>
+                    <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm" disabled>Kirim Pengajuan</button>
                 </div>
             </div>
         </form>
@@ -245,12 +248,21 @@
 
 <script>
     $(document).ready(function() {
-        // Function to check if any textarea is empty
+        // Function to check if any textarea or file input field is empty
         function checkEmptyFields() {
             let isEmpty = false;
+
+            // Check for empty textareas
             $('textarea').each(function() {
                 if ($(this).val().trim() === '') {
-                    isEmpty = true;  // If any textarea is empty, disable the submit button
+                    isEmpty = true;  // If any textarea is empty
+                }
+            });
+
+            // Check for empty required file inputs
+            $('input[type="file"][required]').each(function() {
+                if ($(this).val() === '') {
+                    isEmpty = true;  // If any required file input is empty
                 }
             });
 
@@ -267,8 +279,47 @@
             checkEmptyFields();
         });
 
+        // Check empty fields on change in any file input
+        $('input[type="file"]').on('change', function() {
+            checkEmptyFields();
+        });
+
         // Run the check initially in case fields are already filled
         checkEmptyFields();
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Function to validate both file inputs
+        function validateFiles() {
+            const foto1 = $('#fotoHewan')[0].files[0];  // Get the first file (fotoHewan)
+            const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml', 'image/jpg'];
+            let isValid = true;  // Flag to check if all files are valid
+
+            // Check the first file (fotoHewan)
+            if (foto1) {
+                const fileType1 = foto1.type;
+                if (!validImageTypes.includes(fileType1)) {
+                    $('#foto1-error').text('Mohon unggah file gambar yang valid (JPG, PNG, GIF, SVG).');
+                    isValid = false;  // Invalid file
+                } else {
+                    $('#foto1-error').text('');  // Clear error message if file is valid
+                }
+            }
+
+            // Enable or disable submit button based on validation
+            if (isValid) {
+                $('#submitForm').prop('disabled', false);  // Enable submit button if all files are valid
+            } else {
+                $('#submitForm').prop('disabled', true);  // Disable submit button if any file is invalid
+            }
+        }
+
+        // Event listener for file input changes
+        $('#fotoHewan').on('change', function() {
+            validateFiles();  // Validate the files when the user selects a file
+        });
     });
 </script>
 
@@ -291,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let years = Math.floor(ageInMonths / 12);
         let months = ageInMonths % 12;
 
-        if (ageInMonths < 0) {
+        if (ageInMonths <script 0) {
             years = 0;
             months = 0;
         }

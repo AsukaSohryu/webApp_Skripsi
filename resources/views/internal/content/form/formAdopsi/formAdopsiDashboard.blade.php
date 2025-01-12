@@ -43,7 +43,7 @@
                         $btnClass = 'btn-danger';
                     }
                     @endphp
-                    <button class="btn {{ $btnClass }}">{{ $r->status_name }}</button>    
+                    <span class="btn {{ $btnClass }} noHover">{{ $r->status_name }}</span>    
                 </td>
                 <td class="d-flex justify-content-center d-row border-0" style="gap: 5px;">
                     <form action="{{route('formAdopsi.detail', $r->adoption_form_id)}}" method="get">

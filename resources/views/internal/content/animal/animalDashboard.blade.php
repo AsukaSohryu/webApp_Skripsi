@@ -40,7 +40,7 @@
                             $btnClass = 'btn-danger';
                         }
                     @endphp
-                    <button class="btn {{ $btnClass }}">{{ $a->status_name }}</button>
+                    <button class="btn {{ $btnClass }} noHover">{{ $a->status_name }}</button>
                 </td>
                 <td>
                     <form action="{{route('dataHewan.detail', $a->animal_id)}}" method="get">
@@ -96,4 +96,15 @@ function searchAnimals() {
     }
 }
 </script>
+
+@if(session('success'))
+<script>
+    Swal.fire({
+        title: 'Berhasil',
+        text: '{{ session('success') }}',
+        icon: 'success',
+        confirmButtonText: 'Oke',
+    });
+</script>
+@endif
 @endsection

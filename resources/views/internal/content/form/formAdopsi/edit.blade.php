@@ -144,6 +144,15 @@
                         </option>
                     @endforeach
                 </select>
+                {{-- <select class="form-control custom-dropdown" id="statusID" name="statusID" required>
+                    @foreach($adoptionFormStatus as $s)
+                        @if ($s->status_id != $detail->status_id)
+                            <option value="{{ $s->status_id }}">
+                                {{ $s->status }}
+                            </option>
+                        @endif
+                    @endforeach
+                </select> --}}
             </div>
             <div class="row my-3">
                 <div class="col">
@@ -178,13 +187,13 @@
                 <a href="{{ route('formAdopsi.detail', $detail->adoption_form_id) }}" 
                     class="btn btn-secondary"
                     style="border: 0;">
-                     Batalkan
+                    Batalkan
                 </a>
                 <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Simpan Perubahan</button>
             </div>
             @else
                 <div class="my-10 d-flex justify-content-end">
-                    <button class="btn btn-secondary" disabled title="Laporan  sudah final">Status Tidak Dapat Diubah</button>
+                    <button class="btn btn-secondary" disabled title="Laporan sudah final">Status Tidak Dapat Diubah</button>
                 </div>
             @endif          
         </form>

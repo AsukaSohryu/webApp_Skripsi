@@ -97,9 +97,9 @@ class LayananLihatHewanSiapAdopsiController extends Controller
         ]);
 
         if ($update) {
-            return redirect()->route('layanan-lihat')->with('success', 'Pengajuan berhasil dibuat!');
+            return redirect()->route('status-adopsi')->with('success', 'Pengajuan berhasil dibuat!');
         } else {
-            return redirect()->route('layanan-lihat')->with('error', 'Pengajuan gagal dibuat!');
+            return redirect()->route('status-adopsi')->with('error', 'Pengajuan gagal dibuat!');
         }
     }
 }

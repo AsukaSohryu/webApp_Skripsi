@@ -49,6 +49,10 @@
 				border-color: var(--kt-success) !important;
 				color: var(--kt-success) !important;
 			}
+
+			.noHover{
+				pointer-events: none;
+			}
 		</style>
 
     </head>

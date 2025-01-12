@@ -154,6 +154,7 @@
                     <label for="" class="mb-2">Admin Feedback Photo</label>
                     <input type="file" class="form-control" id="fotoResponAdmin" name="fotoResponAdmin" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml">
                     <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
+                    <small class="mt-2 text-danger" id="foto1-error"></small>
                     <div class="mt-2 ps-3">Currrent File: {{ $detail->admin_feedback_photo }}</div>
                 </div>
             </div>
@@ -174,6 +175,39 @@
         </form>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        // Function to validate both file inputs
+        function validateFiles() {
+            const foto1 = $('#fotoResponAdmin')[0].files[0];  // Get the first file (fotoHewan)
+            const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml', 'image/jpg'];
+            let isValid = true;  // Flag to check if all files are valid
+
+            // Check the first file (fotoHewan)
+            if (foto1) {
+                const fileType1 = foto1.type;
+                if (!validImageTypes.includes(fileType1)) {
+                    $('#foto1-error').text('Mohon unggah file gambar yang valid (JPG, PNG, GIF, SVG).');
+                    isValid = false;  // Invalid file
+                } else {
+                    $('#foto1-error').text('');  // Clear error message if file is valid
+                }
+            }
+
+            // Enable or disable submit button based on validation
+            if (isValid) {
+                $('#submitForm').prop('disabled', false);  // Enable submit button if all files are valid
+            } else {
+                $('#submitForm').prop('disabled', true);  // Disable submit button if any file is invalid
+            }
+        }
+
+        // Event listener for file input changes
+        $('#fotoResponAdmin').on('change', function() {
+            validateFiles();  // Validate the files when the user selects a file
+        });
+    });
+</script>
 
 <script>
     document.getElementById('submitForm').addEventListener('click', function(e) {

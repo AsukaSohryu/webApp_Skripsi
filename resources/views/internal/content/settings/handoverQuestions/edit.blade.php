@@ -198,7 +198,7 @@
         var tr = table.getElementsByTagName("tr");
 
         for (var i = 1; i < tr.length; i++) {
-            var tdQuestion = tr[i].getElementsByTagName("td")[0];
+            var tdQuestion = tr[i].getElementsByTagName("td")[1];
             if (tdQuestion) {
                 var questionText = tdQuestion.textContent || tdQuestion.innerText;
                 if (questionText.toLowerCase().indexOf(filter) > -1) {
