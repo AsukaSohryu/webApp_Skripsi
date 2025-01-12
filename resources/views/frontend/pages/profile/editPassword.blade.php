@@ -35,6 +35,7 @@
             <div>
                 <label for="new_password" class="form-label my-3">Kata Sandi Baru</label>
                 <input type="password" id="new_password" name="new_password" class="form-control" required />
+                <div class="text-muted">Gunakan 8 karakter atau lebih dengan campuran huruf, angka, dan simbol.</div>
             </div>
             <div>
                 <label for="confirm_new_password" class="form-label my-3">Konfirmasi Kata Sandi Baru</label>
@@ -163,6 +164,59 @@
 
         // Run the check initially in case fields are already filled
         checkEmptyFields();
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Event listener for the submit button
+        $('#submitForm').on('click', function(event) {
+            // Prevent form submission if validation fails
+            event.preventDefault();
+
+            // Get the password and confirm password values
+            const password = $('#new_password').val();
+            const confirmPassword = $('#confirm_new_password').val();
+
+            // Password validation pattern (requires at least one letter, one number, and one special character)
+            const strongPasswordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            // Validate if password length is at least 8 characters
+            if (password.length < 8) {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'Kata sandi harus memiliki setidaknya 8 karakter.',
+                    icon: 'error',
+                    confirmButtonText: 'Oke'
+                });
+                return;
+            }
+
+            // Validate if password contains a combination of letters, numbers, and special characters
+            if (!strongPasswordPattern.test(password)) {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'Kata sandi harus memiliki kombinasi angka, huruf, dan simbol!',
+                    icon: 'error',
+                    confirmButtonText: 'Oke'
+                });
+                return;
+            }
+
+            // Validate if password and confirm password match
+            if (password !== confirmPassword) {
+                Swal.fire({
+                    title: 'Gagal',
+                    text: 'Kata sandi dan konfirmasi kata sandi tidak sama.',
+                    icon: 'error',
+                    confirmButtonText: 'Oke'
+                });
+                return;
+            }
+
+            // If all validations pass, submit the form (you can remove the `event.preventDefault()` above)
+            $('#createAnimal').submit(); // or use the correct form ID if needed
+        });
     });
 </script>
 @endsection

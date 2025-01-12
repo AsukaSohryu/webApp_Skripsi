@@ -201,14 +201,14 @@ class PertanyaanPengadopsianController extends Controller
             // Check if any action was taken and return appropriate redirect
             if ($actionTaken) {
                 return redirect()
-                    ->route('pertanyaanPengadopsian.edit')
+                    ->route('pertanyaanPengadopsian.index')
                     ->with('swal_type', $messageType)
                     ->with('swal_message', $message);
             }
 
             // If no action was taken, return with an info message
             return redirect()
-                ->route('pertanyaanPengadopsian.edit')
+                ->route('pertanyaanPengadopsian.index')
                 ->with('swal_type', 'info')
                 ->with('swal_message', 'Tidak ada perubahan yang dilakukan.');
 

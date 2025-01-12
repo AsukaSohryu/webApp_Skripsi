@@ -37,6 +37,16 @@
         </a>
     </div>
 <div>
+
+@if(session('swal_type'))
+    <script>
+        Swal.fire({
+            icon: '{{ session('swal_type') }}',
+            title: '{{ session('swal_message') }}',
+            showConfirmButton: true,
+        });
+    </script>
+@endif
 <script>
 function searchQuestions() {
     var input = document.getElementById("searchQuestion");

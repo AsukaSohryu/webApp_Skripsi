@@ -54,8 +54,9 @@
             <div class="row my-3">
                 <div class="col my-3 d-flex flex-column justify-content-center">
                     <label for="" class="my-3">Upload Foto Hewan</label>
-                    <input type="file" class="form-control" name="fotoHewan" required accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml">
+                    <input type="file" class="form-control" name="fotoHewan" id="fotoHewan" required accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml">
                     <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
+                    <small class="mt-2 text-danger" id="foto1-error"></small>
                 </div>
             </div>
             <div class="row my-3">
@@ -280,6 +281,88 @@ document.addEventListener('DOMContentLoaded', function() {
 
     tanggalLahirInput.addEventListener('change', calculateAge);
 });
+</script>
+<script>
+    $(document).ready(function() {
+        // Function to check if any required fields are empty
+        function checkEmptyFields() {
+            let isEmpty = false;
+
+            // Check for empty textareas
+            $('textarea').each(function() {
+                if ($(this).val().trim() === '') {
+                    isEmpty = true;  // If any textarea is empty
+                }
+            });
+
+            // Check for empty required text inputs
+            $('input[type="text"][required], input[type="date"][required], input[type="number"][required]').each(function() {
+                if ($(this).val().trim() === '') {
+                    isEmpty = true;  // If any text input is empty
+                }
+            });
+
+            // Check for empty required file inputs
+            $('input[type="file"][required]').each(function() {
+                if ($(this).val() === '') {
+                    isEmpty = true;  // If any required file input is empty
+                }
+            });
+
+            // If there's an empty field or checkbox is unchecked, disable the submit button
+            if (isEmpty) {
+                $('#submitForm').attr('disabled', true);
+            } else {
+                $('#submitForm').attr('disabled', false); // Enable submit button if all fields are filled
+            }
+        }
+
+        // Check empty fields on keyup in any textarea, text input, and date input
+        $('textarea, input[type="text"], input[type="date"], input[type="number"]').on('keyup change', function() {
+            checkEmptyFields();
+        });
+
+        // Check empty fields when file input changes
+        $('input[type="file"]').on('change', function() {
+            checkEmptyFields();
+        });
+
+        // Run the check initially in case fields are already filled
+        checkEmptyFields();
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        // Function to validate both file inputs
+        function validateFiles() {
+            const foto1 = $('#fotoHewan')[0].files[0];  // Get the first file (fotoHewan)
+            const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml', 'image/jpg'];
+            let isValid = true;  // Flag to check if all files are valid
+
+            // Check the first file (fotoHewan)
+            if (foto1) {
+                const fileType1 = foto1.type;
+                if (!validImageTypes.includes(fileType1)) {
+                    $('#foto1-error').text('Mohon unggah file gambar yang valid (JPG, PNG, GIF, SVG).');
+                    isValid = false;  // Invalid file
+                } else {
+                    $('#foto1-error').text('');  // Clear error message if file is valid
+                }
+            }
+
+            // Enable or disable submit button based on validation
+            if (isValid) {
+                $('#submitForm').prop('disabled', false);  // Enable submit button if all files are valid
+            } else {
+                $('#submitForm').prop('disabled', true);  // Disable submit button if any file is invalid
+            }
+        }
+
+        // Event listener for file input changes
+        $('#fotoHewan').on('change', function() {
+            validateFiles();  // Validate the files when the user selects a file
+        });
+    });
 </script>
 <script>
     document.getElementById('tanggalLahir').addEventListener('input', function(e) {

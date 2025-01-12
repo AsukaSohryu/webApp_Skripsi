@@ -326,11 +326,11 @@
             <!--end::Menu item-->
 
             <!--begin::Menu item-->
-            <div class="menu-item px-5">
+            {{-- <div class="menu-item px-5">
                 <a href="{{ route('home') }}" class="menu-link px-5 d-flex justify-content-between">
                     <span class="menu-title position-relative">Halaman Rescuer</span>
                 </a>
-            </div>
+            </div> --}}
             <!--end::Menu item-->
 
             <!--begin::Menu item-->

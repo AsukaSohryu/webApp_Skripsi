@@ -91,7 +91,7 @@ class ProfileController extends Controller
 
         // Check if the current password matches the one in the database
         if (!Hash::check($request->current_password, $user->password)) {
-            return back()->with('error', 'Password saat ini salah.');
+            return redirect()->route('edit-password')->with('error', 'Password saat ini salah.');
         }
 
         // Update the user's password

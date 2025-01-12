@@ -18,6 +18,22 @@ class AuthController extends Controller
 
     public function daftarPost(Request $request){
 
+        // Validate input
+        $validated = $request->validate([
+            'email' => 'required|email|unique:user,email',
+            'name' => 'required|string|max:255',
+            'password' => 'required|string|min:8|confirmed',
+            'foto' => 'required|image|mimes:jpg,jpeg,png,svg',
+            'alamat' => 'required|string|max:255',
+            'pekerjaan' => 'required|string|max:255',
+            'BOD' => 'required|date|before:today',
+            'whatsapp' => 'required|string',
+            'notelp' => 'required|string',
+        ],[
+            'email.unique' => "Email sudah terdaftar. Silahkan gunakan email lain atau masuk pada akun anda.",
+            'foto.mimes' => "Mohon masukan format foto yang sesuai."
+        ]);
+
         // Handle foto
         if ($request->hasFile('foto')) {
             $fotoUser = $request->file('foto');
@@ -29,18 +45,6 @@ class AuthController extends Controller
             // Handle case where no file is uploaded
             return back()->withErrors(['foto' => 'Foto tidak boleh kosong.']);
         }
-
-        // Validate input
-        $validated = $request->validate([
-            'email' => 'required|email|unique:user,email',
-            'name' => 'required|string|max:255',
-            'password' => 'required|string|min:8|confirmed',
-            'alamat' => 'required|string|max:255',
-            'pekerjaan' => 'required|string|max:255',
-            'BOD' => 'required|date|before:today',
-            'whatsapp' => 'required|string',
-            'notelp' => 'required|string',
-        ]);
 
         // If validation fails, it will automatically return back with the errors.
         
@@ -67,6 +71,30 @@ class AuthController extends Controller
             // Handle any errors during user creation (e.g., database issues)
             return back()->withErrors(['error' => 'Terjadi kesalahan. Gagal membuat akun.']);
         }
+    }
+
+    public function checkEmailDaftar(Request $request){
+
+        $email = $request->input('email');
+    
+        // Check if the email already exists in the database
+        $exists = User::where('email', $email)->exists();
+        
+        // Return response as JSON
+        return response()->json([
+            'isUnique' => !$exists  // If email exists, return false, else true
+        ]);
+    }
+
+    public function checkFotoDaftar(Request $request){
+
+        $request->validate([
+            'file' => 'required|image|mimes:jpeg,png,gif,svg|max:2048', // Validate image file
+        ]);
+
+        return response()->json([
+            'valid' => true
+        ]);
     }
 
     public function masuk(){

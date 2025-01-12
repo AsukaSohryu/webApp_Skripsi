@@ -99,7 +99,7 @@
             <hr>
             <div class="row my-2">
                 <div class="col">
-                    <label for="" class="my-2">Jenis Hewan</label>
+                    <label for="" class="my-2">Jenis Hewan<sup class="text-danger">*<sup></label>
                     <select name="jenisHewan" id="jenisHewan" class="form-select" required>
                         <option value="" selected disabled>Pilih Jenis Hewan</option>
                         <option value="Anjing">Anjing</option>
@@ -109,45 +109,49 @@
             </div>
             <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-2">Lokasi (Deskripsi, Patokan)</label>
+                    <label for="" class="my-2">Lokasi (Deskripsi, Patokan)<sup class="text-danger">*<sup></label>
                     <input type="text" name="lokasi" id="lokasi" value="" placeholder="Lokasi (Deskripsi, Patokan)" class="form-control" required>
                 </div>
             </div>
             <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-2">Lokasi Google Maps</label>
+                    <label for="" class="my-2">Lokasi Google Maps<sup class="text-danger">*<sup></label>
                     <input type="text" name="lokasiMaps" id="lokasiMaps" value="" placeholder="Lokasi Google Maps" class="form-control" required>
                 </div>
             </div>
             <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-2">Deskripsi</label>
+                    <label for="" class="my-2">Deskripsi<sup class="text-danger">*<sup></label>
                     <textarea name="deskripsi" id="deskripsi" class="form-control" rows="3" placeholder="Deskripsi hewan, kondisi hewan, tempat/lokasi, dan penjelasan yang dapat membantu, Hari/Tanggal dan waktu ditemukan" required></textarea>
                 </div>
             </div>
             <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-2">Unggah Foto Hewan</label>
+                    <label for="" class="my-2">Unggah Foto Hewan<sup class="text-danger">*<sup></label>
                     <input type="file" name="fotoHewan" id="fotoHewan" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml" required>
                     <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
+                    <small class="mt-2 text-danger" id="foto1-error"></small>
                 </div>
             </div>
             <div class="row my-1">
                 <div class="col">
-                    <label for="" class="my-2">Unggah Foto Lokasi Penemuan</label>
+                    <label for="" class="my-2">Unggah Foto Lokasi Penemuan<sup class="text-danger">*<sup></label>
                     <input type="file" name="fotoLokasi" id="fotoLokasi" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml" required>
                     <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
+                    <small class="mt-2 text-danger" id="foto2-error"></small>
                 </div>
             </div>
             <div class="row my-1">
                 <div class="col">
                     <label for="" class="my-2">Unggah Foto Pendukung</label>
-                    <input type="file" name="fotoBebas" id="fotoBebas" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml" required>
+                    <input type="file" name="fotoBebas" id="fotoBebas" class="form-control" accept=".jpg,.jpeg,.png,.svg,image/jpeg,image/png,image/svg+xml">
                     <small class="form-text text-muted">Format file yang diterima: .jpg, .jpeg, .png, .svg</small>
+                    <span class="mt-2 text-danger" id="foto3-error"></span>
                 </div>
             </div>
-            <div class="gap-3 my-10 d-flex justify-content-end">
-                <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm">Kirim Laporan</button>
+            <div class="gap-3 my-10 d-flex justify-content-between">
+                <label for="" class="text-danger mt-2">Mohon isi semua kolom dengan <sup class="text-danger">*<sup></label>
+                <button class="btn btn-primary" type="submit" style="border: 0;" id="submitForm" disabled>Kirim Laporan</button>
             </div>
         </form>
     </div>
@@ -177,27 +181,6 @@
 @endsection
 
 @section('js')
-<script>
-    document.getElementById('submitForm').addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent form submission by default
-
-        // Show SweetAlert2 confirmation popup
-        Swal.fire({
-                title: 'Apakah Anda Yakin?',
-                text: "Jawaban Anda Tidak Dapat Diubah Kembali",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Ya, Saya Yakin',
-                cancelButtonText: 'Tidak, Kembali',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // If "Yes, submit it!" is clicked, submit the form
-                    document.getElementById('formLaporan').submit();
-                }
-            });
-    });
-</script>
-
 <script>
     $(document).ready(function() {
         // Function to check if any textarea or file input field is empty
@@ -238,6 +221,94 @@
 
         // Run the check initially in case fields are already filled
         checkEmptyFields();
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Function to validate both file inputs
+        function validateFiles() {
+            const foto1 = $('#fotoHewan')[0].files[0];  // Get the first file (fotoLokasi)
+            const foto2 = $('#fotoLokasi')[0].files[0];  // Get the second file (fotoHewan)
+            const foto3 = $('#fotoBebas')[0].files[0];  // Get the third file (fotoBebas)
+            
+            const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/svg+xml', 'image/jpg'];
+            let isValid = true;  // Flag to check if all files are valid
+
+            // Check the first file (fotoLokasi)
+            if (foto1) {
+                const fileType1 = foto1.type;
+                if (!validImageTypes.includes(fileType1)) {
+                    $('#foto1-error').text('Mohon unggah file gambar yang valid (JPG, PNG, GIF, SVG).');
+                    isValid = false;  // Invalid file
+                } else {
+                    $('#foto1-error').text('');  // Clear error message
+                }
+            }
+
+            // Check the second file (fotoHewan)
+            if (foto2) {
+                const fileType2 = foto2.type;
+                if (!validImageTypes.includes(fileType2)) {
+                    $('#foto2-error').text('Mohon unggah file gambar yang valid (JPG, PNG, GIF, SVG).');
+                    isValid = false;  // Invalid file
+                } else {
+                    $('#foto2-error').text('');  // Clear error message
+                }
+            }
+
+            // Check the third file (fotoBebas)
+            if (foto3) {
+                const fileType3 = foto3.type;
+                if (!validImageTypes.includes(fileType3)) {
+                    $('#foto3-error').text('Mohon unggah file gambar yang valid (JPG, PNG, GIF, SVG).');
+                    isValid = false;  // Invalid file
+                } else {
+                    $('#foto3-error').text('');  // Clear error message
+                }
+            }
+
+            // Enable or disable submit button based on validation
+            if (isValid) {
+                $('#submitForm').prop('disabled', false);  // Enable submit button if all files are valid
+            } else {
+                $('#submitForm').prop('disabled', true);  // Disable submit button if any file is invalid
+            }
+        }
+
+        // Event listeners to validate files when they change
+        $('#fotoLokasi').on('change', function() {
+            validateFiles();  // Validate the files when the user selects a file
+        });
+
+        $('#fotoHewan').on('change', function() {
+            validateFiles();  // Validate the files when the user selects a file
+        });
+
+        $('#fotoBebas').on('change', function() {
+            validateFiles();  // Validate the files when the user selects a file
+        });
+    });
+</script>
+
+<script>
+    document.getElementById('submitForm').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent form submission by default
+
+        // Show SweetAlert2 confirmation popup
+        Swal.fire({
+                title: 'Apakah Anda Yakin?',
+                text: "Jawaban Anda Tidak Dapat Diubah Kembali",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Saya Yakin',
+                cancelButtonText: 'Tidak, Kembali',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If "Yes, submit it!" is clicked, submit the form
+                    document.getElementById('formLaporan').submit();
+                }
+            });
     });
 </script>
 

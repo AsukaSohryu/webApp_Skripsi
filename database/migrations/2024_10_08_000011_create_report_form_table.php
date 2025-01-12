@@ -28,7 +28,7 @@ return new class  extends Migration
             $table->text('location_map');
             $table->text('animal_photo');
             $table->text('location_photo');
-            $table->text('additional_photo');
+            $table->text('additional_photo')->nullable();
             $table->longText('description');
             $table->tinyInteger('is_seen');
             $table->text('admin_feedback')->nullable();
