@@ -1,0 +1,43 @@
+@media (min-width: 0px) and (max-width: 766px){
+
+    #row-1-tentang{
+
+        gap: 16px;
+    }
+
+    #section-1-tentang{
+
+        padding-top: 0;
+    }
+} 
+
+@media (min-width: 767px) and (max-width: 821px){
+
+    #row-1-tentang{
+
+        gap: 16px;
+    }
+
+    #section-1-tentang{
+
+        padding-top: 0;
+    }
+}
+
+@media (min-width: 822px) and (max-width: 1023px){
+
+    #row-1-tentang{
+
+        gap: 16px;
+    }
+
+    #section-1-tentang{
+
+        padding-top: 0;
+    }
+}
+
+@media (min-width: 1024px){
+
+
+}
